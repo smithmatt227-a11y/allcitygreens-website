@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        All City Greens — allcitygreens.com
+-->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All City Greens — Cincinnati's Daily Dispensary Price Guide</title>
+  <meta name="description" content="Know what's on sale before you go. All City Greens scouts the best dispensary prices across Cincinnati, every single morning. Free.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="All City Greens — Cincinnati's Daily Dispensary Price Guide">
+  <meta property="og:description" content="Best prices, every morning. Free daily newsletter tracking deals across 29+ Cincinnati dispensaries.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://allcitygreens.beehiiv.com/og-image.png">
+
+  <!-- Fonts -->
+  <link href="https://api.fontshare.com/v2/css?f[]=chillax@300,400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsletterService",
+    "name": "All City Greens",
+    "description": "Daily dispensary price guide for Cincinnati, Ohio",
+    "areaServed": "Cincinnati, Ohio",
+    "url": "https://allcitygreens.com"
+  }
+  </script>
+
+  <style>
+    /* ── DEALS BY CATEGORY TABS ── */
+    .deals-tabs {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-8);
+    }
+    .deals-tab {
+      padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      background: var(--color-surface-offset);
+      color: var(--color-text-muted);
+      border: 1.5px solid var(--color-border);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .deals-tab:hover { color: var(--color-text); border-color: var(--color-primary); }
+    .deals-tab.active {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+    .deals-panel { display: none; }
+    .deals-panel.active { display: block; }
+    .deals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-4);
+    }
+    .deal-card {
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+    .deal-card:hover { border-color: var(--color-primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .deal-card-cat {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .deal-card-name { font-weight: 700; font-size: var(--text-sm); color: var(--color-text); line-height: 1.3; }
+    .deal-card-disp { font-size: var(--text-xs); color: var(--color-text-muted); }
+    .deal-card-prices { display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-1); }
+    .deal-card-was { font-size: var(--text-xs); text-decoration: line-through; color: var(--color-text-faint); }
+    .deal-card-now { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; color: var(--color-primary); }
+    .deal-card-pct {
+      background: var(--color-sale);
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: var(--radius-full);
+    }
+    .deals-cta-line {
+      margin-top: var(--space-6);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      text-align: center;
+    }
+    .deals-cta-line a { color: var(--color-primary); font-weight: 700; }
+    .deals-cta-line a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="All City Greens home">
+        <img src="logo.jpg" alt="All City Greens badge logo" class="nav-logo-img">
+        <span class="nav-logo-text">All City Greens</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#deals">Deals</a>
+        <a href="#dispensaries">Dispensaries</a>
+        <a href="https://allcitygreens.beehiiv.com/subscribe" target="_blank" class="nav-cta">Subscribe free</a>
+      </nav>
+      <button class="nav-theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-grid"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-logo-badge">
+            <img src="logo.jpg" alt="All City Greens" class="hero-logo-img">
+          </div>
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Updated daily · Always free
+          </div>
+          <h1 id="hero-heading" class="hero-heading">
+            Cincinnati's<br>
+            <span class="heading-accent">dispensary prices</span>,<br>
+            delivered daily.
+          </h1>
+          <p class="hero-sub">
+            All City Greens scouts deals, sales, and prices across 29+ Cincinnati dispensaries — built for the city, updated every day. Know before you go.
+          </p>
+          <form class="hero-form" id="subscribe-form-hero" action="https://allcitygreens.beehiiv.com/subscribe" method="GET" target="_blank">
+            <div class="form-row">
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+                aria-label="Email address"
+                class="form-input"
+              >
+              <button type="submit" class="btn btn-primary">
+                Get daily prices
+              </button>
+            </div>
+            <p class="form-note">Free. No spam. Unsubscribe anytime.</p>
+          </form>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">29+</span>
+              <span class="stat-label">dispensaries tracked</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num">9,600+</span>
+              <span class="stat-label">products monitored daily</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-num">8 AM</span>
+              <span class="stat-label">in your inbox every day</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="newsletter-mockup">
+            <div class="mockup-header">
+              <div class="mockup-logo"><img src="logo.jpg" alt="" class="mockup-logo-img"> ALL CITY GREENS</div>
+              <div class="mockup-date">Today's Price Guide</div>
+            </div>
+            <div class="mockup-section">
+              <div class="mockup-section-label">🔥 Today's Best Deals</div>
+              <div class="mockup-deal">
+                <div class="deal-name">Permanent Cherries [2.83g]</div>
+                <div class="deal-meta">Verilife Cincinnati</div>
+                <div class="deal-price"><span class="deal-original">$30.00</span> <span class="deal-sale">$15.00 <span class="deal-badge">-50%</span></span></div>
+              </div>
+              <div class="mockup-deal">
+                <div class="deal-name">Lemon Berry OG [2.83g]</div>
+                <div class="deal-meta">Verilife Cincinnati</div>
+                <div class="deal-price"><span class="deal-original">$30.00</span> <span class="deal-sale">$15.00 <span class="deal-badge">-50%</span></span></div>
+              </div>
+            </div>
+            <div class="mockup-section">
+              <div class="mockup-section-label">💰 Best Value Eighths</div>
+              <div class="mockup-deal">
+                <div class="deal-name">Fire Tropical Kush 2.83g</div>
+                <div class="deal-meta">The Garden · $9.14/g</div>
+                <div class="deal-price"><span class="deal-sale">$32.00</span></div>
+              </div>
+            </div>
+            <div class="mockup-footer">✓ Prices verified this morning · 29+ dispensaries checked</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how-it-works" aria-labelledby="how-heading">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <h2 id="how-heading" class="section-title">No more checking every website</h2>
+          <p class="section-sub">We do the legwork so you don't have to.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">Every morning at 8 AM</h3>
+              <p class="step-body">Our system automatically checks prices and deals across every dispensary in our network before you wake up.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><line x1="12" y1="12" x2="12.01" y2="12"/></svg>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">Deals land in your inbox</h3>
+              <p class="step-body">Top sales, best-value eighths ranked by price-per-gram, and dispensary spotlights — all in one clean email.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="step-content">
+              <h3 class="step-title">Walk in knowing the price</h3>
+              <p class="step-body">Never overpay. Know exactly what's on sale at which dispensary before you even leave the house.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEALS BY CATEGORY -->
+    <section class="section section-alt" id="deals" aria-labelledby="deals-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="deals-heading" class="section-title">Today's deals by category</h2>
+          <p class="section-sub">Browse sales across 29+ dispensaries — filtered by what you actually want.</p>
+        </div>
+
+        <div class="deals-tabs" role="tablist" aria-label="Product categories">
+          <button class="deals-tab active" role="tab" aria-selected="true" data-tab="all">All Deals</button>
+          <button class="deals-tab" role="tab" aria-selected="false" data-tab="flower">Flower</button>
+          <button class="deals-tab" role="tab" aria-selected="false" data-tab="concentrates">Concentrates</button>
+          <button class="deals-tab" role="tab" aria-selected="false" data-tab="edibles">Edibles</button>
+          <button class="deals-tab" role="tab" aria-selected="false" data-tab="prerolls">Pre-Rolls</button>
+        </div>
+
+        <!-- ALL DEALS -->
+        <div class="deals-panel active" id="panel-all" role="tabpanel">
+          <div class="deals-grid">
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Flower</div>
+              <div class="deal-card-name">Permanent Cherries [2.83g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$30.00</span>
+                <span class="deal-card-now">$15.00</span>
+                <span class="deal-card-pct">-50%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Flower</div>
+              <div class="deal-card-name">Zoda [2.83g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$30.00</span>
+                <span class="deal-card-now">$15.00</span>
+                <span class="deal-card-pct">-50%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Flower</div>
+              <div class="deal-card-name">Black Violet [2.83g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$30.00</span>
+                <span class="deal-card-now">$15.00</span>
+                <span class="deal-card-pct">-50%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Concentrates</div>
+              <div class="deal-card-name">Goofiez [1g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$50.00</span>
+                <span class="deal-card-now">$35.00</span>
+                <span class="deal-card-pct">-30%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Edibles</div>
+              <div class="deal-card-name">2:1:1 Lunaberry [11pk] (110mg)</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$17.00</span>
+                <span class="deal-card-now">$10.00</span>
+                <span class="deal-card-pct">-41%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Pre-Rolls</div>
+              <div class="deal-card-name">Bananaconda [1g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$15.00</span>
+                <span class="deal-card-now">$10.00</span>
+                <span class="deal-card-pct">-33%</span>
+              </div>
+            </a>
+          </div>
+          <p class="deals-cta-line">Full deals land in your inbox every morning at 8 AM — <a href="https://allcitygreens.beehiiv.com/subscribe" target="_blank">subscribe free</a> to see them all.</p>
+        </div>
+
+        <!-- FLOWER -->
+        <div class="deals-panel" id="panel-flower" role="tabpanel">
+          <div class="deals-grid">
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Flower · Sativa</div>
+              <div class="deal-card-name">Permanent Cherries [2.83g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati · 22% THC</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$30.00</span>
+                <span class="deal-card-now">$15.00</span>
+                <span class="deal-card-pct">-50%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Flower · Indica</div>
+              <div class="deal-card-name">Zoda [2.83g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati · 24% THC</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$30.00</span>
+                <span class="deal-card-now">$15.00</span>
+                <span class="deal-card-pct">-50%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Flower · Indica</div>
+              <div class="deal-card-name">Black Violet [2.83g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati · 23% THC</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$30.00</span>
+                <span class="deal-card-now">$15.00</span>
+                <span class="deal-card-pct">-50%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Flower · Sativa</div>
+              <div class="deal-card-name">Lemon Berry OG [2.83g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$30.00</span>
+                <span class="deal-card-now">$15.00</span>
+                <span class="deal-card-pct">-50%</span>
+              </div>
+            </a>
+          </div>
+          <p class="deals-cta-line">More flower deals in your daily email — <a href="https://allcitygreens.beehiiv.com/subscribe" target="_blank">subscribe free</a>.</p>
+        </div>
+
+        <!-- CONCENTRATES -->
+        <div class="deals-panel" id="panel-concentrates" role="tabpanel">
+          <div class="deals-grid">
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Concentrates · Hybrid</div>
+              <div class="deal-card-name">Goofiez [1g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati · 76% THC</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$50.00</span>
+                <span class="deal-card-now">$35.00</span>
+                <span class="deal-card-pct">-30%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Concentrates · Hybrid</div>
+              <div class="deal-card-name">RM [1g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati · 73% THC</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$50.00</span>
+                <span class="deal-card-now">$35.00</span>
+                <span class="deal-card-pct">-30%</span>
+              </div>
+            </a>
+          </div>
+          <p class="deals-cta-line">More concentrate deals in your daily email — <a href="https://allcitygreens.beehiiv.com/subscribe" target="_blank">subscribe free</a>.</p>
+        </div>
+
+        <!-- EDIBLES -->
+        <div class="deals-panel" id="panel-edibles" role="tabpanel">
+          <div class="deals-grid">
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Edibles · Indica</div>
+              <div class="deal-card-name">2:1:1 Lunaberry [11pk] (110mg)</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$17.00</span>
+                <span class="deal-card-now">$10.00</span>
+                <span class="deal-card-pct">-41%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Edibles · Hybrid</div>
+              <div class="deal-card-name">1:1 Limon [22pk] (110mg THC)</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$17.00</span>
+                <span class="deal-card-now">$10.00</span>
+                <span class="deal-card-pct">-41%</span>
+              </div>
+            </a>
+          </div>
+          <p class="deals-cta-line">More edible deals in your daily email — <a href="https://allcitygreens.beehiiv.com/subscribe" target="_blank">subscribe free</a>.</p>
+        </div>
+
+        <!-- PRE-ROLLS -->
+        <div class="deals-panel" id="panel-prerolls" role="tabpanel">
+          <div class="deals-grid">
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Pre-Rolls · Indica</div>
+              <div class="deal-card-name">Bananaconda [1g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati · 24% THC</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$15.00</span>
+                <span class="deal-card-now">$10.00</span>
+                <span class="deal-card-pct">-33%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Pre-Rolls · Indica</div>
+              <div class="deal-card-name">Black Violet [1g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati · 19% THC</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$15.00</span>
+                <span class="deal-card-now">$10.00</span>
+                <span class="deal-card-pct">-33%</span>
+              </div>
+            </a>
+            <a class="deal-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+              <div class="deal-card-cat">Pre-Rolls · Indica</div>
+              <div class="deal-card-name">Lemon Slush [1g]</div>
+              <div class="deal-card-disp">Verilife Cincinnati</div>
+              <div class="deal-card-prices">
+                <span class="deal-card-was">$15.00</span>
+                <span class="deal-card-now">$10.00</span>
+                <span class="deal-card-pct">-33%</span>
+              </div>
+            </a>
+          </div>
+          <p class="deals-cta-line">More pre-roll deals in your daily email — <a href="https://allcitygreens.beehiiv.com/subscribe" target="_blank">subscribe free</a>.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DISPENSARIES -->
+    <section class="section" id="dispensaries" aria-labelledby="disp-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="disp-heading" class="section-title">29+ dispensaries. One email.</h2>
+          <p class="section-sub">We cover the whole Cincinnati metro — from downtown to the suburbs.</p>
+        </div>
+        <div class="dispensary-grid">
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">The Garden</span>
+            <span class="disp-loc">Camp Washington · Sycamore</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Shangri-La</span>
+            <span class="disp-loc">Cincinnati · Monroe West · Monroe Superstore</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">UpLift</span>
+            <span class="disp-loc">Milford · Mount Orab</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Beyond Hello</span>
+            <span class="disp-loc">Cincinnati · Northern · Eastgate · Oxford</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Nectar</span>
+            <span class="disp-loc">Cincinnati · 5 Mile · Harrison</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">The Landing</span>
+            <span class="disp-loc">Cincinnati · Monroe</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Story</span>
+            <span class="disp-loc">Cincinnati · Forest Park</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Garden Club</span>
+            <span class="disp-loc">Springdale</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Zen Leaf</span>
+            <span class="disp-loc">Cincinnati</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Verilife</span>
+            <span class="disp-loc">Cincinnati</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Therapy Cannabis</span>
+            <span class="disp-loc">Cincinnati</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Trulieve</span>
+            <span class="disp-loc">Cincinnati</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Sunnyside</span>
+            <span class="disp-loc">Cincinnati</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">AYR Wellness</span>
+            <span class="disp-loc">Goshen</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Columbia Care</span>
+            <span class="disp-loc">Monroe</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Queen City Cannabis</span>
+            <span class="disp-loc">Harrison</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Ethos</span>
+            <span class="disp-loc">Lebanon</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Bloom</span>
+            <span class="disp-loc">Seven Mile</span>
+          </div>
+          <div class="disp-card">
+            <div class="disp-dot"></div>
+            <span class="disp-name">Green Releaf</span>
+            <span class="disp-loc">Dayton</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILT FOR CINCINNATI -->
+    <section class="section section-alt" id="why" aria-labelledby="why-heading">
+      <div class="container container-narrow">
+        <div class="why-grid">
+          <div class="why-text">
+            <h2 id="why-heading" class="section-title">Built for Cincinnati.</h2>
+            <p class="body-text">Ohio went recreational in 2023 and dispensaries are everywhere now — but their prices and deals change constantly. All City Greens is your daily cheat code to always get the best deal in the city.</p>
+            <ul class="why-list" role="list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Tracks sales, restocks &amp; price drops
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Ranks flower by price-per-gram
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Covers 29+ dispensaries across the Cincinnati metro
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Always free — no ads, no catch
+              </li>
+            </ul>
+          </div>
+          <div class="why-visual" aria-hidden="true">
+            <div class="price-card">
+              <div class="price-card-label">Today's Best Deal</div>
+              <div class="price-card-name">Permanent Cherries</div>
+              <div class="price-card-sub">2.83g · Verilife Cincinnati</div>
+              <div class="price-card-prices">
+                <span class="price-was">was $30</span>
+                <span class="price-now">$15</span>
+                <span class="price-pct">50% off</span>
+              </div>
+              <div class="price-card-thc">22% THC</div>
+            </div>
+            <div class="price-card price-card-sm">
+              <div class="price-card-label">Best Value Eighth</div>
+              <div class="price-card-name">Fire Tropical Kush</div>
+              <div class="price-card-sub">The Garden · $9.14/g</div>
+              <div class="price-card-prices">
+                <span class="price-now">$32.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE CTA -->
+    <section class="section section-cta" id="subscribe" aria-labelledby="cta-heading">
+      <div class="container container-narrow">
+        <div class="cta-inner">
+          <div class="cta-icon" aria-hidden="true">🌿</div>
+          <h2 id="cta-heading" class="cta-heading">Know the price before you go.</h2>
+          <p class="cta-sub">Join Cincinnati shoppers who know the price before they walk in — best prices, every morning.</p>
+          <form class="cta-form" action="https://allcitygreens.beehiiv.com/subscribe" method="GET" target="_blank">
+            <div class="form-row">
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                autocomplete="email"
+                aria-label="Email address"
+                class="form-input form-input-lg"
+              >
+              <button type="submit" class="btn btn-primary btn-lg">
+                Subscribe free
+              </button>
+            </div>
+            <p class="form-note">Free. No spam. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="All City Greens home">
+            <img src="logo.jpg" alt="All City Greens badge logo" class="nav-logo-img">
+            <span class="nav-logo-text">All City Greens</span>
+          </a>
+          <p class="footer-tagline">Straightforward. Reliable. Free.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://allcitygreens.beehiiv.com" target="_blank" rel="noopener">Newsletter archive</a>
+          <a href="mailto:smithmatt227@gmail.com">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">Prices change frequently. Always verify with the dispensary before visiting. Must be 21+ with valid ID. Ohio recreational cannabis rules apply.</p>
+        <p class="footer-credit">© 2026 All City Greens · Cincinnati, OH</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle
+    (function(){
+      const t = document.querySelector('[data-theme-toggle]');
+      const r = document.documentElement;
+      let d = r.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      r.setAttribute('data-theme', d);
+      function updateToggle() {
+        if (!t) return;
+        t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
+        t.innerHTML = d === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      }
+      updateToggle();
+      t && t.addEventListener('click', () => {
+        d = d === 'dark' ? 'light' : 'dark';
+        r.setAttribute('data-theme', d);
+        updateToggle();
+      });
+    })();
+
+    // Sticky nav shadow
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('nav-scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // Deals tab switcher
+    const tabs = document.querySelectorAll('.deals-tab');
+    const panels = document.querySelectorAll('.deals-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const key = tab.dataset.tab;
+        document.getElementById('panel-' + key).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

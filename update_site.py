@@ -199,14 +199,26 @@ def deal_card_html(deal: dict, hidden: bool = False) -> str:
     on_sale  = deal.get("on_sale", False)
     discount = deal.get("discount_pct", 0)
 
-    cat_line = cat
-    if strain:
-        cat_line += f" · {strain}"
-    if on_sale and discount:
-        cat_line += f" · {discount}% OFF"
-    # No "Not on sale" noise — absence of a badge is enough
+    raw_cat   = deal.get("category", "")
+    cat_label = raw_cat.replace("_", " ").title()
+    strain    = deal.get("strain_type", "")
+
+    # Category color pill
+    pill_html = (
+        f'<span class="deal-cat-pill deal-cat-pill--{raw_cat}">'
+        f'{cat_label}</span>'
+    )
+
+    # Strain type + sale badge inline after pill
+    strain_text = f" {strain}" if strain else ""
+    sale_badge  = (
+        f' <span class="deal-sale-badge">{discount}% OFF</span>'
+        if on_sale and discount else ""
+    )
+    cat_html = f'{pill_html}{strain_text}{sale_badge}'
 
     name         = clean_product_name(deal["name"])
+    brand        = deal.get("brand", "").strip()
     disp_display = display_disp_name(deal["dispensary"])
     thc_str      = fmt_thc(deal)
     disp_detail  = disp_display + (f" · {thc_str}" if thc_str else "")
@@ -214,22 +226,31 @@ def deal_card_html(deal: dict, hidden: bool = False) -> str:
     price = deal["price"]
     orig  = deal.get("original_price", price)
     ppg   = calc_ppg(deal)
+    save  = round(orig - price, 2) if on_sale and orig and orig > price else 0
 
     price_html = f'<span class="deal-card-now">${price:.2f}</span>'
     if on_sale and orig and orig > price:
         price_html += f' <span class="deal-card-was">${orig:.2f}</span>'
     if ppg:
         price_html += f' <span class="deal-card-disp">${ppg:.2f}/g</span>'
+    if save:
+        price_html += f' <span class="deal-card-save">save ${save:.2f}</span>'
 
     hidden_attr  = ' data-hidden="true"' if hidden else ''
     hidden_class = " deal-card--hidden" if hidden else ""
     sale_attr    = ' data-sale="true"' if on_sale else ''
 
+    # Brand line (skip if empty or same as dispensary name)
+    brand_html = ""
+    if brand and brand.lower() not in name.lower():
+        brand_html = f'              <div class="deal-card-brand">{brand}</div>\n'
+
     return (
         f'            <a class="deal-card{hidden_class}" href="{url}" '
         f'target="_blank" rel="noopener"{hidden_attr}{sale_attr}>\n'
-        f'              <div class="deal-card-cat">{cat_line}</div>\n'
+        f'              <div class="deal-card-cat">{cat_html}</div>\n'
         f'              <div class="deal-card-name">{name}</div>\n'
+        f'{brand_html}'
         f'              <div class="deal-card-disp">{disp_detail}</div>\n'
         f'              <div class="deal-card-prices">\n'
         f'                {price_html}\n'
@@ -432,6 +453,17 @@ def main():
 
     html = INDEX_HTML.read_text(encoding="utf-8")
     print("Injecting sections …")
+
+    # Format the report date nicely: "2026-03-28" → "March 28, 2026"
+    try:
+        from datetime import datetime
+        rd = datetime.strptime(report_date, "%Y-%m-%d")
+        pretty_date = rd.strftime("%B %-d, %Y")
+    except Exception:
+        pretty_date = report_date
+
+    html = replace_between_markers(html, "deals-header",
+        f'          <span class="section-updated">Prices updated {pretty_date}</span>')
 
     html = replace_between_markers(html, "stats",
         stats_html(dispensary_count, total_products))

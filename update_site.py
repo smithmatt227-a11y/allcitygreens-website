@@ -292,67 +292,79 @@ def deals_panel_html(deals: list, cta_text: str,
     )
 
 
-def mockup_html(top_deals: list, best_value: list) -> str:
+CAT_LABELS = {
+    "flower":        "Flower",
+    "concentrates":  "Concentrate",
+    "edibles":       "Edible",
+    "pre_rolls":     "Pre-Roll",
+}
+
+
+def mockup_html(dispensaries: list, best_value: list) -> str:
     """
-    Generate the hero mockup panel content — 2 featured deals + 1 best value item.
-    Picks from different dispensaries, prefers on-sale items for the deals section.
+    Generate the hero mockup panel:
+      - Today's Best Deals: up to 3 ON-SALE items, one per dispensary
+      - Best Value Eighths: top 2 lowest $/g flower items (not necessarily on sale)
+    Every row has: product type label · dispensary link · $/g · price
     """
-    def mockup_deal_row(deal: dict, show_ppg: bool = False) -> str:
+    def cat_label(deal: dict) -> str:
+        return CAT_LABELS.get(deal.get("category", ""), "Product")
+
+    def mockup_row(deal: dict, show_ppg: bool = True) -> str:
         name    = clean_product_name(deal["name"])
+        url     = disp_url(deal["dispensary"])
         disp    = display_disp_name(deal["dispensary"])
         price   = deal["price"]
         orig    = deal.get("original_price", price)
         on_sale = deal.get("on_sale", False)
         disc    = deal.get("discount_pct", 0)
         ppg     = calc_ppg(deal)
+        cat     = cat_label(deal)
 
-        meta = disp
-        if show_ppg and ppg:
-            meta += f" · ${ppg:.2f}/g"
-
-        price_html = ""
+        # Price line
         if on_sale and orig and orig > price:
             price_html = (
                 f'<span class="deal-original">${orig:.2f}</span> '
                 f'<span class="deal-sale">${price:.2f} '
-                f'<span class="deal-badge">-{disc}%</span></span>'
+                f'<span class="deal-badge">-{disc}%</span>'
             )
-        elif show_ppg and ppg:
-            price_html = (
-                f'<span class="deal-sale">${price:.2f} '
-                f'<span class="deal-badge deal-badge--value">${ppg:.2f}/g</span></span>'
-            )
+            if ppg:
+                price_html += f' <span class="deal-badge deal-badge--value">${ppg:.2f}/g</span>'
+            price_html += '</span>'
         else:
-            price_html = f'<span class="deal-sale">${price:.2f}</span>'
+            price_html = f'<span class="deal-sale">${price:.2f}'
+            if ppg:
+                price_html += f' <span class="deal-badge deal-badge--value">${ppg:.2f}/g</span>'
+            price_html += '</span>'
 
         return (
             f'              <div class="mockup-deal">\n'
-            f'                <div class="deal-name">{name}</div>\n'
-            f'                <div class="deal-meta">{meta}</div>\n'
+            f'                <div class="deal-name">{name} '
+            f'<span class="mockup-cat">{cat}</span></div>\n'
+            f'                <div class="deal-meta">'
+            f'<a href="{url}" class="mockup-link" target="_blank" rel="noopener">{disp}</a>'
+            f'</div>\n'
             f'                <div class="deal-price">{price_html}</div>\n'
             f'              </div>'
         )
 
-    # Pick 2 featured deals: prioritise on-sale, one per dispensary
-    featured = []
-    seen = set()
-    for deal in top_deals:
-        d = deal["dispensary"].lower()
-        if d not in seen:
-            seen.add(d)
-            featured.append(deal)
-        if len(featured) == 2:
-            break
+    # TODAY'S BEST DEALS — on-sale items only, one per dispensary
+    sale_deals = best_highlight_per_dispensary(dispensaries)
+    sale_only  = [d for d in sale_deals if d.get("on_sale")]
+    featured   = one_per_dispensary(sale_only)[:3]
 
-    # Best value: top item from best_value list (already sorted by $/g)
-    bv_items = [i for i in best_value if _meaningful_weight(i)]
-    bv_diverse = one_per_dispensary(
-        sorted(bv_items, key=lambda x: calc_ppg(x) or 9999)
-    )
-    best = bv_diverse[0] if bv_diverse else None
+    # BEST VALUE EIGHTHS — lowest $/g flower, regardless of sale status
+    bv_items   = [i for i in best_value if _meaningful_weight(i)]
+    bv_sorted  = sorted(bv_items, key=lambda x: calc_ppg(x) or 9999)
+    bv_diverse = one_per_dispensary(bv_sorted)[:2]
 
-    deals_rows = "\n".join(mockup_deal_row(d) for d in featured)
-    best_row   = mockup_deal_row(best, show_ppg=True) if best else ""
+    deals_rows = "\n".join(mockup_row(d) for d in featured)
+    value_rows = "\n".join(mockup_row(d) for d in bv_diverse)
+
+    # If no on-sale items exist (slow week), fall back to best highlights
+    if not featured:
+        fallback = one_per_dispensary(sale_deals)[:3]
+        deals_rows = "\n".join(mockup_row(d) for d in fallback)
 
     return (
         f'            <div class="mockup-section">\n'
@@ -361,7 +373,7 @@ def mockup_html(top_deals: list, best_value: list) -> str:
         f'            </div>\n'
         f'            <div class="mockup-section">\n'
         f'              <div class="mockup-section-label">💰 Best Value Eighths</div>\n'
-        f'{best_row}\n'
+        f'{value_rows}\n'
         f'            </div>\n'
         f'            <div class="mockup-footer">✓ Prices verified this morning · 30+ dispensaries checked</div>'
     )
@@ -538,7 +550,7 @@ def main():
         pretty_date = report_date
 
     html = replace_between_markers(html, "mockup",
-        mockup_html(all_deals, best_value_raw))
+        mockup_html(dispensaries, best_value_raw))
 
     html = replace_between_markers(html, "deals-header",
         f'          <span class="section-updated">Prices updated {pretty_date}</span>')

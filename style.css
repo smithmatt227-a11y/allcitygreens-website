@@ -528,6 +528,9 @@ a, button, input { transition: all var(--transition); }
 .deal-badge { background: var(--color-sale); color: white; font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: var(--radius-full); }
 .deal-badge--value { background: hsl(45,65%,36%); }
 .mockup-footer { padding: var(--space-3) var(--space-5); font-size: var(--text-xs); color: var(--color-text-faint); text-align: center; background: var(--color-surface-offset); }
+.mockup-link { color: var(--color-primary); text-decoration: none; font-weight: 600; }
+.mockup-link:hover { text-decoration: underline; }
+.mockup-cat { font-size: 10px; font-weight: 700; background: var(--color-surface-offset); color: var(--color-text-muted); padding: 1px 5px; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.04em; vertical-align: middle; margin-left: 4px; }
 
 /* ─── HOW IT WORKS ───────────────────────────────────────── */
 .section-header { text-align: center; margin-bottom: clamp(var(--space-10), 5vw, var(--space-16)); }

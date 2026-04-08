@@ -571,7 +571,13 @@ a, button, input { transition: all var(--transition); }
   white-space: nowrap;
 }
 .deals-tab:hover, .cat-tab:hover { border-color: var(--color-primary); color: var(--color-primary); background: var(--color-primary-light); }
-.deals-tab.active, .cat-tab.active { background: var(--color-primary); border-color: var(--color-primary); color: white; }
+.deals-tab.active, .cat-tab.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 2px 12px rgba(102,187,106,0.35);
+  font-size: calc(var(--text-sm) * 1.05);
+}
 .deals-panel, .cat-panel { display: none; }
 .deals-panel.active, .cat-panel.active { display: block; }
 
@@ -585,11 +591,17 @@ a, button, input { transition: all var(--transition); }
 .deal-card, a.deal-card, a.deal-card-link {
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-border);
   border-radius: var(--radius-xl);
   padding: var(--space-5);
   display: flex; flex-direction: column; gap: var(--space-2);
   transition: all var(--transition);
   text-decoration: none; color: inherit;
+}
+/* Sale cards get a red left-border accent so they pop at a glance */
+.deal-card[data-sale="true"], a.deal-card[data-sale="true"] {
+  border-left: 3px solid var(--color-sale);
+  background: linear-gradient(135deg, rgba(239,83,80,0.05) 0%, var(--color-surface-2) 60%);
 }
 a.deal-card:hover, a.deal-card-link:hover, .deal-card:hover { border-color: var(--color-accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .deal-card-cat {
@@ -665,14 +677,16 @@ a.disp-card { text-decoration: none; color: inherit; }
 }
 .disp-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
 .disp-dot { width: 8px; height: 8px; background: var(--color-primary); border-radius: 50%; margin-bottom: var(--space-2); }
-.disp-logo {
-  width: 52px; height: 52px;
+/* Letter avatar — replaces blurry favicon images */
+.disp-avatar {
+  width: 48px; height: 48px;
   border-radius: var(--radius-md);
-  object-fit: contain;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 800; font-family: var(--font-display);
+  color: rgba(255,255,255,0.92);
   margin-bottom: var(--space-3);
-  background: rgba(255,255,255,0.12);
-  padding: 6px;
   flex-shrink: 0;
+  letter-spacing: -0.01em;
 }
 .disp-name { font-weight: 700; font-size: var(--text-base); color: var(--color-text); }
 .disp-loc { font-size: var(--text-sm); color: var(--color-text-muted); }

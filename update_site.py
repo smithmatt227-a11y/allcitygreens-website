@@ -204,8 +204,7 @@ def deal_card_html(deal: dict, hidden: bool = False) -> str:
         cat_line += f" · {strain}"
     if on_sale and discount:
         cat_line += f" · {discount}% OFF"
-    elif not on_sale:
-        cat_line += " · Not on sale"
+    # No "Not on sale" noise — absence of a badge is enough
 
     name         = clean_product_name(deal["name"])
     disp_display = display_disp_name(deal["dispensary"])
@@ -224,10 +223,11 @@ def deal_card_html(deal: dict, hidden: bool = False) -> str:
 
     hidden_attr  = ' data-hidden="true"' if hidden else ''
     hidden_class = " deal-card--hidden" if hidden else ""
+    sale_attr    = ' data-sale="true"' if on_sale else ''
 
     return (
         f'            <a class="deal-card{hidden_class}" href="{url}" '
-        f'target="_blank" rel="noopener"{hidden_attr}>\n'
+        f'target="_blank" rel="noopener"{hidden_attr}{sale_attr}>\n'
         f'              <div class="deal-card-cat">{cat_line}</div>\n'
         f'              <div class="deal-card-name">{name}</div>\n'
         f'              <div class="deal-card-disp">{disp_detail}</div>\n'

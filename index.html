@@ -1008,16 +1008,30 @@
       });
     });
 
-    // Show More button — brief disabled state prevents double-tap on slow connections
+    // Show More / Show Less toggle
     function showMore(btn) {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const grid = btn.previousElementSibling;
+      const hiddenCards = grid.querySelectorAll('.deal-card--hidden');
+      const count = hiddenCards.length;
+
       btn.disabled = true;
       btn.textContent = 'Loading…';
+
       requestAnimationFrame(() => {
-        const grid = btn.previousElementSibling;
-        grid.querySelectorAll('.deal-card--hidden').forEach(card => {
-          card.classList.add('deal-card--visible');
-        });
-        btn.setAttribute('aria-expanded', 'true');
+        if (!expanded) {
+          // Expand: reveal hidden cards
+          hiddenCards.forEach(card => card.classList.add('deal-card--visible'));
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Show less ▴';
+        } else {
+          // Collapse: re-hide cards and scroll button into view
+          hiddenCards.forEach(card => card.classList.remove('deal-card--visible'));
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = `Show ${count} more deals ▾`;
+          btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        btn.disabled = false;
       });
     }
   </script>

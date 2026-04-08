@@ -656,7 +656,7 @@ a.deal-card:hover, a.deal-card-link:hover, .deal-card:hover { border-color: var(
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
-.show-more-btn[aria-expanded="true"] { display: none; }
+/* button stays visible after expanding so user can collapse */
 
 a.disp-card { text-decoration: none; color: inherit; }
 

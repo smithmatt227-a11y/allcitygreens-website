@@ -621,6 +621,31 @@ a.deal-card:hover, a.deal-card-link:hover, .deal-card:hover { border-color: var(
 }
 .deals-cta-line a, .deals-cta-note a { color: var(--color-primary); font-weight: 700; }
 .deals-cta-line a:hover, .deals-cta-note a:hover { text-decoration: underline; }
+
+/* ── HIDDEN CARDS (Show More) ── */
+.deal-card--hidden { display: none; }
+.deal-card--hidden.deal-card--visible { display: flex; }
+
+/* ── SHOW MORE BUTTON ── */
+.show-more-btn {
+  display: block;
+  margin: var(--space-4) auto 0;
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  padding: var(--space-2) var(--space-5);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.show-more-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.show-more-btn[aria-expanded="true"] { display: none; }
+
 a.disp-card { text-decoration: none; color: inherit; }
 
 /* ─── DISPENSARY GRID ────────────────────────────────────── */

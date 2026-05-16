@@ -45,6 +45,9 @@
 
   <link rel="stylesheet" href="style.css">
 
+  <!-- Beehiiv embed loader -->
+  <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="cacd058d-f56a-4069-91fb-0905ff47af6e"></script>
+
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
@@ -173,23 +176,9 @@
           <p class="hero-sub">
             We scout prices across 14+ dispensaries every morning so you know exactly where to go before you leave the house. Free forever.
           </p>
-          <form class="hero-form" id="subscribe-form-hero" action="https://allcitygreens.beehiiv.com/subscribe" method="GET" target="_blank">
-            <div class="form-row">
-              <input
-                type="email"
-                name="email"
-                placeholder="your@email.com"
-                required
-                autocomplete="email"
-                aria-label="Email address"
-                class="form-input form-input-lg"
-              >
-              <button type="submit" class="btn btn-primary btn-lg">
-                Get free deals
-              </button>
-            </div>
-            <p class="form-note">Free. No spam. Unsubscribe anytime.</p>
-          </form>
+          <div class="beehiiv-embed-wrap" id="subscribe-form-hero">
+            <div data-beehiiv-form="cacd058d-f56a-4069-91fb-0905ff47af6e"></div>
+          </div>
           <div class="hero-stats">
             <div class="stat">
               <span class="stat-num" data-count="14">14</span>
@@ -1016,23 +1005,9 @@
             <button type="button" class="pref-chip" data-pref="all">📬 Everything</button>
           </div>
 
-          <form class="cta-form" id="subscribe-form-cta" action="https://allcitygreens.beehiiv.com/subscribe" method="GET" target="_blank">
-            <div class="form-row">
-              <input
-                type="email"
-                name="email"
-                placeholder="your@email.com"
-                required
-                autocomplete="email"
-                aria-label="Email address"
-                class="form-input form-input-lg"
-              >
-              <button type="submit" class="btn btn-primary btn-lg">
-                Subscribe free
-              </button>
-            </div>
-            <p class="form-note">Free. No spam. Unsubscribe anytime. Must be 21+ to subscribe.</p>
-          </form>
+          <div class="beehiiv-embed-wrap" id="subscribe-form-cta">
+            <div data-beehiiv-form="cacd058d-f56a-4069-91fb-0905ff47af6e"></div>
+          </div>
 
           <!-- Social proof strip -->
           <div class="cta-proof">

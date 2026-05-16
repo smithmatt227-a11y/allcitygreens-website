@@ -1,0 +1,5 @@
+# Proxy Beehiiv subscribe page - browser stays on allcitygreens.com/subscribe (no redirect loop)
+/subscribe  https://allcitygreens.beehiiv.com/subscribe  200
+
+# Proxy archive page  
+/archive    https://allcitygreens.beehiiv.com/archive    200

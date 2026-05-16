@@ -1,0 +1,3 @@
+# Forward /subscribe to Beehiiv's hosted subscribe page
+/subscribe    https://allcitygreens.beehiiv.com/subscribe    301
+/archive      https://allcitygreens.beehiiv.com/archive      301

@@ -1354,7 +1354,8 @@
       });
     });
 
-hero-form    if ('IntersectionObserver' in window) {
+    // ── Scroll-triggered fade-in (Intersection Observer) ─────────
+    if ('IntersectionObserver' in window) {
       const fadeEls = document.querySelectorAll('.fade-in');
       const obs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1381,32 +1382,6 @@ hero-form    if ('IntersectionObserver' in window) {
   </script>
 
   <!-- Beehiiv subscribe form embed -->
-
-
-   <script>
-        // Beehiiv API subscribe handler
-        document.querySelectorAll('.hero-form, .cta-form, .nav-subscribe-form').forEach(function(form) {
-          form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            var email = form.querySelector('input[type="email"]').value.trim();
-            if (!email) return;
-                     fetch('https://api.beehiiv.com/v2/publications/pub_cfb7a725-b946-4662-8a9d-1e6d84a01a6d/subscriptions', {
-                                method: 'POST',
-                                headers: {
-                                             'Content-Type': 'application/json',
-                                             'Authorization': 'Bearer C3cQW706cbSo9017kLeVdmXYZ1KWQ3daiebhpjBkkWTco2FZnKSsuphnkXnXRmZu'
-                                                        },
-                                body: JSON.stringify({ email: email, reactivate_existing: true, send_welcome_email: true })
-                                         })
-                              .then(function(res) { return res.json(); })
-                              .then(function() {
-                                         var btn = form.querySelector('button');
-              if (btn) btn.textContent = 'You\'re subscribed!';
-                         form.querySelector('input[type="email"]').value = '';
-            })
-                              .catch(function(err) { console.error('Subscribe error:', err); });
-          });
-        });
-      </script>
+  
 </body>
 </html>

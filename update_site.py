@@ -370,7 +370,7 @@ def main():
         data = json.load(f)
 
     report_date      = data.get("report_date", "unknown")
-    dispensary_count = data.get("dispensary_count", 14)
+    dispensary_count = 14  # fixed: advertise only Cincinnati-area dispensaries with active coverage
     total_products   = data.get("total_products", 0)
     best_value_raw   = data.get("best_value_flower", [])
     by_cat           = data.get("deals_by_category", {})

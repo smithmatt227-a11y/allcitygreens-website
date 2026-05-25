@@ -806,6 +806,7 @@ a.disp-card { text-decoration: none; color: inherit; }
   .form-row { flex-direction: column; }
   .btn { width: 100%; justify-content: center; }
   .nav-links a:not(.nav-cta) { display: none; }
+  .nav-subscribe-form { display: none; }
   .why-grid { grid-template-columns: 1fr; }
   .why-visual { display: none; }
   .footer-inner { flex-direction: column; gap: var(--space-6); }

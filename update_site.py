@@ -3,6 +3,8 @@
 update_site.py — AC Greens website auto-updater
 Reads the latest scraper JSON and injects fresh deal cards into index.html.
 
+Designed for the Perplexity-built design (single deal-cards grid + cat-tab JS filtering).
+
 Usage:
   cd ~/Desktop/AC\ Greens/Website && python3 update_site.py
 
@@ -23,24 +25,22 @@ SCRIPT_DIR = Path(__file__).parent
 INDEX_HTML = SCRIPT_DIR / "index.html"
 DATA_DIR   = SCRIPT_DIR.parent / "Price Scraper" / "Data"
 
-# How many cards to show before "Show more" button appears
-CARDS_VISIBLE = 6
-# Total cards to generate per panel (hidden ones revealed by Show More)
-CARDS_TOTAL   = 12
+# Max deal cards to inject into the deals grid
+CARDS_TOTAL = 20
 
 SUBSCRIBE_URL = "https://allcitygreens.beehiiv.com/subscribe"
 
 # Map every scraper dispensary name → direct website URL
 DISPENSARY_URLS = {
-    "Therapy Cannabis - Cincinnati":           "https://www.therapycannabis.com",
+    "Therapy Cannabis - Cincinnati":           "https://www.therapycannabis.com/dispensaries/cincinnati/",
     "Story Cincinnati":                        "https://storycannabis.com",
     "Story Forest Park":                       "https://storycannabis.com",
-    "Zen Leaf - Cincinnati":                   "https://zenleaf.com",
+    "Zen Leaf - Cincinnati":                   "https://zenleafdispensaries.com/locations/cincinnati/",
     "Shangri-La Cincinnati":                   "https://shangriladispensaries.com",
     "Shangri-La Monroe West":                  "https://shangriladispensaries.com",
     "Shangri-La Monroe Superstore":            "https://shangriladispensaries.com",
-    "The Garden Dispensary - Camp Washington": "https://thegardendispo.com",
-    "The Garden Dispensary - Sycamore":        "https://thegardendispo.com",
+    "The Garden Dispensary - Camp Washington": "https://thegardendispo.com/menu/",
+    "The Garden Dispensary - Sycamore":        "https://thegardendispo.com/menu/",
     "Garden Club Dispensary":                  "https://gardenclubdispensaries.com",
     "Trulieve - Cincinnati":                   "https://www.trulieve.com",
     "The Landing - Cincinnati":                "https://www.thelandingdispensaries.com",
@@ -56,7 +56,7 @@ DISPENSARY_URLS = {
     "AYR Wellness - Goshen":                   "https://ayrdispensaries.com",
     "Queen City Cannabis - Harrison":          "https://queenccanna.com",
     "Ethos Dispensary - Lebanon":              "https://ethoscannabis.com",
-    "UpLift - Milford":                        "https://www.upliftohio.com",
+    "UpLift - Milford":                        "https://www.upliftohio.com/milford/",
     "UpLift - Mount Orab":                     "https://www.upliftohio.com",
     "Columbia Care - Monroe":                  "https://www.columbia.care/locations/ohio",
     "Bloom - Seven Mile":                      "https://bloommarijuana.com",
@@ -65,6 +65,21 @@ DISPENSARY_URLS = {
 }
 
 FALLBACK_URL = "https://allcitygreens.com"
+
+# Category SVG icons (from Perplexity design)
+CAT_ICONS = {
+    "flower": '<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg>',
+    "vapes": '<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="13" rx="2"/><path d="M9 8h6"/><path d="M12 16v2"/><circle cx="12" cy="21" r="1"/><path d="M7 5c-1 1.2-1 3.8 0 5"/><path d="M17 5c1 1.2 1 3.8 0 5"/></svg>',
+    "edibles": '<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a4 4 0 00-4 4c0 1.3.5 2.4 1.4 3.2L8 20h8l-1.4-9.8A4 4 0 0016 7a4 4 0 00-4-4z"/><circle cx="10" cy="9" r=".5" fill="currentColor"/><circle cx="14" cy="9" r=".5" fill="currentColor"/><circle cx="12" cy="12" r=".5" fill="currentColor"/></svg>',
+    "concentrates": '<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2S6 8 6 13a6 6 0 0012 0c0-5-6-11-6-11z"/><path d="M12 12s-2 2-2 4a2 2 0 004 0c0-2-2-4-2-4z"/></svg>',
+    "pre_rolls": '<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20L20 4"/><path d="M4 20s0-3 2-4L18 4c1.5-1.5 3.5.5 2 2"/><path d="M16 3l3 3"/><path d="M2 22l2-2"/></svg>',
+}
+DEFAULT_ICON = '<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'
+
+CAT_DISPLAY = {
+    "flower": "Flower", "concentrates": "Concentrates",
+    "edibles": "Edibles", "pre_rolls": "Pre-Rolls", "vapes": "Vapes",
+}
 
 # ─────────────────────────────────────────────────────────────────────────────
 # DATA HELPERS
@@ -123,7 +138,7 @@ def display_disp_name(scraper_name: str) -> str:
             break
     if " - " in name:
         parts = name.split(" - ", 1)
-        return f"{parts[0].strip()} · {parts[1].strip()}"
+        return f"{parts[0].strip()} - {parts[1].strip()}"
     return name
 
 
@@ -159,8 +174,6 @@ def best_highlight_per_dispensary(dispensaries: list, category: str = None) -> l
     """
     Pull the single best product from each dispensary's highlights list.
     Prefer on_sale items; fall back to lowest price_per_gram.
-    If category is given, filter highlights to that category first.
-    Returns one deal per dispensary, sorted: on_sale first then by ppg.
     """
     results = []
     for disp in dispensaries:
@@ -169,15 +182,12 @@ def best_highlight_per_dispensary(dispensaries: list, category: str = None) -> l
             highlights = [h for h in highlights if h.get("category") == category]
         if not highlights:
             continue
-        # Prefer on_sale
         on_sale = [h for h in highlights if h.get("on_sale")]
         candidates = on_sale if on_sale else highlights
-        # Within candidates, pick lowest ppg (or first if none computable)
         with_ppg = [(calc_ppg(h) or 9999, h) for h in candidates]
         with_ppg.sort(key=lambda x: x[0])
         results.append(with_ppg[0][1])
 
-    # Sort results: on_sale first, then by ppg
     def sort_key(deal):
         return (0 if deal.get("on_sale") else 1, calc_ppg(deal) or 9999)
     results.sort(key=sort_key)
@@ -188,37 +198,25 @@ def disp_url(scraper_name: str) -> str:
     return DISPENSARY_URLS.get(scraper_name, FALLBACK_URL)
 
 
+def _meaningful_weight(deal: dict) -> bool:
+    grams = parse_weight_grams(deal.get("weight_label", ""))
+    return grams is not None and grams >= 1.0
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 # HTML GENERATORS
 # ─────────────────────────────────────────────────────────────────────────────
 
-def deal_card_html(deal: dict, hidden: bool = False) -> str:
-    url      = disp_url(deal["dispensary"])
-    cat      = deal.get("category", "").replace("_", " ").title()
-    strain   = deal.get("strain_type", "")
-    on_sale  = deal.get("on_sale", False)
-    discount = deal.get("discount_pct", 0)
-
+def deal_card_html(deal: dict) -> str:
+    """Generate a deal card in the Perplexity design format with data-cat for JS filtering."""
+    url       = disp_url(deal["dispensary"])
     raw_cat   = deal.get("category", "")
-    cat_label = raw_cat.replace("_", " ").title()
-    strain    = deal.get("strain_type", "")
-
-    # Category color pill
-    pill_html = (
-        f'<span class="deal-cat-pill deal-cat-pill--{raw_cat}">'
-        f'{cat_label}</span>'
-    )
-
-    # Strain type + sale badge inline after pill
-    strain_text = f" {strain}" if strain else ""
-    sale_badge  = (
-        f' <span class="deal-sale-badge">{discount}% OFF</span>'
-        if on_sale and discount else ""
-    )
-    cat_html = f'{pill_html}{strain_text}{sale_badge}'
+    cat_label = CAT_DISPLAY.get(raw_cat, raw_cat.replace("_", " ").title())
+    icon      = CAT_ICONS.get(raw_cat, DEFAULT_ICON)
+    on_sale   = deal.get("on_sale", False)
+    discount  = deal.get("discount_pct", 0)
 
     name         = clean_product_name(deal["name"])
-    brand        = deal.get("brand", "").strip()
     disp_display = display_disp_name(deal["dispensary"])
     thc_str      = fmt_thc(deal)
     disp_detail  = disp_display + (f" · {thc_str}" if thc_str else "")
@@ -226,134 +224,79 @@ def deal_card_html(deal: dict, hidden: bool = False) -> str:
     price = deal["price"]
     orig  = deal.get("original_price", price)
     ppg   = calc_ppg(deal)
-    save  = round(orig - price, 2) if on_sale and orig and orig > price else 0
 
-    price_html = f'<span class="deal-card-now">${price:.2f}</span>'
     if on_sale and orig and orig > price:
-        price_html += f' <span class="deal-card-was">${orig:.2f}</span>'
-    if ppg:
-        price_html += f' <span class="deal-card-disp">${ppg:.2f}/g</span>'
-    if save:
-        price_html += f' <span class="deal-card-save">save ${save:.2f}</span>'
-
-    hidden_attr  = ' data-hidden="true"' if hidden else ''
-    hidden_class = " deal-card--hidden" if hidden else ""
-    sale_attr    = ' data-sale="true"' if on_sale else ''
-
-    # Brand line (skip if empty or same as dispensary name)
-    brand_html = ""
-    if brand and brand.lower() not in name.lower():
-        brand_html = f'              <div class="deal-card-brand">{brand}</div>\n'
-
-    return (
-        f'            <a class="deal-card{hidden_class}" href="{url}" '
-        f'target="_blank" rel="noopener"{hidden_attr}{sale_attr}>\n'
-        f'              <div class="deal-card-cat">{cat_html}</div>\n'
-        f'              <div class="deal-card-name">{name}</div>\n'
-        f'{brand_html}'
-        f'              <div class="deal-card-disp">{disp_detail}</div>\n'
-        f'              <div class="deal-card-prices">\n'
-        f'                {price_html}\n'
-        f'              </div>\n'
-        f'            </a>'
-    )
-
-
-def deals_panel_html(deals: list, cta_text: str,
-                     visible: int = CARDS_VISIBLE,
-                     total: int = CARDS_TOTAL) -> str:
-    """
-    Generate a deals-grid with up to `total` cards.
-    Cards beyond `visible` get class deal-card--hidden and are revealed
-    by the Show More button.
-    """
-    shown  = deals[:visible]
-    hidden = deals[visible:total]
-
-    cards = "\n".join(deal_card_html(d, hidden=False) for d in shown)
-    if hidden:
-        cards += "\n" + "\n".join(deal_card_html(d, hidden=True) for d in hidden)
-
-    show_more = ""
-    if hidden:
-        show_more = (
-            '\n          <button class="show-more-btn" '
-            'onclick="showMore(this)" aria-expanded="false">'
-            f'Show {len(hidden)} more deals ▾</button>'
+        pct_text = f"-{discount}%" if discount else "Top deal"
+        prices_html = (
+            f'<span class="deal-card-orig">${orig:.2f}</span>'
+            f'<span class="deal-card-sale">${price:.2f}</span>'
+            f'<span class="deal-card-pct">{pct_text}</span>'
         )
+    else:
+        ppg_str = f' · ${ppg:.2f}/g' if ppg else ''
+        prices_html = f'<span class="deal-card-sale">${price:.2f}</span>'
 
     return (
-        f'          <div class="deals-grid">\n'
-        f'{cards}\n'
-        f'          </div>'
-        f'{show_more}\n'
-        f'          <p class="deals-cta-line">{cta_text} — '
-        f'<a href="{SUBSCRIBE_URL}" target="_blank">subscribe free</a>.</p>'
+        f'          <a class="deal-card deal-card-link" data-cat="{raw_cat}"'
+        f' href="{url}" target="_blank" rel="noopener">\n'
+        f'            <div class="deal-card-cat">{icon} {cat_label}</div>\n'
+        f'            <div class="deal-card-name">{name}</div>\n'
+        f'            <div class="deal-card-disp">{disp_detail}</div>\n'
+        f'            <div class="deal-card-prices">\n'
+        f'              {prices_html}\n'
+        f'            </div>\n'
+        f'          </a>'
     )
 
 
-CAT_LABELS = {
-    "flower":        "Flower",
-    "concentrates":  "Concentrate",
-    "edibles":       "Edible",
-    "pre_rolls":     "Pre-Roll",
-}
+def mockup_row(deal: dict) -> str:
+    """Generate a single row in the hero mockup card (Perplexity anchor format)."""
+    name    = clean_product_name(deal["name"])
+    url     = disp_url(deal["dispensary"])
+    disp    = display_disp_name(deal["dispensary"])
+    price   = deal["price"]
+    orig    = deal.get("original_price", price)
+    on_sale = deal.get("on_sale", False)
+    disc    = deal.get("discount_pct", 0)
+    ppg     = calc_ppg(deal)
+    cat     = CAT_DISPLAY.get(deal.get("category", ""), "Product")
+
+    ppg_str = f' · ${ppg:.2f}/g' if ppg else ''
+
+    if on_sale and orig and orig > price:
+        badge_text = f"Top deal"
+        price_html = (
+            f'<span class="deal-original">${orig:.2f}</span> '
+            f'<span class="deal-sale">${price:.2f} '
+            f'<span class="deal-badge">{badge_text}</span></span>'
+        )
+    else:
+        price_html = f'<span class="deal-sale">${price:.2f}</span>'
+
+    return (
+        f'              <a class="mockup-deal mockup-deal-link" href="{url}" target="_blank" rel="noopener">\n'
+        f'                <div class="deal-type">{cat}</div>\n'
+        f'                <div class="deal-name">{name}</div>\n'
+        f'                <div class="deal-disp">{disp}{ppg_str}</div>\n'
+        f'                <div class="deal-price">{price_html}</div>\n'
+        f'              </a>'
+    )
 
 
 def mockup_html(dispensaries: list, best_value: list) -> str:
     """
     Generate the hero mockup panel:
       - Today's Best Deals: up to 3 ON-SALE items, one per dispensary
-      - Best Value Eighths: top 2 lowest $/g flower items (not necessarily on sale)
-    Every row has: product type label · dispensary link · $/g · price
+      - Best Value Eighths: top 2 lowest $/g flower items
     """
-    def cat_label(deal: dict) -> str:
-        return CAT_LABELS.get(deal.get("category", ""), "Product")
-
-    def mockup_row(deal: dict, show_ppg: bool = True) -> str:
-        name    = clean_product_name(deal["name"])
-        url     = disp_url(deal["dispensary"])
-        disp    = display_disp_name(deal["dispensary"])
-        price   = deal["price"]
-        orig    = deal.get("original_price", price)
-        on_sale = deal.get("on_sale", False)
-        disc    = deal.get("discount_pct", 0)
-        ppg     = calc_ppg(deal)
-        cat     = cat_label(deal)
-
-        # Price line
-        if on_sale and orig and orig > price:
-            price_html = (
-                f'<span class="deal-original">${orig:.2f}</span> '
-                f'<span class="deal-sale">${price:.2f} '
-                f'<span class="deal-badge">-{disc}%</span>'
-            )
-            if ppg:
-                price_html += f' <span class="deal-badge deal-badge--value">${ppg:.2f}/g</span>'
-            price_html += '</span>'
-        else:
-            price_html = f'<span class="deal-sale">${price:.2f}'
-            if ppg:
-                price_html += f' <span class="deal-badge deal-badge--value">${ppg:.2f}/g</span>'
-            price_html += '</span>'
-
-        return (
-            f'              <div class="mockup-deal">\n'
-            f'                <div class="deal-name">{name} '
-            f'<span class="mockup-cat">{cat}</span></div>\n'
-            f'                <div class="deal-meta">'
-            f'<a href="{url}" class="mockup-link" target="_blank" rel="noopener">{disp}</a>'
-            f'</div>\n'
-            f'                <div class="deal-price">{price_html}</div>\n'
-            f'              </div>'
-        )
-
     # TODAY'S BEST DEALS — on-sale items only, one per dispensary
     sale_deals = best_highlight_per_dispensary(dispensaries)
     sale_only  = [d for d in sale_deals if d.get("on_sale")]
     featured   = one_per_dispensary(sale_only)[:3]
+    if not featured:
+        featured = one_per_dispensary(sale_deals)[:3]
 
-    # BEST VALUE EIGHTHS — lowest $/g flower, regardless of sale status
+    # BEST VALUE EIGHTHS — lowest $/g flower
     bv_items   = [i for i in best_value if _meaningful_weight(i)]
     bv_sorted  = sorted(bv_items, key=lambda x: calc_ppg(x) or 9999)
     bv_diverse = one_per_dispensary(bv_sorted)[:2]
@@ -361,21 +304,18 @@ def mockup_html(dispensaries: list, best_value: list) -> str:
     deals_rows = "\n".join(mockup_row(d) for d in featured)
     value_rows = "\n".join(mockup_row(d) for d in bv_diverse)
 
-    # If no on-sale items exist (slow week), fall back to best highlights
-    if not featured:
-        fallback = one_per_dispensary(sale_deals)[:3]
-        deals_rows = "\n".join(mockup_row(d) for d in fallback)
+    disp_count = len([d for d in dispensaries if d.get("highlights")])
 
     return (
         f'            <div class="mockup-section">\n'
-        f'              <div class="mockup-section-label">🔥 Today\'s Best Deals</div>\n'
+        f'              <div class="mockup-section-label">🔥 TODAY\'S BEST DEALS</div>\n'
         f'{deals_rows}\n'
         f'            </div>\n'
         f'            <div class="mockup-section">\n'
-        f'              <div class="mockup-section-label">💰 Best Value Eighths</div>\n'
+        f'              <div class="mockup-section-label">💰 BEST VALUE EIGHTHS</div>\n'
         f'{value_rows}\n'
         f'            </div>\n'
-        f'            <div class="mockup-footer">✓ Prices verified this morning · 30+ dispensaries checked</div>'
+        f'            <div class="mockup-footer">✓ Prices verified this morning · {disp_count} dispensaries checked</div>'
     )
 
 
@@ -383,7 +323,7 @@ def stats_html(dispensary_count: int, total_products: int) -> str:
     prod_k = total_products // 100 * 100
     return (
         f'            <div class="stat">\n'
-        f'              <span class="stat-num">{dispensary_count}+</span>\n'
+        f'              <span class="stat-num">{dispensary_count}</span>\n'
         f'              <span class="stat-label">dispensaries tracked</span>\n'
         f'            </div>\n'
         f'            <div class="stat-divider" aria-hidden="true"></div>\n'
@@ -396,91 +336,6 @@ def stats_html(dispensary_count: int, total_products: int) -> str:
         f'              <span class="stat-num">8 AM</span>\n'
         f'              <span class="stat-label">in your inbox every day</span>\n'
         f'            </div>'
-    )
-
-
-def _meaningful_weight(deal: dict) -> bool:
-    """True if this product has a parseable weight of at least 1g — filters out infused pre-rolls etc."""
-    grams = parse_weight_grams(deal.get("weight_label", ""))
-    return grams is not None and grams >= 1.0
-
-
-def best_value_panel_html(items: list) -> str:
-    """Flower sorted by price/gram ascending, one per dispensary, with Show More."""
-    deduped = [i for i in deduplicate(items) if _meaningful_weight(i)]
-    sortable = [(calc_ppg(i), i) for i in deduped if calc_ppg(i)]
-    sortable.sort(key=lambda x: x[0])
-    ranked = [item for _, item in sortable]
-    diverse = one_per_dispensary(ranked)
-
-    shown  = diverse[:CARDS_VISIBLE]
-    hidden = diverse[CARDS_VISIBLE:CARDS_TOTAL]
-
-    cards = "\n".join(deal_card_html(d, hidden=False) for d in shown)
-    if hidden:
-        cards += "\n" + "\n".join(deal_card_html(d, hidden=True) for d in hidden)
-
-    show_more = ""
-    if hidden:
-        show_more = (
-            '\n          <button class="show-more-btn" '
-            'onclick="showMore(this)" aria-expanded="false">'
-            f'Show {len(hidden)} more deals ▾</button>'
-        )
-
-    cta = "Lowest prices per gram updated daily"
-    return (
-        f'          <div class="deals-grid">\n'
-        f'{cards}\n'
-        f'          </div>'
-        f'{show_more}\n'
-        f'          <p class="deals-cta-line">{cta} — '
-        f'<a href="{SUBSCRIBE_URL}" target="_blank">subscribe free</a> '
-        f'to get them in your inbox.</p>'
-    )
-
-
-def everyday_value_panel_html(dispensaries: list) -> str:
-    """
-    Lowest everyday (non-sale) flower prices, one per dispensary.
-    Drawn from each dispensary's highlights — no sales, just cheap.
-    """
-    # Get all flower highlights that are NOT on sale
-    not_on_sale = []
-    for disp in dispensaries:
-        for h in (disp.get("highlights") or []):
-            if h.get("category") == "flower" and not h.get("on_sale") and _meaningful_weight(h):
-                not_on_sale.append(h)
-
-    deduped = deduplicate(not_on_sale)
-    sortable = [(calc_ppg(i), i) for i in deduped if calc_ppg(i)]
-    sortable.sort(key=lambda x: x[0])
-    ranked = [item for _, item in sortable]
-    diverse = one_per_dispensary(ranked)
-
-    shown  = diverse[:CARDS_VISIBLE]
-    hidden = diverse[CARDS_VISIBLE:CARDS_TOTAL]
-
-    cards = "\n".join(deal_card_html(d, hidden=False) for d in shown)
-    if hidden:
-        cards += "\n" + "\n".join(deal_card_html(d, hidden=True) for d in hidden)
-
-    show_more = ""
-    if hidden:
-        show_more = (
-            '\n          <button class="show-more-btn" '
-            'onclick="showMore(this)" aria-expanded="false">'
-            f'Show {len(hidden)} more deals ▾</button>'
-        )
-
-    cta = "No gimmicks — just dispensaries with low everyday prices"
-    return (
-        f'          <div class="deals-grid">\n'
-        f'{cards}\n'
-        f'          </div>'
-        f'{show_more}\n'
-        f'          <p class="deals-cta-line">{cta} — '
-        f'<a href="{SUBSCRIBE_URL}" target="_blank">subscribe free</a>.</p>'
     )
 
 
@@ -498,6 +353,8 @@ def replace_between_markers(html: str, section: str, new_content: str) -> str:
     result, count = re.subn(pattern, replacement, html, flags=re.DOTALL)
     if count == 0:
         print(f"  WARNING: marker AUTO:{section} not found — skipped")
+    else:
+        print(f"  ✅  {section}")
     return result
 
 
@@ -513,17 +370,13 @@ def main():
         data = json.load(f)
 
     report_date      = data.get("report_date", "unknown")
-    dispensary_count = data.get("dispensary_count", 30)
+    dispensary_count = data.get("dispensary_count", 14)
     total_products   = data.get("total_products", 0)
     best_value_raw   = data.get("best_value_flower", [])
     by_cat           = data.get("deals_by_category", {})
     dispensaries     = data.get("dispensaries", [])
 
-    # All Deals: one highlight per dispensary = true variety
-    all_deals = best_highlight_per_dispensary(dispensaries)
-
-    # Category panels: best highlight per dispensary for that category
-    # Fall back to deals_by_category (deduped) if highlights don't cover a category
+    # Per-category deals (best highlight per dispensary)
     flower_deals  = best_highlight_per_dispensary(dispensaries, "flower") \
                     or deduplicate(by_cat.get("flower", []))
     conc_deals    = best_highlight_per_dispensary(dispensaries, "concentrates") \
@@ -533,15 +386,14 @@ def main():
     preroll_deals = best_highlight_per_dispensary(dispensaries, "pre_rolls") \
                     or deduplicate(by_cat.get("pre_rolls", []))
 
-    print(f"  {dispensary_count} dispensaries · {total_products:,} products · report {report_date}")
-    print(f"  all={len(all_deals)}  flower={len(flower_deals)}  conc={len(conc_deals)}  "
-          f"edibles={len(edible_deals)}  pre_rolls={len(preroll_deals)}  "
-          f"best_value={len(best_value_raw)}")
+    print(f"  {dispensary_count} dispensaries · {total_products:,} products · {report_date}")
+    print(f"  flower={len(flower_deals)}  conc={len(conc_deals)}  "
+          f"edibles={len(edible_deals)}  pre_rolls={len(preroll_deals)}")
 
     html = INDEX_HTML.read_text(encoding="utf-8")
     print("Injecting sections …")
 
-    # Format the report date nicely: "2026-03-28" → "March 28, 2026"
+    # Format the report date: "2026-03-28" → "March 28, 2026"
     try:
         from datetime import datetime
         rd = datetime.strptime(report_date, "%Y-%m-%d")
@@ -549,63 +401,47 @@ def main():
     except Exception:
         pretty_date = report_date
 
-    html = replace_between_markers(html, "mockup",
-        mockup_html(dispensaries, best_value_raw))
-
-    html = replace_between_markers(html, "deals-header",
-        f'          <span class="section-updated">Prices updated {pretty_date}</span>')
-
+    # 1. Stats
     html = replace_between_markers(html, "stats",
         stats_html(dispensary_count, total_products))
 
-    # panel-all: one per dispensary, custom CTA
-    all_shown  = all_deals[:CARDS_VISIBLE]
-    all_hidden = all_deals[CARDS_VISIBLE:CARDS_TOTAL]
-    all_cards  = "\n".join(deal_card_html(d) for d in all_shown)
-    if all_hidden:
-        all_cards += "\n" + "\n".join(deal_card_html(d, hidden=True) for d in all_hidden)
-    show_more_all = ""
-    if all_hidden:
-        show_more_all = (
-            '\n          <button class="show-more-btn" '
-            'onclick="showMore(this)" aria-expanded="false">'
-            f'Show {len(all_hidden)} more deals ▾</button>'
-        )
-    all_html = (
-        '          <div class="deals-grid">\n'
-        + all_cards + '\n'
-        + '          </div>'
-        + show_more_all + '\n'
-        + '          <p class="deals-cta-line">Full deals land in your inbox every morning at 8 AM — '
-        + f'<a href="{SUBSCRIBE_URL}" target="_blank">subscribe free</a> to see them all.</p>'
-    )
-    html = replace_between_markers(html, "panel-all", all_html)
+    # 2. Hero mockup card
+    html = replace_between_markers(html, "mockup",
+        mockup_html(dispensaries, best_value_raw))
 
-    html = replace_between_markers(html, "panel-flower",
-        deals_panel_html(flower_deals, "More flower deals in your daily email"))
+    # 3. Date header
+    html = replace_between_markers(html, "deals-header",
+        f'          <span class="section-updated">Prices updated {pretty_date}</span>')
 
-    html = replace_between_markers(html, "panel-concentrates",
-        deals_panel_html(conc_deals, "More concentrate deals in your daily email"))
+    # 4. Single deal-cards grid (all categories, filtered by JS tabs)
+    combined_deals = []
+    for cat_name, deals in [
+        ("flower",       flower_deals),
+        ("concentrates", conc_deals),
+        ("edibles",      edible_deals),
+        ("pre_rolls",    preroll_deals),
+    ]:
+        for d in deals:
+            d = dict(d)  # copy so we don't mutate original
+            if not d.get("category"):
+                d["category"] = cat_name
+            combined_deals.append(d)
 
-    html = replace_between_markers(html, "panel-edibles",
-        deals_panel_html(edible_deals, "More edible deals in your daily email"))
+    # Sort: on-sale first, then by discount descending
+    combined_deals.sort(key=lambda d: (
+        0 if d.get("on_sale") else 1,
+        -(d.get("discount_pct") or 0)
+    ))
 
-    html = replace_between_markers(html, "panel-prerolls",
-        deals_panel_html(preroll_deals, "More pre-roll deals in your daily email"))
-
-    html = replace_between_markers(html, "panel-bestvalue",
-        best_value_panel_html(best_value_raw))
-
-    html = replace_between_markers(html, "panel-everyday",
-        everyday_value_panel_html(dispensaries))
+    deals_content = "\n".join(deal_card_html(d) for d in combined_deals[:CARDS_TOTAL])
+    html = replace_between_markers(html, "deals", deals_content)
 
     INDEX_HTML.write_text(html, encoding="utf-8")
-    print(f"✅  index.html updated from {json_path.name}")
-    print()
-    print("Next steps:")
+    print(f"\n✅  index.html updated from {json_path.name}")
+    print("\nNext steps:")
     print("  git add -A")
     print(f'  git commit -m "data: refresh {report_date}"')
-    print("  git push")
+    print("  git push origin main")
 
 
 if __name__ == "__main__":

@@ -158,6 +158,50 @@ def deduplicate(deals: list) -> list:
     return list(seen.values())
 
 
+def brand_key(disp_name: str) -> str:
+    """
+    Normalize a dispensary name to its brand root so sister locations
+    collapse into one. Mirrors the same helper in Newsletter/newsletter.py.
+    e.g. 'The Garden Dispensary - Sycamore' -> 'the garden dispensary'
+         'UpLift - Mount Orab'              -> 'uplift'
+    """
+    name = disp_name.lower().strip()
+    name = name.split(" - ")[0].strip()
+    suffixes = (" cincinnati", " forest park", " monroe", " sycamore",
+                " harrison", " oxford", " goshen", " milford", " lebanon",
+                " mount orab", " five mile", " 5 mile", " northern",
+                " camp washington", " seven mile", " dayton", " superstore",
+                " west", " east", " north", " south")
+    changed = True
+    while changed:
+        changed = False
+        for suffix in suffixes:
+            if name.endswith(suffix):
+                name = name[: -len(suffix)].strip()
+                changed = True
+                break
+    return name
+
+
+def dedupe_sister_locations(deals: list) -> list:
+    """
+    Collapse same-product duplicates across sister dispensary locations.
+    Keep the first occurrence (best one — caller is expected to have sorted).
+    Key = (full product name lowercased, brand root).
+    Two different products at the same brand stay. Same product at two
+    sister locations collapses to one.
+    """
+    seen: set = set()
+    result: list = []
+    for d in deals:
+        key = (d.get("name", "").strip().lower(), brand_key(d.get("dispensary", "")))
+        if key in seen or not key[0]:
+            continue
+        seen.add(key)
+        result.append(d)
+    return result
+
+
 def one_per_dispensary(deals: list) -> list:
     """Keep only the best deal per dispensary (first occurrence after dedup+sort)."""
     seen_disps = set()
@@ -291,22 +335,11 @@ def mockup_html(dispensaries: list, best_value: list) -> str:
         run the same sale (e.g. Garden Camp Washington + Garden Sycamore).
       - Best Value Eighths section: removed per design refresh.
     """
-    # TODAY'S BEST DEALS — on-sale items only, one per dispensary AND one per product
+    # TODAY'S BEST DEALS — on-sale items, one per dispensary, sister-collapsed
     sale_deals = best_highlight_per_dispensary(dispensaries)
     sale_only  = [d for d in sale_deals if d.get("on_sale")]
     candidates = one_per_dispensary(sale_only) or one_per_dispensary(sale_deals)
-
-    # Second-pass dedupe: collapse sister-location duplicates by product name
-    seen_products: set = set()
-    featured: list = []
-    for d in candidates:
-        key = clean_product_name(d.get("name", "")).strip().lower()
-        if not key or key in seen_products:
-            continue
-        seen_products.add(key)
-        featured.append(d)
-        if len(featured) >= 3:
-            break
+    featured   = dedupe_sister_locations(candidates)[:3]
 
     deals_rows = "\n".join(mockup_row(d) for d in featured)
     disp_count = len([d for d in dispensaries if d.get("highlights")])
@@ -437,6 +470,10 @@ def main():
         0 if d.get("on_sale") else 1,
         -(d.get("discount_pct") or 0)
     ))
+
+    # Collapse sister-location duplicates (same product at, e.g., Garden Camp
+    # Washington and Garden Sycamore renders as a single card).
+    combined_deals = dedupe_sister_locations(combined_deals)
 
     deals_content = "\n".join(deal_card_html(d) for d in combined_deals[:CARDS_TOTAL])
     html = replace_between_markers(html, "deals", deals_content)

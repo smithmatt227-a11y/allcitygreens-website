@@ -1,5 +1,5 @@
 #!/bin/bash
-# One-click commit + push for the hero-mockup cleanup.
+# One-click commit + push for the site cleanup.
 # Double-click this in Finder to run it.
 
 cd "$(dirname "$0")"
@@ -12,7 +12,7 @@ git status --short
 
 echo ""
 echo "==> Committing..."
-git commit -m "site: dedupe sister-location duplicates and remove Best Value Eighths from hero mockup"
+git commit -m "site: collapse same-product sister locations into one card across hero mockup + lower deals grid"
 
 echo ""
 echo "==> Pushing to GitHub (Netlify auto-deploys from main)..."

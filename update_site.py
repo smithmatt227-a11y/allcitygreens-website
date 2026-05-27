@@ -286,34 +286,39 @@ def mockup_row(deal: dict) -> str:
 def mockup_html(dispensaries: list, best_value: list) -> str:
     """
     Generate the hero mockup panel:
-      - Today's Best Deals: up to 3 ON-SALE items, one per dispensary
-      - Best Value Eighths: top 2 lowest $/g flower items
+      - Today's Best Deals: up to 3 ON-SALE items, deduped by product name
+        so the same product doesn't appear twice when sister dispensaries
+        run the same sale (e.g. Garden Camp Washington + Garden Sycamore).
+      - Best Value Eighths section: removed per design refresh.
     """
-    # TODAY'S BEST DEALS — on-sale items only, one per dispensary
+    # TODAY'S BEST DEALS — on-sale items only, one per dispensary AND one per product
     sale_deals = best_highlight_per_dispensary(dispensaries)
     sale_only  = [d for d in sale_deals if d.get("on_sale")]
-    featured   = one_per_dispensary(sale_only)[:3]
-    if not featured:
-        featured = one_per_dispensary(sale_deals)[:3]
+    candidates = one_per_dispensary(sale_only) or one_per_dispensary(sale_deals)
 
-    # BEST VALUE EIGHTHS — lowest $/g flower
-    bv_items   = [i for i in best_value if _meaningful_weight(i)]
-    bv_sorted  = sorted(bv_items, key=lambda x: calc_ppg(x) or 9999)
-    bv_diverse = one_per_dispensary(bv_sorted)[:2]
+    # Second-pass dedupe: collapse sister-location duplicates by product name
+    seen_products: set = set()
+    featured: list = []
+    for d in candidates:
+        key = clean_product_name(d.get("name", "")).strip().lower()
+        if not key or key in seen_products:
+            continue
+        seen_products.add(key)
+        featured.append(d)
+        if len(featured) >= 3:
+            break
 
     deals_rows = "\n".join(mockup_row(d) for d in featured)
-    value_rows = "\n".join(mockup_row(d) for d in bv_diverse)
-
     disp_count = len([d for d in dispensaries if d.get("highlights")])
+
+    # best_value retained as a function argument for backwards compat with the
+    # caller, but no Best Value Eighths section is rendered any more.
+    _ = best_value
 
     return (
         f'            <div class="mockup-section">\n'
         f'              <div class="mockup-section-label">🔥 TODAY\'S BEST DEALS</div>\n'
         f'{deals_rows}\n'
-        f'            </div>\n'
-        f'            <div class="mockup-section">\n'
-        f'              <div class="mockup-section-label">💰 BEST VALUE EIGHTHS</div>\n'
-        f'{value_rows}\n'
         f'            </div>\n'
         f'            <div class="mockup-footer">✓ Prices verified this morning · {disp_count} dispensaries checked</div>'
     )

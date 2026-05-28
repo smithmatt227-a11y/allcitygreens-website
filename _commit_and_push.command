@@ -6,15 +6,13 @@ git add -A
 git status --short
 
 echo ""
-git commit -m "site: brand-matched og:image, /trends/ price-history chart page, daily trends-data.json regeneration"
+git commit -m "site: chart-wrapper height fix, '9 dispensaries' replaces stale '14' across copy, strip Perplexity attribution"
 echo ""
 echo "==> Pushing..."
 git push origin main
 echo ""
-echo "Done. Wait ~30-60s for Netlify deploy."
-echo ""
-echo "Then visit:"
-echo "  https://allcitygreens.com/trends/   — the new chart page"
-echo "  https://allcitygreens.com/og-image.png — the social preview"
+echo "Done. Wait ~30-60s for Netlify deploy, then verify:"
+echo "  https://allcitygreens.com/trends/  — chart + legend layout"
+echo "  https://allcitygreens.com/         — hero stat reads '9 dispensaries tracked'"
 echo ""
 read -n 1

@@ -74,10 +74,16 @@
       color:var(--color-text-muted);font-size:13px;margin:0 0 16px;
       font-family:'Inter',sans-serif;
     }
-    canvas{ max-width:100%; height:auto; }
+    .canvas-box{
+      position:relative;
+      height:480px;
+      width:100%;
+    }
+    @media (max-width:720px){ .canvas-box{ height:360px; } }
+    canvas{ max-width:100%; }
     .legend-grid{
       display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-      gap:6px 14px;margin-top:14px;
+      gap:8px 14px;margin-top:24px;
     }
     .legend-item{
       display:flex;align-items:center;gap:8px;
@@ -144,7 +150,9 @@
         <div class="chart-wrap">
           <h2 class="chart-title">Average flower price · per dispensary</h2>
           <p class="chart-note">Dollars per item, weighted by product count. Click a name below to hide/show.</p>
-          <canvas id="price-chart" width="960" height="480"></canvas>
+          <div class="canvas-box">
+            <canvas id="price-chart"></canvas>
+          </div>
           <div class="legend-grid" id="legend"></div>
         </div>
 
@@ -338,9 +346,6 @@
           },
         },
       });
-
-      // Make canvas height responsive
-      document.getElementById('price-chart').parentElement.style.height = '480px';
 
       // ── Legend with click-to-hide ──────────────────────────────────────
       const legendHtml = datasets.map((ds, i) => `

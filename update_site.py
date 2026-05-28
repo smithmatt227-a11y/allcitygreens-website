@@ -513,8 +513,14 @@ def main():
         data = json.load(f)
 
     report_date      = data.get("report_date", "unknown")
-    dispensary_count = 14  # fixed: advertise only Cincinnati-area dispensaries with active coverage
     total_products   = data.get("total_products", 0)
+
+    # Dispensary count for the hero stat row. Must match the count of brand
+    # cards in the <section id="dispensaries"> grid below, since users will
+    # see both numbers on the same page. Today's scrape can fluctuate
+    # (some sites return 0 products on a given day), so we pin this to the
+    # grid count and update it manually when a new brand card is added.
+    dispensary_count = 9
     best_value_raw   = data.get("best_value_flower", [])
     by_cat           = data.get("deals_by_category", {})
     dispensaries     = data.get("dispensaries", [])

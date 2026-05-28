@@ -64,7 +64,16 @@ export default async (req, context) => {
   try { payload = JSON.parse(text); } catch { payload = { _raw: text }; }
 
   if (upstream.ok) {
-    return json({ ok: true });
+    // Surface the Beehiiv subscription status so the client (and we) can see
+    // what Beehiiv actually did with the request — active / pending / validating
+    // etc. Useful for debugging double-opt-in vs. invalid-domain rejection.
+    const sub = (payload && (payload.data || payload)) || {};
+    return json({
+      ok: true,
+      beehiiv_status:  sub.status || null,
+      beehiiv_id:      sub.id || null,
+      upstream_status: upstream.status,
+    });
   }
 
   // Beehiiv sometimes returns 400 "email already subscribed" — treat as success

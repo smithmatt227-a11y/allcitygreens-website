@@ -6,11 +6,15 @@ git add -A
 git status --short
 
 echo ""
-git commit -m "subscribe fn: add double_opt_override=on so API subs land as Active (Beehiiv defaults to 'validating')"
+git commit -m "site: brand-matched og:image, /trends/ price-history chart page, daily trends-data.json regeneration"
 echo ""
 echo "==> Pushing..."
 git push origin main
 echo ""
-echo "Done. Wait ~30-60s for Netlify deploy, then test."
+echo "Done. Wait ~30-60s for Netlify deploy."
+echo ""
+echo "Then visit:"
+echo "  https://allcitygreens.com/trends/   — the new chart page"
+echo "  https://allcitygreens.com/og-image.png — the social preview"
 echo ""
 read -n 1

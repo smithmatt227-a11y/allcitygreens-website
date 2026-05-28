@@ -415,6 +415,74 @@ def stats_html(dispensary_count: int, total_products: int) -> str:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# TRENDS DATA — builds /trends-data.json from all historical scrapes
+# ─────────────────────────────────────────────────────────────────────────────
+
+def build_trends_data() -> dict:
+    """
+    Walk every summary_*.json in Price Scraper/Data, extract per-dispensary
+    flower price_index, collapse sister locations, and return a JSON-ready
+    time-series payload that the /trends/ page renders with Chart.js.
+    """
+    from collections import defaultdict
+    from datetime import datetime
+
+    files = sorted(DATA_DIR.glob("summary_*.json"))
+    series = defaultdict(list)
+    dates_set = set()
+
+    def _brand_key(name: str) -> str:
+        s = (name or "").lower().strip().split(" - ")[0].strip()
+        for suf in (" cincinnati"," forest park"," sycamore"," milford"," mount orab",
+                    " harrison"," oxford"," goshen"," lebanon"," monroe"," dayton",
+                    " camp washington"," superstore"," seven mile"," 5 mile",
+                    " five mile"," west"," east"," north"," south"," northern"):
+            if s.endswith(suf):
+                s = s[: -len(suf)].strip()
+        return s
+
+    for f in files:
+        date_str = f.stem.replace("summary_", "")
+        dates_set.add(date_str)
+        try:
+            data = json.loads(f.read_text())
+        except Exception:
+            continue
+
+        by_brand = defaultdict(lambda: {"sum": 0.0, "weight": 0, "min": float("inf")})
+        for d in data.get("dispensaries", []):
+            bk = _brand_key(d.get("name", ""))
+            pi = (d.get("price_index") or {}).get("flower") or {}
+            n = pi.get("count") or 0
+            avg = pi.get("avg")
+            mn = pi.get("min")
+            # Skip thin signal — fewer than 5 flower SKUs isn't a meaningful avg
+            if n < 5 or avg is None or not bk:
+                continue
+            by_brand[bk]["sum"] += avg * n
+            by_brand[bk]["weight"] += n
+            if mn is not None:
+                by_brand[bk]["min"] = min(by_brand[bk]["min"], mn)
+
+        for bk, agg in by_brand.items():
+            wavg = agg["sum"] / agg["weight"]
+            series[bk].append({
+                "date": date_str,
+                "avg": round(wavg, 2),
+                "min": round(agg["min"], 2) if agg["min"] != float("inf") else None,
+            })
+
+    # Only show dispensaries with at least 3 data points
+    final = {bk: pts for bk, pts in series.items() if len(pts) >= 3}
+
+    return {
+        "generated_at": datetime.now().isoformat(),
+        "dates": sorted(dates_set),
+        "dispensaries": final,
+    }
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # INJECTION
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -517,6 +585,14 @@ def main():
 
     INDEX_HTML.write_text(html, encoding="utf-8")
     print(f"\n✅  index.html updated from {json_path.name}")
+
+    # 5. Refresh /trends-data.json for the /trends/ chart page
+    trends_path = SCRIPT_DIR / "trends-data.json"
+    trends_payload = build_trends_data()
+    trends_path.write_text(json.dumps(trends_payload, indent=2), encoding="utf-8")
+    n_disp = len(trends_payload.get("dispensaries", {}))
+    n_dates = len(trends_payload.get("dates", []))
+    print(f"✅  trends-data.json refreshed ({n_disp} dispensaries, {n_dates} days)")
     print("\nNext steps:")
     print("  git add -A")
     print(f'  git commit -m "data: refresh {report_date}"')

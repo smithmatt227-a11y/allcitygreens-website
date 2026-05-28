@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price Trends — All City Greens</title>
+  <meta name="description" content="See how cannabis flower prices have moved across Cincinnati dispensaries. Daily averages tracked since March 2026.">
+
+  <meta property="og:title" content="Price Trends — All City Greens">
+  <meta property="og:description" content="How Cincinnati cannabis prices move week to week, dispensary by dispensary.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://allcitygreens.com/trends/">
+  <meta property="og:image" content="https://allcitygreens.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="canonical" href="https://allcitygreens.com/trends/">
+
+  <style>
+    /* Trends-page-only tweaks */
+    .trends-hero{
+      padding: 48px 0 24px;
+    }
+    .trends-eyebrow{
+      color:#e07828;font-size:11px;font-weight:600;letter-spacing:0.14em;
+      text-transform:uppercase;margin:0 0 12px;
+      font-family:'Inter',sans-serif;
+    }
+    .stats-row{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:16px;margin:24px 0 32px;
+    }
+    @media (max-width:720px){ .stats-row{grid-template-columns:1fr;} }
+    .stat-card{
+      background:var(--color-surface);
+      border:1px solid var(--color-divider);
+      border-radius:12px;
+      padding:18px 20px;
+    }
+    .stat-card .lbl{
+      color:var(--color-text-muted);
+      font-size:11px;font-weight:600;letter-spacing:0.08em;
+      text-transform:uppercase;margin-bottom:6px;
+      font-family:'Inter',sans-serif;
+    }
+    .stat-card .val{
+      font-family:'Playfair Display',Georgia,serif;
+      font-size:1.6rem;font-weight:800;color:var(--color-text);
+      line-height:1.1;
+    }
+    .stat-card .sub{
+      color:var(--color-text-muted);font-size:13px;margin-top:6px;
+    }
+    .stat-card .accent{ color:#e07828; }
+    .stat-card .green-pos{ color:#7a8c5e; }
+    .chart-wrap{
+      background:var(--color-surface);
+      border:1px solid var(--color-divider);
+      border-radius:12px;
+      padding:20px;
+      margin:24px 0;
+    }
+    .chart-title{
+      font-family:'Playfair Display',Georgia,serif;
+      font-size:1.4rem;font-weight:800;color:var(--color-text);
+      margin:0 0 4px;
+    }
+    .chart-note{
+      color:var(--color-text-muted);font-size:13px;margin:0 0 16px;
+      font-family:'Inter',sans-serif;
+    }
+    canvas{ max-width:100%; height:auto; }
+    .legend-grid{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+      gap:6px 14px;margin-top:14px;
+    }
+    .legend-item{
+      display:flex;align-items:center;gap:8px;
+      font-size:12px;font-family:'Inter',sans-serif;
+      color:var(--color-text-muted);
+      cursor:pointer;
+      user-select:none;
+    }
+    .legend-item.off{ opacity:0.35; text-decoration:line-through; }
+    .legend-swatch{
+      width:14px;height:3px;border-radius:2px;flex-shrink:0;
+    }
+    .legend-name{
+      color:var(--color-text);font-weight:600;
+    }
+    .data-note{
+      background:var(--color-surface);
+      border-left:3px solid #e07828;
+      border-radius:8px;
+      padding:16px 18px;
+      margin:24px 0;
+      color:var(--color-text-muted);
+      font-size:13px;line-height:1.7;
+      font-family:'Inter',sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-masthead">
+        <a href="/" class="nav-logo-center" aria-label="All City Greens home">
+          <img src="/logo.png" alt="All City Greens badge logo" class="nav-logo-img-lg">
+          <span class="nav-logo-wordmark">All City Greens</span>
+        </a>
+      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/#deals">Deals</a>
+        <a href="/trends/" style="color:#e07828;">Trends</a>
+        <a href="/#dispensaries">Dispensaries</a>
+        <a href="/#subscribe">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="trends-hero">
+      <div class="container container-narrow" style="max-width:960px;">
+        <p class="trends-eyebrow">Price Trends</p>
+        <h1 class="section-title" style="margin:0 0 12px;">How Cincinnati cannabis prices move.</h1>
+        <p style="color:var(--color-text-muted);font-size:1.05rem;line-height:1.7;margin:0;font-family:'Inter',sans-serif;">
+          Daily averages tracked since March 2026. The lines below show how each dispensary's
+          <strong>average flower price</strong> has shifted over time. Nothing fancy — just the
+          data we already scrape every morning, plotted so you can spot who's cheaper, who's
+          climbing, and where to shop today.
+        </p>
+
+        <div class="stats-row" id="stats-row">
+          <!-- populated by JS -->
+        </div>
+
+        <div class="chart-wrap">
+          <h2 class="chart-title">Average flower price · per dispensary</h2>
+          <p class="chart-note">Dollars per item, weighted by product count. Click a name below to hide/show.</p>
+          <canvas id="price-chart" width="960" height="480"></canvas>
+          <div class="legend-grid" id="legend"></div>
+        </div>
+
+        <div class="data-note">
+          <strong style="color:var(--color-text);">About the data.</strong>
+          Each morning's scrape pulls every flower SKU from each dispensary's public menu and
+          records the average price. Sister locations under the same brand (e.g., The Garden
+          at Camp Washington + Sycamore) are merged into a single line. Gaps in the chart
+          reflect days the scraper didn't run, not zero pricing. Days with fewer than 5 SKUs
+          for a dispensary are excluded as unreliable signal.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="All City Greens home">
+            <img src="/logo.png" alt="All City Greens badge logo" class="nav-logo-img">
+            <span class="nav-logo-text">All City Greens</span>
+          </a>
+          <p class="footer-tagline">Straightforward. Reliable. Free.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:hello@allcitygreens.com">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">Prices change frequently. Always verify with the dispensary before visiting. Must be 21+ with valid ID. Ohio recreational cannabis rules apply.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <script>
+    // ── Brand-matched colour ramp for up to 12 dispensaries ─────────────
+    const PALETTE = [
+      '#e07828', // burnt orange (accent)
+      '#8fa870', // olive primary
+      '#c8891a', // gold
+      '#7a8c5e', // olive mid
+      '#a89460', // tan
+      '#6b8060', // moss
+      '#d4a030', // bright gold
+      '#b8825a', // copper
+      '#9aa078', // sage
+      '#bf6a20', // rust
+      '#8c9080', // grey-olive
+      '#a06030', // mahogany
+    ];
+
+    // Pretty dispensary names — brand_key -> Display Name
+    const PRETTY = {
+      'garden club dispensary': 'Garden Club',
+      'shangri-la': 'Shangri-La',
+      'shangri-la monroe': 'Shangri-La (Monroe)',
+      'story': 'Story',
+      'the garden dispensary': 'The Garden',
+      'therapy cannabis': 'Therapy Cannabis',
+      'uplift': 'UpLift',
+      'verilife': 'Verilife',
+      'zen leaf': 'Zen Leaf',
+      'locals cannabis': 'Locals',
+      'beyond hello': 'Beyond Hello',
+      'nectar': 'Nectar',
+    };
+
+    function fmtDate(d) {
+      const [y, m, day] = d.split('-');
+      return new Date(+y, +m - 1, +day).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    }
+
+    fetch('/trends-data.json', { cache: 'no-store' })
+      .then(r => r.json())
+      .then(render)
+      .catch(err => {
+        document.getElementById('price-chart').replaceWith(
+          Object.assign(document.createElement('p'),
+            { textContent: 'Trend data is loading — check back in a minute.',
+              style: 'color:var(--color-text-muted);text-align:center;padding:32px;' }));
+      });
+
+    function render(data) {
+      const dates = data.dates;
+      const labels = dates.map(fmtDate);
+      const brands = Object.keys(data.dispensaries).sort();
+
+      // Build datasets — fill missing dates with null so chart bridges gaps
+      const datasets = brands.map((bk, i) => {
+        const byDate = Object.fromEntries(data.dispensaries[bk].map(p => [p.date, p.avg]));
+        return {
+          label: PRETTY[bk] || bk.replace(/\b\w/g, c => c.toUpperCase()),
+          brandKey: bk,
+          data: dates.map(d => byDate[d] ?? null),
+          borderColor: PALETTE[i % PALETTE.length],
+          backgroundColor: PALETTE[i % PALETTE.length] + '22',
+          borderWidth: 2.5,
+          tension: 0.25,
+          spanGaps: true,
+          pointRadius: 3,
+          pointHoverRadius: 6,
+          pointBackgroundColor: PALETTE[i % PALETTE.length],
+        };
+      });
+
+      // ── Stat cards ─────────────────────────────────────────────────────
+      const latest = dates[dates.length - 1];
+      const todays = brands
+        .map(bk => {
+          const pts = data.dispensaries[bk];
+          const last = pts[pts.length - 1];
+          return last.date === latest ? { bk, avg: last.avg, min: last.min } : null;
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.avg - b.avg);
+
+      // 1. Cheapest today
+      const cheapest = todays[0];
+
+      // 2. Biggest mover (largest absolute change between first and last data point)
+      const movers = brands.map(bk => {
+        const pts = data.dispensaries[bk];
+        const first = pts[0].avg, last = pts[pts.length - 1].avg;
+        return { bk, first, last, delta: last - first, pct: ((last - first) / first) * 100 };
+      }).sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
+      const mover = movers[0];
+
+      // 3. Days tracked
+      const daysTracked = dates.length;
+
+      const statsHtml = `
+        <div class="stat-card">
+          <div class="lbl">Cheapest avg today</div>
+          <div class="val accent">${PRETTY[cheapest.bk] || cheapest.bk}</div>
+          <div class="sub">$${cheapest.avg.toFixed(2)} average · $${cheapest.min.toFixed(2)} lowest item</div>
+        </div>
+        <div class="stat-card">
+          <div class="lbl">Biggest mover</div>
+          <div class="val ${mover.delta < 0 ? 'green-pos' : 'accent'}">${PRETTY[mover.bk] || mover.bk}</div>
+          <div class="sub">${mover.delta >= 0 ? '+' : ''}$${mover.delta.toFixed(2)} (${mover.pct >= 0 ? '+' : ''}${mover.pct.toFixed(1)}%) since first scrape</div>
+        </div>
+        <div class="stat-card">
+          <div class="lbl">Days tracked</div>
+          <div class="val">${daysTracked}</div>
+          <div class="sub">From ${fmtDate(dates[0])} to ${fmtDate(latest)}</div>
+        </div>`;
+      document.getElementById('stats-row').innerHTML = statsHtml;
+
+      // ── Chart ───────────────────────────────────────────────────────────
+      const ctx = document.getElementById('price-chart').getContext('2d');
+      const css = getComputedStyle(document.documentElement);
+      const txt = css.getPropertyValue('--color-text').trim() || '#e8e0cc';
+      const muted = css.getPropertyValue('--color-text-muted').trim() || '#a09070';
+      const grid = css.getPropertyValue('--color-divider').trim() || '#332f20';
+
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: { labels, datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#141209',
+              titleColor: '#f7f3ec',
+              bodyColor: '#e8e0cc',
+              borderColor: '#332f20',
+              borderWidth: 1,
+              padding: 12,
+              titleFont: { family: 'Playfair Display, serif', size: 14, weight: '700' },
+              bodyFont: { family: 'Inter, sans-serif', size: 12 },
+              callbacks: { label: c => `${c.dataset.label}: $${c.parsed.y?.toFixed(2) ?? '—'}` },
+            },
+          },
+          scales: {
+            x: { ticks: { color: muted, font: { family: 'Inter, sans-serif' } },
+                 grid: { color: grid, drawBorder: false } },
+            y: { ticks: { color: muted, font: { family: 'Inter, sans-serif' },
+                          callback: v => '$' + v },
+                 grid: { color: grid, drawBorder: false },
+                 title: { display: true, text: 'Avg flower price ($)',
+                          color: muted, font: { family: 'Inter, sans-serif', size: 12 } } },
+          },
+        },
+      });
+
+      // Make canvas height responsive
+      document.getElementById('price-chart').parentElement.style.height = '480px';
+
+      // ── Legend with click-to-hide ──────────────────────────────────────
+      const legendHtml = datasets.map((ds, i) => `
+        <div class="legend-item" data-i="${i}">
+          <span class="legend-swatch" style="background:${ds.borderColor};"></span>
+          <span class="legend-name">${ds.label}</span>
+        </div>`).join('');
+      const legendEl = document.getElementById('legend');
+      legendEl.innerHTML = legendHtml;
+      legendEl.addEventListener('click', e => {
+        const item = e.target.closest('.legend-item');
+        if (!item) return;
+        const i = +item.dataset.i;
+        const visible = chart.isDatasetVisible(i);
+        chart.setDatasetVisibility(i, !visible);
+        item.classList.toggle('off', visible);
+        chart.update();
+      });
+    }
+  </script>
+
+</body>
+</html>

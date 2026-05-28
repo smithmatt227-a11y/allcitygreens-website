@@ -142,10 +142,47 @@ def display_disp_name(scraper_name: str) -> str:
     return name
 
 
+_WEIGHT_OR_DOSE = re.compile(
+    r'^\s*(?:'
+    r'[\d.]+\s*(?:g|oz|mg/ea|mg/each)|'   # 1g, 0.5oz, 10mg/ea — drop, useless on its own
+    r'\.\d+\s*g|'                          # .84g
+    r'\d+/\d+\s*(?:g|oz)'                  # 7/10 g, 1/8 oz
+    r')\s*$',
+    re.IGNORECASE,
+)
+
+# Known brand prefixes — first pipe-segment is the brand, drop it
+_BRAND_PREFIXES = {
+    "redbud roots", "riviera creek", "certified cultivators", "klutch", "josh d",
+    "kynd", "the essence", "(the) essence", "g", "g:", "k.i.n.d.",
+}
+
+
 def clean_product_name(raw_name: str) -> str:
-    if "|" in raw_name:
-        raw_name = raw_name.rsplit("|", 1)[-1].strip()
-    return raw_name
+    """
+    Make a pipe-separated scraper name display-worthy.
+    Strategy:
+      1. Trim trailing per-unit weight/dose tokens (1g, 10mg/ea, .84g…). Pack
+         counts (10pk, 60pk) are preserved — they're real product info.
+      2. Drop a leading recognized brand prefix.
+      3. Join remaining pipe-segments with ' — '.
+    Always returns a usable product identity — never just '10mg/ea' or '60pk'.
+    """
+    if not raw_name:
+        return ""
+    s = raw_name.strip()
+    if "|" not in s:
+        return s
+    parts = [p.strip() for p in s.split("|") if p.strip()]
+    if len(parts) <= 1:
+        return s
+    # 1. Trim trailing weight-only tokens
+    while len(parts) > 1 and _WEIGHT_OR_DOSE.match(parts[-1]):
+        parts.pop()
+    # 2. Drop leading brand if recognized
+    if len(parts) > 1 and parts[0].lower().strip().rstrip(":") in _BRAND_PREFIXES:
+        parts = parts[1:]
+    return " — ".join(parts).strip() or s
 
 
 def deduplicate(deals: list) -> list:

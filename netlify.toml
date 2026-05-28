@@ -1,0 +1,32 @@
+# All City Greens — Netlify configuration
+
+[build]
+  publish     = "."
+  functions   = "netlify/functions"
+
+# Pretty URLs: /about → /about/index.html is handled by Netlify automatically.
+# Fall back to 404.html for any unknown path.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options       = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy       = "strict-origin-when-cross-origin"
+    Permissions-Policy    = "geolocation=(), microphone=(), camera=()"
+
+# Cache static assets aggressively; HTML lightly so deploys propagate quickly.
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — All City Greens</title>
+  <meta name="description" content="Why All City Greens exists and who's behind it — Cincinnati's independent daily dispensary price guide.">
+
+  <meta property="og:title" content="About — All City Greens">
+  <meta property="og:description" content="Cincinnati's independent daily dispensary price guide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://allcitygreens.com/about/">
+  <meta property="og:image" content="https://allcitygreens.com/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://allcitygreens.com/about/">
+</head>
+<body>
+
+  <!-- NAV (matches main site) -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-masthead">
+        <a href="/" class="nav-logo-center" aria-label="All City Greens home">
+          <img src="/logo.png" alt="All City Greens badge logo" class="nav-logo-img-lg">
+          <span class="nav-logo-wordmark">All City Greens</span>
+        </a>
+      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/#deals">Deals</a>
+        <a href="/#dispensaries">Dispensaries</a>
+        <a href="/#subscribe">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="section">
+      <div class="container container-narrow" style="max-width:720px;">
+
+        <header style="margin-bottom:32px;">
+          <p style="color:#e07828;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 12px;font-family:'Inter',sans-serif;">About</p>
+          <h1 class="section-title" style="margin:0 0 12px;">Cincinnati's daily price guide, run by someone who actually shops here.</h1>
+          <p style="color:var(--color-text-muted);font-size:1.05rem;line-height:1.7;margin:0;">All City Greens is an independent, free daily email that tracks deals and prices across Cincinnati-area dispensaries. We're not a dispensary. We don't sell anything. We just monitor public menus every morning and pass the best of it along.</p>
+        </header>
+
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:32px 0 12px;">Why this exists</h2>
+        <p style="line-height:1.75;color:var(--color-text);">Cannabis pricing in Ohio is a moving target. The same product can swing $15 in a day. Dispensaries run flash sales that aren't advertised anywhere except their own menu. Driving past three shops to compare prices burns more gas than the discount you'd save. So I built a scraper that does it for me each morning — and once I'd done that, it felt obvious to share.</p>
+
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:32px 0 12px;">How it works</h2>
+        <p style="line-height:1.75;color:var(--color-text);">Every morning before sunrise, an automated script visits the public menu of each tracked dispensary, pulls live pricing, deduplicates products across sister locations, and ranks the best deals by category. The daily email lands in your inbox at 8 AM. The website updates at the same time so you can browse from your phone in the parking lot.</p>
+        <p style="line-height:1.75;color:var(--color-text);">All data comes from each dispensary's own public website — no scraping behind a login, no insider feeds, no special access. If a dispensary updates their menu before you visit, you'll see the latest the next morning.</p>
+
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:32px 0 12px;">What we don't do</h2>
+        <ul style="line-height:1.8;color:var(--color-text);padding-left:1.2em;">
+          <li><strong>Take money from dispensaries.</strong> No sponsored placements, no "featured deal" payola, no affiliate kickbacks. The deal ordering is purely by discount.</li>
+          <li><strong>Sell your data.</strong> Email is for the daily newsletter. Full stop. See the <a href="/privacy/" style="color:var(--color-accent);">privacy policy</a>.</li>
+          <li><strong>Run ads.</strong> Site stays clean. Email stays clean.</li>
+          <li><strong>Guarantee prices.</strong> Menus change throughout the day — always confirm at the dispensary before you roll out.</li>
+        </ul>
+
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:32px 0 12px;">Who's behind this</h2>
+        <p style="line-height:1.75;color:var(--color-text);">All City Greens is a one-person side project run out of Cincinnati. Questions, corrections, or "you missed this dispensary" notes go to <a href="mailto:hello@allcitygreens.com" style="color:var(--color-accent);">hello@allcitygreens.com</a> and I'll see them.</p>
+
+        <div style="margin:48px 0 0;padding:24px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:12px;text-align:center;">
+          <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin:0 0 8px;">Want the daily email?</p>
+          <p style="color:var(--color-text-muted);font-size:0.95rem;margin:0 0 16px;">Free. Sent every morning. Unsubscribe anytime.</p>
+          <form class="cta-form" id="subscribe-form-about" onsubmit="return false;" style="max-width:420px;margin:0 auto;">
+            <div class="form-row">
+              <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address" class="form-input">
+              <button type="submit" class="btn btn-primary">Subscribe free</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- FOOTER (matches main site) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" aria-label="All City Greens home">
+            <img src="/logo.png" alt="All City Greens badge logo" class="nav-logo-img">
+            <span class="nav-logo-text">All City Greens</span>
+          </a>
+          <p class="footer-tagline">Straightforward. Reliable. Free.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="mailto:hello@allcitygreens.com">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">Prices change frequently. Always verify with the dispensary before visiting. Must be 21+ with valid ID. Ohio recreational cannabis rules apply.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Subscribe form (same handler as homepage)
+    (function () {
+      var ENDPOINT = '/api/subscribe';
+      function showInlineError(form, msg) {
+        var existing = form.querySelector('.subscribe-error');
+        if (existing) existing.remove();
+        var el = document.createElement('div');
+        el.className = 'subscribe-error';
+        el.setAttribute('role', 'alert');
+        el.style.cssText = 'color:#d46030;font-size:12px;margin-top:8px;font-weight:600;';
+        el.textContent = msg;
+        form.appendChild(el);
+      }
+      function showSuccess(form, already) {
+        var msg = document.createElement('div');
+        msg.className = 'subscribe-success';
+        msg.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> ' +
+          (already ? "You're already on the list — first email lands at 8 AM tomorrow." : "You're in. First email arrives at 8 AM tomorrow.");
+        form.style.display = 'none';
+        form.parentElement.appendChild(msg);
+      }
+      document.querySelectorAll('form[id^="subscribe-form"]').forEach(function (form) {
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          var input = form.querySelector('input[type="email"]');
+          var btn   = form.querySelector('button[type="submit"]');
+          var email = (input && input.value || '').trim();
+          if (!email) return;
+          var orig = btn ? btn.textContent : null;
+          if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
+          try {
+            var res = await fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email})});
+            var data = {}; try { data = await res.json(); } catch (_) {}
+            if (res.ok && data.ok) { showSuccess(form, !!data.already_subscribed); return; }
+            showInlineError(form, "Couldn't subscribe — try again?");
+          } catch (_) {
+            showInlineError(form, "Network error. Try again?");
+          } finally {
+            if (btn) { btn.disabled = false; if (orig) btn.textContent = orig; }
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

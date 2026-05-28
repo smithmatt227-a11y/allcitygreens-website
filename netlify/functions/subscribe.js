@@ -52,6 +52,10 @@ export default async (req, context) => {
         email,
         reactivate_existing: true,
         send_welcome_email: true,
+        // Beehiiv defaults API-created subscribers to status="validating" even
+        // when publication-level Double Opt-in is OFF. This explicitly bypasses
+        // the validation step so subs land as Active immediately.
+        double_opt_override: 'on',
         utm_source: 'allcitygreens.com',
         utm_medium: 'website-form',
         referring_site: referrer,

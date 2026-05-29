@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-28T11:06:05.811987+00:00",
-  "verified_time": "7:06 AM",
-  "report_date": "2026-05-28",
-  "brand_count": 10,
+  "generated_at": "2026-05-29T21:30:59.825451+00:00",
+  "verified_time": "5:30 PM",
+  "report_date": "2026-05-29",
+  "brand_count": 9,
   "brands": [
     {
       "name": "Tasteology",
@@ -139,7 +139,7 @@
       }
     },
     {
-      "name": "(the) Essence",
+      "name": "Savvy",
       "deal_count": 1,
       "dispensaries": [
         "Zen Leaf - Cincinnati"
@@ -147,13 +147,13 @@
       "categories": [
         "Vape Pens"
       ],
-      "best_discount": 28,
+      "best_discount": 26,
       "cheapest": {
-        "product": "Cereal Milk \u2014 Disposable",
-        "price": 39.0,
-        "original_price": 54.5,
+        "product": "Savvy \u2014 Blue Raz Haze \u2014 Disposable",
+        "price": 59.0,
+        "original_price": 79.5,
         "on_sale": true,
-        "discount_pct": 28,
+        "discount_pct": 26,
         "category": "Vape Pens",
         "dispensary": "Zen Leaf - Cincinnati",
         "url": "https://zenleafdispensaries.com/locations/cincinnati/"
@@ -168,13 +168,13 @@
       "categories": [
         "Concentrates"
       ],
-      "best_discount": 15,
+      "best_discount": 20,
       "cheapest": {
         "product": "#HASH #LIVERESIN",
-        "price": 42.5,
+        "price": 40.0,
         "original_price": 50.0,
         "on_sale": true,
-        "discount_pct": 15,
+        "discount_pct": 20,
         "category": "Concentrates",
         "dispensary": "UpLift - Milford",
         "url": "https://www.upliftohio.com/milford/"
@@ -197,27 +197,6 @@
         "on_sale": false,
         "discount_pct": 0,
         "category": "Flower",
-        "dispensary": "Zen Leaf - Cincinnati",
-        "url": "https://zenleafdispensaries.com/locations/cincinnati/"
-      }
-    },
-    {
-      "name": "The Botanist",
-      "deal_count": 1,
-      "dispensaries": [
-        "Zen Leaf - Cincinnati"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 0,
-      "cheapest": {
-        "product": "The Botanist \u2014 Grapple Pie \u2014 Pre Roll",
-        "price": 12.5,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Pre-Rolls",
         "dispensary": "Zen Leaf - Cincinnati",
         "url": "https://zenleafdispensaries.com/locations/cincinnati/"
       }

@@ -81,6 +81,28 @@ CAT_DISPLAY = {
     "edibles": "Edibles", "pre_rolls": "Pre-Rolls", "vapes": "Vapes",
 }
 
+# Set in main() from the scrape's generated_at — e.g. "7:06 AM". Surfaced as a
+# trust line on every deal card ("✓ Verified 7:06 AM today").
+VERIFIED_TIME = ""
+
+
+def format_verified_time(data: dict) -> str:
+    """Return a friendly Eastern-time label like '7:06 AM' from the scrape's
+    generated_at timestamp. Empty string if unavailable."""
+    from datetime import datetime, timedelta, timezone
+    ts = data.get("generated_at") or ""
+    if not ts:
+        return ""
+    try:
+        dt = datetime.fromisoformat(ts)
+        if dt.tzinfo is not None:
+            # Convert to US Eastern. EDT (UTC-4) is correct late Mar–early Nov;
+            # the scrape runs in summer months, so -4 is a safe fixed offset.
+            dt = dt.astimezone(timezone(timedelta(hours=-4)))
+        return dt.strftime("%-I:%M %p")
+    except Exception:
+        return ""
+
 # ─────────────────────────────────────────────────────────────────────────────
 # DATA HELPERS
 # ─────────────────────────────────────────────────────────────────────────────
@@ -483,6 +505,93 @@ def build_trends_data() -> dict:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# BRANDS DATA — builds /brands-data.json (brands on sale today, cheapest source)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _norm_brand(raw: str) -> str:
+    """Light normalization so 'kynd' / 'Kynd Cannabis' style variants collapse."""
+    return re.sub(r'\s+', ' ', (raw or "").strip()).strip(" -|").lower()
+
+
+def build_brands_data(data: dict) -> dict:
+    """
+    Aggregate today's curated deals by brand. The daily summary only stores the
+    highlight/category deals (not full menus), so this is intentionally framed
+    as 'brands on sale today, and where each is cheapest right now'.
+
+    Returns a JSON-ready payload the /brands/ page renders client-side.
+    """
+    from collections import defaultdict
+    from datetime import datetime
+
+    # Gather every available deal item, dedupe by (name, dispensary).
+    items = []
+    for cat_items in (data.get("deals_by_category") or {}).values():
+        items.extend(cat_items or [])
+    for disp in data.get("dispensaries", []):
+        items.extend(disp.get("highlights") or [])
+
+    seen = set()
+    by_brand = defaultdict(list)
+    for it in items:
+        brand_raw = (it.get("brand") or "").strip()
+        if not brand_raw:
+            continue
+        key = (it.get("name", "").strip().lower(), it.get("dispensary", "").strip().lower())
+        if key in seen or not key[0]:
+            continue
+        seen.add(key)
+        by_brand[_norm_brand(brand_raw)].append({**it, "_brand_display": brand_raw})
+
+    brands = []
+    for _, entries in by_brand.items():
+        # Display name = most common original spelling
+        display = max(set(e["_brand_display"] for e in entries),
+                      key=lambda b: sum(1 for e in entries if e["_brand_display"] == b))
+
+        def _price(e):
+            return e.get("price") if isinstance(e.get("price"), (int, float)) else 9e9
+        cheapest = min(entries, key=_price)
+
+        dispensaries = sorted({display_disp_name(e.get("dispensary", "")) for e in entries})
+        categories   = sorted({CAT_DISPLAY.get(e.get("category", ""),
+                               (e.get("category", "") or "").replace("_", " ").title())
+                               for e in entries if e.get("category")})
+        best_disc = max((int(e.get("discount_pct") or 0) for e in entries), default=0)
+
+        c_orig = cheapest.get("original_price")
+        brands.append({
+            "name": display,
+            "deal_count": len(entries),
+            "dispensaries": dispensaries,
+            "categories": [c for c in categories if c],
+            "best_discount": best_disc,
+            "cheapest": {
+                "product": clean_product_name(cheapest.get("name", "")),
+                "price": cheapest.get("price"),
+                "original_price": c_orig if (isinstance(c_orig, (int, float)) and c_orig and c_orig > (cheapest.get("price") or 0)) else None,
+                "on_sale": bool(cheapest.get("on_sale")),
+                "discount_pct": int(cheapest.get("discount_pct") or 0),
+                "category": CAT_DISPLAY.get(cheapest.get("category", ""),
+                            (cheapest.get("category", "") or "").replace("_", " ").title()),
+                "dispensary": display_disp_name(cheapest.get("dispensary", "")),
+                "url": disp_url(cheapest.get("dispensary", "")),
+            },
+        })
+
+    # Sort: most deals first, then biggest discount, then name
+    brands.sort(key=lambda b: (-b["deal_count"], -b["best_discount"], b["name"].lower()))
+
+    return {
+        "generated_at": data.get("generated_at"),
+        "verified_time": format_verified_time(data),
+        "report_date": data.get("report_date"),
+        "brand_count": len(brands),
+        "brands": brands,
+    }
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # INJECTION
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -514,6 +623,9 @@ def main():
 
     report_date      = data.get("report_date", "unknown")
     total_products   = data.get("total_products", 0)
+
+    global VERIFIED_TIME
+    VERIFIED_TIME = format_verified_time(data)
 
     # Dispensary count for the hero stat row. Must match the count of brand
     # cards in the <section id="dispensaries"> grid below, since users will
@@ -599,6 +711,13 @@ def main():
     n_disp = len(trends_payload.get("dispensaries", {}))
     n_dates = len(trends_payload.get("dates", []))
     print(f"✅  trends-data.json refreshed ({n_disp} dispensaries, {n_dates} days)")
+
+    # 6. Refresh /brands-data.json for the /brands/ directory page
+    brands_path = SCRIPT_DIR / "brands-data.json"
+    brands_payload = build_brands_data(data)
+    brands_path.write_text(json.dumps(brands_payload, indent=2), encoding="utf-8")
+    print(f"✅  brands-data.json refreshed ({brands_payload.get('brand_count', 0)} brands)")
+
     print("\nNext steps:")
     print("  git add -A")
     print(f'  git commit -m "data: refresh {report_date}"')

@@ -1,31 +1,9 @@
 {
-  "generated_at": "2026-05-29T21:30:59.825451+00:00",
-  "verified_time": "5:30 PM",
+  "generated_at": "2026-05-30T01:14:46.232978+00:00",
+  "verified_time": "9:14 PM",
   "report_date": "2026-05-29",
   "brand_count": 9,
   "brands": [
-    {
-      "name": "Tasteology",
-      "deal_count": 5,
-      "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 41,
-      "cheapest": {
-        "product": "Blood Orange \u2014 Gummies \u2014 10pk",
-        "price": 13.0,
-        "original_price": 22.0,
-        "on_sale": true,
-        "discount_pct": 41,
-        "category": "Edibles",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/menu/"
-      }
-    },
     {
       "name": "Certified Cultivators",
       "deal_count": 5,
@@ -48,6 +26,28 @@
         "category": "Vape Pens",
         "dispensary": "UpLift - Milford",
         "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
+      "name": "Tasteology",
+      "deal_count": 3,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 41,
+      "cheapest": {
+        "product": "Blood Orange \u2014 Gummies \u2014 10pk",
+        "price": 13.0,
+        "original_price": 22.0,
+        "on_sale": true,
+        "discount_pct": 41,
+        "category": "Edibles",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
       }
     },
     {
@@ -74,26 +74,46 @@
       }
     },
     {
-      "name": "Butterfly Effect - Grow Ohio",
+      "name": "Klutch Cannabis",
       "deal_count": 2,
       "dispensaries": [
-        "Therapy Cannabis - Cincinnati",
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 36,
+      "cheapest": {
+        "product": "Permanent Marker - Live Badder 0.59g",
+        "price": 32.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 36,
+        "category": "Concentrates",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
+      "name": "Butterfly Effect - Grow Ohio",
+      "deal_count": 1,
+      "dispensaries": [
         "UpLift - Milford"
       ],
       "categories": [
-        "Edibles",
         "Flower"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Blueberry Lemonade Hard Candies (10pk, 110mg)",
-        "price": 17.5,
-        "original_price": 25.0,
+        "product": "Zerealz - 2.83g Flower",
+        "price": 22.4,
+        "original_price": 32.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Edibles",
-        "dispensary": "Therapy Cannabis - Cincinnati",
-        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
+        "category": "Flower",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -157,27 +177,6 @@
         "category": "Vape Pens",
         "dispensary": "Zen Leaf - Cincinnati",
         "url": "https://zenleafdispensaries.com/locations/cincinnati/"
-      }
-    },
-    {
-      "name": "#HASH",
-      "deal_count": 1,
-      "dispensaries": [
-        "UpLift - Milford"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 20,
-      "cheapest": {
-        "product": "#HASH #LIVERESIN",
-        "price": 40.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 20,
-        "category": "Concentrates",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {

@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-30T01:14:46.232978+00:00",
-  "verified_time": "9:14 PM",
-  "report_date": "2026-05-29",
+  "generated_at": "2026-05-30T13:36:30.420465+00:00",
+  "verified_time": "9:36 AM",
+  "report_date": "2026-05-30",
   "brand_count": 9,
   "brands": [
     {
@@ -75,10 +75,9 @@
     },
     {
       "name": "Klutch Cannabis",
-      "deal_count": 2,
+      "deal_count": 1,
       "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore"
+        "The Garden - Camp Washington"
       ],
       "categories": [
         "Concentrates"

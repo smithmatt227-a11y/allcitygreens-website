@@ -876,6 +876,7 @@ a, button, input { transition: all var(--transition); }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 768px) {
+  .nav-inner { padding-top: calc(var(--space-6) + env(safe-area-inset-top, 0px)); }
   .hero .container { grid-template-columns: 1fr; }
   .hero-visual { display: block; margin-top: var(--space-6); }
   .hero-stats { flex-wrap: wrap; gap: var(--space-4); }

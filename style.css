@@ -1,32 +1,32 @@
 /* ─── DESIGN TOKENS ──────────────────────────────────────── */
 /* Fjällräven-inspired: deep olive, burnt orange, sand canvas  */
 :root, [data-theme="light"] {
-  /* Warm sand canvas base */
-  --color-bg:              #f0ebe0;
-  --color-surface:         #ede8dd;
-  --color-surface-2:       #f7f3ec;
-  --color-surface-offset:  #e4ddd0;
-  --color-divider:         #d6cfc0;
-  --color-border:          #c4bbaa;
+  /* Roland-Garros — minty sand canvas base */
+  --color-bg:              #eef3e9;
+  --color-surface:         #e7efe0;
+  --color-surface-2:       #f5f9f1;
+  --color-surface-offset:  #dde7d4;
+  --color-divider:         #cdddc4;
+  --color-border:          #b9ceac;
 
-  --color-text:            #1e1c18;
-  --color-text-muted:      #5c5346;
-  --color-text-faint:      #9c9282;
-  --color-text-inverse:    #f7f3ec;
+  --color-text:            #14271c;
+  --color-text-muted:      #4c5d4f;
+  --color-text-faint:      #8a9b8c;
+  --color-text-inverse:    #f5f9f1;
 
-  /* Deep forest olive — primary brand */
-  --color-primary:         #3d4a2e;
-  --color-primary-hover:   #2e3820;
-  --color-primary-active:  #1f2614;
-  --color-primary-light:   #e8e4d4;
-  --color-primary-mid:     #7a8c5e;
+  /* Roland-Garros court green — primary brand */
+  --color-primary:         #1f6b43;
+  --color-primary-hover:   #185536;
+  --color-primary-active:  #123f28;
+  --color-primary-light:   #d9efe0;
+  --color-primary-mid:     #4fb985;
 
-  /* Burnt orange — CTA accent */
-  --color-accent:          #c8621a;
-  --color-accent-hover:    #a84f12;
+  /* Clay orange — CTA accent */
+  --color-accent:          #d96f33;
+  --color-accent-hover:    #bd5a22;
 
-  --color-sale:            #b84a10;
-  --color-sale-bg:         #f5e8de;
+  --color-sale:            #c8521f;
+  --color-sale-bg:         #f6e7dd;
 
   --color-gold:            #c8891a;
 
@@ -69,32 +69,32 @@
 }
 
 [data-theme="dark"] {
-  /* Deep forest night */
-  --color-bg:              #141209;
-  --color-surface:         #1a1810;
-  --color-surface-2:       #211f15;
-  --color-surface-offset:  #272518;
-  --color-divider:         #332f20;
-  --color-border:          #403c28;
+  /* Roland-Garros court night */
+  --color-bg:              #0c1f16;
+  --color-surface:         #11271c;
+  --color-surface-2:       #163020;
+  --color-surface-offset:  #1b3826;
+  --color-divider:         #234433;
+  --color-border:          #2c513b;
 
-  --color-text:            #e8e0cc;
-  --color-text-muted:      #a09070;
-  --color-text-faint:      #5c5438;
-  --color-text-inverse:    #141209;
+  --color-text:            #e9f1e7;
+  --color-text-muted:      #9fb6a4;
+  --color-text-faint:      #5f7565;
+  --color-text-inverse:    #0c1f16;
 
-  /* Olive lightened for dark bg */
-  --color-primary:         #8fa870;
-  --color-primary-hover:   #a8c088;
-  --color-primary-active:  #c0d8a0;
-  --color-primary-light:   #252818;
-  --color-primary-mid:     #6a8050;
+  /* Mint — signature green on dark court */
+  --color-primary:         #6fd79f;
+  --color-primary-hover:   #8ee9b8;
+  --color-primary-active:  #a6f0c9;
+  --color-primary-light:   #16301f;
+  --color-primary-mid:     #4fb985;
 
-  /* Burnt orange stays warm in dark */
-  --color-accent:          #e07828;
-  --color-accent-hover:    #f08838;
+  /* Clay orange stays warm in dark */
+  --color-accent:          #df7a38;
+  --color-accent-hover:    #ef9050;
 
-  --color-sale:            #d46030;
-  --color-sale-bg:         #2a1a0a;
+  --color-sale:            #e07a3f;
+  --color-sale-bg:         #2a1a0d;
 
   --color-gold:            #d4a030;
 
@@ -106,12 +106,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --color-bg: #141209; --color-surface: #1a1810; --color-surface-2: #211f15;
-    --color-surface-offset: #272518; --color-divider: #332f20; --color-border: #403c28;
-    --color-text: #e8e0cc; --color-text-muted: #a09070; --color-text-faint: #5c5438;
-    --color-text-inverse: #141209; --color-primary: #8fa870; --color-primary-hover: #a8c088;
-    --color-primary-light: #252818; --color-accent: #e07828; --color-accent-hover: #f08838;
-    --color-sale: #d46030; --color-sale-bg: #2a1a0a; --color-gold: #d4a030;
+    --color-bg: #0c1f16; --color-surface: #11271c; --color-surface-2: #163020;
+    --color-surface-offset: #1b3826; --color-divider: #234433; --color-border: #2c513b;
+    --color-text: #e9f1e7; --color-text-muted: #9fb6a4; --color-text-faint: #5f7565;
+    --color-text-inverse: #0c1f16; --color-primary: #6fd79f; --color-primary-hover: #8ee9b8;
+    --color-primary-light: #16301f; --color-accent: #df7a38; --color-accent-hover: #ef9050;
+    --color-sale: #e07a3f; --color-sale-bg: #2a1a0d; --color-gold: #d4a030;
   }
 }
 
@@ -1116,8 +1116,8 @@ a.deal-card-link:hover,
 }
 
 /* Override hero blob colors to olive/ochre */
-.hero-blob-1 { background: #3d4a2e; opacity: 0.18; }
-.hero-blob-2 { background: #c8621a; opacity: 0.10; }
+.hero-blob-1 { background: #6fd79f; opacity: 0.16; }
+.hero-blob-2 { background: #d96f33; opacity: 0.10; }
 
 /* Utilitarian stat numbers — Inter bold, not display serif */
 .stat-num { font-family: var(--font-body); font-weight: 700; }

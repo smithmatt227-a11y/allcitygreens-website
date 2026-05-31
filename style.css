@@ -705,7 +705,7 @@ a, button, input { transition: all var(--transition); }
 /* ─── CTA SECTION ────────────────────────────────────────── */
 .section-cta {
   scroll-margin-top: 80px;
-  padding-block: clamp(var(--space-8), 4vw, var(--space-12));
+  padding-block: 2rem 2.5rem !important;
   background: linear-gradient(
     135deg,
     var(--color-primary) 0%,

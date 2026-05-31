@@ -713,10 +713,7 @@ a, button, input { transition: all var(--transition); }
   );
 }
 
-/* Softer matte mint for price guide mockup header + CTA section in dark theme */
-[data-theme="dark"] .mockup-header {
-  background: #659981;
-}
+/* Softer matte mint for CTA section in dark theme */
 [data-theme="dark"] .section-cta {
   background: linear-gradient(135deg, #659981 0%, #477060 100%);
 }
@@ -1304,7 +1301,7 @@ a.deal-card-link:hover,
 }
 @media (max-width: 768px) {
   .hero-logo-badge {
-    margin: 0 auto var(--space-3);
+    margin: 1.5rem auto var(--space-3);
   }
 }
 

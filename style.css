@@ -715,10 +715,10 @@ a, button, input { transition: all var(--transition); }
 
 /* Softer matte mint for price guide mockup header + CTA section in dark theme */
 [data-theme="dark"] .mockup-header {
-  background: #4a8c68;
+  background: #5aa882;
 }
 [data-theme="dark"] .section-cta {
-  background: linear-gradient(135deg, #4a8c68 0%, #386750 100%);
+  background: linear-gradient(135deg, #5aa882 0%, #3f7c5e 100%);
 }
 .cta-inner {
   display: flex;

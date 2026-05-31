@@ -705,11 +705,20 @@ a, button, input { transition: all var(--transition); }
 /* ─── CTA SECTION ────────────────────────────────────────── */
 .section-cta {
   scroll-margin-top: 80px;
+  padding-block: clamp(var(--space-8), 4vw, var(--space-12));
   background: linear-gradient(
     135deg,
     var(--color-primary) 0%,
     color-mix(in srgb, var(--color-primary) 80%, #000) 100%
   );
+}
+
+/* Softer matte mint for price guide mockup header + CTA section in dark theme */
+[data-theme="dark"] .mockup-header {
+  background: #4a8c68;
+}
+[data-theme="dark"] .section-cta {
+  background: linear-gradient(135deg, #4a8c68 0%, #386750 100%);
 }
 .cta-inner {
   display: flex;

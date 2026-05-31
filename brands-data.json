@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-30T13:36:30.420465+00:00",
-  "verified_time": "9:36 AM",
-  "report_date": "2026-05-30",
-  "brand_count": 9,
+  "generated_at": "2026-05-31T14:36:08.029764+00:00",
+  "verified_time": "10:36 AM",
+  "report_date": "2026-05-31",
+  "brand_count": 8,
   "brands": [
     {
       "name": "Certified Cultivators",
@@ -51,6 +51,30 @@
       }
     },
     {
+      "name": "Klutch Cannabis",
+      "deal_count": 3,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore",
+        "UpLift - Milford"
+      ],
+      "categories": [
+        "Concentrates",
+        "Flower"
+      ],
+      "best_discount": 36,
+      "cheapest": {
+        "product": "Ice Cream Cake - Flower 2.83g",
+        "price": 29.4,
+        "original_price": 42.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Flower",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
       "name": "Riviera Creek",
       "deal_count": 3,
       "dispensaries": [
@@ -71,48 +95,6 @@
         "category": "Concentrates",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
-      }
-    },
-    {
-      "name": "Klutch Cannabis",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Garden - Camp Washington"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 36,
-      "cheapest": {
-        "product": "Permanent Marker - Live Badder 0.59g",
-        "price": 32.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 36,
-        "category": "Concentrates",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/menu/"
-      }
-    },
-    {
-      "name": "Butterfly Effect - Grow Ohio",
-      "deal_count": 1,
-      "dispensaries": [
-        "UpLift - Milford"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Zerealz - 2.83g Flower",
-        "price": 22.4,
-        "original_price": 32.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Flower",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -147,9 +129,9 @@
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Blue Dream \u2014 Melted Diamond Live Resin Vaporizer \u2014 1.0g (Ready-To-Use)",
-        "price": 49.0,
-        "original_price": 70.0,
+        "product": "Sky \u2014 ROVE Classics",
+        "price": 38.5,
+        "original_price": 55.0,
         "on_sale": true,
         "discount_pct": 30,
         "category": "Vape Pens",
@@ -158,7 +140,7 @@
       }
     },
     {
-      "name": "Savvy",
+      "name": "(the) Essence",
       "deal_count": 1,
       "dispensaries": [
         "Zen Leaf - Cincinnati"
@@ -166,13 +148,13 @@
       "categories": [
         "Vape Pens"
       ],
-      "best_discount": 26,
+      "best_discount": 28,
       "cheapest": {
-        "product": "Savvy \u2014 Blue Raz Haze \u2014 Disposable",
-        "price": 59.0,
-        "original_price": 79.5,
+        "product": "Cereal Milk \u2014 Disposable",
+        "price": 39.0,
+        "original_price": 54.5,
         "on_sale": true,
-        "discount_pct": 26,
+        "discount_pct": 28,
         "category": "Vape Pens",
         "dispensary": "Zen Leaf - Cincinnati",
         "url": "https://zenleafdispensaries.com/locations/cincinnati/"

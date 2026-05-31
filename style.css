@@ -1439,15 +1439,25 @@ a.deal-card-link:hover,
 /* Hero stats — numbers in clay orange */
 .stat-num { color: var(--color-accent); }
 
-/* Section title — short clay bar underneath */
+/* Section title — clay bar underneath */
 .section-title::after {
   content: '';
   display: block;
-  width: 2.5rem;
+  width: 6rem;
   height: 2px;
   background: var(--color-accent);
   margin: var(--space-3) auto 0;
   border-radius: 1px;
+}
+
+/* Roland Garros sand tan for mockup header */
+[data-theme="dark"] .mockup-header {
+  background: #c9a87c;
+  color: #1e1c18;
+}
+[data-theme="dark"] .mockup-header .mockup-logo,
+[data-theme="dark"] .mockup-header .mockup-date {
+  color: #1e1c18;
 }
 
 /* Deal mockup in hero — sale price and badge in clay orange */

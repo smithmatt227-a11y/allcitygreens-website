@@ -1452,8 +1452,8 @@ a.deal-card-link:hover,
 
 /* Roland Garros sand tan outline around the full Today's Price Guide block */
 [data-theme="dark"] .newsletter-mockup {
-  border: 2px solid #c9a87c;
-  box-shadow: 0 0 0 1px rgba(201, 168, 124, 0.15), var(--shadow-xl);
+  border: 1px solid rgba(201, 168, 124, 0.45);
+  box-shadow: var(--shadow-xl);
 }
 
 /* Deal mockup in hero — sale price and badge in clay orange */

@@ -336,7 +336,7 @@ a, button, input { transition: all var(--transition); }
   height: 200px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   box-shadow:
     0 0 0 4px color-mix(in srgb, var(--color-primary) 30%, transparent),
     0 0 0 8px color-mix(in srgb, var(--color-primary) 12%, transparent),
@@ -715,10 +715,10 @@ a, button, input { transition: all var(--transition); }
 
 /* Softer matte mint for price guide mockup header + CTA section in dark theme */
 [data-theme="dark"] .mockup-header {
-  background: #5aa882;
+  background: #659981;
 }
 [data-theme="dark"] .section-cta {
-  background: linear-gradient(135deg, #5aa882 0%, #3f7c5e 100%);
+  background: linear-gradient(135deg, #659981 0%, #477060 100%);
 }
 .cta-inner {
   display: flex;

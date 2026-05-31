@@ -1450,14 +1450,10 @@ a.deal-card-link:hover,
   border-radius: 1px;
 }
 
-/* Roland Garros sand tan for mockup header */
-[data-theme="dark"] .mockup-header {
-  background: #c9a87c;
-  color: #1e1c18;
-}
-[data-theme="dark"] .mockup-header .mockup-logo,
-[data-theme="dark"] .mockup-header .mockup-date {
-  color: #1e1c18;
+/* Roland Garros sand tan outline around the full Today's Price Guide block */
+[data-theme="dark"] .newsletter-mockup {
+  border: 2px solid #c9a87c;
+  box-shadow: 0 0 0 1px rgba(201, 168, 124, 0.15), var(--shadow-xl);
 }
 
 /* Deal mockup in hero — sale price and badge in clay orange */

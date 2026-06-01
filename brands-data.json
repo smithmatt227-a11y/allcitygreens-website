@@ -1,36 +1,12 @@
 {
-  "generated_at": "2026-05-31T14:36:08.029764+00:00",
-  "verified_time": "10:36 AM",
-  "report_date": "2026-05-31",
-  "brand_count": 8,
+  "generated_at": "2026-06-01T10:54:07.506194+00:00",
+  "verified_time": "6:54 AM",
+  "report_date": "2026-06-01",
+  "brand_count": 12,
   "brands": [
     {
-      "name": "Certified Cultivators",
-      "deal_count": 5,
-      "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
-      ],
-      "categories": [
-        "Edibles",
-        "Flower",
-        "Vape Pens"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Big League Chew \u2014 Cartridge",
-        "price": 26.0,
-        "original_price": 40.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Vape Pens",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
-      }
-    },
-    {
       "name": "Tasteology",
-      "deal_count": 3,
+      "deal_count": 2,
       "dispensaries": [
         "The Garden - Camp Washington",
         "The Garden - Sycamore"
@@ -51,54 +27,137 @@
       }
     },
     {
-      "name": "Klutch Cannabis",
-      "deal_count": 3,
+      "name": "Dogwalkers",
+      "deal_count": 2,
       "dispensaries": [
         "The Garden - Camp Washington",
-        "The Garden - Sycamore",
-        "UpLift - Milford"
+        "The Garden - Sycamore"
       ],
       "categories": [
-        "Concentrates",
-        "Flower"
+        "Pre-Rolls"
+      ],
+      "best_discount": 37,
+      "cheapest": {
+        "product": "Animal Face 1.75g Pre-Roll 5 Pack",
+        "price": 19.0,
+        "original_price": 30.0,
+        "on_sale": true,
+        "discount_pct": 37,
+        "category": "Pre-Rolls",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
+      "name": "Klutch Cannabis",
+      "deal_count": 2,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Concentrates"
       ],
       "best_discount": 36,
       "cheapest": {
-        "product": "Ice Cream Cake - Flower 2.83g",
-        "price": 29.4,
-        "original_price": 42.0,
+        "product": "Permanent Marker - Live Badder 0.59g",
+        "price": 32.0,
+        "original_price": 50.0,
         "on_sale": true,
-        "discount_pct": 30,
-        "category": "Flower",
+        "discount_pct": 36,
+        "category": "Concentrates",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
+      "name": "Certified Cultivators",
+      "deal_count": 2,
+      "dispensaries": [
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Vape Pens"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Big League Chew \u2014 Cartridge",
+        "price": 26.0,
+        "original_price": 40.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Vape Pens",
         "dispensary": "UpLift - Milford",
         "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
       "name": "Riviera Creek",
-      "deal_count": 3,
+      "deal_count": 2,
       "dispensaries": [
-        "Garden Club Dispensary",
-        "Therapy Cannabis - Cincinnati"
+        "Garden Club Dispensary"
       ],
       "categories": [
         "Concentrates",
         "Flower"
       ],
-      "best_discount": 30,
+      "best_discount": 0,
       "cheapest": {
-        "product": "Ice Water Hash - Wild Cat",
-        "price": 16.1,
-        "original_price": 23.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Concentrates",
+        "product": "0.35G Riv Stick Infused Flower - Stambaugh GC",
+        "price": 17.0,
+        "original_price": null,
+        "on_sale": false,
+        "discount_pct": 0,
+        "category": "Flower",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
       }
     },
     {
-      "name": "Kynd Cannabis",
+      "name": "Aura",
+      "deal_count": 1,
+      "dispensaries": [
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Peach + CBC Gummies \u2014 Gummies \u2014 28pk",
+        "price": 21.6,
+        "original_price": 36.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Edibles",
+        "dispensary": "UpLift - Mount Orab",
+        "url": "https://www.upliftohio.com"
+      }
+    },
+    {
+      "name": "(the) Essence",
+      "deal_count": 1,
+      "dispensaries": [
+        "Therapy Cannabis - Cincinnati"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Funnelcake \u2014 1g Wax \u2014 Hybrid",
+        "price": 31.5,
+        "original_price": 45.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Concentrates",
+        "dispensary": "Therapy Cannabis - Cincinnati",
+        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
+      }
+    },
+    {
+      "name": "Kiva Confections",
       "deal_count": 1,
       "dispensaries": [
         "Garden Club Dispensary"
@@ -106,58 +165,58 @@
       "categories": [
         "Edibles"
       ],
-      "best_discount": 30,
+      "best_discount": 20,
       "cheapest": {
-        "product": "kynd Gummies 10pk - Balance - Black Cherry",
-        "price": 16.1,
-        "original_price": 23.0,
+        "product": "Kiva \u2014 Milk Chocolate Bar \u2014 200mg \u2014 20ct",
+        "price": 20.8,
+        "original_price": 26.0,
         "on_sale": true,
-        "discount_pct": 30,
+        "discount_pct": 20,
         "category": "Edibles",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
       }
     },
     {
-      "name": "ROVE",
+      "name": "Meigs County Grown",
+      "deal_count": 1,
+      "dispensaries": [
+        "Therapy Cannabis - Cincinnati"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Meigs County Grown \u2014 LA Kush Cake \u2014 Flower",
+        "price": 24.0,
+        "original_price": 30.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Flower",
+        "dispensary": "Therapy Cannabis - Cincinnati",
+        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
+      }
+    },
+    {
+      "name": "The Botanist",
       "deal_count": 1,
       "dispensaries": [
         "Garden Club Dispensary"
       ],
       "categories": [
-        "Vape Pens"
+        "Pre-Rolls"
       ],
-      "best_discount": 30,
+      "best_discount": 20,
       "cheapest": {
-        "product": "Sky \u2014 ROVE Classics",
-        "price": 38.5,
-        "original_price": 55.0,
+        "product": "The Botanist \u2014 Highway Lights \u2014 .5g Pre Roll \u2014 7 pack",
+        "price": 32.0,
+        "original_price": 40.0,
         "on_sale": true,
-        "discount_pct": 30,
-        "category": "Vape Pens",
+        "discount_pct": 20,
+        "category": "Pre-Rolls",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
-      }
-    },
-    {
-      "name": "(the) Essence",
-      "deal_count": 1,
-      "dispensaries": [
-        "Zen Leaf - Cincinnati"
-      ],
-      "categories": [
-        "Vape Pens"
-      ],
-      "best_discount": 28,
-      "cheapest": {
-        "product": "Cereal Milk \u2014 Disposable",
-        "price": 39.0,
-        "original_price": 54.5,
-        "on_sale": true,
-        "discount_pct": 28,
-        "category": "Vape Pens",
-        "dispensary": "Zen Leaf - Cincinnati",
-        "url": "https://zenleafdispensaries.com/locations/cincinnati/"
       }
     },
     {
@@ -177,6 +236,27 @@
         "on_sale": false,
         "discount_pct": 0,
         "category": "Flower",
+        "dispensary": "Zen Leaf - Cincinnati",
+        "url": "https://zenleafdispensaries.com/locations/cincinnati/"
+      }
+    },
+    {
+      "name": "Savvy",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zen Leaf - Cincinnati"
+      ],
+      "categories": [
+        "Vape Pens"
+      ],
+      "best_discount": 0,
+      "cheapest": {
+        "product": "Sleepover - Cherry Sorbet 4:1 (THC:CBN) Disposable Pen [300mg]",
+        "price": 25.5,
+        "original_price": null,
+        "on_sale": false,
+        "discount_pct": 0,
+        "category": "Vape Pens",
         "dispensary": "Zen Leaf - Cincinnati",
         "url": "https://zenleafdispensaries.com/locations/cincinnati/"
       }

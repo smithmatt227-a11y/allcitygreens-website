@@ -55,6 +55,8 @@ DISPENSARY_URLS = {
     "Beyond Hello - Oxford":                   "https://beyond-hello.com",
     "AYR Wellness - Goshen":                   "https://ayrdispensaries.com",
     "Queen City Cannabis - Harrison":          "https://queenccanna.com",
+    "Queen City Cannabis - Norwood":           "https://queenccanna.com/norwood/",
+    "Queen City Cannabis - Suspension Bridge": "https://queenccanna.com/harrison-suspension-bridge/",
     "Ethos Dispensary - Lebanon":              "https://ethoscannabis.com",
     "UpLift - Milford":                        "https://www.upliftohio.com/milford/",
     "UpLift - Mount Orab":                     "https://www.upliftohio.com",

@@ -1,9 +1,55 @@
 {
-  "generated_at": "2026-06-01T10:54:07.506194+00:00",
-  "verified_time": "6:54 AM",
-  "report_date": "2026-06-01",
+  "generated_at": "2026-06-02T10:53:56.475592+00:00",
+  "verified_time": "6:53 AM",
+  "report_date": "2026-06-02",
   "brand_count": 12,
   "brands": [
+    {
+      "name": "Certified Cultivators",
+      "deal_count": 3,
+      "dispensaries": [
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Flower",
+        "Vape Pens"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Big League Chew \u2014 Cartridge",
+        "price": 26.0,
+        "original_price": 40.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Vape Pens",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
+      "name": "Riviera Creek",
+      "deal_count": 3,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Concentrates",
+        "Edibles",
+        "Flower"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "100MG Gummies - Pineapple",
+        "price": 12.6,
+        "original_price": 18.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Edibles",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
+      }
+    },
     {
       "name": "Tasteology",
       "deal_count": 2,
@@ -24,6 +70,28 @@
         "category": "Edibles",
         "dispensary": "The Garden - Camp Washington",
         "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
+      "name": "Aura",
+      "deal_count": 2,
+      "dispensaries": [
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Peach + CBC Gummies \u2014 Gummies \u2014 28pk",
+        "price": 21.6,
+        "original_price": 36.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Edibles",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -71,68 +139,25 @@
       }
     },
     {
-      "name": "Certified Cultivators",
-      "deal_count": 2,
-      "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
-      ],
-      "categories": [
-        "Vape Pens"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Big League Chew \u2014 Cartridge",
-        "price": 26.0,
-        "original_price": 40.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Vape Pens",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
-      }
-    },
-    {
-      "name": "Riviera Creek",
+      "name": "ROVE",
       "deal_count": 2,
       "dispensaries": [
         "Garden Club Dispensary"
       ],
       "categories": [
-        "Concentrates",
-        "Flower"
+        "Infused Pre-Rolls",
+        "Vape Pens"
       ],
-      "best_discount": 0,
+      "best_discount": 30,
       "cheapest": {
-        "product": "0.35G Riv Stick Infused Flower - Stambaugh GC",
-        "price": 17.0,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Flower",
+        "product": "NYC Vapor \u2014 Hash Rosin Diamond Infused Preroll \u2014 2x-0.5g",
+        "price": 21.0,
+        "original_price": 30.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Infused Pre-Rolls",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
-      }
-    },
-    {
-      "name": "Aura",
-      "deal_count": 1,
-      "dispensaries": [
-        "UpLift - Mount Orab"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 40,
-      "cheapest": {
-        "product": "Peach + CBC Gummies \u2014 Gummies \u2014 28pk",
-        "price": 21.6,
-        "original_price": 36.0,
-        "on_sale": true,
-        "discount_pct": 40,
-        "category": "Edibles",
-        "dispensary": "UpLift - Mount Orab",
-        "url": "https://www.upliftohio.com"
       }
     },
     {
@@ -157,24 +182,24 @@
       }
     },
     {
-      "name": "Kiva Confections",
+      "name": "Butterfly Effect - Grow Ohio",
       "deal_count": 1,
       "dispensaries": [
-        "Garden Club Dispensary"
+        "UpLift - Milford"
       ],
       "categories": [
-        "Edibles"
+        "Flower"
       ],
-      "best_discount": 20,
+      "best_discount": 30,
       "cheapest": {
-        "product": "Kiva \u2014 Milk Chocolate Bar \u2014 200mg \u2014 20ct",
-        "price": 20.8,
-        "original_price": 26.0,
+        "product": "Zerealz - 2.83g Flower",
+        "price": 22.4,
+        "original_price": 32.0,
         "on_sale": true,
-        "discount_pct": 20,
-        "category": "Edibles",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
+        "discount_pct": 30,
+        "category": "Flower",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -196,27 +221,6 @@
         "category": "Flower",
         "dispensary": "Therapy Cannabis - Cincinnati",
         "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
-      }
-    },
-    {
-      "name": "The Botanist",
-      "deal_count": 1,
-      "dispensaries": [
-        "Garden Club Dispensary"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 20,
-      "cheapest": {
-        "product": "The Botanist \u2014 Highway Lights \u2014 .5g Pre Roll \u2014 7 pack",
-        "price": 32.0,
-        "original_price": 40.0,
-        "on_sale": true,
-        "discount_pct": 20,
-        "category": "Pre-Rolls",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
       }
     },
     {

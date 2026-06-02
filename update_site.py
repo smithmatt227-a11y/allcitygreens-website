@@ -411,7 +411,6 @@ def mockup_html(dispensaries: list, best_value: list) -> str:
 
     return (
         f'            <div class="mockup-section">\n'
-        f'              <div class="mockup-section-label">🔥 TODAY\'S BEST DEALS</div>\n'
         f'{deals_rows}\n'
         f'            </div>\n'
         f'            <div class="mockup-footer">✓ Prices verified this morning · {disp_count} dispensaries checked</div>'

@@ -475,7 +475,7 @@ a, button, input { transition: all var(--transition); }
 .mockup-logo {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: var(--text-base);
+  font-size: var(--text-2xl);
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
@@ -490,8 +490,8 @@ a, button, input { transition: all var(--transition); }
   flex-shrink: 0;
 }
 .mockup-date {
-  font-size: var(--text-xs);
-  opacity: 0.8;
+  font-size: var(--text-base);
+  opacity: 0.85;
   margin-top: var(--space-1);
 }
 .mockup-section { padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--color-divider); }

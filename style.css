@@ -475,7 +475,7 @@ a, button, input { transition: all var(--transition); }
 .mockup-logo {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;

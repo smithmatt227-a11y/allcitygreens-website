@@ -475,7 +475,7 @@ a, button, input { transition: all var(--transition); }
 .mockup-logo {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: calc(var(--text-base) + 2pt);
+  font-size: calc(var(--text-base) + 8pt);
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
@@ -490,7 +490,10 @@ a, button, input { transition: all var(--transition); }
   flex-shrink: 0;
 }
 .mockup-date {
-  font-size: calc(var(--text-xs) + 2pt);
+  font-family: 'Oswald', var(--font-body);
+  font-size: calc(var(--text-xs) + 9pt);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: var(--color-accent);
   opacity: 1;
   margin-top: var(--space-1);

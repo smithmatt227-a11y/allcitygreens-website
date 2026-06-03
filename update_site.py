@@ -354,46 +354,53 @@ def deal_card_html(deal: dict) -> str:
     )
 
 
-def mockup_row(deal: dict) -> str:
-    """Generate a single row in the hero mockup card (Perplexity anchor format)."""
+def mockup_row(deal: dict, rank: int = 0) -> str:
+    """Generate a single ranked row in the hero 'Today's Best Deals' card."""
     name    = clean_product_name(deal["name"])
     url     = disp_url(deal["dispensary"])
     disp    = display_disp_name(deal["dispensary"])
     price   = deal["price"]
     orig    = deal.get("original_price", price)
     on_sale = deal.get("on_sale", False)
-    disc    = deal.get("discount_pct", 0)
     ppg     = calc_ppg(deal)
     cat     = CAT_DISPLAY.get(deal.get("category", ""), "Product")
 
     ppg_str = f' · ${ppg:.2f}/g' if ppg else ''
 
     if on_sale and orig and orig > price:
-        badge_text = f"Top deal"
+        pct  = round((orig - price) / orig * 100)
+        save = orig - price
+        save_str = f'${save:.0f}' if abs(save - round(save)) < 0.005 else f'${save:.2f}'
         price_html = (
             f'<span class="deal-original">${orig:.2f}</span> '
-            f'<span class="deal-sale">${price:.2f} '
-            f'<span class="deal-badge">{badge_text}</span></span>'
+            f'<span class="deal-now">${price:.2f}</span> '
+            f'<span class="deal-chip">&minus;{pct}%</span> '
+            f'<span class="deal-save">Save {save_str}</span>'
         )
     else:
-        price_html = f'<span class="deal-sale">${price:.2f}</span>'
+        price_html = f'<span class="deal-now">${price:.2f}</span>'
 
+    lead = ' mockup-deal--lead' if rank == 1 else ''
     return (
-        f'              <a class="mockup-deal mockup-deal-link" href="{url}" target="_blank" rel="noopener">\n'
-        f'                <div class="deal-type">{cat}</div>\n'
-        f'                <div class="deal-name">{name}</div>\n'
-        f'                <div class="deal-disp">{disp}{ppg_str}</div>\n'
-        f'                <div class="deal-price">{price_html}</div>\n'
+        f'              <a class="mockup-deal mockup-deal-link{lead}" href="{url}" target="_blank" rel="noopener">\n'
+        f'                <div class="mockup-rank">{rank}</div>\n'
+        f'                <div class="mockup-deal-body">\n'
+        f'                  <div class="deal-type">{cat}</div>\n'
+        f'                  <div class="deal-name">{name}</div>\n'
+        f'                  <div class="deal-disp">{disp}{ppg_str}</div>\n'
+        f'                  <div class="deal-price">{price_html}</div>\n'
+        f'                </div>\n'
         f'              </a>'
     )
 
 
-def mockup_html(dispensaries: list, best_value: list) -> str:
+def mockup_html(dispensaries: list, best_value: list, pretty_date: str = "") -> str:
     """
-    Generate the hero mockup panel:
-      - Today's Best Deals: up to 3 ON-SALE items, deduped by product name
-        so the same product doesn't appear twice when sister dispensaries
-        run the same sale (e.g. Garden Camp Washington + Garden Sycamore).
+    Generate the hero 'Today's Best Deals' card (header + ranked rows + CTA):
+      - Header: title + orange rule + dynamic "Updated <date>" stamp.
+      - Up to 3 ON-SALE items, ranked #1–#3, deduped by product name so the
+        same product doesn't appear twice when sister dispensaries run the
+        same sale (e.g. Garden Camp Washington + Garden Sycamore).
       - Best Value Eighths section: removed per design refresh.
     """
     # TODAY'S BEST DEALS — on-sale items, one per dispensary, sister-collapsed
@@ -402,18 +409,25 @@ def mockup_html(dispensaries: list, best_value: list) -> str:
     candidates = one_per_dispensary(sale_only) or one_per_dispensary(sale_deals)
     featured   = dedupe_sister_locations(candidates)[:3]
 
-    deals_rows = "\n".join(mockup_row(d) for d in featured)
+    deals_rows = "\n".join(mockup_row(d, i + 1) for i, d in enumerate(featured))
     disp_count = len([d for d in dispensaries if d.get("highlights")])
+    updated    = f'Updated {pretty_date}' if pretty_date else 'Updated today'
 
     # best_value retained as a function argument for backwards compat with the
     # caller, but no Best Value Eighths section is rendered any more.
     _ = best_value
 
     return (
+        f'            <div class="mockup-header">\n'
+        f'              <div class="mockup-title">Today\'s Best Deals</div>\n'
+        f'              <div class="mockup-rule"></div>\n'
+        f'              <div class="mockup-updated">{updated}</div>\n'
+        f'            </div>\n'
         f'            <div class="mockup-section">\n'
         f'{deals_rows}\n'
         f'            </div>\n'
-        f'            <div class="mockup-footer">✓ Prices verified this morning · {disp_count} dispensaries checked</div>'
+        f'            <div class="mockup-footer">✓ Prices verified this morning · {disp_count} dispensaries checked</div>\n'
+        f'            <div class="mockup-cta"><a href="#deals">See all of today\'s deals &rarr;</a></div>'
     )
 
 
@@ -669,7 +683,7 @@ def main():
 
     # 2. Hero mockup card
     html = replace_between_markers(html, "mockup",
-        mockup_html(dispensaries, best_value_raw))
+        mockup_html(dispensaries, best_value_raw, pretty_date))
 
     # 3. Date header
     html = replace_between_markers(html, "deals-header",

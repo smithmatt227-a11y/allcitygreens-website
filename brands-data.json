@@ -1,55 +1,9 @@
 {
-  "generated_at": "2026-06-03T10:31:37.680872+00:00",
-  "verified_time": "6:31 AM",
-  "report_date": "2026-06-03",
-  "brand_count": 12,
+  "generated_at": "2026-06-04T10:18:03.340437+00:00",
+  "verified_time": "6:18 AM",
+  "report_date": "2026-06-04",
+  "brand_count": 11,
   "brands": [
-    {
-      "name": "WYLD",
-      "deal_count": 5,
-      "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 42,
-      "cheapest": {
-        "product": "Elderberry 2:1 CBN + Indica Enhanced Gummies \u2014 Gummies \u2014 20pk",
-        "price": 14.0,
-        "original_price": 24.0,
-        "on_sale": true,
-        "discount_pct": 42,
-        "category": "Edibles",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/menu/"
-      }
-    },
-    {
-      "name": "Riviera Creek",
-      "deal_count": 4,
-      "dispensaries": [
-        "Garden Club Dispensary"
-      ],
-      "categories": [
-        "Concentrates",
-        "Edibles",
-        "Flower",
-        "Infused Pre-Rolls"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "100MG Gummies - Pineapple",
-        "price": 12.6,
-        "original_price": 18.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Edibles",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
-      }
-    },
     {
       "name": "Certified Cultivators",
       "deal_count": 3,
@@ -74,6 +28,28 @@
       }
     },
     {
+      "name": "Tasteology",
+      "deal_count": 2,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 41,
+      "cheapest": {
+        "product": "Blood Orange \u2014 Gummies \u2014 10pk",
+        "price": 13.0,
+        "original_price": 22.0,
+        "on_sale": true,
+        "discount_pct": 41,
+        "category": "Edibles",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
       "name": "Aura",
       "deal_count": 2,
       "dispensaries": [
@@ -93,28 +69,6 @@
         "category": "Edibles",
         "dispensary": "UpLift - Milford",
         "url": "https://www.upliftohio.com/milford/"
-      }
-    },
-    {
-      "name": "Dogwalkers",
-      "deal_count": 2,
-      "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 37,
-      "cheapest": {
-        "product": "Animal Face 1.75g Pre-Roll 5 Pack",
-        "price": 19.0,
-        "original_price": 30.0,
-        "on_sale": true,
-        "discount_pct": 37,
-        "category": "Pre-Rolls",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/menu/"
       }
     },
     {
@@ -182,24 +136,45 @@
       }
     },
     {
-      "name": "#HASH",
+      "name": "Kynd Cannabis",
       "deal_count": 1,
       "dispensaries": [
-        "UpLift - Milford"
+        "Garden Club Dispensary"
       ],
       "categories": [
-        "Concentrates"
+        "Edibles"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "kynd Gummies 10pk - Balance - Black Cherry",
+        "price": 16.1,
+        "original_price": 23.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Edibles",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
+      "name": "Eden's Trees",
+      "deal_count": 1,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Flower"
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "#HASH #LIVERESIN",
-        "price": 40.0,
-        "original_price": 50.0,
+        "product": "Eden's Trees \u2014 D Coast \u2014 Flower",
+        "price": 22.4,
+        "original_price": 28.0,
         "on_sale": true,
         "discount_pct": 20,
-        "category": "Concentrates",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
+        "category": "Flower",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
       }
     },
     {
@@ -224,7 +199,7 @@
       }
     },
     {
-      "name": "Hillfire",
+      "name": "Neighborgoods",
       "deal_count": 1,
       "dispensaries": [
         "Zen Leaf - Cincinnati"
@@ -234,7 +209,7 @@
       ],
       "best_discount": 0,
       "cheapest": {
-        "product": "Aurora Borealis \u2014 Flower 2.83g",
+        "product": "Sour Cheese Berry \u2014 Big Buds",
         "price": 25.5,
         "original_price": null,
         "on_sale": false,

@@ -1,30 +1,53 @@
 {
-  "generated_at": "2026-06-04T10:18:03.340437+00:00",
-  "verified_time": "6:18 AM",
-  "report_date": "2026-06-04",
-  "brand_count": 11,
+  "generated_at": "2026-06-05T10:50:24.583602+00:00",
+  "verified_time": "6:50 AM",
+  "report_date": "2026-06-05",
+  "brand_count": 9,
   "brands": [
     {
-      "name": "Certified Cultivators",
+      "name": "Dogwalkers",
       "deal_count": 3,
       "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
+        "Garden Club Dispensary",
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore"
       ],
       "categories": [
-        "Flower",
-        "Vape Pens"
+        "Pre-Rolls"
       ],
-      "best_discount": 35,
+      "best_discount": 37,
       "cheapest": {
-        "product": "Big League Chew \u2014 Cartridge",
-        "price": 26.0,
-        "original_price": 40.0,
+        "product": "Animal Face 1.75g Pre-Roll 5 Pack",
+        "price": 19.0,
+        "original_price": 30.0,
         "on_sale": true,
-        "discount_pct": 35,
-        "category": "Vape Pens",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
+        "discount_pct": 37,
+        "category": "Pre-Rolls",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
+      "name": "Klutch Cannabis",
+      "deal_count": 3,
+      "dispensaries": [
+        "Garden Club Dispensary",
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 36,
+      "cheapest": {
+        "product": "Permanent Marker - Live Badder 0.59g",
+        "price": 32.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 36,
+        "category": "Concentrates",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
       }
     },
     {
@@ -50,47 +73,69 @@
       }
     },
     {
-      "name": "Aura",
+      "name": "Certified Cultivators",
       "deal_count": 2,
       "dispensaries": [
         "UpLift - Milford",
         "UpLift - Mount Orab"
       ],
       "categories": [
-        "Edibles"
+        "Vape Pens"
       ],
-      "best_discount": 40,
+      "best_discount": 35,
       "cheapest": {
-        "product": "Peach + CBC Gummies \u2014 Gummies \u2014 28pk",
-        "price": 21.6,
-        "original_price": 36.0,
+        "product": "Big League Chew \u2014 Cartridge",
+        "price": 26.0,
+        "original_price": 40.0,
         "on_sale": true,
-        "discount_pct": 40,
-        "category": "Edibles",
+        "discount_pct": 35,
+        "category": "Vape Pens",
         "dispensary": "UpLift - Milford",
         "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
-      "name": "Klutch Cannabis",
+      "name": "Cookies",
       "deal_count": 2,
       "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore"
+        "Garden Club Dispensary",
+        "Therapy Cannabis - Cincinnati"
       ],
       "categories": [
-        "Concentrates"
+        "Flower"
       ],
-      "best_discount": 36,
+      "best_discount": 30,
       "cheapest": {
-        "product": "Permanent Marker - Live Badder 0.59g",
-        "price": 32.0,
-        "original_price": 50.0,
+        "product": "Cookies \u2014 BernieHana Butter \u2014 Big Buds",
+        "price": 31.5,
+        "original_price": 45.0,
         "on_sale": true,
-        "discount_pct": 36,
-        "category": "Concentrates",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/menu/"
+        "discount_pct": 30,
+        "category": "Flower",
+        "dispensary": "Therapy Cannabis - Cincinnati",
+        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
+      }
+    },
+    {
+      "name": "Eden's Trees",
+      "deal_count": 2,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Edibles",
+        "Vape Pens"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Eden's Trees \u2014 1:1 Raspberry Limeade \u2014 Gummies \u2014 11pk",
+        "price": 8.0,
+        "original_price": 10.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Edibles",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
       }
     },
     {
@@ -115,108 +160,24 @@
       }
     },
     {
-      "name": "Butterfly Effect - Grow Ohio",
-      "deal_count": 1,
-      "dispensaries": [
-        "UpLift - Milford"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Zerealz - 2.83g Flower",
-        "price": 22.4,
-        "original_price": 32.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Flower",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
-      }
-    },
-    {
-      "name": "Kynd Cannabis",
-      "deal_count": 1,
-      "dispensaries": [
-        "Garden Club Dispensary"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "kynd Gummies 10pk - Balance - Black Cherry",
-        "price": 16.1,
-        "original_price": 23.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Edibles",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
-      }
-    },
-    {
-      "name": "Eden's Trees",
-      "deal_count": 1,
-      "dispensaries": [
-        "Garden Club Dispensary"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 20,
-      "cheapest": {
-        "product": "Eden's Trees \u2014 D Coast \u2014 Flower",
-        "price": 22.4,
-        "original_price": 28.0,
-        "on_sale": true,
-        "discount_pct": 20,
-        "category": "Flower",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
-      }
-    },
-    {
-      "name": "Meigs County Grown",
+      "name": "Lighthouse Sciences",
       "deal_count": 1,
       "dispensaries": [
         "Therapy Cannabis - Cincinnati"
       ],
       "categories": [
-        "Flower"
+        "Vape Pens"
       ],
-      "best_discount": 20,
+      "best_discount": 30,
       "cheapest": {
-        "product": "Meigs County Grown \u2014 LA Kush Cake \u2014 Flower",
-        "price": 24.0,
-        "original_price": 30.0,
+        "product": "Lighthouse Sciences \u2014 GG4 x Zlue \u2014 Cured Resin Disposable",
+        "price": 35.0,
+        "original_price": 50.0,
         "on_sale": true,
-        "discount_pct": 20,
-        "category": "Flower",
+        "discount_pct": 30,
+        "category": "Vape Pens",
         "dispensary": "Therapy Cannabis - Cincinnati",
         "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
-      }
-    },
-    {
-      "name": "Neighborgoods",
-      "deal_count": 1,
-      "dispensaries": [
-        "Zen Leaf - Cincinnati"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 0,
-      "cheapest": {
-        "product": "Sour Cheese Berry \u2014 Big Buds",
-        "price": 25.5,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Flower",
-        "dispensary": "Zen Leaf - Cincinnati",
-        "url": "https://zenleafdispensaries.com/locations/cincinnati/"
       }
     },
     {

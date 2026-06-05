@@ -6,13 +6,13 @@ git add -A
 git status --short
 
 echo ""
-git commit -m "site: chart-wrapper height fix, '9 dispensaries' replaces stale '14' across copy, strip Perplexity attribution"
+git commit -m "Enlarge top logo, restyle deals card (smaller title + accent border), move Common Questions to /faq/ page linked in footer"
 echo ""
 echo "==> Pushing..."
 git push origin main
 echo ""
 echo "Done. Wait ~30-60s for Netlify deploy, then verify:"
-echo "  https://allcitygreens.com/trends/  — chart + legend layout"
-echo "  https://allcitygreens.com/         — hero stat reads '9 dispensaries tracked'"
+echo "  https://allcitygreens.com/      — bigger top logo, smaller 'Today's Best Deals' title with accent border"
+echo "  https://allcitygreens.com/faq/  — Common Questions page (linked in footer next to Contact)"
 echo ""
 read -n 1

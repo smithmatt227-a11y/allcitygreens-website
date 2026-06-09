@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-09T02:24:30.938912+00:00",
-  "verified_time": "10:24 PM",
-  "report_date": "2026-06-08",
+  "generated_at": "2026-06-09T10:02:20.684393+00:00",
+  "verified_time": "6:02 AM",
+  "report_date": "2026-06-09",
   "brand_count": 9,
   "brands": [
     {
@@ -51,6 +51,29 @@
       }
     },
     {
+      "name": "Riviera Creek",
+      "deal_count": 3,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Concentrates",
+        "Edibles",
+        "Flower"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "100MG Gummies - Pineapple",
+        "price": 12.6,
+        "original_price": 18.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Edibles",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
       "name": "Aura",
       "deal_count": 2,
       "dispensaries": [
@@ -95,23 +118,23 @@
       }
     },
     {
-      "name": "Riviera Creek",
+      "name": "ROVE",
       "deal_count": 2,
       "dispensaries": [
         "Garden Club Dispensary"
       ],
       "categories": [
-        "Concentrates",
-        "Flower"
+        "Infused Pre-Rolls",
+        "Vape Pens"
       ],
-      "best_discount": 0,
+      "best_discount": 30,
       "cheapest": {
-        "product": "1G Riv Stick Infused Flower - Chocolope",
-        "price": 17.0,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Flower",
+        "product": "NYC Vapor \u2014 Hash Rosin Diamond Infused Preroll \u2014 2x-0.5g",
+        "price": 21.0,
+        "original_price": 30.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Infused Pre-Rolls",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
       }
@@ -156,27 +179,6 @@
         "category": "Flower",
         "dispensary": "Zen Leaf - Cincinnati",
         "url": "https://zenleafdispensaries.com/locations/cincinnati/"
-      }
-    },
-    {
-      "name": "Pure Ohio Wellness",
-      "deal_count": 1,
-      "dispensaries": [
-        "Garden Club Dispensary"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 0,
-      "cheapest": {
-        "product": "Blue Blast Pre Roll - 1g",
-        "price": 10.0,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Pre-Rolls",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
       }
     },
     {

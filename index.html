@@ -13,12 +13,12 @@
   <meta property="og:image" content="https://allcitygreens.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="All City Greens — Cincinnati Dispensary Price Guide. Daily cannabis deals delivered every morning at 8 AM.">
+  <meta property="og:image:alt" content="All City Greens — Cincinnati Dispensary Price Guide. Daily cannabis deals delivered every morning.">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="All City Greens — Cincinnati's Daily Dispensary Price Guide">
-  <meta name="twitter:description" content="Daily cannabis deals across Cincinnati's dispensaries. Free, no ads, delivered at 8 AM.">
+  <meta name="twitter:description" content="Daily cannabis deals across Cincinnati's dispensaries. Free, no ads, delivered every morning.">
   <meta name="twitter:image" content="https://allcitygreens.com/og-image.png">
 
 
@@ -135,7 +135,7 @@
           <div class="hero-stats">
             <!-- AUTO:stats -->
             <div class="stat">
-              <span class="stat-num">9</span>
+              <span class="stat-num">10</span>
               <span class="stat-label">dispensaries tracked</span>
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
@@ -145,8 +145,8 @@
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat">
-              <span class="stat-num">8 AM</span>
-              <span class="stat-label">in your inbox every day</span>
+              <span class="stat-num">Daily</span>
+              <span class="stat-label">deals email every morning</span>
             </div>
           <!-- /AUTO:stats -->
           </div>
@@ -158,7 +158,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
             </div>
-            <p class="form-note">Free. Sent every morning at 8 AM. Unsubscribe anytime.</p>
+            <p class="form-note">Free. Sent every morning. Unsubscribe anytime.</p>
           </form>
         </div>
         <div class="hero-visual" aria-hidden="true">
@@ -171,7 +171,7 @@
               <div class="mockup-updated">Updated June 10, 2026</div>
             </div>
             <div class="mockup-section">
-              <a class="mockup-deal mockup-deal-link mockup-deal--lead" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+              <a class="mockup-deal mockup-deal-link mockup-deal--lead" href="https://shangriladispensaries.com/stores/shangri-la-monroe-butler-county/product/habitat-flower-pine-berry-sorbet-h-2-83g-64359" target="_blank" rel="noopener">
                 <div class="mockup-rank">1</div>
                 <div class="mockup-deal-body">
                   <div class="deal-type">Flower</div>
@@ -189,7 +189,7 @@
                   <div class="deal-price"><span class="deal-original">$45.00</span> <span class="deal-now">$25.00</span> <span class="deal-chip">&minus;44%</span> <span class="deal-save">Save $20</span></div>
                 </div>
               </a>
-              <a class="mockup-deal mockup-deal-link" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+              <a class="mockup-deal mockup-deal-link" href="https://shangriladispensaries.com/stores/shangri-la-cincinnati/product/cookies-flower-berniehana-butter-i-2-83g" target="_blank" rel="noopener">
                 <div class="mockup-rank">3</div>
                 <div class="mockup-deal-body">
                   <div class="deal-type">Flower</div>
@@ -252,10 +252,28 @@
           <button class="cat-tab"         role="tab" aria-selected="false" data-cat="pre_rolls"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20L20 4"/><path d="M4 20s0-3 2-4L18 4c1.5-1.5 3.5.5 2 2"/><path d="M16 3l3 3"/><path d="M2 22l2-2"/></svg> Pre-Rolls</button>
         </div>
 
+        <!-- Dispensary filter + sort controls -->
+        <div class="deal-controls">
+          <label class="deal-control">
+            <span class="deal-control-label">Dispensary</span>
+            <select id="deal-disp-filter" aria-label="Filter deals by dispensary">
+              <option value="all">All dispensaries</option>
+            </select>
+          </label>
+          <label class="deal-control">
+            <span class="deal-control-label">Sort by</span>
+            <select id="deal-sort" aria-label="Sort deals">
+              <option value="discount">Biggest discount</option>
+              <option value="price-asc">Lowest price</option>
+              <option value="price-desc">Highest price</option>
+            </select>
+          </label>
+        </div>
+
         <!-- Deal cards grid -->
         <div class="deal-cards" id="deal-cards-grid">
           <!-- AUTO:deals -->
-          <a class="deal-card deal-card-link" data-cat="edibles" href="https://www.upliftohio.com/milford/" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="edibles" data-disp="UpLift - Milford" data-price="10.00" data-pct="72" href="https://www.upliftohio.com/milford/" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a4 4 0 00-4 4c0 1.3.5 2.4 1.4 3.2L8 20h8l-1.4-9.8A4 4 0 0016 7a4 4 0 00-4-4z"/><circle cx="10" cy="9" r=".5" fill="currentColor"/><circle cx="14" cy="9" r=".5" fill="currentColor"/><circle cx="12" cy="12" r=".5" fill="currentColor"/></svg> Edibles</div>
             <div class="deal-card-name">Peach + CBC Gummies — Gummies — 28pk</div>
             <div class="deal-card-disp">UpLift - Milford · 7.7% THC</div>
@@ -263,7 +281,7 @@
               <span class="deal-card-orig">$36.00</span><span class="deal-card-sale">$10.00</span><span class="deal-card-pct">-72%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="edibles" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="edibles" data-disp="Shangri-La Monroe Superstore" data-price="7.20" data-pct="70" href="https://shangriladispensaries.com/stores/shangri-la-monroe-warren-county/product/hon-edible-strawberry-honey-110mg" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a4 4 0 00-4 4c0 1.3.5 2.4 1.4 3.2L8 20h8l-1.4-9.8A4 4 0 0016 7a4 4 0 00-4-4z"/><circle cx="10" cy="9" r=".5" fill="currentColor"/><circle cx="14" cy="9" r=".5" fill="currentColor"/><circle cx="12" cy="12" r=".5" fill="currentColor"/></svg> Edibles</div>
             <div class="deal-card-name">Hon - Edible - Strawberry Honey 110mg</div>
             <div class="deal-card-disp">Shangri-La Monroe Superstore</div>
@@ -271,7 +289,7 @@
               <span class="deal-card-orig">$24.00</span><span class="deal-card-sale">$7.20</span><span class="deal-card-pct">-70%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="flower" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="flower" data-disp="Shangri-La Monroe West" data-price="17.50" data-pct="50" href="https://shangriladispensaries.com/stores/shangri-la-monroe-butler-county/product/habitat-flower-pine-berry-sorbet-h-2-83g-64359" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</div>
             <div class="deal-card-name">Habitat - Flower - Pine Berry Sorbet (H) 2.83g</div>
             <div class="deal-card-disp">Shangri-La Monroe West · 24.9% THC</div>
@@ -279,7 +297,7 @@
               <span class="deal-card-orig">$35.00</span><span class="deal-card-sale">$17.50</span><span class="deal-card-pct">-50%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="flower" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="flower" data-disp="Shangri-La Cincinnati" data-price="21.00" data-pct="50" href="https://shangriladispensaries.com/stores/shangri-la-cincinnati/product/cookies-flower-berniehana-butter-i-2-83g" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</div>
             <div class="deal-card-name">Cookies - Flower - Berniehana Butter (I) 2.83g</div>
             <div class="deal-card-disp">Shangri-La Cincinnati · 21.7% THC</div>
@@ -287,7 +305,7 @@
               <span class="deal-card-orig">$42.00</span><span class="deal-card-sale">$21.00</span><span class="deal-card-pct">-50%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="concentrates" href="https://www.upliftohio.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="concentrates" data-disp="UpLift - Mount Orab" data-price="50.00" data-pct="50" href="https://www.upliftohio.com" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2S6 8 6 13a6 6 0 0012 0c0-5-6-11-6-11z"/><path d="M12 12s-2 2-2 4a2 2 0 004 0c0-2-2-4-2-4z"/></svg> Concentrates</div>
             <div class="deal-card-name">dos ghost — Solventless — Rosin</div>
             <div class="deal-card-disp">UpLift - Mount Orab</div>
@@ -295,7 +313,7 @@
               <span class="deal-card-orig">$100.00</span><span class="deal-card-sale">$50.00</span><span class="deal-card-pct">-50%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="edibles" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="edibles" data-disp="Shangri-La Cincinnati" data-price="18.00" data-pct="50" href="https://shangriladispensaries.com/stores/shangri-la-cincinnati/product/dr-solomon-s-tincture-restore-tincture-1-1-cbd-100mg" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a4 4 0 00-4 4c0 1.3.5 2.4 1.4 3.2L8 20h8l-1.4-9.8A4 4 0 0016 7a4 4 0 00-4-4z"/><circle cx="10" cy="9" r=".5" fill="currentColor"/><circle cx="14" cy="9" r=".5" fill="currentColor"/><circle cx="12" cy="12" r=".5" fill="currentColor"/></svg> Edibles</div>
             <div class="deal-card-name">Dr. Solomon's - Tincture - Restore Tincture 1:1 CBD 100mg</div>
             <div class="deal-card-disp">Shangri-La Cincinnati</div>
@@ -303,7 +321,7 @@
               <span class="deal-card-orig">$36.00</span><span class="deal-card-sale">$18.00</span><span class="deal-card-pct">-50%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="flower" href="https://thegardendispo.com/menu/" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="flower" data-disp="The Garden - Camp Washington" data-price="25.00" data-pct="44" href="https://thegardendispo.com/menu/" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</div>
             <div class="deal-card-name">"G": Mule Fuel</div>
             <div class="deal-card-disp">The Garden - Camp Washington · 25.8% THC</div>
@@ -311,7 +329,7 @@
               <span class="deal-card-orig">$45.00</span><span class="deal-card-sale">$25.00</span><span class="deal-card-pct">-44%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="edibles" href="https://thegardendispo.com/menu/" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="edibles" data-disp="The Garden - Camp Washington" data-price="14.00" data-pct="42" href="https://thegardendispo.com/menu/" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a4 4 0 00-4 4c0 1.3.5 2.4 1.4 3.2L8 20h8l-1.4-9.8A4 4 0 0016 7a4 4 0 00-4-4z"/><circle cx="10" cy="9" r=".5" fill="currentColor"/><circle cx="14" cy="9" r=".5" fill="currentColor"/><circle cx="12" cy="12" r=".5" fill="currentColor"/></svg> Edibles</div>
             <div class="deal-card-name">Kiwi 1:1 THCv Gummies — Gummies — 10pk</div>
             <div class="deal-card-disp">The Garden - Camp Washington · 10.0% THC</div>
@@ -319,7 +337,7 @@
               <span class="deal-card-orig">$24.00</span><span class="deal-card-sale">$14.00</span><span class="deal-card-pct">-42%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="edibles" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="edibles" data-disp="Shangri-La Monroe West" data-price="12.00" data-pct="40" href="https://shangriladispensaries.com/stores/shangri-la-monroe-butler-county/product/revibe-gummies-citrus-blossom-3-1-cbc-10pk-100mg" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a4 4 0 00-4 4c0 1.3.5 2.4 1.4 3.2L8 20h8l-1.4-9.8A4 4 0 0016 7a4 4 0 00-4-4z"/><circle cx="10" cy="9" r=".5" fill="currentColor"/><circle cx="14" cy="9" r=".5" fill="currentColor"/><circle cx="12" cy="12" r=".5" fill="currentColor"/></svg> Edibles</div>
             <div class="deal-card-name">Revibe - Gummies - Citrus Blossom 3:1 CBC (10pk) 100mg</div>
             <div class="deal-card-disp">Shangri-La Monroe West</div>
@@ -327,7 +345,7 @@
               <span class="deal-card-orig">$20.00</span><span class="deal-card-sale">$12.00</span><span class="deal-card-pct">-40%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="concentrates" href="https://thegardendispo.com/menu/" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="concentrates" data-disp="The Garden - Camp Washington" data-price="32.00" data-pct="36" href="https://thegardendispo.com/menu/" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2S6 8 6 13a6 6 0 0012 0c0-5-6-11-6-11z"/><path d="M12 12s-2 2-2 4a2 2 0 004 0c0-2-2-4-2-4z"/></svg> Concentrates</div>
             <div class="deal-card-name">Permanent Marker - Live Badder 0.59g</div>
             <div class="deal-card-disp">The Garden - Camp Washington</div>
@@ -335,7 +353,7 @@
               <span class="deal-card-orig">$50.00</span><span class="deal-card-sale">$32.00</span><span class="deal-card-pct">-36%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="flower" href="https://www.upliftohio.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="flower" data-disp="UpLift - Mount Orab" data-price="26.00" data-pct="35" href="https://www.upliftohio.com" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</div>
             <div class="deal-card-name">Flower — Shady Lemons</div>
             <div class="deal-card-disp">UpLift - Mount Orab</div>
@@ -343,7 +361,7 @@
               <span class="deal-card-orig">$40.00</span><span class="deal-card-sale">$26.00</span><span class="deal-card-pct">-35%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="flower" href="https://gardenclubdispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="flower" data-disp="Garden Club Dispensary" data-price="24.50" data-pct="30" href="https://gardenclubdispensaries.com" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</div>
             <div class="deal-card-name">2.83G Flower - Lost River</div>
             <div class="deal-card-disp">Garden Club Dispensary · 22.0% THC</div>
@@ -351,7 +369,7 @@
               <span class="deal-card-orig">$35.00</span><span class="deal-card-sale">$24.50</span><span class="deal-card-pct">-30%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="flower" href="https://www.upliftohio.com/milford/" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="flower" data-disp="UpLift - Milford" data-price="31.50" data-pct="30" href="https://www.upliftohio.com/milford/" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</div>
             <div class="deal-card-name">Certified Cultivators - Dark Rainbow Select</div>
             <div class="deal-card-disp">UpLift - Milford · 28.0% THC</div>
@@ -359,7 +377,7 @@
               <span class="deal-card-orig">$45.00</span><span class="deal-card-sale">$31.50</span><span class="deal-card-pct">-30%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="flower" href="https://www.therapycannabis.com/dispensaries/cincinnati/" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="flower" data-disp="Therapy Cannabis - Cincinnati" data-price="31.50" data-pct="30" href="https://www.therapycannabis.com/dispensaries/cincinnati/" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</div>
             <div class="deal-card-name">Cookies — BernieHana Butter — Big Buds</div>
             <div class="deal-card-disp">Therapy Cannabis - Cincinnati · 22.7% THC</div>
@@ -367,7 +385,7 @@
               <span class="deal-card-orig">$45.00</span><span class="deal-card-sale">$31.50</span><span class="deal-card-pct">-30%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="flower" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="flower" data-disp="Shangri-La Monroe Superstore" data-price="11.90" data-pct="30" href="https://shangriladispensaries.com/stores/shangri-la-monroe-warren-county/product/riviera-creek-infused-flower-wld-ct-riv-stick-s-1g" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</div>
             <div class="deal-card-name">Riviera Creek - Infused Flower - WLD CT Riv Stick (S) 1g</div>
             <div class="deal-card-disp">Shangri-La Monroe Superstore · 33.9% THC</div>
@@ -375,7 +393,7 @@
               <span class="deal-card-orig">$17.00</span><span class="deal-card-sale">$11.90</span><span class="deal-card-pct">-30%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="concentrates" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="concentrates" data-disp="Shangri-La Cincinnati" data-price="19.60" data-pct="30" href="https://shangriladispensaries.com/stores/shangri-la-cincinnati/product/space-rocks-h-1g" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2S6 8 6 13a6 6 0 0012 0c0-5-6-11-6-11z"/><path d="M12 12s-2 2-2 4a2 2 0 004 0c0-2-2-4-2-4z"/></svg> Concentrates</div>
             <div class="deal-card-name">Space Rocks (H) 1g</div>
             <div class="deal-card-disp">Shangri-La Cincinnati · 71.2% THC</div>
@@ -383,7 +401,7 @@
               <span class="deal-card-orig">$28.00</span><span class="deal-card-sale">$19.60</span><span class="deal-card-pct">-30%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="concentrates" href="https://shangriladispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="concentrates" data-disp="Shangri-La Monroe Superstore" data-price="19.60" data-pct="30" href="https://shangriladispensaries.com/stores/shangri-la-monroe-warren-county/product/riviera-creek-concentrate-space-rocks-h-1g" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2S6 8 6 13a6 6 0 0012 0c0-5-6-11-6-11z"/><path d="M12 12s-2 2-2 4a2 2 0 004 0c0-2-2-4-2-4z"/></svg> Concentrates</div>
             <div class="deal-card-name">Riviera Creek - Concentrate - Space Rocks (H) 1g</div>
             <div class="deal-card-disp">Shangri-La Monroe Superstore · 76.5% THC</div>
@@ -391,7 +409,7 @@
               <span class="deal-card-orig">$28.00</span><span class="deal-card-sale">$19.60</span><span class="deal-card-pct">-30%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="concentrates" href="https://www.therapycannabis.com/dispensaries/cincinnati/" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="concentrates" data-disp="Therapy Cannabis - Cincinnati" data-price="31.50" data-pct="30" href="https://www.therapycannabis.com/dispensaries/cincinnati/" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2S6 8 6 13a6 6 0 0012 0c0-5-6-11-6-11z"/><path d="M12 12s-2 2-2 4a2 2 0 004 0c0-2-2-4-2-4z"/></svg> Concentrates</div>
             <div class="deal-card-name">Funnelcake — 1g Wax — Hybrid</div>
             <div class="deal-card-disp">Therapy Cannabis - Cincinnati</div>
@@ -399,7 +417,7 @@
               <span class="deal-card-orig">$45.00</span><span class="deal-card-sale">$31.50</span><span class="deal-card-pct">-30%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="concentrates" href="https://gardenclubdispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="concentrates" data-disp="Garden Club Dispensary" data-price="16.10" data-pct="30" href="https://gardenclubdispensaries.com" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2S6 8 6 13a6 6 0 0012 0c0-5-6-11-6-11z"/><path d="M12 12s-2 2-2 4a2 2 0 004 0c0-2-2-4-2-4z"/></svg> Concentrates</div>
             <div class="deal-card-name">Ice Water Hash - Wild Cat</div>
             <div class="deal-card-disp">Garden Club Dispensary · 65.1% THC</div>
@@ -407,7 +425,7 @@
               <span class="deal-card-orig">$23.00</span><span class="deal-card-sale">$16.10</span><span class="deal-card-pct">-30%</span>
             </div>
           </a>
-          <a class="deal-card deal-card-link" data-cat="edibles" href="https://gardenclubdispensaries.com" target="_blank" rel="noopener">
+          <a class="deal-card deal-card-link" data-cat="edibles" data-disp="Garden Club Dispensary" data-price="12.60" data-pct="30" href="https://gardenclubdispensaries.com" target="_blank" rel="noopener">
             <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a4 4 0 00-4 4c0 1.3.5 2.4 1.4 3.2L8 20h8l-1.4-9.8A4 4 0 0016 7a4 4 0 00-4-4z"/><circle cx="10" cy="9" r=".5" fill="currentColor"/><circle cx="14" cy="9" r=".5" fill="currentColor"/><circle cx="12" cy="12" r=".5" fill="currentColor"/></svg> Edibles</div>
             <div class="deal-card-name">100MG Gummies - Pineapple</div>
             <div class="deal-card-disp">Garden Club Dispensary · 100.0% THC</div>
@@ -416,8 +434,9 @@
             </div>
           </a>
           <!-- /AUTO:deals -->
+          <div id="deal-empty" class="deal-empty" style="display:none">No deals match those filters today — try another dispensary or category.</div>
 
-        <p class="deals-cta-note">Full deals land in your inbox every morning at 8 AM — <a href="#subscribe">subscribe free</a> to see them all.</p>
+        <p class="deals-cta-note">Full deals land in your inbox every morning — <a href="#subscribe">subscribe free</a> to see them all.</p>
         </div>
       </div>
     </section>
@@ -427,58 +446,68 @@
       <div class="container">
         <div class="section-header">
 <h2 id="disp-heading" class="section-title">Cincinnati's dispensaries. One email.</h2>
-          <p class="section-sub">We cover the whole Cincinnati metro — from downtown to the suburbs.</p>
+          <p class="section-sub">We cover the whole Cincinnati metro — from downtown to the suburbs. Deals come from the dispensaries we can verify every morning.</p>
         </div>
         <div class="dispensary-grid">
           <a class="disp-card" href="https://thegardendispo.com/" target="_blank" rel="noopener">
 <div class="disp-logo-wrap"><img src="https://images.weedmaps.com/dispensaries/000/399/666/avatar/1766157160-the_garden_full_logo_layout.png" alt="The Garden" class="disp-logo" onerror="this.style.display='none'"></div>
             <span class="disp-name">The Garden</span>
             <span class="disp-loc">Camp Washington &amp; Sycamore</span>
+            <span class="disp-badge disp-badge--live">✓ Tracked daily</span>
           </a>
           <a class="disp-card" href="https://shangriladispensaries.com/stores/shangri-la-cincinnati" target="_blank" rel="noopener">
             <div class="disp-logo-wrap"><img src="https://images.weedmaps.com/dispensaries/000/384/326/avatar/1749254403-icon.jpeg" alt="Shangri-La" class="disp-logo" onerror="this.style.display='none'"></div>
             <span class="disp-name">Shangri-La</span>
             <span class="disp-loc">Cincinnati · Monroe West · Monroe Superstore</span>
+            <span class="disp-badge disp-badge--live">✓ Tracked daily</span>
           </a>
           <a class="disp-card" href="https://www.upliftohio.com/milford/" target="_blank" rel="noopener">
             <div class="disp-logo-wrap"><img src="https://images.weedmaps.com/dispensaries/000/337/808/avatar/1745327370-uplift__1_.png" alt="UpLift" class="disp-logo" onerror="this.style.display='none'"></div>
             <span class="disp-name">UpLift</span>
             <span class="disp-loc">Milford · Mount Orab</span>
+            <span class="disp-badge disp-badge--live">✓ Tracked daily</span>
           </a>
           <a class="disp-card" href="https://gardenclubdispensaries.com" target="_blank" rel="noopener">
             <div class="disp-logo-wrap"><img src="https://images.weedmaps.com/dispensaries/000/400/430/avatar/1760635656-weedmaps_cover_photo.png" alt="Garden Club" class="disp-logo" onerror="this.style.display='none'"></div>
             <span class="disp-name">Garden Club</span>
             <span class="disp-loc">Cincinnati</span>
+            <span class="disp-badge disp-badge--live">✓ Tracked daily</span>
           </a>
           <a class="disp-card" href="https://zenleafdispensaries.com/locations/cincinnati/" target="_blank" rel="noopener">
             <div class="disp-logo-wrap"><img src="https://images.weedmaps.com/dispensaries/000/300/637/avatar/1736280575-screen_shot_2023-11-08_at_10-07-56_am.png" alt="Zen Leaf" class="disp-logo" onerror="this.style.display='none'"></div>
             <span class="disp-name">Zen Leaf</span>
             <span class="disp-loc">Cincinnati</span>
-          </a>
-          <a class="disp-card" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
-            <div class="disp-logo-wrap"><img src="https://images.weedmaps.com/dispensaries/000/058/393/avatar/1621379373-verilife_logo_160x160.png" alt="Verilife" class="disp-logo" onerror="this.style.display='none'"></div>
-            <span class="disp-name">Verilife</span>
-            <span class="disp-loc">Cincinnati</span>
+            <span class="disp-badge disp-badge--live">✓ Tracked daily</span>
           </a>
           <a class="disp-card" href="https://www.therapycannabis.com/dispensaries/cincinnati/" target="_blank" rel="noopener">
 <div class="disp-logo-wrap"><img src="https://images.weedmaps.com/dispensaries/000/395/891/avatar/1754680687-therapy_logo_blk_512x512.png" alt="Therapy Cannabis" class="disp-logo" onerror="this.style.display='none'"></div>
             <span class="disp-name">Therapy Cannabis</span>
             <span class="disp-loc">Cincinnati</span>
+            <span class="disp-badge disp-badge--live">✓ Tracked daily</span>
           </a>
-          <a class="disp-card" href="https://storycannabis.com/dispensary-locations/ohio/" target="_blank" rel="noopener">
+          <a class="disp-card disp-card--paused" href="https://www.verilife.com/oh/locations/cincinnati" target="_blank" rel="noopener">
+            <div class="disp-logo-wrap"><img src="https://images.weedmaps.com/dispensaries/000/058/393/avatar/1621379373-verilife_logo_160x160.png" alt="Verilife" class="disp-logo" onerror="this.style.display='none'"></div>
+            <span class="disp-name">Verilife</span>
+            <span class="disp-loc">Cincinnati</span>
+            <span class="disp-badge disp-badge--paused">Prices unavailable</span>
+          </a>
+          <a class="disp-card disp-card--paused" href="https://storycannabis.com/dispensary-locations/ohio/" target="_blank" rel="noopener">
             <div class="disp-logo-wrap"><img src="https://images.weedmaps.com/dispensaries/000/346/763/avatar/1763601296-story_weedmaps_logos.png" alt="Story" class="disp-logo" onerror="this.style.display='none'"></div>
             <span class="disp-name">Story</span>
             <span class="disp-loc">Cincinnati · Forest Park</span>
+            <span class="disp-badge disp-badge--paused">Prices unavailable</span>
           </a>
-          <a class="disp-card" href="https://localscannabis.com/shop/" target="_blank" rel="noopener">
+          <a class="disp-card disp-card--paused" href="https://localscannabis.com/shop/" target="_blank" rel="noopener">
             <div class="disp-logo-wrap"><img src="https://localscannabis.com/wp-content/uploads/2024/05/Website-Logo-600x600-2.png" alt="Locals Cannabis" class="disp-logo" onerror="this.style.display='none'"></div>
             <span class="disp-name">Locals Cannabis</span>
             <span class="disp-loc">West End</span>
+            <span class="disp-badge disp-badge--paused">Prices unavailable</span>
           </a>
-          <a class="disp-card" href="https://queenccanna.com" target="_blank" rel="noopener">
+          <a class="disp-card disp-card--paused" href="https://queenccanna.com" target="_blank" rel="noopener">
             <div class="disp-logo-wrap"><img src="https://queenccanna.com/wp-content/uploads/2024/08/android-chrome-512x512-2.png" alt="Queen City Cannabis" class="disp-logo" onerror="this.style.display='none'"></div>
             <span class="disp-name">Queen City Cannabis</span>
             <span class="disp-loc">Harrison · Norwood</span>
+            <span class="disp-badge disp-badge--paused">Prices unavailable</span>
           </a>
           <div class="disp-card disp-card-more">
             <span>+ more coming soon</span>
@@ -495,7 +524,7 @@
             <img src="logo.png?v=20260530" alt="All City Greens" class="cta-logo-img">
           </div>
           <h2 id="cta-heading" class="cta-heading">Know the price before you go.</h2>
-          <p class="cta-sub">Free. Sent every morning at 8 AM.</p>
+          <p class="cta-sub">Free. Sent every morning.</p>
           <form class="cta-form" id="subscribe-form-cta" onsubmit="return false;">
           <div class="form-row">
             <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address" class="form-input">
@@ -570,20 +599,56 @@
       nav.classList.toggle('nav-scrolled', window.scrollY > 20);
     }, { passive: true });
 
-    // Category tab filter
-    const catTabs = document.querySelectorAll('.cat-tab');
-    const dealCards = document.querySelectorAll('.deal-card');
+    // Deal filters — category tabs + dispensary select + sort
+    const catTabs   = document.querySelectorAll('.cat-tab');
+    const dealCards = Array.from(document.querySelectorAll('.deal-card'));
+    const dispSelect = document.getElementById('deal-disp-filter');
+    const sortSelect = document.getElementById('deal-sort');
+    const dealEmpty  = document.getElementById('deal-empty');
+    let activeCat = 'all';
+
+    // Populate the dispensary dropdown from the cards on the page
+    if (dispSelect) {
+      [...new Set(dealCards.map(c => c.dataset.disp).filter(Boolean))].sort()
+        .forEach(d => {
+          const o = document.createElement('option');
+          o.value = d; o.textContent = d;
+          dispSelect.appendChild(o);
+        });
+    }
+
+    function applyDeals() {
+      const disp = dispSelect ? dispSelect.value : 'all';
+      const sort = sortSelect ? sortSelect.value : 'discount';
+      const sorted = [...dealCards].sort((a, b) => {
+        const pa = parseFloat(a.dataset.price || '0'), pb = parseFloat(b.dataset.price || '0');
+        const da = parseFloat(a.dataset.pct || '0'),  db = parseFloat(b.dataset.pct || '0');
+        if (sort === 'price-asc')  return pa - pb;
+        if (sort === 'price-desc') return pb - pa;
+        return db - da || pa - pb;
+      });
+      let shown = 0;
+      sorted.forEach(c => {
+        if (dealEmpty) dealEmpty.parentNode.insertBefore(c, dealEmpty);
+        const ok = (activeCat === 'all' || c.dataset.cat === activeCat) &&
+                   (disp === 'all' || c.dataset.disp === disp);
+        c.style.display = ok ? '' : 'none';
+        if (ok) shown++;
+      });
+      if (dealEmpty) dealEmpty.style.display = shown ? 'none' : '';
+    }
+
     catTabs.forEach(tab => {
       tab.addEventListener('click', () => {
         catTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
         tab.classList.add('active');
         tab.setAttribute('aria-selected', 'true');
-        const cat = tab.dataset.cat;
-        dealCards.forEach(card => {
-          card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
-        });
+        activeCat = tab.dataset.cat;
+        applyDeals();
       });
     });
+    if (dispSelect) dispSelect.addEventListener('change', applyDeals);
+    if (sortSelect) sortSelect.addEventListener('change', applyDeals);
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -674,8 +739,8 @@
         msg.innerHTML =
           '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> ' +
           (alreadySubscribed
-            ? "You're already on the list — first email lands at 8 AM tomorrow."
-            : "You're in. First email arrives at 8 AM tomorrow.");
+            ? "You're already on the list — your first email lands tomorrow morning."
+            : "You're in. Your first email arrives tomorrow morning.");
         form.style.display = 'none';
         form.parentElement.appendChild(msg);
         try { msg.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (_) {}

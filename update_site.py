@@ -314,7 +314,7 @@ def _meaningful_weight(deal: dict) -> bool:
 
 def deal_card_html(deal: dict) -> str:
     """Generate a deal card in the Perplexity design format with data-cat for JS filtering."""
-    url       = disp_url(deal["dispensary"])
+    url       = deal.get("product_url") or disp_url(deal["dispensary"])
     raw_cat   = deal.get("category", "")
     cat_label = CAT_DISPLAY.get(raw_cat, raw_cat.replace("_", " ").title())
     icon      = CAT_ICONS.get(raw_cat, DEFAULT_ICON)
@@ -343,6 +343,8 @@ def deal_card_html(deal: dict) -> str:
 
     return (
         f'          <a class="deal-card deal-card-link" data-cat="{raw_cat}"'
+        f' data-disp="{disp_display}" data-price="{price:.2f}"'
+        f' data-pct="{discount or 0}"'
         f' href="{url}" target="_blank" rel="noopener">\n'
         f'            <div class="deal-card-cat">{icon} {cat_label}</div>\n'
         f'            <div class="deal-card-name">{name}</div>\n'
@@ -357,7 +359,7 @@ def deal_card_html(deal: dict) -> str:
 def mockup_row(deal: dict, rank: int = 0) -> str:
     """Generate a single ranked row in the hero 'Today's Best Deals' card."""
     name    = clean_product_name(deal["name"])
-    url     = disp_url(deal["dispensary"])
+    url     = deal.get("product_url") or disp_url(deal["dispensary"])
     disp    = display_disp_name(deal["dispensary"])
     price   = deal["price"]
     orig    = deal.get("original_price", price)
@@ -394,7 +396,8 @@ def mockup_row(deal: dict, rank: int = 0) -> str:
     )
 
 
-def mockup_html(dispensaries: list, best_value: list, pretty_date: str = "") -> str:
+def mockup_html(dispensaries: list, best_value: list, pretty_date: str = "",
+                disp_count: int = None) -> str:
     """
     Generate the hero 'Today's Best Deals' card (header + ranked rows + CTA):
       - Header: title + orange rule + dynamic "Updated <date>" stamp.
@@ -410,7 +413,8 @@ def mockup_html(dispensaries: list, best_value: list, pretty_date: str = "") -> 
     featured   = dedupe_sister_locations(candidates)[:3]
 
     deals_rows = "\n".join(mockup_row(d, i + 1) for i, d in enumerate(featured))
-    disp_count = len([d for d in dispensaries if d.get("highlights")])
+    if disp_count is None:
+        disp_count = len([d for d in dispensaries if d.get("highlights")])
     updated    = f'Updated {pretty_date}' if pretty_date else 'Updated today'
 
     # best_value retained as a function argument for backwards compat with the
@@ -445,8 +449,8 @@ def stats_html(dispensary_count: int, total_products: int) -> str:
         f'            </div>\n'
         f'            <div class="stat-divider" aria-hidden="true"></div>\n'
         f'            <div class="stat">\n'
-        f'              <span class="stat-num">8 AM</span>\n'
-        f'              <span class="stat-label">in your inbox every day</span>\n'
+        f'              <span class="stat-num">Daily</span>\n'
+        f'              <span class="stat-label">deals email every morning</span>\n'
         f'            </div>'
     )
 
@@ -642,15 +646,19 @@ def main():
     global VERIFIED_TIME
     VERIFIED_TIME = format_verified_time(data)
 
-    # Dispensary count for the hero stat row. Must match the count of brand
-    # cards in the <section id="dispensaries"> grid below, since users will
-    # see both numbers on the same page. Today's scrape can fluctuate
-    # (some sites return 0 products on a given day), so we pin this to the
-    # grid count and update it manually when a new brand card is added.
-    dispensary_count = 9
     best_value_raw   = data.get("best_value_flower", [])
     by_cat           = data.get("deals_by_category", {})
     dispensaries     = data.get("dispensaries", [])
+
+    # Dispensary count — ONE source of truth for every count shown on the page
+    # (hero stat AND the "N dispensaries checked" trust line), so the two can
+    # never disagree. Prefers the scraper's live_count; falls back to counting
+    # live records, then records with highlights.
+    dispensary_count = (
+        data.get("live_count")
+        or len([d for d in dispensaries if d.get("status") == "live"])
+        or len([d for d in dispensaries if d.get("highlights")])
+    )
 
     # Per-category deals (best highlight per dispensary)
     flower_deals  = best_highlight_per_dispensary(dispensaries, "flower") \
@@ -683,7 +691,8 @@ def main():
 
     # 2. Hero mockup card
     html = replace_between_markers(html, "mockup",
-        mockup_html(dispensaries, best_value_raw, pretty_date))
+        mockup_html(dispensaries, best_value_raw, pretty_date,
+                    disp_count=dispensary_count))
 
     # 3. Date header
     html = replace_between_markers(html, "deals-header",

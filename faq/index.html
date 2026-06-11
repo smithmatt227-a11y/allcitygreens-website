@@ -57,7 +57,7 @@
         <dl class="faq-list">
           <div class="faq-item">
             <dt class="faq-q">How often are prices updated?</dt>
-            <dd class="faq-a">Every morning at 8 AM. Our system automatically checks menus across every tracked dispensary before your alarm goes off.</dd>
+            <dd class="faq-a">Every morning. Our system automatically checks menus across every tracked dispensary before your alarm goes off.</dd>
           </div>
           <div class="faq-item">
             <dt class="faq-q">Are these prices guaranteed to be accurate?</dt>
@@ -135,7 +135,7 @@
         var msg = document.createElement('div');
         msg.className = 'subscribe-success';
         msg.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> ' +
-          (already ? "You're already on the list — first email lands at 8 AM tomorrow." : "You're in. First email arrives at 8 AM tomorrow.");
+          (already ? "You're already on the list — your first email lands tomorrow morning." : "You're in. Your first email arrives tomorrow morning.");
         form.style.display = 'none';
         form.parentElement.appendChild(msg);
       }

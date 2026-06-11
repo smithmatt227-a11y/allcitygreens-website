@@ -1,37 +1,9 @@
 {
-  "generated_at": "2026-06-10T10:52:37.134035+00:00",
-  "verified_time": "6:52 AM",
-  "report_date": "2026-06-10",
-  "brand_count": 17,
+  "generated_at": "2026-06-11T11:02:15.795298+00:00",
+  "verified_time": "7:02 AM",
+  "report_date": "2026-06-11",
+  "brand_count": 20,
   "brands": [
-    {
-      "name": "Riviera Creek",
-      "deal_count": 10,
-      "dispensaries": [
-        "Garden Club Dispensary",
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe Superstore",
-        "Shangri-La Monroe West"
-      ],
-      "categories": [
-        "Concentrates",
-        "Edibles",
-        "Flower",
-        "Infused Pre-Rolls",
-        "Pre-Rolls"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Riviera Creek - Infused Flower - WLD CT Riv Stick (S) 1g",
-        "price": 11.9,
-        "original_price": 17.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Flower",
-        "dispensary": "Shangri-La Monroe Superstore",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
     {
       "name": "h\u014dn",
       "deal_count": 5,
@@ -77,6 +49,51 @@
       }
     },
     {
+      "name": "Kynd",
+      "deal_count": 4,
+      "dispensaries": [
+        "Shangri-La Cincinnati",
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Kynd - Single Serve Unit - NTR BST (H) 1g",
+        "price": 9.8,
+        "original_price": 14.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Klutch Cannabis",
+      "deal_count": 3,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore",
+        "UpLift - Milford"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 36,
+      "cheapest": {
+        "product": "Permanent Marker - Live Badder 0.59g",
+        "price": 32.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 36,
+        "category": "Concentrates",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
       "name": "Certified Cultivators",
       "deal_count": 3,
       "dispensaries": [
@@ -97,6 +114,31 @@
         "category": "Vape Pens",
         "dispensary": "UpLift - Milford",
         "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
+      "name": "Later Days",
+      "deal_count": 3,
+      "dispensaries": [
+        "Garden Club Dispensary",
+        "Shangri-La Monroe Superstore",
+        "Shangri-La Monroe West"
+      ],
+      "categories": [
+        "Flower",
+        "Pre-Rolls",
+        "Vape Pens"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Later Days - Single Serve Unit - PRSM BRI (I) 1g",
+        "price": 7.0,
+        "original_price": 10.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Monroe West",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -144,67 +186,70 @@
       }
     },
     {
-      "name": "WYLD",
+      "name": "UB Good",
       "deal_count": 2,
       "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore"
+        "Shangri-La Cincinnati",
+        "Shangri-La Monroe Superstore"
       ],
       "categories": [
-        "Edibles"
-      ],
-      "best_discount": 42,
-      "cheapest": {
-        "product": "Kiwi 1:1 THCv Gummies \u2014 Gummies \u2014 10pk",
-        "price": 14.0,
-        "original_price": 24.0,
-        "on_sale": true,
-        "discount_pct": 42,
-        "category": "Edibles",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/menu/"
-      }
-    },
-    {
-      "name": "Klutch Cannabis",
-      "deal_count": 2,
-      "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 36,
-      "cheapest": {
-        "product": "Permanent Marker - Live Badder 0.59g",
-        "price": 32.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 36,
-        "category": "Concentrates",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/menu/"
-      }
-    },
-    {
-      "name": "Doctor Solomon's",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Cincinnati"
-      ],
-      "categories": [
-        "Edibles"
+        "Edibles",
+        "Tinctures"
       ],
       "best_discount": 50,
       "cheapest": {
-        "product": "Dr. Solomon's - Tincture - Restore Tincture 1:1 CBD 100mg",
-        "price": 18.0,
-        "original_price": 36.0,
+        "product": "Relief 20:1 CBD:THC 110mg - Tincture",
+        "price": 22.0,
+        "original_price": 44.0,
         "on_sale": true,
         "discount_pct": 50,
         "category": "Edibles",
         "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Tasteology",
+      "deal_count": 2,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 41,
+      "cheapest": {
+        "product": "Blood Orange \u2014 Gummies \u2014 10pk",
+        "price": 13.0,
+        "original_price": 22.0,
+        "on_sale": true,
+        "discount_pct": 41,
+        "category": "Edibles",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
+      "name": "HZ",
+      "deal_count": 2,
+      "dispensaries": [
+        "Shangri-La Monroe Superstore",
+        "Shangri-La Monroe West"
+      ],
+      "categories": [
+        "Concentrates",
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "HZ - Infused Single Serve Unit - BLLY LGH (H) 1g",
+        "price": 19.6,
+        "original_price": 28.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Monroe West",
         "url": "https://shangriladispensaries.com"
       }
     },
@@ -240,9 +285,9 @@
       ],
       "best_discount": 50,
       "cheapest": {
-        "product": "Mosa Noir (H) 1g - Cartridge",
-        "price": 32.0,
-        "original_price": 64.0,
+        "product": "LF Energy (S) 1g - Cartridge",
+        "price": 28.0,
+        "original_price": 56.0,
         "on_sale": true,
         "discount_pct": 50,
         "category": "Vapes",
@@ -272,6 +317,27 @@
       }
     },
     {
+      "name": "Pure Ohio Wellness",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Monroe West"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Pure Ohio Wellness - Concentrate - E85 Live Rosin Badder 1g",
+        "price": 39.0,
+        "original_price": 60.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Monroe West",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
       "name": "(the) Essence",
       "deal_count": 1,
       "dispensaries": [
@@ -293,45 +359,45 @@
       }
     },
     {
-      "name": "CERTIFIED",
+      "name": "Kynd Cannabis",
       "deal_count": 1,
       "dispensaries": [
-        "Shangri-La Cincinnati"
+        "Garden Club Dispensary"
       ],
       "categories": [
-        "Pre-Rolls"
+        "Edibles"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Certified - Single Serve Unit - SHRBTNG #8 (H) 1g Pre-Roll 2-Pack (0.5g x 2)",
-        "price": 11.2,
-        "original_price": 16.0,
+        "product": "kynd Gummies 10pk - Balance - Black Cherry",
+        "price": 16.1,
+        "original_price": 23.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "category": "Edibles",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
       }
     },
     {
-      "name": "#HASH",
+      "name": "Eden's Trees",
       "deal_count": 1,
       "dispensaries": [
-        "UpLift - Milford"
+        "Shangri-La Cincinnati"
       ],
       "categories": [
         "Concentrates"
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "#HASH #LIVERESIN",
-        "price": 40.0,
-        "original_price": 50.0,
+        "product": "Eden's Trees - Concentrate - SHRB PP Live Resin Badder 1g",
+        "price": 32.0,
+        "original_price": 40.0,
         "on_sale": true,
         "discount_pct": 20,
         "category": "Concentrates",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {

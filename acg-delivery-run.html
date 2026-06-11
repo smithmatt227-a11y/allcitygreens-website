@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>ALL CITY GREENS: DELIVERY RUN</title>
+<style>
+  @font-face { font-family:'PixelFallback'; src:local('Courier New'); }
+  :root{
+    --pine:#2f4a3a;      /* AC Greens forest */
+    --moss:#5a7d5a;
+    --ochre:#c8923a;     /* field-guide ochre */
+    --sand:#d9c9a3;
+    --night:#101510;
+    --neon:#7dffa0;      /* arcade green */
+    --hot:#ff5e5e;
+    --sky:#74d2ff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    background:var(--night);
+    color:var(--sand);
+    font-family:'Courier New', monospace;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-height:100vh; overflow:hidden;
+    image-rendering:pixelated;
+  }
+  #frame{
+    position:relative;
+    border:4px solid var(--pine);
+    outline:4px solid #000;
+    box-shadow:0 0 40px rgba(125,255,160,.25), inset 0 0 60px rgba(0,0,0,.6);
+    background:#0a0d0a;
+  }
+  canvas{display:block; image-rendering:pixelated;}
+  /* CRT scanlines + vignette */
+  #crt{
+    pointer-events:none; position:absolute; inset:0; z-index:5;
+    background:
+      repeating-linear-gradient(to bottom, rgba(0,0,0,.18) 0 2px, transparent 2px 4px),
+      radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.45) 100%);
+    mix-blend-mode:multiply;
+  }
+  #flash{
+    pointer-events:none; position:absolute; inset:0; z-index:6;
+    background:#fff; opacity:0; transition:opacity .08s;
+  }
+  #hud{
+    width:100%; max-width:820px;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:8px 4px; font-size:13px; letter-spacing:2px; text-transform:uppercase;
+  }
+  #hud .neon{color:var(--neon); text-shadow:0 0 6px var(--neon);}
+  #hud .ochre{color:var(--ochre);}
+  #footer{
+    margin-top:8px; font-size:11px; letter-spacing:2px; color:var(--moss);
+    text-align:center;
+  }
+  #footer b{color:var(--ochre);}
+  /* touch controls */
+  #touch{
+    display:none; margin-top:10px; gap:6px;
+    grid-template-columns:repeat(3, 64px); grid-template-rows:repeat(2, 56px);
+  }
+  #touch button{
+    background:var(--pine); color:var(--sand); border:3px solid var(--moss);
+    font-family:inherit; font-size:20px; border-radius:6px;
+    touch-action:none; user-select:none;
+  }
+  #touch button:active{background:var(--moss);}
+  #tUp{grid-column:2; grid-row:1;}
+  #tLeft{grid-column:1; grid-row:2;}
+  #tDown{grid-column:2; grid-row:2;}
+  #tRight{grid-column:3; grid-row:2;}
+  @media (pointer:coarse){ #touch{display:grid;} }
+  @media (prefers-reduced-motion: reduce){
+    #crt{background:radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.45) 100%);}
+  }
+</style>
+</head>
+<body>
+
+<div id="hud">
+  <span>SCORE <span class="neon" id="hScore">0</span></span>
+  <span>RUNS <span class="ochre" id="hRuns">0</span></span>
+  <span>TIME <span class="neon" id="hTime">90</span></span>
+  <span>HI <span class="ochre" id="hHi">0</span></span>
+</div>
+
+<div id="frame">
+  <canvas id="game" width="800" height="560"></canvas>
+  <div id="crt"></div>
+  <div id="flash"></div>
+</div>
+
+<div id="footer">
+  ARROWS / WASD TO DRIVE &nbsp;·&nbsp; <b>M</b> SOUND &nbsp;·&nbsp; <b>ENTER</b> START &nbsp;·&nbsp; A FIELD GUIDE PRODUCTION — <b>ALL CITY GREENS</b> © 1986
+</div>
+
+<div id="touch">
+  <button id="tUp">▲</button>
+  <button id="tLeft">◀</button>
+  <button id="tDown">▼</button>
+  <button id="tRight">▶</button>
+</div>
+
+<script>
+(()=>{
+"use strict";
+const cvs = document.getElementById('game');
+const ctx = cvs.getContext('2d');
+const W = cvs.width, H = cvs.height;
+const TILE = 40, COLS = 20, ROWS = 14;
+
+// ---------- palette ----------
+const C = {
+  road:'#1c211c', roadLine:'#c8923a', sidewalk:'#39443a',
+  bldgA:'#2f4a3a', bldgB:'#3c5a46', bldgC:'#27392e',
+  roofA:'#5a7d5a', window:'#ffd97a', windowOff:'#1a241c',
+  grass:'#274a2e', tree:'#3f6b3f', treeDark:'#2c5030',
+  neon:'#7dffa0', hot:'#ff5e5e', sand:'#d9c9a3', sky:'#74d2ff',
+  car:'#d9c9a3', carDark:'#c8923a',
+};
+
+// ---------- map: road if col in {2,7,12,17} or row in {2,7,11} ----------
+const VROADS=[2,7,12,17], HROADS=[2,7,11];
+const isRoad = (c,r)=> c>=0&&c<COLS&&r>=0&&r<ROWS && (VROADS.includes(c)||HROADS.includes(r));
+
+// parks (grass blocks) for variety
+const PARKS = new Set(['4,4','5,4','4,5','5,5','14,9','15,9','14,10','15,10','9,12','10,12']);
+
+// dispensaries: {name, tile col/row (building), door tile on road}
+const SHOPS=[
+  {name:'OTR ORGANICS',      c:3,  r:1,  dc:2,  dr:1 },
+  {name:'NORTHSIDE BUDS',    c:8,  r:3,  dc:7,  dr:3 },
+  {name:'HYDE PARK HERB',    c:13, r:1,  dc:12, dr:1 },
+  {name:'COVINGTON CO.',     c:16, r:8,  dc:17, dr:8 },
+  {name:'WESTSIDE WELLNESS', c:4,  r:12, dc:4,  dr:11},
+  {name:'FT THOMAS FLOWER',  c:11, r:8,  dc:12, dr:8 },
+];
+const HOME = {name:'HOME', c:18, r:13, dc:17, dr:13};
+
+// ---------- audio (tiny chiptune beeps) ----------
+let AC=null, muted=false;
+function beep(freq,dur=.08,type='square',vol=.12){
+  if(muted) return;
+  try{
+    AC = AC || new (window.AudioContext||window.webkitAudioContext)();
+    const o=AC.createOscillator(), g=AC.createGain();
+    o.type=type; o.frequency.value=freq;
+    g.gain.setValueAtTime(vol,AC.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+dur);
+    o.connect(g); g.connect(AC.destination);
+    o.start(); o.stop(AC.currentTime+dur);
+  }catch(e){}
+}
+function jingle(notes,step=.09){ notes.forEach((n,i)=>setTimeout(()=>beep(n,.1,'square',.14), i*step*1000)); }
+
+// ---------- state ----------
+const ST={TITLE:0, PLAY:1, OVER:2};
+let state=ST.TITLE;
+let score=0, hiScore=0, runs=0, timeLeft=90, shake=0, msg='', msgT=0, blink=0;
+let phase='pickup';            // 'pickup' -> 'dropoff'
+let target=null;               // current shop
+let traffic=[];
+let last=0;
+
+const player={x:HOME.dc*TILE+TILE/2, y:HOME.dr*TILE+TILE/2, vx:0, vy:0, dir:0, inv:0};
+// dir: 0=up 1=right 2=down 3=left
+
+const keys={};
+addEventListener('keydown',e=>{
+  if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key)) e.preventDefault();
+  keys[e.key.toLowerCase()]=true;
+  if(e.key==='Enter'){ if(state!==ST.PLAY) startGame(); }
+  if(e.key.toLowerCase()==='m'){ muted=!muted; toast(muted?'SOUND OFF':'SOUND ON'); }
+});
+addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
+
+// touch
+const tmap={tUp:'arrowup',tDown:'arrowdown',tLeft:'arrowleft',tRight:'arrowright'};
+for(const id in tmap){
+  const el=document.getElementById(id);
+  const k=tmap[id];
+  el.addEventListener('pointerdown',e=>{e.preventDefault();keys[k]=true; if(state!==ST.PLAY) startGame();});
+  el.addEventListener('pointerup',e=>{e.preventDefault();keys[k]=false;});
+  el.addEventListener('pointerleave',()=>keys[k]=false);
+}
+cvs.addEventListener('pointerdown',()=>{ if(state!==ST.PLAY) startGame(); });
+
+function toast(t,dur=1.6){ msg=t; msgT=dur; }
+
+// ---------- traffic ----------
+function spawnTraffic(){
+  const onV = Math.random()<.5;
+  let c,r,dir;
+  if(onV){ c=VROADS[(Math.random()*VROADS.length)|0]; r=(Math.random()*ROWS)|0; dir=Math.random()<.5?0:2; }
+  else   { r=HROADS[(Math.random()*HROADS.length)|0]; c=(Math.random()*COLS)|0; dir=Math.random()<.5?1:3; }
+  if(!isRoad(c,r)) return;
+  const x=c*TILE+TILE/2, y=r*TILE+TILE/2;
+  if(Math.hypot(x-player.x,y-player.y)<140) return; // don't spawn on player
+  traffic.push({x,y,dir,spd:55+Math.random()*30, hue:Math.random()<.5?'#74d2ff':'#b48cff'});
+}
+
+function moveOnRoads(o,dt,turnChance){
+  const spd=o.spd*dt;
+  const dx=[0,1,0,-1][o.dir], dy=[-1,0,1,0][o.dir];
+  let nx=o.x+dx*spd, ny=o.y+dy*spd;
+  // tile center check at intersections
+  const tc=Math.floor(o.x/TILE), tr=Math.floor(o.y/TILE);
+  const cx=tc*TILE+TILE/2, cy=tr*TILE+TILE/2;
+  const atCenter = Math.abs(o.x-cx)<spd+1 && Math.abs(o.y-cy)<spd+1;
+  if(atCenter){
+    // possible directions from this tile
+    const opts=[];
+    if(isRoad(tc,tr-1)) opts.push(0);
+    if(isRoad(tc+1,tr)) opts.push(1);
+    if(isRoad(tc,tr+1)) opts.push(2);
+    if(isRoad(tc-1,tr)) opts.push(3);
+    const fwdOk = opts.includes(o.dir);
+    if(!fwdOk || (opts.length>1 && Math.random()<turnChance)){
+      const choices=opts.filter(d=>d!==(o.dir+2)%4);
+      o.dir = (choices.length?choices:opts)[(Math.random()*(choices.length?choices.length:opts.length))|0];
+      o.x=cx; o.y=cy;
+      nx=o.x; ny=o.y;
+    }
+  }
+  o.x=nx; o.y=ny;
+  // wrap safety
+  o.x=Math.max(TILE/2,Math.min(W-TILE/2,o.x));
+  o.y=Math.max(TILE/2,Math.min(H-TILE/2,o.y));
+}
+
+// ---------- game flow ----------
+function pickTarget(){
+  let s;
+  do{ s=SHOPS[(Math.random()*SHOPS.length)|0]; }while(target && s===target);
+  target=s; phase='pickup';
+  toast('ORDER UP: '+s.name, 2.2);
+  jingle([660,880]);
+}
+function startGame(){
+  score=0; runs=0; timeLeft=90; traffic=[]; phase='pickup'; target=null;
+  player.x=HOME.dc*TILE+TILE/2; player.y=HOME.dr*TILE+TILE/2; player.vx=0; player.vy=0; player.dir=0; player.inv=0;
+  for(let i=0;i<5;i++) spawnTraffic();
+  pickTarget();
+  state=ST.PLAY;
+  jingle([523,659,784,1046]);
+}
+function gameOver(){
+  state=ST.OVER;
+  hiScore=Math.max(hiScore,score);
+  jingle([392,330,262,196],.14);
+}
+
+// ---------- player physics ----------
+function updatePlayer(dt){
+  const ACC=560, MAX=185, FRIC=620;
+  let ix=0, iy=0;
+  if(keys['arrowup']||keys['w']) iy=-1;
+  if(keys['arrowdown']||keys['s']) iy=1;
+  if(keys['arrowleft']||keys['a']) ix=-1;
+  if(keys['arrowright']||keys['d']) ix=1;
+  if(ix&&iy){ if(Math.abs(player.vx)>Math.abs(player.vy)) iy=0; else ix=0; } // 4-dir feel
+  player.vx += ix*ACC*dt; player.vy += iy*ACC*dt;
+  // friction
+  const f=FRIC*dt;
+  if(!ix) player.vx -= Math.sign(player.vx)*Math.min(Math.abs(player.vx),f);
+  if(!iy) player.vy -= Math.sign(player.vy)*Math.min(Math.abs(player.vy),f);
+  const sp=Math.hypot(player.vx,player.vy);
+  if(sp>MAX){ player.vx*=MAX/sp; player.vy*=MAX/sp; }
+  if(ix>0)player.dir=1; else if(ix<0)player.dir=3; else if(iy>0)player.dir=2; else if(iy<0)player.dir=0;
+
+  // collide against non-road tiles (slide)
+  const R=12;
+  const tryMove=(nx,ny)=>{
+    const pts=[[nx-R,ny-R],[nx+R,ny-R],[nx-R,ny+R],[nx+R,ny+R]];
+    return pts.every(([px,py])=>isRoad(Math.floor(px/TILE),Math.floor(py/TILE)));
+  };
+  let nx=player.x+player.vx*dt;
+  if(tryMove(nx,player.y)) player.x=nx; else player.vx=0;
+  let ny=player.y+player.vy*dt;
+  if(tryMove(player.x,ny)) player.y=ny; else player.vy=0;
+  if(player.inv>0) player.inv-=dt;
+}
+
+function update(dt){
+  blink+=dt;
+  if(msgT>0) msgT-=dt;
+  if(state!==ST.PLAY) return;
+
+  timeLeft-=dt;
+  if(timeLeft<=0){ timeLeft=0; gameOver(); return; }
+
+  updatePlayer(dt);
+
+  const turnChance=.5;
+  traffic.forEach(t=>moveOnRoads(t,dt,turnChance));
+
+  // collisions with traffic
+  if(player.inv<=0){
+    for(const t of traffic){
+      if(Math.hypot(t.x-player.x,t.y-player.y)<22){
+        timeLeft=Math.max(0,timeLeft-6);
+        player.inv=1.4; shake=.35;
+        player.vx*=-.5; player.vy*=-.5;
+        toast('CRASH! -6 SEC');
+        beep(110,.25,'sawtooth',.2);
+        document.getElementById('flash').style.opacity=.5;
+        setTimeout(()=>document.getElementById('flash').style.opacity=0,80);
+        break;
+      }
+    }
+  }
+
+  // objective checks
+  const goal = phase==='pickup' ? target : HOME;
+  const gx=goal.dc*TILE+TILE/2, gy=goal.dr*TILE+TILE/2;
+  if(Math.hypot(player.x-gx,player.y-gy)<26){
+    if(phase==='pickup'){
+      phase='dropoff';
+      score+=50;
+      toast('GOT THE GOODS — HEAD HOME!',2);
+      jingle([784,988]);
+    }else{
+      runs++;
+      const bonus=100+Math.max(0,Math.floor(timeLeft/3))*5;
+      score+=bonus;
+      timeLeft=Math.min(120,timeLeft+18);
+      toast('DELIVERED! +'+bonus+'  +18 SEC',2.2);
+      jingle([659,784,988,1318]);
+      if(runs%2===0) spawnTraffic();        // ramp difficulty
+      if(traffic.length<5+runs) spawnTraffic();
+      pickTarget();
+    }
+  }
+
+  if(shake>0) shake-=dt;
+}
+
+// ---------- drawing ----------
+function px(n){return Math.round(n);}
+
+function drawMap(){
+  for(let r=0;r<ROWS;r++){
+    for(let c=0;c<COLS;c++){
+      const x=c*TILE, y=r*TILE;
+      if(isRoad(c,r)){
+        ctx.fillStyle=C.road; ctx.fillRect(x,y,TILE,TILE);
+        // lane dashes
+        ctx.fillStyle=C.roadLine;
+        const vert=VROADS.includes(c), horz=HROADS.includes(r);
+        if(vert&&!horz){ if(r%1===0){ctx.fillRect(x+TILE/2-1,y+6,2,10); ctx.fillRect(x+TILE/2-1,y+24,2,10);} }
+        else if(horz&&!vert){ ctx.fillRect(x+6,y+TILE/2-1,10,2); ctx.fillRect(x+24,y+TILE/2-1,10,2); }
+      }else if(PARKS.has(c+','+r)){
+        ctx.fillStyle=C.grass; ctx.fillRect(x,y,TILE,TILE);
+        ctx.fillStyle=C.treeDark; ctx.fillRect(x+12,y+18,16,14);
+        ctx.fillStyle=C.tree; ctx.fillRect(x+8,y+6,24,18);
+        ctx.fillStyle=C.bldgC; ctx.fillRect(x+18,y+30,4,8);
+      }else{
+        // building
+        const shade=(c*7+r*13)%3;
+        ctx.fillStyle=[C.bldgA,C.bldgB,C.bldgC][shade];
+        ctx.fillRect(x,y,TILE,TILE);
+        ctx.fillStyle=C.roofA; ctx.fillRect(x,y,TILE,4);
+        // windows
+        for(let wy=10;wy<TILE-6;wy+=12){
+          for(let wx=6;wx<TILE-6;wx+=12){
+            const lit=((c*31+r*17+wx+wy)%7)<2;
+            ctx.fillStyle=lit?C.window:C.windowOff;
+            ctx.fillRect(x+wx,y+wy,6,6);
+          }
+        }
+      }
+    }
+  }
+}
+
+function drawShop(s, isTarget, isHome){
+  const x=s.c*TILE, y=s.r*TILE;
+  // storefront
+  ctx.fillStyle=isHome?'#5a4632':'#1f3328';
+  ctx.fillRect(x+2,y+2,TILE-4,TILE-4);
+  ctx.fillStyle=isHome?C.ochre:C.neon;
+  ctx.fillRect(x+2,y+2,TILE-4,6); // awning
+  // sign: leaf or house
+  ctx.fillStyle=isHome?C.sand:C.neon;
+  if(isHome){
+    ctx.fillRect(x+14,y+18,12,12);
+    ctx.fillRect(x+18,y+12,4,6);
+    ctx.beginPath(); ctx.moveTo(x+10,y+18); ctx.lineTo(x+20,y+9); ctx.lineTo(x+30,y+18); ctx.closePath(); ctx.fill();
+  }else{
+    // pixel leaf
+    ctx.fillRect(x+18,y+14,4,14);
+    ctx.fillRect(x+14,y+18,12,6);
+    ctx.fillRect(x+16,y+14,8,4);
+    ctx.fillRect(x+18,y+26,4,4);
+  }
+  // blinking beacon on active target
+  if(isTarget && (blink*3|0)%2===0){
+    ctx.fillStyle=C.hot;
+    ctx.fillRect(x+TILE/2-3,y-8,6,6);
+  }
+  // door marker on the road
+  const dx=s.dc*TILE, dy=s.dr*TILE;
+  ctx.fillStyle=isTarget?(isHome?C.ochre:C.neon):'rgba(217,201,163,.25)';
+  ctx.globalAlpha=isTarget?(.5+.5*Math.abs(Math.sin(blink*4))):.6;
+  ctx.fillRect(dx+12,dy+12,16,16);
+  ctx.globalAlpha=1;
+}
+
+function drawCarShape(x,y,dir,body,trim){
+  ctx.save();
+  ctx.translate(px(x),px(y));
+  ctx.rotate([0,Math.PI/2,Math.PI,-Math.PI/2][dir]);
+  // chunky pixel hatchback, facing up
+  ctx.fillStyle='#0a0d0a'; ctx.fillRect(-11,-15,22,30);       // outline
+  ctx.fillStyle=body;      ctx.fillRect(-9,-13,18,26);        // body
+  ctx.fillStyle=trim;      ctx.fillRect(-9,-13,18,5);         // hood stripe
+  ctx.fillStyle='#142018'; ctx.fillRect(-6,-6,12,8);          // windshield
+  ctx.fillStyle='#0a0d0a';                                     // wheels
+  ctx.fillRect(-12,-10,3,7); ctx.fillRect(9,-10,3,7);
+  ctx.fillRect(-12,4,3,7);   ctx.fillRect(9,4,3,7);
+  ctx.restore();
+}
+
+function drawArrow(){
+  if(state!==ST.PLAY) return;
+  const goal = phase==='pickup'?target:HOME;
+  const gx=goal.dc*TILE+TILE/2, gy=goal.dr*TILE+TILE/2;
+  const a=Math.atan2(gy-player.y,gx-player.x);
+  const d=Math.hypot(gx-player.x,gy-player.y);
+  if(d<60) return;
+  const ax=player.x+Math.cos(a)*34, ay=player.y+Math.sin(a)*34;
+  ctx.save();
+  ctx.translate(ax,ay); ctx.rotate(a);
+  ctx.fillStyle=phase==='pickup'?C.neon:C.ochre;
+  ctx.beginPath(); ctx.moveTo(10,0); ctx.lineTo(-6,-7); ctx.lineTo(-6,7); ctx.closePath(); ctx.fill();
+  ctx.restore();
+}
+
+function text(t,x,y,size,color,align='center',glow=false){
+  ctx.font='bold '+size+'px "Courier New", monospace';
+  ctx.textAlign=align; ctx.textBaseline='middle';
+  if(glow){ ctx.shadowColor=color; ctx.shadowBlur=10; }
+  ctx.fillStyle=color; ctx.fillText(t,px(x),px(y));
+  ctx.shadowBlur=0;
+}
+
+function draw(){
+  ctx.save();
+  if(shake>0) ctx.translate((Math.random()-.5)*8,(Math.random()-.5)*8);
+
+  drawMap();
+  SHOPS.forEach(s=>drawShop(s, state===ST.PLAY&&phase==='pickup'&&s===target, false));
+  drawShop(HOME, state===ST.PLAY&&phase==='dropoff', true);
+
+  traffic.forEach(t=>drawCarShape(t.x,t.y,t.dir,t.hue,'#0e1a22'));
+
+  // player (flicker when invincible)
+  if(!(player.inv>0 && (blink*10|0)%2===0)){
+    drawCarShape(player.x,player.y,player.dir,C.car,C.carDark);
+    // little leaf on the roof
+    ctx.fillStyle=C.neon;
+    ctx.fillRect(px(player.x)-2,px(player.y)-2,4,4);
+  }
+
+  drawArrow();
+
+  // objective banner
+  if(state===ST.PLAY){
+    const goal=phase==='pickup'?target:HOME;
+    const label=phase==='pickup'?('PICK UP @ '+goal.name):'DELIVER HOME';
+    ctx.fillStyle='rgba(10,13,10,.75)';
+    ctx.fillRect(0,0,W,26);
+    text(label, W/2, 14, 14, phase==='pickup'?C.neon:C.ochre,'center',true);
+  }
+
+  // toast
+  if(msgT>0){
+    ctx.fillStyle='rgba(10,13,10,.8)';
+    const w=msg.length*11+30;
+    ctx.fillRect(W/2-w/2,H-58,w,30);
+    ctx.strokeStyle=C.neon; ctx.lineWidth=2; ctx.strokeRect(W/2-w/2,H-58,w,30);
+    text(msg,W/2,H-43,15,C.sand,'center');
+  }
+
+  // title / game over overlays
+  if(state===ST.TITLE){
+    ctx.fillStyle='rgba(10,13,10,.82)'; ctx.fillRect(0,0,W,H);
+    text('ALL CITY GREENS', W/2, H/2-96, 44, C.neon,'center',true);
+    text('★ DELIVERY RUN ★', W/2, H/2-52, 26, C.ochre,'center',true);
+    text('PICK UP ORDERS AT THE SHOP. RACE THEM HOME.', W/2, H/2+4, 15, C.sand);
+    text('AVOID TRAFFIC — CRASHES COST TIME.', W/2, H/2+28, 15, C.sand);
+    if((blink*2|0)%2===0) text('PRESS ENTER / TAP TO START', W/2, H/2+84, 18, C.neon,'center',true);
+    text('CINCINNATI · FIELD GUIDE ARCADE · 1986', W/2, H-30, 12, C.moss||'#5a7d5a');
+  }
+  if(state===ST.OVER){
+    ctx.fillStyle='rgba(10,13,10,.82)'; ctx.fillRect(0,0,W,H);
+    text('SHIFT OVER', W/2, H/2-80, 42, C.hot,'center',true);
+    text('SCORE  '+score, W/2, H/2-20, 24, C.neon,'center',true);
+    text('DELIVERIES  '+runs, W/2, H/2+14, 18, C.sand);
+    text('HIGH SCORE  '+hiScore, W/2, H/2+44, 18, C.ochre);
+    if((blink*2|0)%2===0) text('PRESS ENTER / TAP TO RIDE AGAIN', W/2, H/2+98, 16, C.neon,'center',true);
+  }
+
+  ctx.restore();
+}
+
+// ---------- HUD ----------
+const hS=document.getElementById('hScore'), hT=document.getElementById('hTime'),
+      hR=document.getElementById('hRuns'), hH=document.getElementById('hHi');
+function hud(){
+  hS.textContent=score;
+  hR.textContent=runs;
+  hT.textContent=Math.ceil(timeLeft);
+  hH.textContent=hiScore;
+  hT.style.color = timeLeft<15 ? '#ff5e5e' : '';
+}
+
+// ---------- responsive scale ----------
+function fit(){
+  const pad=24;
+  const availW=Math.min(innerWidth-pad, 820);
+  const availH=innerHeight-150;
+  const s=Math.min(availW/W, availH/H, 1);
+  cvs.style.width=(W*s)+'px';
+  cvs.style.height=(H*s)+'px';
+}
+addEventListener('resize',fit); fit();
+
+// ---------- loop ----------
+function loop(ts){
+  const dt=Math.min(.05,(ts-last)/1000)||0;
+  last=ts;
+  update(dt);
+  draw();
+  hud();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

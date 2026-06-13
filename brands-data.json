@@ -1,9 +1,60 @@
 {
-  "generated_at": "2026-06-13T00:08:45.701186+00:00",
-  "verified_time": "8:08 PM",
-  "report_date": "2026-06-12",
-  "brand_count": 24,
+  "generated_at": "2026-06-13T10:29:32.059690+00:00",
+  "verified_time": "6:29 AM",
+  "report_date": "2026-06-13",
+  "brand_count": 23,
   "brands": [
+    {
+      "name": "Pure Ohio Wellness",
+      "deal_count": 6,
+      "dispensaries": [
+        "Shangri-La Monroe West",
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Concentrates",
+        "Pre-Rolls"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Frozen Bananas Pre Roll - 1g",
+        "price": 6.0,
+        "original_price": 9.0,
+        "on_sale": true,
+        "discount_pct": 33,
+        "category": "Pre-Rolls",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
+      "name": "HillFire",
+      "deal_count": 6,
+      "dispensaries": [
+        "Garden Club Dispensary",
+        "Shangri-La Cincinnati",
+        "Shangri-La Monroe Superstore",
+        "Shangri-La Monroe West",
+        "Zen Leaf - Cincinnati"
+      ],
+      "categories": [
+        "Flower",
+        "Pre-Rolls",
+        "Vape Pens"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "HillFire - Single Serve Unit - G KM (H) 1g",
+        "price": 7.0,
+        "original_price": 10.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
     {
       "name": "h\u014dn",
       "deal_count": 5,
@@ -49,50 +100,26 @@
       }
     },
     {
-      "name": "Eden's Trees",
+      "name": "Certified Cultivators",
       "deal_count": 3,
       "dispensaries": [
-        "Garden Club Dispensary",
-        "Shangri-La Cincinnati"
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
       ],
       "categories": [
-        "Edibles",
         "Flower",
         "Vape Pens"
       ],
-      "best_discount": 30,
+      "best_discount": 35,
       "cheapest": {
-        "product": "Eden's Trees \u2014 Orange \u2014 Gummies \u2014 11pk",
-        "price": 11.2,
-        "original_price": 14.0,
+        "product": "Big League Chew \u2014 Cartridge",
+        "price": 26.0,
+        "original_price": 40.0,
         "on_sale": true,
-        "discount_pct": 20,
-        "category": "Edibles",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
-      }
-    },
-    {
-      "name": "Klutch",
-      "deal_count": 3,
-      "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe Superstore"
-      ],
-      "categories": [
-        "Concentrates",
-        "Flower"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Klutch - Concentrate - Purp 43 Live Badder 1g",
-        "price": 35.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Concentrates",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "discount_pct": 35,
+        "category": "Vape Pens",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -140,46 +167,46 @@
       }
     },
     {
-      "name": "Certified Cultivators",
+      "name": "Meigs County Grown",
       "deal_count": 2,
       "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
+        "The Garden - Camp Washington"
       ],
       "categories": [
-        "Vape Pens"
+        "Flower"
       ],
-      "best_discount": 35,
+      "best_discount": 36,
       "cheapest": {
-        "product": "Big League Chew \u2014 Cartridge",
-        "price": 26.0,
-        "original_price": 40.0,
+        "product": "Meigs County Grown \u2014 Cranberry Z \u2014 Flower",
+        "price": 29.0,
+        "original_price": 45.0,
         "on_sale": true,
-        "discount_pct": 35,
-        "category": "Vape Pens",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
+        "discount_pct": 36,
+        "category": "Flower",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/menu/"
       }
     },
     {
-      "name": "Dogwalkers",
+      "name": "Firelands Scientific",
       "deal_count": 2,
       "dispensaries": [
         "Garden Club Dispensary",
-        "Shangri-La Monroe Superstore"
+        "Shangri-La Cincinnati"
       ],
       "categories": [
+        "Flower",
         "Pre-Rolls"
       ],
-      "best_discount": 20,
+      "best_discount": 30,
       "cheapest": {
-        "product": "Dogwalkers - Infused Single Serve Unit - CHNC (H) 1g",
-        "price": 16.0,
+        "product": "Firelands Scientific - Single Serve Unit - TLLY MN (I) 1.5g Pre-Roll 3-Pack (0.5gx3)",
+        "price": 14.0,
         "original_price": 20.0,
         "on_sale": true,
-        "discount_pct": 20,
+        "discount_pct": 30,
         "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Monroe Superstore",
+        "dispensary": "Shangri-La Cincinnati",
         "url": "https://shangriladispensaries.com"
       }
     },
@@ -268,27 +295,6 @@
       }
     },
     {
-      "name": "Pure Ohio Wellness",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Monroe West"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Pure Ohio Wellness - Concentrate - E85 Live Rosin Badder 1g",
-        "price": 39.0,
-        "original_price": 60.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Concentrates",
-        "dispensary": "Shangri-La Monroe West",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
       "name": "(the) Essence",
       "deal_count": 1,
       "dispensaries": [
@@ -331,27 +337,6 @@
       }
     },
     {
-      "name": "CERTIFIED",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Cincinnati"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Certified - Single Serve Unit - SHRBTNG #8 (H) 1g Pre-Roll 2-Pack (0.5g x 2)",
-        "price": 11.2,
-        "original_price": 16.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
       "name": "Grassroots",
       "deal_count": 1,
       "dispensaries": [
@@ -373,22 +358,22 @@
       }
     },
     {
-      "name": "Josh D",
+      "name": "Klutch",
       "deal_count": 1,
       "dispensaries": [
         "Shangri-La Cincinnati"
       ],
       "categories": [
-        "Pre-Rolls"
+        "Concentrates"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "MotorBreath (I) 1g - Single Serve Unit",
-        "price": 10.5,
-        "original_price": 15.0,
+        "product": "Klutch - Concentrate - Purp 43 Live Badder 1g",
+        "price": 35.0,
+        "original_price": 50.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Pre-Rolls",
+        "category": "Concentrates",
         "dispensary": "Shangri-La Cincinnati",
         "url": "https://shangriladispensaries.com"
       }
@@ -415,49 +400,70 @@
       }
     },
     {
-      "name": "Find.",
+      "name": "Klutch Cannabis",
       "deal_count": 1,
       "dispensaries": [
-        "Shangri-La Monroe West"
+        "UpLift - Milford"
       ],
       "categories": [
-        "Pre-Rolls"
+        "Concentrates"
       ],
       "best_discount": 25,
       "cheapest": {
-        "product": "Find. - Single Serve Unit - ANMLMNTCK (H) 1g",
-        "price": 9.75,
-        "original_price": 13.0,
+        "product": "Lemon Slushee - Live Hash Rosin 1g",
+        "price": 45.0,
+        "original_price": 60.0,
         "on_sale": true,
         "discount_pct": 25,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Monroe West",
-        "url": "https://shangriladispensaries.com"
+        "category": "Concentrates",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
-      "name": "Cookies",
+      "name": "Dialed In Gummies",
       "deal_count": 1,
       "dispensaries": [
         "Garden Club Dispensary"
       ],
       "categories": [
-        "Flower"
+        "Edibles"
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "Cookies \u2014 Ridgeline Lantz \u2014 Big Buds",
-        "price": 128.0,
-        "original_price": 160.0,
+        "product": "Hybrid \u2014 Hula Berry",
+        "price": 23.2,
+        "original_price": 29.0,
         "on_sale": true,
         "discount_pct": 20,
-        "category": "Flower",
+        "category": "Edibles",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
       }
     },
     {
-      "name": "Klutch Cannabis",
+      "name": "Riviera Creek",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Riviera Creek - Concentrate - Space Rocks (H) 1g",
+        "price": 22.4,
+        "original_price": 28.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "RYTHM",
       "deal_count": 1,
       "dispensaries": [
         "Garden Club Dispensary"
@@ -467,35 +473,14 @@
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "Permanent Marker - Live Badder 0.59g",
-        "price": 40.0,
-        "original_price": 50.0,
+        "product": "Captain Z \u2014 Live Rosin \u2014 Budder",
+        "price": 56.0,
+        "original_price": 70.0,
         "on_sale": true,
         "discount_pct": 20,
         "category": "Concentrates",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
-      }
-    },
-    {
-      "name": "Hillfire",
-      "deal_count": 1,
-      "dispensaries": [
-        "Zen Leaf - Cincinnati"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 0,
-      "cheapest": {
-        "product": "Lemon Cake \u2014 Flower 2.83g",
-        "price": 25.5,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Flower",
-        "dispensary": "Zen Leaf - Cincinnati",
-        "url": "https://zenleafdispensaries.com/locations/cincinnati/"
       }
     },
     {

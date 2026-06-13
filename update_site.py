@@ -694,10 +694,12 @@ def main():
                     or deduplicate(by_cat.get("edibles", []))
     preroll_deals = best_highlight_per_dispensary(dispensaries, "pre_rolls") \
                     or deduplicate(by_cat.get("pre_rolls", []))
+    vape_deals    = best_highlight_per_dispensary(dispensaries, "vapes") \
+                    or deduplicate(by_cat.get("vapes", []))
 
     print(f"  {dispensary_count} dispensaries · {total_products:,} products · {report_date}")
     print(f"  flower={len(flower_deals)}  conc={len(conc_deals)}  "
-          f"edibles={len(edible_deals)}  pre_rolls={len(preroll_deals)}")
+          f"edibles={len(edible_deals)}  pre_rolls={len(preroll_deals)}  vapes={len(vape_deals)}")
 
     html = INDEX_HTML.read_text(encoding="utf-8")
     print("Injecting sections …")
@@ -730,6 +732,7 @@ def main():
         ("concentrates", conc_deals),
         ("edibles",      edible_deals),
         ("pre_rolls",    preroll_deals),
+        ("vapes",        vape_deals),
     ]:
         for d in deals:
             d = dict(d)  # copy so we don't mutate original

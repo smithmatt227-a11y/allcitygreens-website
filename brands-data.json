@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-11T11:02:15.795298+00:00",
-  "verified_time": "7:02 AM",
-  "report_date": "2026-06-11",
-  "brand_count": 20,
+  "generated_at": "2026-06-13T00:08:45.701186+00:00",
+  "verified_time": "8:08 PM",
+  "report_date": "2026-06-12",
+  "brand_count": 24,
   "brands": [
     {
       "name": "h\u014dn",
@@ -16,7 +16,7 @@
       ],
       "best_discount": 70,
       "cheapest": {
-        "product": "Hon - Edible - Strawberry Honey 110mg",
+        "product": "Hon - Edible - Plain Honey 110mg",
         "price": 7.2,
         "original_price": 24.0,
         "on_sale": true,
@@ -49,95 +49,49 @@
       }
     },
     {
-      "name": "Kynd",
-      "deal_count": 4,
+      "name": "Eden's Trees",
+      "deal_count": 3,
+      "dispensaries": [
+        "Garden Club Dispensary",
+        "Shangri-La Cincinnati"
+      ],
+      "categories": [
+        "Edibles",
+        "Flower",
+        "Vape Pens"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Eden's Trees \u2014 Orange \u2014 Gummies \u2014 11pk",
+        "price": 11.2,
+        "original_price": 14.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Edibles",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
+      "name": "Klutch",
+      "deal_count": 3,
       "dispensaries": [
         "Shangri-La Cincinnati",
         "Shangri-La Monroe Superstore"
       ],
       "categories": [
-        "Pre-Rolls"
+        "Concentrates",
+        "Flower"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Kynd - Single Serve Unit - NTR BST (H) 1g",
-        "price": 9.8,
-        "original_price": 14.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Monroe Superstore",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "Klutch Cannabis",
-      "deal_count": 3,
-      "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore",
-        "UpLift - Milford"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 36,
-      "cheapest": {
-        "product": "Permanent Marker - Live Badder 0.59g",
-        "price": 32.0,
+        "product": "Klutch - Concentrate - Purp 43 Live Badder 1g",
+        "price": 35.0,
         "original_price": 50.0,
         "on_sale": true,
-        "discount_pct": 36,
-        "category": "Concentrates",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/menu/"
-      }
-    },
-    {
-      "name": "Certified Cultivators",
-      "deal_count": 3,
-      "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
-      ],
-      "categories": [
-        "Flower",
-        "Vape Pens"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Big League Chew \u2014 Cartridge",
-        "price": 26.0,
-        "original_price": 40.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Vape Pens",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
-      }
-    },
-    {
-      "name": "Later Days",
-      "deal_count": 3,
-      "dispensaries": [
-        "Garden Club Dispensary",
-        "Shangri-La Monroe Superstore",
-        "Shangri-La Monroe West"
-      ],
-      "categories": [
-        "Flower",
-        "Pre-Rolls",
-        "Vape Pens"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Later Days - Single Serve Unit - PRSM BRI (I) 1g",
-        "price": 7.0,
-        "original_price": 10.0,
-        "on_sale": true,
         "discount_pct": 30,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Monroe West",
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Cincinnati",
         "url": "https://shangriladispensaries.com"
       }
     },
@@ -164,51 +118,6 @@
       }
     },
     {
-      "name": "Cookies",
-      "deal_count": 2,
-      "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Therapy Cannabis - Cincinnati"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Cookies - Flower - Berniehana Butter (I) 2.83g",
-        "price": 21.0,
-        "original_price": 42.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Flower",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "UB Good",
-      "deal_count": 2,
-      "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe Superstore"
-      ],
-      "categories": [
-        "Edibles",
-        "Tinctures"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Relief 20:1 CBD:THC 110mg - Tincture",
-        "price": 22.0,
-        "original_price": 44.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Edibles",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
       "name": "Tasteology",
       "deal_count": 2,
       "dispensaries": [
@@ -231,46 +140,67 @@
       }
     },
     {
-      "name": "HZ",
+      "name": "Certified Cultivators",
       "deal_count": 2,
       "dispensaries": [
-        "Shangri-La Monroe Superstore",
-        "Shangri-La Monroe West"
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
       ],
       "categories": [
-        "Concentrates",
+        "Vape Pens"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Big League Chew \u2014 Cartridge",
+        "price": 26.0,
+        "original_price": 40.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Vape Pens",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
+      "name": "Dogwalkers",
+      "deal_count": 2,
+      "dispensaries": [
+        "Garden Club Dispensary",
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
         "Pre-Rolls"
       ],
-      "best_discount": 30,
+      "best_discount": 20,
       "cheapest": {
-        "product": "HZ - Infused Single Serve Unit - BLLY LGH (H) 1g",
-        "price": 19.6,
-        "original_price": 28.0,
+        "product": "Dogwalkers - Infused Single Serve Unit - CHNC (H) 1g",
+        "price": 16.0,
+        "original_price": 20.0,
         "on_sale": true,
-        "discount_pct": 30,
+        "discount_pct": 20,
         "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Monroe West",
+        "dispensary": "Shangri-La Monroe Superstore",
         "url": "https://shangriladispensaries.com"
       }
     },
     {
-      "name": "Habitat",
+      "name": "Doctor Solomon's",
       "deal_count": 1,
       "dispensaries": [
-        "Shangri-La Monroe West"
+        "Shangri-La Cincinnati"
       ],
       "categories": [
-        "Flower"
+        "Edibles"
       ],
       "best_discount": 50,
       "cheapest": {
-        "product": "Habitat - Flower - Pine Berry Sorbet (H) 2.83g",
-        "price": 17.5,
-        "original_price": 35.0,
+        "product": "Dr. Solomon's - Tincture - Restore Tincture 1:1 CBD 100mg",
+        "price": 18.0,
+        "original_price": 36.0,
         "on_sale": true,
         "discount_pct": 50,
-        "category": "Flower",
-        "dispensary": "Shangri-La Monroe West",
+        "category": "Edibles",
+        "dispensary": "Shangri-La Cincinnati",
         "url": "https://shangriladispensaries.com"
       }
     },
@@ -312,6 +242,27 @@
         "on_sale": true,
         "discount_pct": 40,
         "category": "Edibles",
+        "dispensary": "Shangri-La Monroe West",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Butterfly Effect by Grow Ohio",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Monroe West"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Butterfly Effect - Flower - Zerealz (H) 2.83g",
+        "price": 20.8,
+        "original_price": 32.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Flower",
         "dispensary": "Shangri-La Monroe West",
         "url": "https://shangriladispensaries.com"
       }
@@ -359,45 +310,171 @@
       }
     },
     {
-      "name": "Kynd Cannabis",
+      "name": "Camino",
       "deal_count": 1,
       "dispensaries": [
-        "Garden Club Dispensary"
+        "Therapy Cannabis - Cincinnati"
       ],
       "categories": [
         "Edibles"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "kynd Gummies 10pk - Balance - Black Cherry",
-        "price": 16.1,
-        "original_price": 23.0,
+        "product": "Camino \u2014 Watermelon Lemonade Gummies \u2014 100mg \u2014 20ct",
+        "price": 17.5,
+        "original_price": 25.0,
         "on_sale": true,
         "discount_pct": 30,
         "category": "Edibles",
+        "dispensary": "Therapy Cannabis - Cincinnati",
+        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
+      }
+    },
+    {
+      "name": "CERTIFIED",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Cincinnati"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Certified - Single Serve Unit - SHRBTNG #8 (H) 1g Pre-Roll 2-Pack (0.5g x 2)",
+        "price": 11.2,
+        "original_price": 16.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Grassroots",
+      "deal_count": 1,
+      "dispensaries": [
+        "Therapy Cannabis - Cincinnati"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Zesty Garlic Cookies Whole Flower - Dark Heart Collection",
+        "price": 63.0,
+        "original_price": 90.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Flower",
+        "dispensary": "Therapy Cannabis - Cincinnati",
+        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
+      }
+    },
+    {
+      "name": "Josh D",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Cincinnati"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "MotorBreath (I) 1g - Single Serve Unit",
+        "price": 10.5,
+        "original_price": 15.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Select",
+      "deal_count": 1,
+      "dispensaries": [
+        "Therapy Cannabis - Cincinnati"
+      ],
+      "categories": [
+        "Vape Pens"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "BRIQ Essentials Permanent Marker 2g All in One",
+        "price": 49.0,
+        "original_price": 70.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Vape Pens",
+        "dispensary": "Therapy Cannabis - Cincinnati",
+        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
+      }
+    },
+    {
+      "name": "Find.",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Monroe West"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 25,
+      "cheapest": {
+        "product": "Find. - Single Serve Unit - ANMLMNTCK (H) 1g",
+        "price": 9.75,
+        "original_price": 13.0,
+        "on_sale": true,
+        "discount_pct": 25,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Monroe West",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Cookies",
+      "deal_count": 1,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Cookies \u2014 Ridgeline Lantz \u2014 Big Buds",
+        "price": 128.0,
+        "original_price": 160.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Flower",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
       }
     },
     {
-      "name": "Eden's Trees",
+      "name": "Klutch Cannabis",
       "deal_count": 1,
       "dispensaries": [
-        "Shangri-La Cincinnati"
+        "Garden Club Dispensary"
       ],
       "categories": [
         "Concentrates"
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "Eden's Trees - Concentrate - SHRB PP Live Resin Badder 1g",
-        "price": 32.0,
-        "original_price": 40.0,
+        "product": "Permanent Marker - Live Badder 0.59g",
+        "price": 40.0,
+        "original_price": 50.0,
         "on_sale": true,
         "discount_pct": 20,
         "category": "Concentrates",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
       }
     },
     {
@@ -432,8 +509,8 @@
       ],
       "best_discount": 0,
       "cheapest": {
-        "product": "Sleepover - Cherry Sorbet 4:1 (THC:CBN) Disposable Pen [300mg]",
-        "price": 25.5,
+        "product": "Black Variable Voltage Battery (Old English)",
+        "price": 14.25,
         "original_price": null,
         "on_sale": false,
         "discount_pct": 0,

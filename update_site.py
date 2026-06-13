@@ -206,7 +206,14 @@ def clean_product_name(raw_name: str) -> str:
     # 2. Drop leading brand if recognized
     if len(parts) > 1 and parts[0].lower().strip().rstrip(":") in _BRAND_PREFIXES:
         parts = parts[1:]
-    return " — ".join(parts).strip() or s
+    # 3. Drop a segment already contained in an earlier one (fixes
+    #    "Peach + CBC Gummies | Gummies | 28pk" -> "... Gummies — Gummies — 28pk")
+    kept = []
+    for part in parts:
+        if part.lower() in " — ".join(kept).lower():
+            continue
+        kept.append(part)
+    return " — ".join(kept).strip() or s
 
 
 def deduplicate(deals: list) -> list:
@@ -312,6 +319,23 @@ def _meaningful_weight(deal: dict) -> bool:
 # HTML GENERATORS
 # ─────────────────────────────────────────────────────────────────────────────
 
+def badge_pct_text(pct) -> str:
+    """
+    Displayed discount badge, capped at "50%+" (credibility rule, 2026-06-12).
+    Dispensaries' own marketing advertises at most ~20-50% off (verified on
+    UpLift / Shangri-La / Zen Leaf sites), so deeper computed strike-through
+    discounts (real, but clearance math) display as "50%+" and let the actual
+    prices do the selling. Sorting still uses the true % via data-pct.
+    """
+    try:
+        pct = int(pct or 0)
+    except (TypeError, ValueError):
+        return ""
+    if pct <= 0:
+        return ""
+    return "50%+" if pct > 50 else f"{pct}%"
+
+
 def deal_card_html(deal: dict) -> str:
     """Generate a deal card in the Perplexity design format with data-cat for JS filtering."""
     url       = deal.get("product_url") or disp_url(deal["dispensary"])
@@ -331,7 +355,8 @@ def deal_card_html(deal: dict) -> str:
     ppg   = calc_ppg(deal)
 
     if on_sale and orig and orig > price:
-        pct_text = f"-{discount}%" if discount else "Top deal"
+        badge = badge_pct_text(discount)
+        pct_text = f"-{badge}" if badge else "Top deal"
         prices_html = (
             f'<span class="deal-card-orig">${orig:.2f}</span>'
             f'<span class="deal-card-sale">${price:.2f}</span>'
@@ -376,7 +401,7 @@ def mockup_row(deal: dict, rank: int = 0) -> str:
         price_html = (
             f'<span class="deal-original">${orig:.2f}</span> '
             f'<span class="deal-now">${price:.2f}</span> '
-            f'<span class="deal-chip">&minus;{pct}%</span> '
+            f'<span class="deal-chip">&minus;{badge_pct_text(pct)}</span> '
             f'<span class="deal-save">Save {save_str}</span>'
         )
     else:

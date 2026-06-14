@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-13T10:29:32.059690+00:00",
+  "generated_at": "2026-06-14T10:29:18.557908+00:00",
   "verified_time": "6:29 AM",
-  "report_date": "2026-06-13",
+  "report_date": "2026-06-14",
   "brand_count": 23,
   "brands": [
     {
@@ -67,7 +67,7 @@
       ],
       "best_discount": 70,
       "cheapest": {
-        "product": "Hon - Edible - Plain Honey 110mg",
+        "product": "Hon - Edible - Strawberry Honey 110mg",
         "price": 7.2,
         "original_price": 24.0,
         "on_sale": true,
@@ -75,6 +75,30 @@
         "category": "Edibles",
         "dispensary": "Shangri-La Monroe Superstore",
         "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Aura",
+      "deal_count": 4,
+      "dispensaries": [
+        "Shangri-La Cincinnati",
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Edibles",
+        "Topicals"
+      ],
+      "best_discount": 72,
+      "cheapest": {
+        "product": "Peach + CBC Gummies \u2014 28pk",
+        "price": 10.0,
+        "original_price": 36.0,
+        "on_sale": true,
+        "discount_pct": 72,
+        "category": "Edibles",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -123,25 +147,49 @@
       }
     },
     {
-      "name": "Aura",
-      "deal_count": 2,
+      "name": "Eden's Trees",
+      "deal_count": 3,
       "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
+        "Shangri-La Cincinnati",
+        "Shangri-La Monroe Superstore",
+        "Shangri-La Monroe West"
       ],
       "categories": [
-        "Edibles"
+        "Concentrates",
+        "Topicals"
       ],
-      "best_discount": 72,
+      "best_discount": 20,
       "cheapest": {
-        "product": "Peach + CBC Gummies \u2014 28pk",
-        "price": 10.0,
+        "product": "Eden's Trees - Topical - Menthol Lotion 1:1 THC:CBD 295mg",
+        "price": 24.0,
+        "original_price": 30.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Topicals",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Doctor Solomon's",
+      "deal_count": 2,
+      "dispensaries": [
+        "Shangri-La Cincinnati"
+      ],
+      "categories": [
+        "Edibles",
+        "Topicals"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Dr. Solomon's - Tincture - Restore Tincture 1:1 CBD 100mg",
+        "price": 18.0,
         "original_price": 36.0,
         "on_sale": true,
-        "discount_pct": 72,
+        "discount_pct": 50,
         "category": "Edibles",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -211,27 +259,6 @@
       }
     },
     {
-      "name": "Doctor Solomon's",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Cincinnati"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Dr. Solomon's - Tincture - Restore Tincture 1:1 CBD 100mg",
-        "price": 18.0,
-        "original_price": 36.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Edibles",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
       "name": "Timeless",
       "deal_count": 1,
       "dispensaries": [
@@ -274,7 +301,7 @@
       }
     },
     {
-      "name": "Butterfly Effect by Grow Ohio",
+      "name": "Cookies",
       "deal_count": 1,
       "dispensaries": [
         "Shangri-La Monroe West"
@@ -284,9 +311,9 @@
       ],
       "best_discount": 35,
       "cheapest": {
-        "product": "Butterfly Effect - Flower - Zerealz (H) 2.83g",
-        "price": 20.8,
-        "original_price": 32.0,
+        "product": "Cookies - Flower - That Badu (S) 2.83g",
+        "price": 27.3,
+        "original_price": 42.0,
         "on_sale": true,
         "discount_pct": 35,
         "category": "Flower",
@@ -337,48 +364,6 @@
       }
     },
     {
-      "name": "Grassroots",
-      "deal_count": 1,
-      "dispensaries": [
-        "Therapy Cannabis - Cincinnati"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Zesty Garlic Cookies Whole Flower - Dark Heart Collection",
-        "price": 63.0,
-        "original_price": 90.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Flower",
-        "dispensary": "Therapy Cannabis - Cincinnati",
-        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
-      }
-    },
-    {
-      "name": "Klutch",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Cincinnati"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Klutch - Concentrate - Purp 43 Live Badder 1g",
-        "price": 35.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Concentrates",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
       "name": "Select",
       "deal_count": 1,
       "dispensaries": [
@@ -400,28 +385,28 @@
       }
     },
     {
-      "name": "Klutch Cannabis",
+      "name": "Standard Farms",
       "deal_count": 1,
       "dispensaries": [
-        "UpLift - Milford"
+        "Therapy Cannabis - Cincinnati"
       ],
       "categories": [
-        "Concentrates"
+        "Flower"
       ],
-      "best_discount": 25,
+      "best_discount": 30,
       "cheapest": {
-        "product": "Lemon Slushee - Live Hash Rosin 1g",
-        "price": 45.0,
-        "original_price": 60.0,
+        "product": "Forbidden Fruitcake \u2014 Big Buds",
+        "price": 70.0,
+        "original_price": 100.0,
         "on_sale": true,
-        "discount_pct": 25,
-        "category": "Concentrates",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
+        "discount_pct": 30,
+        "category": "Flower",
+        "dispensary": "Therapy Cannabis - Cincinnati",
+        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
       }
     },
     {
-      "name": "Dialed In Gummies",
+      "name": "Kiva Confections",
       "deal_count": 1,
       "dispensaries": [
         "Garden Club Dispensary"
@@ -431,9 +416,9 @@
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "Hybrid \u2014 Hula Berry",
-        "price": 23.2,
-        "original_price": 29.0,
+        "product": "Milk Chocolate Bar \u2014 Edibles \u2014 200mg \u2014 20pk",
+        "price": 20.8,
+        "original_price": 26.0,
         "on_sale": true,
         "discount_pct": 20,
         "category": "Edibles",
@@ -473,14 +458,35 @@
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "Captain Z \u2014 Live Rosin \u2014 Budder",
-        "price": 56.0,
-        "original_price": 70.0,
+        "product": "Bananaconda \u2014 Live Resin",
+        "price": 40.0,
+        "original_price": 50.0,
         "on_sale": true,
         "discount_pct": 20,
         "category": "Concentrates",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
+      "name": "UB Good",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
+        "Tinctures"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "UB Good - Tincture - Go 440mg",
+        "price": 32.0,
+        "original_price": 40.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Tinctures",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {

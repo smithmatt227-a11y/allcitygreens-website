@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-20T10:30:39.644752+00:00",
-  "verified_time": "6:30 AM",
-  "report_date": "2026-06-20",
-  "brand_count": 35,
+  "generated_at": "2026-06-21T10:15:48.428730+00:00",
+  "verified_time": "6:15 AM",
+  "report_date": "2026-06-21",
+  "brand_count": 37,
   "brands": [
     {
       "name": "h\u014dn",
@@ -17,38 +17,12 @@
       ],
       "best_discount": 70,
       "cheapest": {
-        "product": "Hon - Edible - Cinnamon Honey 110mg",
+        "product": "Hon - Edible - Plain Honey 110mg",
         "price": 7.2,
         "original_price": 24.0,
         "on_sale": true,
         "discount_pct": 70,
         "category": "Edibles",
-        "dispensary": "Shangri-La Monroe Superstore",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "Firelands Scientific",
-      "deal_count": 6,
-      "dispensaries": [
-        "Garden Club Dispensary",
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe Superstore",
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Edibles",
-        "Flower",
-        "Pre-Rolls"
-      ],
-      "best_discount": 44,
-      "cheapest": {
-        "product": "Firelands Scientific - Single Serve Unit - SSPPL (S) 1g",
-        "price": 8.4,
-        "original_price": 12.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Pre-Rolls",
         "dispensary": "Shangri-La Monroe Superstore",
         "url": "https://shangriladispensaries.com"
       }
@@ -77,6 +51,32 @@
       }
     },
     {
+      "name": "Firelands Scientific",
+      "deal_count": 6,
+      "dispensaries": [
+        "Garden Club Dispensary",
+        "Shangri-La Cincinnati",
+        "Shangri-La Monroe Superstore",
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Edibles",
+        "Flower",
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Firelands Scientific - Mixed Berry Sun Bites - Gummies - 20mg [2pk]",
+        "price": 6.0,
+        "original_price": null,
+        "on_sale": false,
+        "discount_pct": 0,
+        "category": "Edibles",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
+      }
+    },
+    {
       "name": "Pure Ohio Wellness",
       "deal_count": 4,
       "dispensaries": [
@@ -102,30 +102,7 @@
       }
     },
     {
-      "name": "Riviera Creek",
-      "deal_count": 4,
-      "dispensaries": [
-        "Shangri-La Monroe Superstore",
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Concentrates",
-        "Flower"
-      ],
-      "best_discount": 44,
-      "cheapest": {
-        "product": "Riviera Creek - RCCC - Kief - 1g",
-        "price": 20.0,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Concentrates",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
-      }
-    },
-    {
-      "name": "Hillfire",
+      "name": "HillFire",
       "deal_count": 4,
       "dispensaries": [
         "Garden Club Dispensary",
@@ -152,6 +129,30 @@
       }
     },
     {
+      "name": "UB Good",
+      "deal_count": 4,
+      "dispensaries": [
+        "Queen City - Harrison",
+        "Shangri-La Cincinnati",
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
+        "Edibles",
+        "Tinctures"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "UB Good - Tincture - Balance 1:1 THC:CBD 440mg",
+        "price": 32.0,
+        "original_price": 40.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Tinctures",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
       "name": "Wyldflower",
       "deal_count": 3,
       "dispensaries": [
@@ -170,6 +171,28 @@
         "category": "Vapes",
         "dispensary": "Shangri-La Monroe Superstore",
         "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Riviera Creek",
+      "deal_count": 3,
+      "dispensaries": [
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Concentrates",
+        "Flower"
+      ],
+      "best_discount": 44,
+      "cheapest": {
+        "product": "Riviera Creek - RCCC - Kief - 1g",
+        "price": 20.0,
+        "original_price": null,
+        "on_sale": false,
+        "discount_pct": 0,
+        "category": "Concentrates",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
@@ -194,29 +217,6 @@
         "category": "Flower",
         "dispensary": "UpLift - Mount Orab",
         "url": "https://www.upliftohio.com"
-      }
-    },
-    {
-      "name": "Certified Cultivators",
-      "deal_count": 3,
-      "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
-      ],
-      "categories": [
-        "Edibles",
-        "Vape Pens"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Big League Chew \u2014 Cartridge",
-        "price": 26.0,
-        "original_price": 40.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Vape Pens",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -332,46 +332,48 @@
       }
     },
     {
-      "name": "Avexia",
+      "name": "Certified Cultivators",
       "deal_count": 2,
       "dispensaries": [
-        "Queen City - Harrison"
+        "UpLift - Milford"
       ],
       "categories": [
-        "Tinctures"
+        "Edibles",
+        "Vape Pens"
       ],
-      "best_discount": 30,
+      "best_discount": 35,
       "cheapest": {
-        "product": "Avexia \u2014 Peach Ginger 1:1 CBN:THC \u2014 110mg Tincture",
-        "price": 17.5,
-        "original_price": 25.0,
+        "product": "Big League Chew \u2014 Cartridge",
+        "price": 26.0,
+        "original_price": 40.0,
         "on_sale": true,
-        "discount_pct": 30,
-        "category": "Tinctures",
-        "dispensary": "Queen City - Harrison",
-        "url": "https://queenccanna.com"
+        "discount_pct": 35,
+        "category": "Vape Pens",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
-      "name": "Klutch",
+      "name": "Eden's Trees",
       "deal_count": 2,
       "dispensaries": [
+        "Queen City - Norwood",
         "Shangri-La Cincinnati"
       ],
       "categories": [
         "Concentrates",
-        "Edibles"
+        "Topicals"
       ],
-      "best_discount": 30,
+      "best_discount": 35,
       "cheapest": {
-        "product": "Klutch - Chocolate - Ice Cream Cake Dark Chocolate Bar (10pk) 100mg",
-        "price": 17.5,
-        "original_price": 25.0,
+        "product": "Eden's Trees \u2014 49mg Topical Lotion",
+        "price": 17.55,
+        "original_price": 27.0,
         "on_sale": true,
-        "discount_pct": 30,
-        "category": "Edibles",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "discount_pct": 35,
+        "category": "Topicals",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
       }
     },
     {
@@ -438,6 +440,27 @@
       }
     },
     {
+      "name": "Ascension Biomedical",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Seeker \u2014 ZJ \u2014 1g Pre-Roll",
+        "price": 6.5,
+        "original_price": 10.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Pre-Rolls",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
       "name": "Common Citizen",
       "deal_count": 1,
       "dispensaries": [
@@ -448,7 +471,7 @@
       ],
       "best_discount": 35,
       "cheapest": {
-        "product": "Common Citizen \u2014 Tropical Trainwreck \u2014 1g Cartridge",
+        "product": "Common Citizen \u2014 Juicy Pear \u2014 1g Cartridge",
         "price": 21.45,
         "original_price": 33.0,
         "on_sale": true,
@@ -480,27 +503,6 @@
       }
     },
     {
-      "name": "Eden's Trees",
-      "deal_count": 1,
-      "dispensaries": [
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Topicals"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Eden's Trees \u2014 49mg Topical Lotion",
-        "price": 17.55,
-        "original_price": 27.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Topicals",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
       "name": "Hundred Percent Labs",
       "deal_count": 1,
       "dispensaries": [
@@ -517,6 +519,27 @@
         "on_sale": true,
         "discount_pct": 35,
         "category": "Topicals",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
+      "name": "King City",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "King City Gardens \u2014 Apples and Bananas \u2014 1g Pre-Roll",
+        "price": 7.15,
+        "original_price": 11.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Pre-Rolls",
         "dispensary": "Queen City - Norwood",
         "url": "https://queenccanna.com/norwood/"
       }
@@ -627,6 +650,27 @@
       }
     },
     {
+      "name": "Avexia",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Harrison"
+      ],
+      "categories": [
+        "Tinctures"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Avexia \u2014 Peach Ginger 1:1 CBN:THC \u2014 110mg Tincture",
+        "price": 17.5,
+        "original_price": 25.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Tinctures",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
+      }
+    },
+    {
       "name": "Butterfly Effect by Grow Ohio",
       "deal_count": 1,
       "dispensaries": [
@@ -669,27 +713,6 @@
       }
     },
     {
-      "name": "UB Good",
-      "deal_count": 1,
-      "dispensaries": [
-        "Queen City - Harrison"
-      ],
-      "categories": [
-        "Tinctures"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "UB Good \u2014 Relief 2:2:1 CBD:CBG \u2014 220mg Tincture",
-        "price": 33.6,
-        "original_price": 48.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Tinctures",
-        "dispensary": "Queen City - Harrison",
-        "url": "https://queenccanna.com"
-      }
-    },
-    {
       "name": "Grassroots",
       "deal_count": 1,
       "dispensaries": [
@@ -711,7 +734,28 @@
       }
     },
     {
-      "name": "Dialed In Gummies",
+      "name": "CERTIFIED",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Certified - Syringe - Dayton's Delight x Glitter Bomb RSO (H) 1g",
+        "price": 28.0,
+        "original_price": 35.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Kiva Confections",
       "deal_count": 1,
       "dispensaries": [
         "Garden Club Dispensary"
@@ -721,9 +765,9 @@
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "Hybrid \u2014 Hula Berry",
-        "price": 23.2,
-        "original_price": 29.0,
+        "product": "Milk Chocolate Bar \u2014 Edibles \u2014 200mg \u2014 20pk",
+        "price": 20.8,
+        "original_price": 26.0,
         "on_sale": true,
         "discount_pct": 20,
         "category": "Edibles",
@@ -742,9 +786,9 @@
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "Captain Z \u2014 Live Rosin \u2014 Budder",
-        "price": 56.0,
-        "original_price": 70.0,
+        "product": "Bananaconda \u2014 Live Resin",
+        "price": 40.0,
+        "original_price": 50.0,
         "on_sale": true,
         "discount_pct": 20,
         "category": "Concentrates",

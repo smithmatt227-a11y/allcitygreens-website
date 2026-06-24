@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-23T10:30:18.876413+00:00",
-  "verified_time": "6:30 AM",
-  "report_date": "2026-06-23",
-  "brand_count": 32,
+  "generated_at": "2026-06-24T10:29:57.782117+00:00",
+  "verified_time": "6:29 AM",
+  "report_date": "2026-06-24",
+  "brand_count": 34,
   "brands": [
     {
       "name": "Riviera Creek",
-      "deal_count": 10,
+      "deal_count": 13,
       "dispensaries": [
         "Garden Club Dispensary",
         "Shangri-La Cincinnati",
@@ -18,9 +18,10 @@
         "Concentrates",
         "Edibles",
         "Flower",
+        "Infused Pre-Rolls",
         "Pre-Rolls"
       ],
-      "best_discount": 30,
+      "best_discount": 40,
       "cheapest": {
         "product": "Riviera Creek - Infused Flower - WLD CT Riv Stick (S) 1g",
         "price": 11.9,
@@ -44,7 +45,7 @@
       ],
       "best_discount": 70,
       "cheapest": {
-        "product": "Hon - Edible - Plain Honey 110mg",
+        "product": "Hon - Edible - Cinnamon Honey 110mg",
         "price": 7.2,
         "original_price": 24.0,
         "on_sale": true,
@@ -77,10 +78,31 @@
       }
     },
     {
-      "name": "Anthos",
+      "name": "Rebel by Anthos",
       "deal_count": 4,
       "dispensaries": [
-        "Queen City - Harrison",
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Concentrates",
+        "Pre-Rolls"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Rebel \u2014 Double OG CHM \u2014 1g Infused Pre-Roll",
+        "price": 14.4,
+        "original_price": 24.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Pre-Rolls",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
+      "name": "Anthos",
+      "deal_count": 3,
+      "dispensaries": [
         "Queen City - Norwood"
       ],
       "categories": [
@@ -95,29 +117,6 @@
         "on_sale": true,
         "discount_pct": 40,
         "category": "Flower",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
-      "name": "Rebel by Anthos",
-      "deal_count": 4,
-      "dispensaries": [
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Concentrates",
-        "Flower",
-        "Pre-Rolls"
-      ],
-      "best_discount": 40,
-      "cheapest": {
-        "product": "Rebel \u2014 Double OG CHM \u2014 1g Infused Pre-Roll",
-        "price": 14.4,
-        "original_price": 24.0,
-        "on_sale": true,
-        "discount_pct": 40,
-        "category": "Pre-Rolls",
         "dispensary": "Queen City - Norwood",
         "url": "https://queenccanna.com/norwood/"
       }
@@ -192,29 +191,7 @@
       }
     },
     {
-      "name": "Platinum Vape",
-      "deal_count": 2,
-      "dispensaries": [
-        "Queen City - Harrison",
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Vapes"
-      ],
-      "best_discount": 60,
-      "cheapest": {
-        "product": "Platinum Vapes \u2014 Pink Mist \u2014 .84g Disposable Vape",
-        "price": 11.6,
-        "original_price": 29.0,
-        "on_sale": true,
-        "discount_pct": 60,
-        "category": "Vapes",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
-      "name": "Tasteology",
+      "name": "WYLD",
       "deal_count": 2,
       "dispensaries": [
         "The Garden - Camp Washington",
@@ -223,16 +200,38 @@
       "categories": [
         "Edibles"
       ],
-      "best_discount": 41,
+      "best_discount": 42,
       "cheapest": {
-        "product": "Blood Orange \u2014 Gummies \u2014 10pk",
-        "price": 13.0,
-        "original_price": 22.0,
+        "product": "Kiwi 1:1 THCv Gummies \u2014 10pk",
+        "price": 14.0,
+        "original_price": 24.0,
         "on_sale": true,
-        "discount_pct": 41,
+        "discount_pct": 42,
         "category": "Edibles",
         "dispensary": "The Garden - Camp Washington",
         "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
+      "name": "Standard Farms",
+      "deal_count": 2,
+      "dispensaries": [
+        "Queen City - Harrison"
+      ],
+      "categories": [
+        "Edibles",
+        "Vapes"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Standard Farms \u2014 Biscoffee 10pc \u2014 100mg Chocolate Bar",
+        "price": 15.0,
+        "original_price": 25.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Edibles",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
       }
     },
     {
@@ -258,30 +257,7 @@
       }
     },
     {
-      "name": "Lighthouse Sciences",
-      "deal_count": 2,
-      "dispensaries": [
-        "Queen City - Harrison",
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Pre-Rolls",
-        "Topicals"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Lighthouse Sciences \u2014 MJ Muscle & Joint 6:1 CBD 1oz \u2014 245mg Balm",
-        "price": 26.0,
-        "original_price": 40.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Topicals",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
-      "name": "Botanist",
+      "name": "CERTIFIED",
       "deal_count": 2,
       "dispensaries": [
         "Shangri-La Cincinnati"
@@ -292,9 +268,9 @@
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Mandarin Orange 1:1 THC:CBD (H) 10pk \u2014 100mg - Gummies",
-        "price": 13.3,
-        "original_price": 19.0,
+        "product": "Berry Drink (H) 4pk \u2014 100mg",
+        "price": 17.5,
+        "original_price": 25.0,
         "on_sale": true,
         "discount_pct": 30,
         "category": "Edibles",
@@ -303,112 +279,66 @@
       }
     },
     {
-      "name": "Buckeye",
+      "name": "UB Good",
       "deal_count": 2,
       "dispensaries": [
-        "The Landing - Cincinnati"
+        "Queen City - Harrison"
       ],
       "categories": [
-        "Flower",
-        "Pre-Rolls"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Buckeye - Rainbow X - Pre-Roll - 2.5g [5pk]",
-        "price": 22.4,
-        "original_price": 32.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Pre-Rolls",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
-      }
-    },
-    {
-      "name": "Butterfly Effect by Grow Ohio",
-      "deal_count": 2,
-      "dispensaries": [
-        "Queen City - Harrison",
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Edibles",
         "Tinctures"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Power Sip Tangerine [50mg]",
-        "price": 10.0,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Edibles",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
-      }
-    },
-    {
-      "name": "ROVE",
-      "deal_count": 2,
-      "dispensaries": [
-        "Garden Club Dispensary"
-      ],
-      "categories": [
-        "Infused Pre-Rolls",
-        "Vape Pens"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "NYC Vapor \u2014 Hash Rosin Diamond Infused Preroll \u2014 2x-0.5g",
-        "price": 21.0,
-        "original_price": 30.0,
+        "product": "UB Good \u2014 440mg Tincture",
+        "price": 28.0,
+        "original_price": 40.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Infused Pre-Rolls",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
+        "category": "Tinctures",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
       }
     },
     {
-      "name": "Local Edibles",
+      "name": "Ohio Processing Plant",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Cincinnati"
+      ],
+      "categories": [
+        "Vapes"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "White Widow (H) 0.84g - Cartridge",
+        "price": 18.0,
+        "original_price": 36.0,
+        "on_sale": true,
+        "discount_pct": 50,
+        "category": "Vapes",
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "R.O.",
       "deal_count": 1,
       "dispensaries": [
         "Queen City - Norwood"
       ],
       "categories": [
-        "Edibles"
-      ],
-      "best_discount": 60,
-      "cheapest": {
-        "product": "Local Edibles \u2014 S'mores 5 pc \u2014 110mg Rip Pack",
-        "price": 8.0,
-        "original_price": 20.0,
-        "on_sale": true,
-        "discount_pct": 60,
-        "category": "Edibles",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
-      "name": "Pure Ohio Wellness",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Monroe West"
-      ],
-      "categories": [
-        "Concentrates"
+        "Vapes"
       ],
       "best_discount": 50,
       "cheapest": {
-        "product": "Pure Ohio Wellness - Concentrate - E85 Live Rosin Badder 1g",
-        "price": 30.0,
-        "original_price": 60.0,
+        "product": "R.O. \u2014 Super Lemon HZ \u2014 2g Distillate AIO Vape",
+        "price": 42.0,
+        "original_price": 84.0,
         "on_sale": true,
         "discount_pct": 50,
-        "category": "Concentrates",
-        "dispensary": "Shangri-La Monroe West",
-        "url": "https://shangriladispensaries.com"
+        "category": "Vapes",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
       }
     },
     {
@@ -433,24 +363,45 @@
       }
     },
     {
-      "name": "Plant Precision",
+      "name": "Firelands Scientific",
       "deal_count": 1,
       "dispensaries": [
-        "Queen City - Harrison"
+        "The Landing - Cincinnati"
       ],
       "categories": [
         "Edibles"
       ],
+      "best_discount": 44,
+      "cheapest": {
+        "product": "Firelands Scientific - Peach Sun Bites - 100mg [10pk]",
+        "price": 10.0,
+        "original_price": 18.0,
+        "on_sale": true,
+        "discount_pct": 44,
+        "category": "Edibles",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
+      }
+    },
+    {
+      "name": "FarmaceuticalRX",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Flower"
+      ],
       "best_discount": 40,
       "cheapest": {
-        "product": "Plant Precision \u2014 Cherry Slumber 4:1 CBN 20pc \u2014 50mg Gummies",
-        "price": 13.2,
-        "original_price": 22.0,
+        "product": "FRX Certified Organic \u2014 Gary P \u2014 5.66g Mini Flower",
+        "price": 28.8,
+        "original_price": 48.0,
         "on_sale": true,
         "discount_pct": 40,
-        "category": "Edibles",
-        "dispensary": "Queen City - Harrison",
-        "url": "https://queenccanna.com"
+        "category": "Flower",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
       }
     },
     {
@@ -517,24 +468,24 @@
       }
     },
     {
-      "name": "Ohio Processing Plant",
+      "name": "Lighthouse Sciences",
       "deal_count": 1,
       "dispensaries": [
-        "Shangri-La Cincinnati"
+        "Queen City - Norwood"
       ],
       "categories": [
-        "Vapes"
+        "Topicals"
       ],
       "best_discount": 35,
       "cheapest": {
-        "product": "White Widow (H) 0.84g - Cartridge",
-        "price": 23.4,
-        "original_price": 36.0,
+        "product": "Lighthouse Sciences \u2014 MJ Muscle & Joint 6:1 CBD 1oz \u2014 245mg Balm",
+        "price": 26.0,
+        "original_price": 40.0,
         "on_sale": true,
         "discount_pct": 35,
-        "category": "Vapes",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "category": "Topicals",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
       }
     },
     {
@@ -580,6 +531,27 @@
       }
     },
     {
+      "name": "Ancient Roots",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Harrison"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Ancient Roots \u2014 LAGF \u2014 1g Infused Pre-Roll",
+        "price": 17.5,
+        "original_price": 25.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
+      }
+    },
+    {
       "name": "Avexia",
       "deal_count": 1,
       "dispensaries": [
@@ -593,6 +565,27 @@
         "product": "Avexia \u2014 Peach Ginger 1:1 CBN:THC \u2014 110mg Tincture",
         "price": 17.5,
         "original_price": 25.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Tinctures",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
+      }
+    },
+    {
+      "name": "Butterfly Effect by Grow Ohio",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Harrison"
+      ],
+      "categories": [
+        "Tinctures"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Butterfly Effect \u2014 2:1 CBN \u2014 440mg Tinctures",
+        "price": 42.0,
+        "original_price": 60.0,
         "on_sale": true,
         "discount_pct": 30,
         "category": "Tinctures",
@@ -643,24 +636,45 @@
       }
     },
     {
-      "name": "UB Good",
+      "name": "Verano",
       "deal_count": 1,
       "dispensaries": [
         "Queen City - Harrison"
       ],
       "categories": [
-        "Tinctures"
+        "Concentrates"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "UB Good \u2014 Relief 2:2:1 CBD:CBG \u2014 220mg Tincture",
-        "price": 33.6,
-        "original_price": 48.0,
+        "product": "Verano \u2014 Root Beer Cake \u2014 .84g Live Sugar",
+        "price": 35.0,
+        "original_price": 50.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Tinctures",
+        "category": "Concentrates",
         "dispensary": "Queen City - Harrison",
         "url": "https://queenccanna.com"
+      }
+    },
+    {
+      "name": "Willie's Reserve",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Willie's Reserve - Granddaddy Purple - Infused Pre-Roll - 1g",
+        "price": 14.0,
+        "original_price": 20.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
@@ -682,6 +696,27 @@
         "category": "Flower",
         "dispensary": "Zen Leaf - Cincinnati",
         "url": "https://zenleafdispensaries.com/locations/cincinnati/"
+      }
+    },
+    {
+      "name": "Platinum Vape",
+      "deal_count": 1,
+      "dispensaries": [
+        "Therapy Cannabis - Cincinnati"
+      ],
+      "categories": [
+        "Vape Pens"
+      ],
+      "best_discount": 0,
+      "cheapest": {
+        "product": "Platinum Vape DART Battery (Orange)",
+        "price": 10.0,
+        "original_price": null,
+        "on_sale": false,
+        "discount_pct": 0,
+        "category": "Vape Pens",
+        "dispensary": "Therapy Cannabis - Cincinnati",
+        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
       }
     },
     {

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-04T10:03:58.104166+00:00",
+  "generated_at": "2026-07-05T10:03:51.969416+00:00",
   "verified_time": "6:03 AM",
-  "report_date": "2026-07-04",
-  "brand_count": 37,
+  "report_date": "2026-07-05",
+  "brand_count": 39,
   "brands": [
     {
       "name": "h\u014dn",
@@ -37,22 +37,23 @@
         "Tinctures",
         "Topicals"
       ],
-      "best_discount": 75,
+      "best_discount": 35,
       "cheapest": {
-        "product": "Dr Solomon's \u2014 Restore 1:1 CBD \u2014 200mg Lotion",
-        "price": 12.5,
-        "original_price": 50.0,
+        "product": "Dr Solomon's \u2014 Doze 1:1 CBN \u2014 50mg Tinctures",
+        "price": 17.5,
+        "original_price": 25.0,
         "on_sale": true,
-        "discount_pct": 75,
-        "category": "Topicals",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
+        "discount_pct": 30,
+        "category": "Tinctures",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
       }
     },
     {
       "name": "HillFire",
-      "deal_count": 5,
+      "deal_count": 6,
       "dispensaries": [
+        "Garden Club Dispensary",
         "Shangri-La Cincinnati",
         "Shangri-La Monroe Superstore",
         "Shangri-La Monroe West",
@@ -60,7 +61,8 @@
       ],
       "categories": [
         "Flower",
-        "Pre-Rolls"
+        "Pre-Rolls",
+        "Vape Pens"
       ],
       "best_discount": 30,
       "cheapest": {
@@ -97,49 +99,48 @@
       }
     },
     {
-      "name": "Firelands Scientific",
-      "deal_count": 4,
+      "name": "Young Buck",
+      "deal_count": 3,
       "dispensaries": [
-        "Garden Club Dispensary",
-        "Queen City - Norwood",
         "The Landing - Cincinnati"
       ],
       "categories": [
-        "Edibles",
-        "Flower",
         "Pre-Rolls"
       ],
-      "best_discount": 35,
+      "best_discount": 64,
       "cheapest": {
-        "product": "Firelands Scientific \u2014 Swampwater Fumez \u2014 1g Pre-Roll",
-        "price": 7.8,
-        "original_price": 12.0,
+        "product": "Young Buck - Black Jack - Pre-Roll - 1g",
+        "price": 5.0,
+        "original_price": 14.0,
         "on_sale": true,
-        "discount_pct": 35,
+        "discount_pct": 64,
         "category": "Pre-Rolls",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
-      "name": "FarmaceuticalRX",
+      "name": "RYTHM",
       "deal_count": 3,
       "dispensaries": [
-        "Queen City - Norwood"
+        "Garden Club Dispensary",
+        "Shangri-La Cincinnati",
+        "Shangri-La Monroe West"
       ],
       "categories": [
+        "Concentrates",
         "Flower"
       ],
-      "best_discount": 40,
+      "best_discount": 35,
       "cheapest": {
-        "product": "FRX Certified Organic \u2014 Gary P \u2014 2.83g Premium Flower",
-        "price": 16.8,
-        "original_price": 28.0,
+        "product": "Rythm - Flower - Sour Cherry Melon (I) 2.83g",
+        "price": 22.75,
+        "original_price": 35.0,
         "on_sale": true,
-        "discount_pct": 40,
+        "discount_pct": 35,
         "category": "Flower",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -223,12 +224,33 @@
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "Common Citizen \u2014 Biscotti \u2014 1g Cartridge",
+        "product": "Common Citizen \u2014 Gnorts, Mr. Alien \u2014 1g Cartridge",
         "price": 21.6,
         "original_price": 36.0,
         "on_sale": true,
         "discount_pct": 40,
         "category": "Vapes",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
+      "name": "FarmaceuticalRX",
+      "deal_count": 2,
+      "dispensaries": [
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "FRX Certified Organic \u2014 Gary P \u2014 2.83g Premium Flower",
+        "price": 16.8,
+        "original_price": 28.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Flower",
         "dispensary": "Queen City - Norwood",
         "url": "https://queenccanna.com/norwood/"
       }
@@ -256,6 +278,28 @@
       }
     },
     {
+      "name": "Rebel by Anthos",
+      "deal_count": 2,
+      "dispensaries": [
+        "Queen City - Harrison",
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Rebel \u2014 Double OG Sour \u2014 1g Infused Pre-Rolls",
+        "price": 14.4,
+        "original_price": 24.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Pre-Rolls",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
       "name": "Tasteology",
       "deal_count": 2,
       "dispensaries": [
@@ -278,6 +322,28 @@
       }
     },
     {
+      "name": "CERTIFIED",
+      "deal_count": 2,
+      "dispensaries": [
+        "Queen City - Norwood",
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Certified \u2014 Dark Rainbow \u2014 1g RSO",
+        "price": 22.75,
+        "original_price": 35.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Concentrates",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
       "name": "Eden's Trees",
       "deal_count": 2,
       "dispensaries": [
@@ -295,48 +361,6 @@
         "on_sale": true,
         "discount_pct": 35,
         "category": "Topicals",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
-      "name": "Farkas",
-      "deal_count": 2,
-      "dispensaries": [
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Farkas Farms \u2014 GMO Zkittlez \u2014 .75g Pre-Roll",
-        "price": 7.8,
-        "original_price": 12.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Pre-Rolls",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
-      "name": "King City",
-      "deal_count": 2,
-      "dispensaries": [
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "King City Gardens \u2014 Apples and Bananas \u2014 1g Pre-Roll",
-        "price": 7.15,
-        "original_price": 11.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Pre-Rolls",
         "dispensary": "Queen City - Norwood",
         "url": "https://queenccanna.com/norwood/"
       }
@@ -363,47 +387,26 @@
       }
     },
     {
-      "name": "RYTHM",
+      "name": "Firelands Scientific",
       "deal_count": 2,
       "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe West"
+        "Garden Club Dispensary",
+        "The Landing - Cincinnati"
       ],
       "categories": [
+        "Edibles",
         "Flower"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Rythm - Flower - Sour Cherry Melon (I) 2.83g",
-        "price": 22.75,
-        "original_price": 35.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Flower",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "Klutch",
-      "deal_count": 2,
-      "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe Superstore"
-      ],
-      "categories": [
-        "Concentrates"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Klutch - Concentrate - Purp 43 Live Badder 1g",
-        "price": 35.0,
-        "original_price": 50.0,
+        "product": "Firelands Scientific - Peach Sun Bites - 100mg [10pk]",
+        "price": 12.6,
+        "original_price": 18.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Concentrates",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "category": "Edibles",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
@@ -428,6 +431,27 @@
       }
     },
     {
+      "name": "Anthos",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Anthos \u2014 Walkabout \u2014 3.5g Premium Flower",
+        "price": 36.0,
+        "original_price": 60.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Flower",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
       "name": "Local Edibles",
       "deal_count": 1,
       "dispensaries": [
@@ -444,27 +468,6 @@
         "on_sale": true,
         "discount_pct": 40,
         "category": "Edibles",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
-      "name": "CERTIFIED",
-      "deal_count": 1,
-      "dispensaries": [
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Certified \u2014 Dark Rainbow \u2014 1g RSO",
-        "price": 22.75,
-        "original_price": 35.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Concentrates",
         "dispensary": "Queen City - Norwood",
         "url": "https://queenccanna.com/norwood/"
       }
@@ -491,24 +494,24 @@
       }
     },
     {
-      "name": "Rebel by Anthos",
+      "name": "King City",
       "deal_count": 1,
       "dispensaries": [
-        "Queen City - Harrison"
+        "Queen City - Norwood"
       ],
       "categories": [
         "Pre-Rolls"
       ],
       "best_discount": 35,
       "cheapest": {
-        "product": "Rebel \u2014 Double OG Sour \u2014 1g Infused Pre-Rolls",
-        "price": 15.6,
-        "original_price": 24.0,
+        "product": "King City Gardens \u2014 Apples and Bananas \u2014 1g Pre-Roll",
+        "price": 7.15,
+        "original_price": 11.0,
         "on_sale": true,
         "discount_pct": 35,
         "category": "Pre-Rolls",
-        "dispensary": "Queen City - Harrison",
-        "url": "https://queenccanna.com"
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
       }
     },
     {
@@ -533,6 +536,27 @@
       }
     },
     {
+      "name": "Vapen",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Vapen \u2014 Tropcherry Jelousy \u2014 1g Sugar Wax",
+        "price": 32.5,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Concentrates",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
       "name": "&Shine",
       "deal_count": 1,
       "dispensaries": [
@@ -543,7 +567,7 @@
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "&Shine - Apple Jax - Disposable - 2g",
+        "product": "&Shine - Durban Poison - Disposable - 2g",
         "price": 49.0,
         "original_price": 70.0,
         "on_sale": true,
@@ -596,6 +620,27 @@
       }
     },
     {
+      "name": "Cookies",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Cookies - Blue Raz - Live Badder - 1g",
+        "price": 35.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Concentrates",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
+      }
+    },
+    {
       "name": "HEIR",
       "deal_count": 1,
       "dispensaries": [
@@ -614,27 +659,6 @@
         "category": "Vapes",
         "dispensary": "Shangri-La Cincinnati",
         "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "King City Gardens",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "King City Gardens - Melted Strawberries Live Rosin - Concentrate - 1g",
-        "price": 42.0,
-        "original_price": 60.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Concentrates",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
@@ -764,7 +788,7 @@
       }
     },
     {
-      "name": "Dialed In Gummies",
+      "name": "Kiva Confections",
       "deal_count": 1,
       "dispensaries": [
         "Garden Club Dispensary"
@@ -774,14 +798,35 @@
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "Hybrid \u2014 Hula Berry",
-        "price": 23.2,
-        "original_price": 29.0,
+        "product": "Milk Chocolate Bar \u2014 Edibles \u2014 200mg \u2014 20pk",
+        "price": 20.8,
+        "original_price": 26.0,
         "on_sale": true,
         "discount_pct": 20,
         "category": "Edibles",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
+      "name": "Klutch",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Cincinnati"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Klutch - Concentrate - Purp 43 Live Badder 1g",
+        "price": 40.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {

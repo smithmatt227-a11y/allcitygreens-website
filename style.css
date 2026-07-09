@@ -1,32 +1,32 @@
 /* ─── DESIGN TOKENS ──────────────────────────────────────── */
 /* Fjällräven-inspired: deep olive, burnt orange, sand canvas  */
 :root, [data-theme="light"] {
-  /* Roland-Garros — minty sand canvas base */
-  --color-bg:              #eef3e9;
-  --color-surface:         #e7efe0;
-  --color-surface-2:       #f5f9f1;
-  --color-surface-offset:  #dde7d4;
-  --color-divider:         #cdddc4;
-  --color-border:          #b9ceac;
+  /* Warm sand canvas base */
+  --color-bg:              #f0ebe0;
+  --color-surface:         #ede8dd;
+  --color-surface-2:       #f7f3ec;
+  --color-surface-offset:  #e4ddd0;
+  --color-divider:         #d6cfc0;
+  --color-border:          #c4bbaa;
 
-  --color-text:            #14271c;
-  --color-text-muted:      #4c5d4f;
-  --color-text-faint:      #8a9b8c;
-  --color-text-inverse:    #f5f9f1;
+  --color-text:            #1e1c18;
+  --color-text-muted:      #5c5346;
+  --color-text-faint:      #9c9282;
+  --color-text-inverse:    #f7f3ec;
 
-  /* Roland-Garros court green — primary brand */
-  --color-primary:         #1f6b43;
-  --color-primary-hover:   #185536;
-  --color-primary-active:  #123f28;
-  --color-primary-light:   #d9efe0;
-  --color-primary-mid:     #4fb985;
+  /* Deep forest olive — primary brand */
+  --color-primary:         #3d4a2e;
+  --color-primary-hover:   #2e3820;
+  --color-primary-active:  #1f2614;
+  --color-primary-light:   #e8e4d4;
+  --color-primary-mid:     #7a8c5e;
 
-  /* Clay orange — CTA accent */
-  --color-accent:          #d96f33;
-  --color-accent-hover:    #bd5a22;
+  /* Burnt orange — CTA accent */
+  --color-accent:          #c8621a;
+  --color-accent-hover:    #a84f12;
 
-  --color-sale:            #c8521f;
-  --color-sale-bg:         #f6e7dd;
+  --color-sale:            #b84a10;
+  --color-sale-bg:         #f5e8de;
 
   --color-gold:            #c8891a;
 
@@ -69,32 +69,32 @@
 }
 
 [data-theme="dark"] {
-  /* Roland-Garros court night */
-  --color-bg:              #0c1f16;
-  --color-surface:         #11271c;
-  --color-surface-2:       #163020;
-  --color-surface-offset:  #1b3826;
-  --color-divider:         #234433;
-  --color-border:          #2c513b;
+  /* Deep forest night */
+  --color-bg:              #141209;
+  --color-surface:         #1a1810;
+  --color-surface-2:       #211f15;
+  --color-surface-offset:  #272518;
+  --color-divider:         #332f20;
+  --color-border:          #403c28;
 
-  --color-text:            #e9f1e7;
-  --color-text-muted:      #9fb6a4;
-  --color-text-faint:      #5f7565;
-  --color-text-inverse:    #0c1f16;
+  --color-text:            #e8e0cc;
+  --color-text-muted:      #a09070;
+  --color-text-faint:      #5c5438;
+  --color-text-inverse:    #141209;
 
-  /* Mint — signature green on dark court */
-  --color-primary:         #6fd79f;
-  --color-primary-hover:   #8ee9b8;
-  --color-primary-active:  #a6f0c9;
-  --color-primary-light:   #16301f;
-  --color-primary-mid:     #4fb985;
+  /* Olive lightened for dark bg */
+  --color-primary:         #8fa870;
+  --color-primary-hover:   #a8c088;
+  --color-primary-active:  #c0d8a0;
+  --color-primary-light:   #252818;
+  --color-primary-mid:     #6a8050;
 
-  /* Clay orange stays warm in dark */
-  --color-accent:          #df7a38;
-  --color-accent-hover:    #ef9050;
+  /* Burnt orange stays warm in dark */
+  --color-accent:          #e07828;
+  --color-accent-hover:    #f08838;
 
-  --color-sale:            #e07a3f;
-  --color-sale-bg:         #2a1a0d;
+  --color-sale:            #d46030;
+  --color-sale-bg:         #2a1a0a;
 
   --color-gold:            #d4a030;
 
@@ -106,12 +106,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --color-bg: #0c1f16; --color-surface: #11271c; --color-surface-2: #163020;
-    --color-surface-offset: #1b3826; --color-divider: #234433; --color-border: #2c513b;
-    --color-text: #e9f1e7; --color-text-muted: #9fb6a4; --color-text-faint: #5f7565;
-    --color-text-inverse: #0c1f16; --color-primary: #6fd79f; --color-primary-hover: #8ee9b8;
-    --color-primary-light: #16301f; --color-accent: #df7a38; --color-accent-hover: #ef9050;
-    --color-sale: #e07a3f; --color-sale-bg: #2a1a0d; --color-gold: #d4a030;
+    --color-bg: #141209; --color-surface: #1a1810; --color-surface-2: #211f15;
+    --color-surface-offset: #272518; --color-divider: #332f20; --color-border: #403c28;
+    --color-text: #e8e0cc; --color-text-muted: #a09070; --color-text-faint: #5c5438;
+    --color-text-inverse: #141209; --color-primary: #8fa870; --color-primary-hover: #a8c088;
+    --color-primary-light: #252818; --color-accent: #e07828; --color-accent-hover: #f08838;
+    --color-sale: #d46030; --color-sale-bg: #2a1a0a; --color-gold: #d4a030;
   }
 }
 
@@ -738,9 +738,9 @@ a, button, input { transition: all var(--transition); }
   );
 }
 
-/* Softer matte mint for CTA section in dark theme */
+/* Hunter green CTA section in dark theme */
 [data-theme="dark"] .section-cta {
-  background: linear-gradient(135deg, #659981 0%, #477060 100%);
+  background: linear-gradient(135deg, #4f674d 0%, #3c5340 100%);
 }
 .cta-inner {
   display: flex;
@@ -970,7 +970,7 @@ a, button, input { transition: all var(--transition); }
   font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%234c5d4f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%235c5346' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
 }
@@ -1193,8 +1193,8 @@ a.deal-card-link:hover,
 }
 
 /* Override hero blob colors to olive/ochre */
-.hero-blob-1 { background: #6fd79f; opacity: 0.16; }
-.hero-blob-2 { background: #d96f33; opacity: 0.10; }
+.hero-blob-1 { background: #3d4a2e; opacity: 0.18; }
+.hero-blob-2 { background: #c8621a; opacity: 0.10; }
 
 /* Utilitarian stat numbers — Inter bold, not display serif */
 .stat-num { font-family: var(--font-body); font-weight: 700; }
@@ -1527,13 +1527,13 @@ a.deal-card-link:hover,
 .deal-badge { background: var(--color-accent) !important; }
 
 /* ─── TODAY'S BEST DEALS — refreshed card (2026-06) ──────────── */
-/* Logo-mint recolor: nav subscribe button + deals card header.
-   Matches the patch logo and the bottom CTA (#659981).            */
-.nav-subscribe-btn { background: #659981 !important; }
-.nav-subscribe-btn:hover { background: #54836e !important; }
+/* Hunter-green recolor: nav subscribe button + deals card header.
+   Matches the patch logo and the bottom CTA (#4f674d).            */
+.nav-subscribe-btn { background: #4f674d !important; }
+.nav-subscribe-btn:hover { background: #3f5340 !important; }
 
 .mockup-header {
-  background: #659981 !important;
+  background: #4f674d !important;
   padding: var(--space-5) var(--space-6);
 }
 .mockup-title {
@@ -1543,14 +1543,14 @@ a.deal-card-link:hover,
   line-height: 1.1;
   letter-spacing: -0.015em;
   color: #ffffff;
-  text-shadow: 0 2px 8px rgba(12,31,22,0.5), 0 1px 0 rgba(255,255,255,0.18);
+  text-shadow: 0 2px 8px rgba(20,18,9,0.5), 0 1px 0 rgba(255,255,255,0.18);
 }
 .mockup-rule {
   width: 64px; height: 3px;
   background: var(--color-accent);
   border-radius: 2px;
   margin: var(--space-2) auto 0;
-  box-shadow: 0 1px 2px rgba(12,31,22,0.45);
+  box-shadow: 0 1px 2px rgba(20,18,9,0.45);
 }
 .mockup-updated {
   margin-top: var(--space-2);
@@ -1559,10 +1559,10 @@ a.deal-card-link:hover,
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #f3964e;
-  text-shadow: -1px -1px 0 #0c1f16, 1px -1px 0 #0c1f16,
-               -1px 1px 0 #0c1f16, 1px 1px 0 #0c1f16,
-               0 2px 3px rgba(12,31,22,0.5);
+  color: #e07828;
+  text-shadow: -1px -1px 0 #141209, 1px -1px 0 #141209,
+               -1px 1px 0 #141209, 1px 1px 0 #141209,
+               0 2px 3px rgba(20,18,9,0.5);
 }
 
 /* Ranked deal rows */
@@ -1581,14 +1581,14 @@ a.deal-card-link:hover,
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-display);
   font-weight: 800; font-size: 0.95rem;
-  color: #659981;
+  color: #4f674d;
 }
 .mockup-deal--lead .mockup-rank {
   width: 34px; height: 34px;
   font-size: 1.05rem;
-  background: #659981;
-  color: #0c1f16;
-  border-color: #659981;
+  background: #4f674d;
+  color: #f0ebe0;
+  border-color: #4f674d;
 }
 .mockup-deal-body { flex: 1; min-width: 0; }
 .mockup-deal--lead .deal-name { font-size: 1.15rem; }
@@ -1621,7 +1621,7 @@ a.deal-card-link:hover,
   padding: var(--space-3) var(--space-5) var(--space-4);
 }
 .mockup-cta a {
-  color: #659981;
+  color: #4f674d;
   font-weight: 700;
   font-size: 0.86rem;
   text-decoration: none;

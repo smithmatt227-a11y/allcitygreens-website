@@ -1,9 +1,36 @@
 {
-  "generated_at": "2026-07-10T10:29:47.003985+00:00",
+  "generated_at": "2026-07-11T10:29:29.522431+00:00",
   "verified_time": "6:29 AM",
-  "report_date": "2026-07-10",
-  "brand_count": 36,
+  "report_date": "2026-07-11",
+  "brand_count": 34,
   "brands": [
+    {
+      "name": "Pure Ohio Wellness",
+      "deal_count": 10,
+      "dispensaries": [
+        "Shangri-La Cincinnati",
+        "Shangri-La Monroe Superstore",
+        "Shangri-La Monroe West",
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Concentrates",
+        "Flower",
+        "Pre-Rolls"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Pure Ohio Wellness - Single Serve Unit - HLOW (H) 1g",
+        "price": 6.0,
+        "original_price": 10.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Monroe West",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
     {
       "name": "h\u014dn",
       "deal_count": 8,
@@ -29,7 +56,7 @@
     },
     {
       "name": "Doctor Solomon's",
-      "deal_count": 7,
+      "deal_count": 6,
       "dispensaries": [
         "Queen City - Harrison",
         "Shangri-La Cincinnati"
@@ -52,31 +79,54 @@
       }
     },
     {
-      "name": "Riviera Creek",
-      "deal_count": 7,
+      "name": "HillFire",
+      "deal_count": 5,
+      "dispensaries": [
+        "Garden Club Dispensary",
+        "Shangri-La Cincinnati",
+        "The Landing - Cincinnati",
+        "Zen Leaf - Cincinnati"
+      ],
+      "categories": [
+        "Flower",
+        "Pre-Rolls",
+        "Vape Pens"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "HillFire - Single Serve Unit - G KM (H) 1g",
+        "price": 7.0,
+        "original_price": 10.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Firelands Scientific",
+      "deal_count": 3,
       "dispensaries": [
         "Garden Club Dispensary",
         "Shangri-La Monroe Superstore",
-        "Shangri-La Monroe West",
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore",
-        "UpLift - Mount Orab"
+        "The Landing - Cincinnati"
       ],
       "categories": [
-        "Concentrates",
+        "Edibles",
         "Flower",
-        "Infused Pre-Rolls"
+        "Pre-Rolls"
       ],
-      "best_discount": 40,
+      "best_discount": 44,
       "cheapest": {
-        "product": "Riv Stick Infused Blend",
-        "price": 11.9,
-        "original_price": 17.0,
+        "product": "Firelands Scientific - Single Serve Unit - SSPPL (S) 1g",
+        "price": 8.4,
+        "original_price": 12.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Flower",
-        "dispensary": "UpLift - Mount Orab",
-        "url": "https://www.upliftohio.com"
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -103,29 +153,6 @@
       }
     },
     {
-      "name": "Pure Ohio Wellness",
-      "deal_count": 3,
-      "dispensaries": [
-        "Shangri-La Monroe Superstore",
-        "Shangri-La Monroe West"
-      ],
-      "categories": [
-        "Flower",
-        "Pre-Rolls"
-      ],
-      "best_discount": 40,
-      "cheapest": {
-        "product": "Pure Ohio Wellness - Single Serve Unit - HLOW (H) 1g",
-        "price": 6.0,
-        "original_price": 10.0,
-        "on_sale": true,
-        "discount_pct": 40,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Monroe West",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
       "name": "Rebel by Anthos",
       "deal_count": 3,
       "dispensaries": [
@@ -149,28 +176,27 @@
       }
     },
     {
-      "name": "Eden's Trees",
+      "name": "Klutch Cannabis",
       "deal_count": 3,
       "dispensaries": [
         "Garden Club Dispensary",
-        "Queen City - Norwood",
-        "Shangri-La Monroe Superstore"
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
       ],
       "categories": [
-        "Edibles",
-        "Pre-Rolls",
-        "Topicals"
+        "Concentrates",
+        "Flower"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Eden's Trees - Single Serve Unit - CLLDRNBW (I) 1g Pre-Roll 2-Pack (0.5g x 2)",
-        "price": 8.0,
-        "original_price": 10.0,
+        "product": "Ice Cream Cake - Flower 2.83g",
+        "price": 29.4,
+        "original_price": 42.0,
         "on_sale": true,
-        "discount_pct": 20,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Monroe Superstore",
-        "url": "https://shangriladispensaries.com"
+        "discount_pct": 30,
+        "category": "Flower",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -192,51 +218,6 @@
         "category": "Vapes",
         "dispensary": "Shangri-La Monroe Superstore",
         "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "Firelands Scientific",
-      "deal_count": 2,
-      "dispensaries": [
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Edibles",
-        "Flower"
-      ],
-      "best_discount": 55,
-      "cheapest": {
-        "product": "Firelands Scientific - Bright Berry Solventless Sun Bites - Gummies - 100mg [10pk]",
-        "price": 10.0,
-        "original_price": 22.0,
-        "on_sale": true,
-        "discount_pct": 55,
-        "category": "Edibles",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
-      }
-    },
-    {
-      "name": "Butterfly Effect - Grow Ohio",
-      "deal_count": 2,
-      "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
-      ],
-      "categories": [
-        "Flower",
-        "Vape Pens"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "GRMPZ - 2.83g Flower",
-        "price": 22.4,
-        "original_price": 32.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Flower",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -273,9 +254,9 @@
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "Neighborgoods \u2014 Clementine Countdown 10pc \u2014 200mg Live Resin Gummies",
-        "price": 24.0,
-        "original_price": 40.0,
+        "product": "Neighborgoods \u2014 Cherry Chrance 20pc \u2014 100mg Live Resin Gummies",
+        "price": 15.0,
+        "original_price": 25.0,
         "on_sale": true,
         "discount_pct": 40,
         "category": "Edibles",
@@ -306,94 +287,25 @@
       }
     },
     {
-      "name": "#HASH",
+      "name": "BeneLeaves",
       "deal_count": 2,
       "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
+        "Queen City - Harrison",
+        "Queen City - Norwood"
       ],
       "categories": [
-        "Concentrates"
+        "Topicals"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "#HASH #LIVERESIN",
-        "price": 35.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Concentrates",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
-      }
-    },
-    {
-      "name": "Dogwalkers",
-      "deal_count": 2,
-      "dispensaries": [
-        "Garden Club Dispensary",
-        "UpLift - Milford"
-      ],
-      "categories": [
-        "Infused Pre-Rolls",
-        "Pre-Rolls"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Dogwalkers 1g Show Dog Pre Rolls \u2014 Brownie Scout",
-        "price": 14.0,
-        "original_price": 20.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Infused Pre-Rolls",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
-      }
-    },
-    {
-      "name": "RYTHM",
-      "deal_count": 2,
-      "dispensaries": [
-        "Shangri-La Cincinnati",
-        "UpLift - Mount Orab"
-      ],
-      "categories": [
-        "Flower",
-        "Infused Pre-Rolls"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "RYTHM Remix Infused Pre Roll Durban Poison [1g]",
+        "product": "Mary's Medicinals \u2014 Sativa 10pk \u2014 200mg Transdermal Patch",
         "price": 21.0,
         "original_price": 30.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Infused Pre-Rolls",
-        "dispensary": "UpLift - Mount Orab",
-        "url": "https://www.upliftohio.com"
-      }
-    },
-    {
-      "name": "Woodward Fine Cannabis",
-      "deal_count": 2,
-      "dispensaries": [
-        "Queen City - Harrison",
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Pre-Rolls",
-        "Vapes"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Woodward - Banana Mac - Cured Resin Cartridge - 1g",
-        "price": 34.3,
-        "original_price": 49.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Vapes",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
+        "category": "Topicals",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
       }
     },
     {
@@ -418,6 +330,27 @@
       }
     },
     {
+      "name": "Butterfly Effect - Grow Ohio",
+      "deal_count": 1,
+      "dispensaries": [
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Vape Pens"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Inferno - 1g LR iKrusher UZO Disposable",
+        "price": 30.0,
+        "original_price": 60.0,
+        "on_sale": true,
+        "discount_pct": 50,
+        "category": "Vape Pens",
+        "dispensary": "UpLift - Mount Orab",
+        "url": "https://www.upliftohio.com"
+      }
+    },
+    {
       "name": "FarmaceuticalRX",
       "deal_count": 1,
       "dispensaries": [
@@ -428,9 +361,9 @@
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "FRX Certified Organic \u2014 Petrol P \u2014 2.83g Premium Flower",
-        "price": 19.8,
-        "original_price": 33.0,
+        "product": "FRX Certified Organic \u2014 Motorbreath #15 \u2014 5.66g Mini Flower",
+        "price": 28.8,
+        "original_price": 48.0,
         "on_sale": true,
         "discount_pct": 40,
         "category": "Flower",
@@ -481,7 +414,7 @@
       }
     },
     {
-      "name": "Ohio Processing Plant",
+      "name": "The Lab",
       "deal_count": 1,
       "dispensaries": [
         "Shangri-La Cincinnati"
@@ -491,9 +424,9 @@
       ],
       "best_discount": 35,
       "cheapest": {
-        "product": "Soft Static (H) 0.84g - Cartridge",
-        "price": 23.4,
-        "original_price": 36.0,
+        "product": "24K Gold Punch (H) 1g - Cartridge",
+        "price": 26.0,
+        "original_price": 40.0,
         "on_sale": true,
         "discount_pct": 35,
         "category": "Vapes",
@@ -502,28 +435,28 @@
       }
     },
     {
-      "name": "BeneLeaves",
+      "name": "&Shine",
       "deal_count": 1,
       "dispensaries": [
-        "Queen City - Norwood"
+        "The Landing - Cincinnati"
       ],
       "categories": [
-        "Topicals"
+        "Vapes"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Mary's Medicinals \u2014 Sativa 10pk \u2014 200mg Transdermal Patch",
-        "price": 21.0,
-        "original_price": 30.0,
+        "product": "&Shine - Maui Wowie - Disposable - 1g",
+        "price": 35.0,
+        "original_price": 50.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Topicals",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
+        "category": "Vapes",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
-      "name": "Butterfly Effect by Grow Ohio",
+      "name": "Cookies",
       "deal_count": 1,
       "dispensaries": [
         "The Landing - Cincinnati"
@@ -533,9 +466,9 @@
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Butterfly Effect - RSO Syringe - 1g",
-        "price": 28.0,
-        "original_price": 40.0,
+        "product": "Cookies - Blue Raz - Live Badder - 1g",
+        "price": 35.0,
+        "original_price": 50.0,
         "on_sale": true,
         "discount_pct": 30,
         "category": "Concentrates",
@@ -544,24 +477,24 @@
       }
     },
     {
-      "name": "CERTIFIED",
+      "name": "Eden's Trees",
       "deal_count": 1,
       "dispensaries": [
-        "Shangri-La Cincinnati"
+        "Queen City - Norwood"
       ],
       "categories": [
-        "Pre-Rolls"
+        "Topicals"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Certified - Single Serve Unit - FRM GSC (I) 1g Pre-Roll 2-Pack (0.5g x 2)",
-        "price": 11.2,
-        "original_price": 16.0,
+        "product": "Eden's Trees \u2014 49mg Topical Lotion",
+        "price": 18.9,
+        "original_price": 27.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "category": "Topicals",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
       }
     },
     {
@@ -586,45 +519,45 @@
       }
     },
     {
-      "name": "Klutch",
+      "name": "Riviera Creek",
+      "deal_count": 1,
+      "dispensaries": [
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Infused Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "3pk 1g Riv Stick",
+        "price": 31.5,
+        "original_price": 45.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Infused Pre-Rolls",
+        "dispensary": "UpLift - Mount Orab",
+        "url": "https://www.upliftohio.com"
+      }
+    },
+    {
+      "name": "RYTHM",
       "deal_count": 1,
       "dispensaries": [
         "Shangri-La Cincinnati"
       ],
       "categories": [
-        "Concentrates"
+        "Flower"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Klutch - Concentrate - Purp 43 Live Badder 1g",
-        "price": 35.0,
-        "original_price": 50.0,
+        "product": "Scout Dawg OG (H) 2.83g",
+        "price": 24.5,
+        "original_price": 35.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Concentrates",
+        "category": "Flower",
         "dispensary": "Shangri-La Cincinnati",
         "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "ROVE",
-      "deal_count": 1,
-      "dispensaries": [
-        "Garden Club Dispensary"
-      ],
-      "categories": [
-        "Vape Pens"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Rove \u2014 Waui \u2014 Cartridge",
-        "price": 38.5,
-        "original_price": 55.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Vape Pens",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
       }
     },
     {
@@ -649,6 +582,48 @@
       }
     },
     {
+      "name": "Woodward Fine Cannabis",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Harrison"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Woodward \u2014 Canna Rain 5pk \u2014 2.5g Pre-Rolls",
+        "price": 27.3,
+        "original_price": 39.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
+      }
+    },
+    {
+      "name": "Dialed In Gummies",
+      "deal_count": 1,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Hybrid \u2014 Hula Berry",
+        "price": 23.2,
+        "original_price": 29.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Edibles",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
       "name": "Grassroots",
       "deal_count": 1,
       "dispensaries": [
@@ -667,6 +642,27 @@
         "category": "Flower",
         "dispensary": "Therapy Cannabis - Cincinnati",
         "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
+      }
+    },
+    {
+      "name": "Klutch",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Klutch - Concentrate - SherbHead Live Resin 1g",
+        "price": 40.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -712,27 +708,6 @@
       }
     },
     {
-      "name": "Hillfire",
-      "deal_count": 1,
-      "dispensaries": [
-        "Zen Leaf - Cincinnati"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 0,
-      "cheapest": {
-        "product": "Lemon Cake \u2014 Flower 2.83g",
-        "price": 25.5,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Flower",
-        "dispensary": "Zen Leaf - Cincinnati",
-        "url": "https://zenleafdispensaries.com/locations/cincinnati/"
-      }
-    },
-    {
       "name": "Savvy",
       "deal_count": 1,
       "dispensaries": [
@@ -772,27 +747,6 @@
         "category": "Infused Pre-Rolls",
         "dispensary": "Therapy Cannabis - Cincinnati",
         "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
-      }
-    },
-    {
-      "name": "Young Buck",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 0,
-      "cheapest": {
-        "product": "Young Buck - Black Jack - Pre-Roll .5g",
-        "price": 7.0,
-        "original_price": null,
-        "on_sale": false,
-        "discount_pct": 0,
-        "category": "Pre-Rolls",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
       }
     }
   ]

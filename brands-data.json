@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-16T10:15:26.377342+00:00",
-  "verified_time": "6:15 AM",
-  "report_date": "2026-07-16",
-  "brand_count": 35,
+  "generated_at": "2026-07-17T10:10:12.977468+00:00",
+  "verified_time": "6:10 AM",
+  "report_date": "2026-07-17",
+  "brand_count": 36,
   "brands": [
     {
       "name": "h\u014dn",
@@ -28,46 +28,53 @@
       }
     },
     {
-      "name": "Doctor Solomon's",
-      "deal_count": 5,
+      "name": "Pure Ohio Wellness",
+      "deal_count": 7,
       "dispensaries": [
-        "Queen City - Harrison",
-        "Shangri-La Cincinnati"
+        "Garden Club Dispensary",
+        "Shangri-La Monroe West",
+        "UpLift - Milford"
       ],
       "categories": [
-        "Edibles",
-        "Tinctures"
+        "Concentrates",
+        "Pre-Rolls"
       ],
       "best_discount": 50,
       "cheapest": {
-        "product": "Dr. Solomon's - Tincture - Doze 1:1 Doze 1:1 -54.2mg:THC-54.2mg:CBN",
-        "price": 12.5,
-        "original_price": 25.0,
+        "product": "E85 Pre Rolls (2 Pack) - 1g",
+        "price": 7.15,
+        "original_price": 11.0,
         "on_sale": true,
-        "discount_pct": 50,
-        "category": "Edibles",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "discount_pct": 35,
+        "category": "Pre-Rolls",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
-      "name": "Pure Ohio Wellness",
+      "name": "Eden's Trees",
       "deal_count": 5,
       "dispensaries": [
-        "Shangri-La Monroe West"
+        "Garden Club Dispensary",
+        "Queen City - Norwood",
+        "Shangri-La Monroe Superstore"
       ],
       "categories": [
-        "Concentrates"
+        "Edibles",
+        "Flower",
+        "Pre-Rolls",
+        "Topicals",
+        "Vape Pens"
       ],
-      "best_discount": 50,
+      "best_discount": 30,
       "cheapest": {
-        "product": "Pure Ohio Wellness - Concentrate - GYPSY SP Live Rosin Badder 1g",
-        "price": 30.0,
-        "original_price": 60.0,
+        "product": "Eden's Trees - Single Serve Unit - CLLDRNBW (I) 1g Pre-Roll 2-Pack (0.5g x 2)",
+        "price": 8.0,
+        "original_price": 10.0,
         "on_sale": true,
-        "discount_pct": 50,
-        "category": "Concentrates",
-        "dispensary": "Shangri-La Monroe West",
+        "discount_pct": 20,
+        "category": "Pre-Rolls",
+        "dispensary": "Shangri-La Monroe Superstore",
         "url": "https://shangriladispensaries.com"
       }
     },
@@ -91,6 +98,27 @@
         "category": "Flower",
         "dispensary": "The Garden - Camp Washington",
         "url": "https://thegardendispo.com/menu/"
+      }
+    },
+    {
+      "name": "Doctor Solomon's",
+      "deal_count": 4,
+      "dispensaries": [
+        "Queen City - Harrison"
+      ],
+      "categories": [
+        "Tinctures"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Dr Solomon's \u2014 1:1 CBN \u2014 50mg Tinctures",
+        "price": 17.5,
+        "original_price": 25.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Tinctures",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
       }
     },
     {
@@ -118,6 +146,29 @@
       }
     },
     {
+      "name": "Butterfly Effect - Grow Ohio",
+      "deal_count": 3,
+      "dispensaries": [
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Flower",
+        "Vape Pens"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Cadillac Rainbow - 2.83g Flower",
+        "price": 23.4,
+        "original_price": 36.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Flower",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
       "name": "RYTHM",
       "deal_count": 3,
       "dispensaries": [
@@ -131,14 +182,14 @@
       ],
       "best_discount": 35,
       "cheapest": {
-        "product": "Scout Dawg OG (H) 2.83g",
-        "price": 22.75,
-        "original_price": 35.0,
+        "product": "RYTHM Remix Infused Pre Roll Durban Poison [1g]",
+        "price": 19.5,
+        "original_price": 30.0,
         "on_sale": true,
         "discount_pct": 35,
-        "category": "Flower",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "category": "Infused Pre-Rolls",
+        "dispensary": "UpLift - Mount Orab",
+        "url": "https://www.upliftohio.com"
       }
     },
     {
@@ -162,73 +213,6 @@
         "category": "Topicals",
         "dispensary": "Queen City - Harrison",
         "url": "https://queenccanna.com"
-      }
-    },
-    {
-      "name": "HZ",
-      "deal_count": 3,
-      "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe Superstore"
-      ],
-      "categories": [
-        "Concentrates",
-        "Pre-Rolls"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "HZ - Infused Single Serve Unit - BLLY LGH (H) 1g",
-        "price": 19.6,
-        "original_price": 28.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Monroe Superstore",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "Wyldflower",
-      "deal_count": 2,
-      "dispensaries": [
-        "Shangri-La Monroe Superstore",
-        "Shangri-La Monroe West"
-      ],
-      "categories": [
-        "Vapes"
-      ],
-      "best_discount": 70,
-      "cheapest": {
-        "product": "Wyldflower - Luster Pod - SWT STTC 1g",
-        "price": 13.2,
-        "original_price": 44.0,
-        "on_sale": true,
-        "discount_pct": 70,
-        "category": "Vapes",
-        "dispensary": "Shangri-La Monroe Superstore",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "Butterfly Effect - Grow Ohio",
-      "deal_count": 2,
-      "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
-      ],
-      "categories": [
-        "Vape Pens"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Inferno - 1g LR iKrusher UZO Disposable",
-        "price": 30.0,
-        "original_price": 60.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Vape Pens",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -276,6 +260,50 @@
       }
     },
     {
+      "name": "#HASH",
+      "deal_count": 2,
+      "dispensaries": [
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "#HASH #LIVERESIN",
+        "price": 32.5,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Concentrates",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
+      "name": "Anthos",
+      "deal_count": 2,
+      "dispensaries": [
+        "Queen City - Harrison",
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Anthos \u2014 White Truffle \u2014 1g Live Resin Badder",
+        "price": 39.0,
+        "original_price": 60.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Concentrates",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
+      }
+    },
+    {
       "name": "Common Citizen",
       "deal_count": 2,
       "dispensaries": [
@@ -295,29 +323,6 @@
         "category": "Vapes",
         "dispensary": "Queen City - Harrison",
         "url": "https://queenccanna.com"
-      }
-    },
-    {
-      "name": "Rebel by Anthos",
-      "deal_count": 2,
-      "dispensaries": [
-        "Queen City - Harrison",
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Concentrates",
-        "Pre-Rolls"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Rebel \u2014 Double OG Sour \u2014 1g Infused Pre-Rolls",
-        "price": 17.55,
-        "original_price": 27.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Pre-Rolls",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
       }
     },
     {
@@ -343,43 +348,20 @@
       }
     },
     {
-      "name": "Klutch Cannabis",
+      "name": "CERTIFIED",
       "deal_count": 2,
       "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Ice Cream Cake - Flower 2.83g",
-        "price": 29.4,
-        "original_price": 42.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Flower",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
-      }
-    },
-    {
-      "name": "Later Days",
-      "deal_count": 2,
-      "dispensaries": [
-        "Garden Club Dispensary",
         "Shangri-La Cincinnati"
       ],
       "categories": [
-        "Pre-Rolls",
-        "Vape Pens"
+        "Edibles",
+        "Pre-Rolls"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Later Days - Single Serve Unit - CHRY FLMG (H) 1g",
-        "price": 7.0,
-        "original_price": 10.0,
+        "product": "Certified - Single Serve Unit - FRM GSC (I) 1g Pre-Roll 2-Pack (0.5g x 2)",
+        "price": 11.2,
+        "original_price": 16.0,
         "on_sale": true,
         "discount_pct": 30,
         "category": "Pre-Rolls",
@@ -388,25 +370,24 @@
       }
     },
     {
-      "name": "#HASH",
-      "deal_count": 2,
+      "name": "Wyldflower",
+      "deal_count": 1,
       "dispensaries": [
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
+        "Shangri-La Monroe West"
       ],
       "categories": [
-        "Concentrates"
+        "Vapes"
       ],
-      "best_discount": 21,
+      "best_discount": 70,
       "cheapest": {
-        "product": "#HASH #LIVERESIN",
-        "price": 39.5,
-        "original_price": 50.0,
+        "product": "Wyldflower - Luster Pod - SWT STTC 1g",
+        "price": 13.2,
+        "original_price": 44.0,
         "on_sale": true,
-        "discount_pct": 21,
-        "category": "Concentrates",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
+        "discount_pct": 70,
+        "category": "Vapes",
+        "dispensary": "Shangri-La Monroe West",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -494,24 +475,24 @@
       }
     },
     {
-      "name": "Anthos",
+      "name": "Dogwalkers",
       "deal_count": 1,
       "dispensaries": [
-        "Queen City - Norwood"
+        "UpLift - Milford"
       ],
       "categories": [
-        "Concentrates"
+        "Pre-Rolls"
       ],
       "best_discount": 35,
       "cheapest": {
-        "product": "Anthos \u2014 White Truffle \u2014 1g Live Resin Badder",
-        "price": 45.5,
-        "original_price": 70.0,
+        "product": "Animal Face 1.75g Pre-Roll 5 Pack",
+        "price": 19.5,
+        "original_price": 30.0,
         "on_sale": true,
         "discount_pct": 35,
-        "category": "Concentrates",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
+        "category": "Pre-Rolls",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
       }
     },
     {
@@ -531,6 +512,48 @@
         "on_sale": true,
         "discount_pct": 35,
         "category": "Flower",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
+      "name": "Northwoods Cannabis",
+      "deal_count": 1,
+      "dispensaries": [
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Florida Punch Flower",
+        "price": 71.5,
+        "original_price": 110.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Flower",
+        "dispensary": "UpLift - Mount Orab",
+        "url": "https://www.upliftohio.com"
+      }
+    },
+    {
+      "name": "Rebel by Anthos",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Rebel \u2014 Double OG Sour \u2014 1g Infused Pre-Rolls",
+        "price": 17.55,
+        "original_price": 27.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Pre-Rolls",
         "dispensary": "Queen City - Norwood",
         "url": "https://queenccanna.com/norwood/"
       }
@@ -557,28 +580,28 @@
       }
     },
     {
-      "name": "Eden's Trees",
+      "name": "Cookies",
       "deal_count": 1,
       "dispensaries": [
-        "Queen City - Norwood"
+        "Shangri-La Cincinnati"
       ],
       "categories": [
-        "Topicals"
+        "Concentrates"
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Eden's Trees \u2014 49mg Topical Lotion",
-        "price": 18.9,
-        "original_price": 27.0,
+        "product": "Cookies - Concentrate - B Raz Live Resin 1g",
+        "price": 35.0,
+        "original_price": 50.0,
         "on_sale": true,
         "discount_pct": 30,
-        "category": "Topicals",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
-      "name": "Kynd",
+      "name": "Supply",
       "deal_count": 1,
       "dispensaries": [
         "Shangri-La Monroe Superstore"
@@ -586,37 +609,58 @@
       "categories": [
         "Flower"
       ],
-      "best_discount": 30,
+      "best_discount": 25,
       "cheapest": {
-        "product": "Kynd - Flower - Belly Laugh (H) 14.15g",
-        "price": 84.0,
-        "original_price": 120.0,
+        "product": "Supply - Flower - White Rtz x Grape Gas (H) 2.83g",
+        "price": 25.5,
+        "original_price": 34.0,
         "on_sale": true,
-        "discount_pct": 30,
+        "discount_pct": 25,
         "category": "Flower",
         "dispensary": "Shangri-La Monroe Superstore",
         "url": "https://shangriladispensaries.com"
       }
     },
     {
-      "name": "Dogwalkers",
+      "name": "Klutch",
       "deal_count": 1,
       "dispensaries": [
-        "UpLift - Milford"
+        "Shangri-La Monroe Superstore"
       ],
       "categories": [
-        "Pre-Rolls"
+        "Concentrates"
       ],
-      "best_discount": 21,
+      "best_discount": 20,
       "cheapest": {
-        "product": "Animal Face 1.75g Pre-Roll 5 Pack",
-        "price": 23.7,
-        "original_price": 30.0,
+        "product": "Klutch - Concentrate - ORNG43 Live Resin 1g",
+        "price": 40.0,
+        "original_price": 50.0,
         "on_sale": true,
-        "discount_pct": 21,
-        "category": "Pre-Rolls",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
+        "discount_pct": 20,
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Klutch Cannabis",
+      "deal_count": 1,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Permanent Marker - Live Badder 0.59g",
+        "price": 40.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Concentrates",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
       }
     },
     {
@@ -683,27 +727,6 @@
       }
     },
     {
-      "name": "Valley Girl",
-      "deal_count": 1,
-      "dispensaries": [
-        "Therapy Cannabis - Cincinnati"
-      ],
-      "categories": [
-        "Infused Pre-Rolls"
-      ],
-      "best_discount": 20,
-      "cheapest": {
-        "product": "1g \u2014 Strawnana (S.N) \u2014 Rosin Infused Pre-Roll",
-        "price": 16.0,
-        "original_price": 20.0,
-        "on_sale": true,
-        "discount_pct": 20,
-        "category": "Infused Pre-Rolls",
-        "dispensary": "Therapy Cannabis - Cincinnati",
-        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
-      }
-    },
-    {
       "name": "Firelands Scientific",
       "deal_count": 1,
       "dispensaries": [
@@ -714,8 +737,8 @@
       ],
       "best_discount": 0,
       "cheapest": {
-        "product": "Firelands Scientific - Fruit Punch Entourage Sun Bites - Gummies - 20mg [2pk]",
-        "price": 4.0,
+        "product": "Firelands Scientific - Orange Grove Sun Bites - Gummies - 20mg [2pk]",
+        "price": 6.0,
         "original_price": null,
         "on_sale": false,
         "discount_pct": 0,

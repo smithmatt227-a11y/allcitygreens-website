@@ -63,7 +63,8 @@ DISPENSARY_URLS = {
     "Columbia Care - Monroe":                  "https://www.columbia.care/locations/ohio",
     "Bloom - Seven Mile":                      "https://bloommarijuana.com",
     "Green Releaf - Dayton":                   "https://greenreleafdispensary.com",
-    "Locals Cannabis":                         "https://localscannabis.com/shop/",
+    "Locals Cannabis":                         "https://localscannabis.com/stores/locals-dispensary-cincinnati",
+    "Locals Cannabis - Cincinnati":            "https://localscannabis.com/stores/locals-dispensary-cincinnati",
 }
 
 FALLBACK_URL = "https://allcitygreens.com"

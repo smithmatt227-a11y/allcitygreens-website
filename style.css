@@ -1627,3 +1627,21 @@ a.deal-card-link:hover,
   text-decoration: none;
 }
 .mockup-cta a:hover { text-decoration: underline; }
+
+/* ── Interactive polish (2026-07-19): sparklines + motion ──────────────── */
+.disp-spark { display: flex; align-items: center; gap: 7px; margin-top: 8px; min-height: 26px; }
+.disp-spark svg { display: block; color: var(--color-primary-mid); }
+.disp-spark-delta { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
+.disp-spark-delta--down { color: var(--color-primary); }
+.disp-spark-delta--up   { color: var(--color-accent); }
+.disp-spark-note { font-size: 0.7rem; color: var(--color-text-faint); }
+[data-theme="dark"] .disp-spark svg { color: var(--color-primary-mid); }
+
+.mockup-deal-link { transition: background-color 0.45s ease, transform 0.45s ease; border-radius: 8px; }
+.mockup-deal--spot { background: var(--color-surface-offset); transform: translateX(4px); }
+[data-theme="dark"] .mockup-deal--spot { background: rgba(255,255,255,0.05); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mockup-deal-link { transition: none; }
+  .mockup-deal--spot { transform: none; }
+}

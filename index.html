@@ -28,7 +28,7 @@
   <!-- Fonts: Playfair Display (heritage serif) + Inter (utilitarian body) + Oswald (deals accent) -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=20260708">
+  <link rel="stylesheet" href="style.css?v=20260719">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://allcitygreens.com/">
@@ -797,6 +797,148 @@
       }
 
       document.querySelectorAll('.hero-form, .cta-form, .nav-subscribe-form').forEach(handleSubmit);
+    })();
+  </script>
+  <script>
+    /* Interactive polish (2026-07-19): sparklines, count-up stats, relative
+       "updated" time, rotating hero deal spotlight. Everything fails quiet —
+       any error leaves the static page exactly as rendered by the 6 AM run.
+       Lives OUTSIDE the AUTO: markers so update_site.py never touches it. */
+    (function () {
+      var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ── 1. Count-up hero stats ── */
+      try {
+        var nums = document.querySelectorAll('.stat-num');
+        if (!reduced && 'IntersectionObserver' in window && nums.length) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (!e.isIntersecting) return;
+              io.unobserve(e.target);
+              var raw = e.target.textContent.trim();
+              var m = raw.match(/^([\d,]+)(.*)$/);
+              if (!m) return; // "Daily" etc.
+              var target = parseInt(m[1].replace(/,/g, ''), 10);
+              var suffix = m[2] || '';
+              if (!isFinite(target) || target <= 0) return;
+              var t0 = null;
+              function step(ts) {
+                if (!t0) t0 = ts;
+                var p = Math.min((ts - t0) / 900, 1);
+                var eased = 1 - Math.pow(1 - p, 3);
+                e.target.textContent = Math.round(target * eased).toLocaleString('en-US') + suffix;
+                if (p < 1) requestAnimationFrame(step);
+              }
+              requestAnimationFrame(step);
+            });
+          }, { threshold: 0.4 });
+          nums.forEach(function (n) { io.observe(n); });
+        }
+      } catch (err) {}
+
+      /* ── 2. Rotating spotlight on the top-3 hero deals ── */
+      try {
+        var rows = document.querySelectorAll('.mockup-section .mockup-deal-link');
+        if (!reduced && rows.length > 1) {
+          var idx = 0, paused = false;
+          var sec = document.querySelector('.mockup-section');
+          sec.addEventListener('mouseenter', function () { paused = true; });
+          sec.addEventListener('mouseleave', function () { paused = false; });
+          rows[0].classList.add('mockup-deal--spot');
+          setInterval(function () {
+            if (paused) return;
+            rows[idx].classList.remove('mockup-deal--spot');
+            idx = (idx + 1) % rows.length;
+            rows[idx].classList.add('mockup-deal--spot');
+          }, 4500);
+        }
+      } catch (err) {}
+
+      /* ── 3 + 4. Trends fetch → relative time + dispensary sparklines ── */
+      var SPARK_KEYS = {
+        'the garden': 'the garden dispensary',
+        'shangri-la': 'shangri-la',
+        'uplift': 'uplift',
+        'garden club': 'garden club dispensary',
+        'zen leaf': 'zen leaf',
+        'therapy cannabis': 'therapy cannabis',
+        'the landing': 'the landing',
+        'queen city cannabis': 'queen city cannabis',
+        'locals cannabis': 'locals cannabis'
+      };
+
+      function relTime(iso) {
+        var then = new Date(iso), now = new Date();
+        var h = Math.floor((now - then) / 3600000);
+        if (!isFinite(h) || h < 0 || h > 48) return '';
+        if (h < 1) return 'just now';
+        return '~' + h + ' h ago';
+      }
+
+      function sparkSvg(pts) {
+        var w = 96, hgt = 24, pad = 2;
+        var vals = pts.map(function (p) { return p.avg; });
+        var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals);
+        var span = (mx - mn) || 1;
+        var coords = vals.map(function (v, i) {
+          var x = pad + (i / (vals.length - 1)) * (w - 2 * pad);
+          var y = (hgt - pad) - ((v - mn) / span) * (hgt - 2 * pad);
+          return x.toFixed(1) + ',' + y.toFixed(1);
+        });
+        var last = coords[coords.length - 1].split(',');
+        return '<svg width="' + w + '" height="' + hgt + '" viewBox="0 0 ' + w + ' ' + hgt + '" aria-hidden="true">' +
+               '<polyline fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" ' +
+               'stroke-linecap="round" points="' + coords.join(' ') + '"/>' +
+               '<circle cx="' + last[0] + '" cy="' + last[1] + '" r="2.2" fill="currentColor"/></svg>';
+      }
+
+      fetch('/trends-data.json', { cache: 'no-store' })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          /* relative "updated" time from the actual build timestamp */
+          try {
+            var rel = relTime(data.generated_at);
+            if (rel) {
+              document.querySelectorAll('.mockup-updated, .section-updated').forEach(function (el) {
+                el.textContent = el.textContent.replace(/\s*·\s*(just now|~\d+ h ago)$/, '') + ' · ' + rel;
+              });
+            }
+          } catch (err) {}
+
+          /* sparklines on tracked dispensary cards */
+          try {
+            var disp = data.dispensaries || {};
+            document.querySelectorAll('.disp-card:not(.disp-card--paused)').forEach(function (card) {
+              var nameEl = card.querySelector('.disp-name');
+              if (!nameEl) return;
+              var key = SPARK_KEYS[nameEl.textContent.trim().toLowerCase()];
+              var series = key && disp[key];
+              if (!series || !series.length) return;
+              var wrap = document.createElement('span');
+              wrap.className = 'disp-spark';
+              if (series.length < 6) {
+                var since = new Date(series[0].date + 'T12:00:00');
+                wrap.innerHTML = '<span class="disp-spark-note">New — tracking since ' +
+                  since.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + '</span>';
+              } else {
+                var pts = series.slice(-30);
+                var first = pts[0].avg, lastv = pts[pts.length - 1].avg;
+                var pct = first ? Math.round(((lastv - first) / first) * 100) : 0;
+                var deltaHtml = '';
+                if (pct !== 0) {
+                  var down = pct < 0;
+                  deltaHtml = '<span class="disp-spark-delta disp-spark-delta--' + (down ? 'down' : 'up') + '">' +
+                              (down ? '↓' : '↑') + Math.abs(pct) + '%</span>';
+                }
+                wrap.innerHTML = sparkSvg(pts) + deltaHtml;
+                wrap.title = 'Avg flower price, last ' + pts.length + ' scrapes — now $' + lastv.toFixed(0);
+              }
+              var badge = card.querySelector('.disp-badge');
+              card.insertBefore(wrap, badge || null);
+            });
+          } catch (err) {}
+        })
+        .catch(function () {});
     })();
   </script>
 </body>

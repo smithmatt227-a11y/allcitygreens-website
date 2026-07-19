@@ -917,7 +917,15 @@
               var wrap = document.createElement('span');
               wrap.className = 'disp-spark';
               if (series.length < 6) {
-                var since = new Date(series[0].date + 'T12:00:00');
+                /* "since" = start of the trailing run of near-daily points, so an
+                   orphan months-old data point can't skew the label. */
+                var si = series.length - 1;
+                while (si > 0) {
+                  var gap = (new Date(series[si].date) - new Date(series[si - 1].date)) / 86400000;
+                  if (gap > 7) break;
+                  si--;
+                }
+                var since = new Date(series[si].date + 'T12:00:00');
                 wrap.innerHTML = '<span class="disp-spark-note">New — tracking since ' +
                   since.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + '</span>';
               } else {

@@ -39,8 +39,10 @@ DISPENSARY_URLS = {
     "Shangri-La Cincinnati":                   "https://shangriladispensaries.com",
     "Shangri-La Monroe West":                  "https://shangriladispensaries.com",
     "Shangri-La Monroe Superstore":            "https://shangriladispensaries.com",
-    "The Garden Dispensary - Camp Washington": "https://thegardendispo.com/menu/",
-    "The Garden Dispensary - Sycamore":        "https://thegardendispo.com/menu/",
+    # 2026-09-07: thegardendispo.com/menu/ started returning 404 (site moved to
+    # per-store paths). Verified live: both /stores/... URLs return the real menu.
+    "The Garden Dispensary - Camp Washington": "https://thegardendispo.com/stores/camp-washington-cincinnati",
+    "The Garden Dispensary - Sycamore":        "https://thegardendispo.com/stores/sycamore-township-cincinnati",
     "Garden Club Dispensary":                  "https://gardenclubdispensaries.com",
     "Trulieve - Cincinnati":                   "https://www.trulieve.com",
     "The Landing - Cincinnati":                "https://www.thelandingdispensaries.com",

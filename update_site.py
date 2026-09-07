@@ -51,7 +51,9 @@ DISPENSARY_URLS = {
     "Nectar - 5 Mile":                         "https://nectarohio.com",
     "Nectar - Harrison":                       "https://nectarohio.com",
     "Sunnyside - Cincinnati":                  "https://www.sunnyside.shop",
-    "Verilife - Cincinnati":                   "https://www.verilife.com/oh/locations/cincinnati",
+    # 2026-09-07: verilife.com/oh/* now 302s to verilifeoh.com (Ohio split to its
+    # own domain), landing on a generic homepage. Verified live: this is the store page.
+    "Verilife - Cincinnati":                   "https://verilifeoh.com/locations/cincinnati",
     "Beyond Hello - Cincinnati":               "https://beyond-hello.com",
     "Beyond Hello - Northern Cincinnati":      "https://beyond-hello.com",
     "Beyond Hello - Oxford":                   "https://beyond-hello.com",
@@ -62,7 +64,9 @@ DISPENSARY_URLS = {
     "Ethos Dispensary - Lebanon":              "https://ethoscannabis.com",
     "UpLift - Milford":                        "https://www.upliftohio.com/milford/",
     "UpLift - Mount Orab":                     "https://www.upliftohio.com",
-    "Columbia Care - Monroe":                  "https://www.columbia.care/locations/ohio",
+    # 2026-09-07: columbia.care/locations/ohio returned 404. Ohio lives on the
+    # oh.columbia.care subdomain now; verified live.
+    "Columbia Care - Monroe":                  "https://www.oh.columbia.care/stores/ohio/monroe",
     "Bloom - Seven Mile":                      "https://bloommarijuana.com",
     "Green Releaf - Dayton":                   "https://greenreleafdispensary.com",
     "Locals Cannabis":                         "https://localscannabis.com/stores/locals-dispensary-cincinnati",

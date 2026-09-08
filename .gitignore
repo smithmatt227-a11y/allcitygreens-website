@@ -13,3 +13,9 @@ Screenshots/
 
 # Netlify
 .netlify/
+
+# Local dated backups — project convention is file.bak-YYYY-MM-DD beside the
+# file being edited. Added 2026-09-08: _commit_and_push.command runs `git add -A`,
+# so without this every backup got committed and deployed to the live site.
+*.bak-*
+*.bak2-*

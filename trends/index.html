@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=20260719">
+  <link rel="stylesheet" href="/style.css?v=20260908">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="canonical" href="https://allcitygreens.com/trends/">
 
@@ -81,24 +81,71 @@
     }
     @media (max-width:720px){ .canvas-box{ height:360px; } }
     canvas{ max-width:100%; }
-    .legend-grid{
-      display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-      gap:8px 14px;margin-top:24px;
+    /* 2026-09-08 — the 12-swatch legend grid was removed with the
+       12-line spaghetti chart it belonged to. Selection now lives in the
+       chip rail below, which doubles as a cheapest-first price list. */
+    .chart-head{
+      display:flex;align-items:flex-start;justify-content:space-between;
+      gap:20px;flex-wrap:wrap;margin:0 0 18px;
     }
-    .legend-item{
-      display:flex;align-items:center;gap:8px;
-      font-size:12px;font-family:'Inter',sans-serif;
-      color:var(--color-text-muted);
-      cursor:pointer;
-      user-select:none;
+    .chart-head .chart-title,.chart-head .chart-note{ margin:0; }
+    .trend-range{
+      display:inline-flex;border:1px solid var(--color-divider);
+      border-radius:999px;overflow:hidden;flex-shrink:0;
+      font-family:'Inter',sans-serif;
     }
-    .legend-item.off{ opacity:0.35; text-decoration:line-through; }
-    .legend-swatch{
-      width:14px;height:3px;border-radius:2px;flex-shrink:0;
+    .trend-range button{
+      background:transparent;border:0;cursor:pointer;padding:6px 14px;
+      font-size:12px;font-weight:600;color:var(--color-text-muted);
+      border-right:1px solid var(--color-divider);
+      transition:background 150ms ease,color 150ms ease;
     }
-    .legend-name{
-      color:var(--color-text);font-weight:600;
+    .trend-range button:last-child{ border-right:0; }
+    .trend-range button:hover{ color:var(--color-text); }
+    .trend-range button[aria-pressed="true"]{
+      background:var(--color-surface-offset);color:var(--color-text);
     }
+    .trend-chips{
+      display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px;
+      font-family:'Inter',sans-serif;
+    }
+    .trend-chip{
+      display:inline-flex;align-items:baseline;gap:7px;background:transparent;
+      border:1px solid var(--color-divider);border-radius:999px;
+      padding:6px 13px;cursor:pointer;font-size:12.5px;font-weight:600;
+      color:var(--color-text-muted);line-height:1.2;
+      transition:border-color 150ms ease,color 150ms ease,background 150ms ease;
+    }
+    .trend-chip:hover{ border-color:var(--color-primary-mid);color:var(--color-text); }
+    .trend-chip .px{
+      font-weight:500;font-size:11.5px;color:var(--color-text-faint);
+      font-variant-numeric:tabular-nums;
+    }
+    .trend-chip[aria-pressed="true"]{
+      background:var(--color-primary-light);
+      border-color:var(--color-primary);color:var(--color-primary);
+    }
+    .trend-chip[aria-pressed="true"] .px{ color:var(--color-primary); }
+    .trend-chip--reset{ border-style:dashed; }
+    /* On a phone the 11 chips stacked into 7 rows and pushed the chart off
+       screen. Cheapest-first order means the useful ones are already at the
+       start of the scroller. */
+    @media (max-width:640px){
+      .trend-chips{
+        flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;
+        -webkit-overflow-scrolling:touch;scrollbar-width:none;
+      }
+      .trend-chips::-webkit-scrollbar{ display:none; }
+      .trend-chip{ flex-shrink:0; }
+    }
+    .trend-readout{
+      font-family:'Inter',sans-serif;font-size:13.5px;
+      color:var(--color-text-muted);margin:18px 0 0;line-height:1.65;
+      min-height:22px;
+    }
+    .trend-readout b{ color:var(--color-text);font-weight:600; }
+    .trend-readout .up{ color:var(--color-accent);font-weight:600; }
+    .trend-readout .down{ color:var(--color-primary);font-weight:600; }
     .data-note{
       background:var(--color-surface);
       border-left:3px solid #e07828;
@@ -138,10 +185,10 @@
         <p class="trends-eyebrow">Price Trends</p>
         <h1 class="section-title" style="margin:0 0 12px;">How Cincinnati cannabis prices move.</h1>
         <p style="color:var(--color-text-muted);font-size:1.05rem;line-height:1.7;margin:0;font-family:'Inter',sans-serif;">
-          Daily averages tracked since March 2026. The lines below show how each dispensary's
-          <strong>average flower price</strong> has shifted over time. Nothing fancy — just the
-          data we already scrape every morning, plotted so you can spot who's cheaper, who's
-          climbing, and where to shop today.
+          Daily averages tracked since March 2026. The bold line is the
+          <strong>citywide median</strong> flower price — click any dispensary to see how it
+          sits against that. Nothing fancy, just the data we already scrape every morning,
+          smoothed over seven days so you're looking at the trend rather than the noise.
         </p>
 
         <div class="stats-row" id="stats-row">
@@ -149,21 +196,35 @@
         </div>
 
         <div class="chart-wrap">
-          <h2 class="chart-title">Average flower price · per dispensary</h2>
-          <p class="chart-note">Dollars per item, weighted by product count. Click a name below to hide/show.</p>
+          <div class="chart-head">
+            <div>
+              <h2 class="chart-title">Flower prices across Cincinnati</h2>
+              <p class="chart-note">7-day average, dollars per item. Names sorted cheapest first.</p>
+            </div>
+            <div class="trend-range" id="range" role="group" aria-label="Time range">
+              <button type="button" data-d="30">30 days</button>
+              <button type="button" data-d="90" aria-pressed="true">90 days</button>
+              <button type="button" data-d="0">All</button>
+            </div>
+          </div>
+          <div class="trend-chips" id="chips"></div>
           <div class="canvas-box">
             <canvas id="price-chart"></canvas>
           </div>
-          <div class="legend-grid" id="legend"></div>
+          <p class="trend-readout" id="readout"></p>
         </div>
 
         <div class="data-note">
           <strong style="color:var(--color-text);">About the data.</strong>
           Each morning's scrape pulls every flower SKU from each dispensary's public menu and
           records the average price. Sister locations under the same brand (e.g., The Garden
-          at Camp Washington + Sycamore) are merged into a single line. Gaps in the chart
-          reflect days the scraper didn't run, not zero pricing. Days with fewer than 5 SKUs
-          for a dispensary are excluded as unreliable signal.
+          at Camp Washington + Sycamore) are merged into a single line. Days with fewer than
+          5 SKUs for a dispensary are excluded as unreliable signal.
+          Every line is a seven-day rolling average, and a day is only drawn where at least
+          three scrapes landed in the week before it — so a stretch the scraper missed shows
+          up as a <em>gap</em> rather than a straight line pretending to be a trend. A
+          dispensary that has reported nothing for 30 days is dropped from the chart
+          entirely instead of being carried forward at a stale price.
         </div>
       </div>
     </section>
@@ -195,24 +256,29 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
   <script>
-    // ── Brand-matched colour ramp for up to 12 dispensaries ─────────────
-    const PALETTE = [
-      '#e07828', // burnt orange (accent)
-      '#8fa870', // olive primary
-      '#c8891a', // gold
-      '#7a8c5e', // olive mid
-      '#a89460', // tan
-      '#6b8060', // moss
-      '#d4a030', // bright gold
-      '#b8825a', // copper
-      '#9aa078', // sage
-      '#bf6a20', // rust
-      '#8c9080', // grey-olive
-      '#a06030', // mahogany
-    ];
+    /* ── Price trends chart ────────────────────────────────────────────────
+       Rebuilt 2026-09-08. What was here before drew all 12 series at once in
+       12 shades of the same orange/olive, with a dot on every one of 108
+       points, on a CATEGORY x-axis over scrape dates. Three consequences,
+       all fixed below:
 
-    // Pretty dispensary names — brand_key -> Display Name
-    const PRETTY = {
+       1. Two dead series (Story, Verilife — last data 2026-04-13) were being
+          bridged by `spanGaps: true`, so a straight line from April to today
+          read as the cleanest trend on the chart. It was not data.
+          → Anything silent for 30 days is now dropped outright.
+       2. A category axis put 108 scrape dates evenly across 171 calendar
+          days, so the 36-, 57- and 120-day gaps each occupied one pixel step
+          and every label before June sat in the wrong place.
+          → Now a linear axis of day-offsets from the first scrape.
+       3. Raw daily values swing ±$10, which is noise, not signal.
+          → 7-day trailing mean, emitted only where ≥3 scrapes fall in the
+            trailing week, so genuine outages stay holes.
+
+       The chart shows the city median in bold with everyone else faint
+       behind it; clicking a chip lifts one dispensary out. One comparison at
+       a time beats twelve overlapping lines. ── */
+
+    var PRETTY = {
       'garden club dispensary': 'Garden Club',
       'shangri-la': 'Shangri-La',
       'shangri-la monroe': 'Shangri-La (Monroe)',
@@ -225,146 +291,308 @@
       'locals cannabis': 'Locals',
       'beyond hello': 'Beyond Hello',
       'nectar': 'Nectar',
+      'queen city cannabis': 'Queen City Cannabis',
+      'the landing': 'The Landing'
     };
 
-    function fmtDate(d) {
-      const [y, m, day] = d.split('-');
-      return new Date(+y, +m - 1, +day).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    var DAY = 86400000;
+    var STALE_DAYS = 30;     // silent this long => not shown at all
+    var WINDOW = 7;          // rolling-average window, days
+    var MIN_OBS = 3;         // scrapes needed inside the window to draw a point
+    var DEFAULT_RANGE = 90;  // days visible on load
+
+    function cssVar(k) {
+      return getComputedStyle(document.documentElement).getPropertyValue(k).trim();
+    }
+    function asDate(s) { return new Date(s + 'T12:00:00'); }
+    function money(n) { return '$' + Math.abs(n).toFixed(2); }
+    function medianOf(a) {
+      if (!a.length) return null;
+      var s = a.slice().sort(function (x, y) { return x - y; });
+      var m = s.length >> 1;
+      return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
     }
 
     fetch('/trends-data.json', { cache: 'no-store' })
-      .then(r => r.json())
+      .then(function (r) { return r.json(); })
       .then(render)
-      .catch(err => {
-        document.getElementById('price-chart').replaceWith(
-          Object.assign(document.createElement('p'),
-            { textContent: 'Trend data is loading — check back in a minute.',
-              style: 'color:var(--color-text-muted);text-align:center;padding:32px;' }));
+      .catch(function () {
+        var c = document.getElementById('price-chart');
+        if (!c) return;
+        var p = document.createElement('p');
+        p.textContent = 'Trend data is loading — check back in a minute.';
+        p.style.cssText = 'color:var(--color-text-muted);text-align:center;padding:32px;';
+        c.replaceWith(p);
       });
 
     function render(data) {
-      const dates = data.dates;
-      const labels = dates.map(fmtDate);
-      const brands = Object.keys(data.dispensaries).sort();
+      var dates = data.dates || [];
+      if (!dates.length) return;
+      var latest = dates[dates.length - 1];
+      var t0 = asDate(dates[0]);
+      var span = Math.round((asDate(latest) - t0) / DAY);
+      var disp = data.dispensaries || {};
 
-      // Build datasets — fill missing dates with null so chart bridges gaps
-      const datasets = brands.map((bk, i) => {
-        const byDate = Object.fromEntries(data.dispensaries[bk].map(p => [p.date, p.avg]));
-        return {
-          label: PRETTY[bk] || bk.replace(/\b\w/g, c => c.toUpperCase()),
-          brandKey: bk,
-          data: dates.map(d => byDate[d] ?? null),
-          borderColor: PALETTE[i % PALETTE.length],
-          backgroundColor: PALETTE[i % PALETTE.length] + '22',
-          borderWidth: 2.5,
-          tension: 0.25,
-          spanGaps: true,
-          pointRadius: 3,
-          pointHoverRadius: 6,
-          pointBackgroundColor: PALETTE[i % PALETTE.length],
-        };
+      function fmtDay(n) {
+        return new Date(t0.getTime() + n * DAY)
+          .toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      }
+
+      /* one smoothing definition, used by the chart, the chips, the readout
+         and the stat cards — so no two numbers on this page can disagree */
+      function smoothPts(series) {
+        var by = {};
+        series.forEach(function (p) { by[p.date] = p.avg; });
+        var out = [];
+        for (var n = 0; n <= span; n++) {
+          var end = new Date(t0.getTime() + n * DAY);
+          var vals = [];
+          for (var b = 0; b < WINDOW; b++) {
+            var k = new Date(end - b * DAY).toISOString().slice(0, 10);
+            if (by[k] != null) vals.push(by[k]);
+          }
+          var y = null;
+          if (vals.length >= MIN_OBS) {
+            var t = 0;
+            for (var i = 0; i < vals.length; i++) t += vals[i];
+            y = t / vals.length;
+          }
+          out.push({ x: n, y: y });
+        }
+        return out;
+      }
+      function lastY(pts) {
+        for (var i = pts.length - 1; i >= 0; i--) if (pts[i].y != null) return pts[i].y;
+        return null;
+      }
+      function yAgo(pts, days) {
+        for (var i = Math.min(span - days, pts.length - 1); i >= 0; i--) {
+          if (pts[i].y != null) return pts[i].y;
+        }
+        return null;
+      }
+
+      /* freshness gate — this is what removes Story and Verilife */
+      var fresh = Object.keys(disp).filter(function (k) {
+        var pts = disp[k];
+        if (!pts || !pts.length) return false;
+        return (asDate(latest) - asDate(pts[pts.length - 1].date)) / DAY <= STALE_DAYS;
+      });
+      if (!fresh.length) return;
+
+      var smooth = {};
+      fresh.forEach(function (k) { smooth[k] = smoothPts(disp[k]); });
+
+      /* citywide median per day, smoothed identically */
+      var rawMed = [];
+      dates.forEach(function (d) {
+        var v = [];
+        fresh.forEach(function (k) {
+          for (var i = disp[k].length - 1; i >= 0; i--) {
+            if (disp[k][i].date === d) { v.push(disp[k][i].avg); break; }
+          }
+        });
+        if (v.length >= 4) rawMed.push({ date: d, avg: medianOf(v) });
+      });
+      var medPts = smoothPts(rawMed);
+      var medNow = lastY(medPts);
+
+      var ordered = fresh.slice().sort(function (a, b) {
+        return lastY(smooth[a]) - lastY(smooth[b]);
       });
 
-      // ── Stat cards ─────────────────────────────────────────────────────
-      const latest = dates[dates.length - 1];
-      const todays = brands
-        .map(bk => {
-          const pts = data.dispensaries[bk];
-          const last = pts[pts.length - 1];
-          return last.date === latest ? { bk, avg: last.avg, min: last.min } : null;
-        })
-        .filter(Boolean)
-        .sort((a, b) => a.avg - b.avg);
+      /* ── stat cards ──────────────────────────────────────────────────── */
+      var cheap = ordered[0];
+      var cheapPts = disp[cheap];
+      var cheapMin = cheapPts[cheapPts.length - 1].min;
 
-      // 1. Cheapest today
-      const cheapest = todays[0];
+      var mover = null;
+      ordered.forEach(function (k) {
+        var now = lastY(smooth[k]), then = yAgo(smooth[k], 30);
+        if (now == null || then == null || !then) return;
+        var pct = ((now - then) / then) * 100;
+        if (!mover || Math.abs(pct) > Math.abs(mover.pct)) {
+          mover = { k: k, delta: now - then, pct: pct };
+        }
+      });
 
-      // 2. Biggest mover (largest absolute change between first and last data point)
-      const movers = brands.map(bk => {
-        const pts = data.dispensaries[bk];
-        const first = pts[0].avg, last = pts[pts.length - 1].avg;
-        return { bk, first, last, delta: last - first, pct: ((last - first) / first) * 100 };
-      }).sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
-      const mover = movers[0];
-
-      // 3. Days tracked
-      const daysTracked = dates.length;
-
-      const statsHtml = `
-        <div class="stat-card">
-          <div class="lbl">Cheapest avg today</div>
-          <div class="val accent">${PRETTY[cheapest.bk] || cheapest.bk}</div>
-          <div class="sub">$${cheapest.avg.toFixed(2)} average · $${cheapest.min.toFixed(2)} lowest item</div>
-        </div>
-        <div class="stat-card">
-          <div class="lbl">Biggest mover</div>
-          <div class="val ${mover.delta < 0 ? 'green-pos' : 'accent'}">${PRETTY[mover.bk] || mover.bk}</div>
-          <div class="sub">${mover.delta >= 0 ? '+' : ''}$${mover.delta.toFixed(2)} (${mover.pct >= 0 ? '+' : ''}${mover.pct.toFixed(1)}%) since first scrape</div>
-        </div>
-        <div class="stat-card">
-          <div class="lbl">Days tracked</div>
-          <div class="val">${daysTracked}</div>
-          <div class="sub">From ${fmtDate(dates[0])} to ${fmtDate(latest)}</div>
-        </div>`;
+      var statsHtml =
+        '<div class="stat-card">' +
+          '<div class="lbl">Cheapest today</div>' +
+          '<div class="val accent">' + (PRETTY[cheap] || cheap) + '</div>' +
+          '<div class="sub">' + money(lastY(smooth[cheap])) +
+            ' on the 7-day average · ' + money(cheapMin) + ' lowest item</div>' +
+        '</div>' +
+        '<div class="stat-card">' +
+          '<div class="lbl">City median today</div>' +
+          '<div class="val">' + money(medNow) + '</div>' +
+          '<div class="sub">Across ' + ordered.length + ' dispensaries reporting</div>' +
+        '</div>';
+      if (mover) {
+        statsHtml +=
+          '<div class="stat-card">' +
+            '<div class="lbl">Biggest 30-day move</div>' +
+            '<div class="val ' + (mover.delta < 0 ? 'green-pos' : 'accent') + '">' +
+              (PRETTY[mover.k] || mover.k) + '</div>' +
+            '<div class="sub">' + (mover.delta < 0 ? '−' : '+') + money(mover.delta) +
+              ' (' + (mover.pct < 0 ? '−' : '+') + Math.abs(mover.pct).toFixed(1) +
+              '%) in the last 30 days</div>' +
+          '</div>';
+      } else {
+        statsHtml +=
+          '<div class="stat-card">' +
+            '<div class="lbl">Days tracked</div>' +
+            '<div class="val">' + dates.length + '</div>' +
+            '<div class="sub">Since ' + fmtDay(0) + '</div>' +
+          '</div>';
+      }
       document.getElementById('stats-row').innerHTML = statsHtml;
 
-      // ── Chart ───────────────────────────────────────────────────────────
-      const ctx = document.getElementById('price-chart').getContext('2d');
-      const css = getComputedStyle(document.documentElement);
-      const txt = css.getPropertyValue('--color-text').trim() || '#e8e0cc';
-      const muted = css.getPropertyValue('--color-text-muted').trim() || '#a09070';
-      const grid = css.getPropertyValue('--color-divider').trim() || '#332f20';
+      /* ── chart ───────────────────────────────────────────────────────── */
+      var FAINT  = 'rgba(160,144,112,0.16)';
+      var HILITE = cssVar('--color-primary') || '#8fa870';
+      var MEDC   = cssVar('--color-accent')  || '#e07828';
+      var muted  = cssVar('--color-text-muted') || '#a09070';
+      var grid   = cssVar('--color-divider')    || '#332f20';
 
-      const chart = new Chart(ctx, {
+      var sel = -1;
+
+      /* fewer date labels on a phone — at 9 they overlapped ("Aug 27Sep 7") */
+      function tickLimit() { return window.innerWidth < 640 ? 5 : 9; }
+
+      var datasets = ordered.map(function (k) {
+        return {
+          label: PRETTY[k] || k, brandKey: k, data: smooth[k],
+          borderColor: FAINT, borderWidth: 1.25,
+          pointRadius: 0, pointHoverRadius: 0, pointHitRadius: 0,
+          tension: 0.3, spanGaps: false, order: 3
+        };
+      });
+      datasets.push({
+        label: 'City median', brandKey: '__median__', data: medPts,
+        borderColor: MEDC, borderWidth: 3.25,
+        pointRadius: 0, pointHoverRadius: 0, pointHitRadius: 0,
+        tension: 0.3, spanGaps: false, order: 1
+      });
+      var MED_I = datasets.length - 1;
+
+      var chart = new Chart(document.getElementById('price-chart').getContext('2d'), {
         type: 'line',
-        data: { labels, datasets },
+        data: { datasets: datasets },
         options: {
-          responsive: true,
-          maintainAspectRatio: false,
+          parsing: false, normalized: true,
+          responsive: true, maintainAspectRatio: false,
+          onResize: function (c) { c.options.scales.x.ticks.maxTicksLimit = tickLimit(); },
           interaction: { mode: 'index', intersect: false },
           plugins: {
             legend: { display: false },
             tooltip: {
-              backgroundColor: '#141209',
-              titleColor: '#f7f3ec',
-              bodyColor: '#e8e0cc',
-              borderColor: '#332f20',
-              borderWidth: 1,
-              padding: 12,
-              titleFont: { family: 'Playfair Display, serif', size: 14, weight: '700' },
+              backgroundColor: '#141209', titleColor: '#f7f3ec', bodyColor: '#e8e0cc',
+              borderColor: '#403c28', borderWidth: 1, padding: 12,
+              titleFont: { family: 'Playfair Display, serif', size: 13, weight: '700' },
               bodyFont: { family: 'Inter, sans-serif', size: 12 },
-              callbacks: { label: c => `${c.dataset.label}: $${c.parsed.y?.toFixed(2) ?? '—'}` },
-            },
+              /* only the median and the selected shop — never a 12-row wall */
+              filter: function (c) { return c.datasetIndex === MED_I || c.datasetIndex === sel; },
+              callbacks: {
+                title: function (it) { return it.length ? fmtDay(it[0].parsed.x) : ''; },
+                label: function (c) {
+                  return '  ' + c.dataset.label + ': ' +
+                         (c.parsed.y == null ? '—' : '$' + c.parsed.y.toFixed(2));
+                }
+              }
+            }
           },
           scales: {
-            x: { ticks: { color: muted, font: { family: 'Inter, sans-serif' } },
-                 grid: { color: grid, drawBorder: false } },
-            y: { ticks: { color: muted, font: { family: 'Inter, sans-serif' },
-                          callback: v => '$' + v },
-                 grid: { color: grid, drawBorder: false },
-                 title: { display: true, text: 'Avg flower price ($)',
-                          color: muted, font: { family: 'Inter, sans-serif', size: 12 } } },
-          },
-        },
+            x: {
+              type: 'linear', min: Math.max(0, span - DEFAULT_RANGE), max: span,
+              ticks: {
+                color: muted, font: { family: 'Inter, sans-serif', size: 11 },
+                maxRotation: 0, autoSkip: true, autoSkipPadding: 14,
+                maxTicksLimit: tickLimit(),
+                callback: function (v) { return fmtDay(v); }
+              },
+              grid: { display: false }
+            },
+            y: {
+              ticks: {
+                color: muted, font: { family: 'Inter, sans-serif', size: 11 },
+                callback: function (v) { return '$' + v; }
+              },
+              grid: { color: grid, drawTicks: false },
+              border: { display: false }
+            }
+          }
+        }
       });
 
-      // ── Legend with click-to-hide ──────────────────────────────────────
-      const legendHtml = datasets.map((ds, i) => `
-        <div class="legend-item" data-i="${i}">
-          <span class="legend-swatch" style="background:${ds.borderColor};"></span>
-          <span class="legend-name">${ds.label}</span>
-        </div>`).join('');
-      const legendEl = document.getElementById('legend');
-      legendEl.innerHTML = legendHtml;
-      legendEl.addEventListener('click', e => {
-        const item = e.target.closest('.legend-item');
-        if (!item) return;
-        const i = +item.dataset.i;
-        const visible = chart.isDatasetVisible(i);
-        chart.setDatasetVisibility(i, !visible);
-        item.classList.toggle('off', visible);
-        chart.update();
+      var readoutEl = document.getElementById('readout');
+      function readout() {
+        if (sel < 0) {
+          readoutEl.innerHTML = 'The bold line is the <b>city median</b> — ' + money(medNow) +
+            ' today. Click any name above to pull that dispensary out of the background.';
+          return;
+        }
+        var ds = datasets[sel];
+        var now = lastY(ds.data), then = yAgo(ds.data, 30);
+        var gap = now - medNow;
+        var move = '';
+        if (then != null && then) {
+          var pct = ((now - then) / then) * 100;
+          move = ' Over the last 30 days it has moved <span class="' +
+                 (pct < 0 ? 'down' : 'up') + '">' + (pct < 0 ? '−' : '+') +
+                 Math.abs(pct).toFixed(1) + '%</span>.';
+        }
+        readoutEl.innerHTML = '<b>' + ds.label + '</b> is at ' + money(now) +
+          ' on the 7-day average — <b>' + money(Math.abs(gap)) + ' ' +
+          (gap < 0 ? 'below' : 'above') + '</b> the city median of ' + money(medNow) +
+          '.' + move;
+      }
+
+      function paint() {
+        datasets.forEach(function (d, i) {
+          if (i === MED_I) return;
+          var on = (i === sel);
+          d.borderColor = on ? HILITE : FAINT;
+          d.borderWidth = on ? 2.75 : 1.25;
+          d.order = on ? 2 : 3;
+        });
+        chart.update('none');
+        document.querySelectorAll('#chips .trend-chip[data-i]').forEach(function (el) {
+          el.setAttribute('aria-pressed', (+el.dataset.i === sel) ? 'true' : 'false');
+        });
+        readout();
+      }
+
+      var chipsEl = document.getElementById('chips');
+      chipsEl.innerHTML = ordered.map(function (k, i) {
+        return '<button class="trend-chip" type="button" data-i="' + i + '" aria-pressed="false">' +
+               (PRETTY[k] || k) + '<span class="px">$' +
+               lastY(smooth[k]).toFixed(0) + '</span></button>';
+      }).join('') +
+        '<button class="trend-chip trend-chip--reset" type="button" id="chip-reset">Clear</button>';
+
+      chipsEl.addEventListener('click', function (e) {
+        var b = e.target.closest('button');
+        if (!b) return;
+        if (b.id === 'chip-reset') { sel = -1; paint(); return; }
+        var i = +b.dataset.i;
+        sel = (sel === i) ? -1 : i;
+        paint();
       });
+
+      var rangeEl = document.getElementById('range');
+      rangeEl.addEventListener('click', function (e) {
+        var b = e.target.closest('button');
+        if (!b) return;
+        var d = +b.dataset.d;
+        chart.options.scales.x.min = d ? Math.max(0, span - d) : 0;
+        rangeEl.querySelectorAll('button').forEach(function (x) {
+          x.setAttribute('aria-pressed', (+x.dataset.d === d) ? 'true' : 'false');
+        });
+        chart.update('none');
+      });
+
+      paint();
     }
   </script>
 

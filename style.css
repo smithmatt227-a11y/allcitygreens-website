@@ -1628,14 +1628,46 @@ a.deal-card-link:hover,
 }
 .mockup-cta a:hover { text-decoration: underline; }
 
-/* ── Interactive polish (2026-07-19): sparklines + motion ──────────────── */
-.disp-spark { display: flex; align-items: center; gap: 7px; margin-top: 8px; min-height: 26px; }
-.disp-spark svg { display: block; color: var(--color-primary-mid); }
-.disp-spark-delta { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
-.disp-spark-delta--down { color: var(--color-primary); }
-.disp-spark-delta--up   { color: var(--color-accent); }
-.disp-spark-note { font-size: 0.7rem; color: var(--color-text-faint); }
-[data-theme="dark"] .disp-spark svg { color: var(--color-primary-mid); }
+/* ── Interactive polish (2026-07-19): motion ───────────────────────────── */
+
+/* 2026-09-08 — the .disp-spark sparkline + up/down % badge that used to live
+   here was REMOVED at Matt's request ("too busy… don't like the swiggly line
+   and percentage drop or rise arrow"). It plotted 30 RAW daily scrapes into
+   96x24px, so ±$10 of ordinary day-to-day noise rendered as a scribble, and
+   the arrow answered a question a deal-shopper isn't asking. Replaced by
+   .disp-level: today's 7-day average price plus a five-step scale for where
+   that sits against the city median. Green end = cheap, orange end = pricey.
+   Injected at runtime by the IIFE at the bottom of index.html — the card
+   markup itself is static, so update_site.py is not involved. */
+.disp-level {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 4px 9px;
+  margin-top: 8px; min-height: 24px;
+}
+.disp-level-val {
+  font-size: 0.82rem; font-weight: 600; color: var(--color-text);
+  letter-spacing: -0.01em; white-space: nowrap;
+}
+.disp-level-val em {
+  font-style: normal; font-weight: 500;
+  color: var(--color-text-muted); font-size: 0.72rem; margin-left: 4px;
+}
+.disp-level-dots { display: flex; align-items: center; gap: 3px; }
+.disp-level-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--color-divider); flex-shrink: 0;
+}
+/* band drives BOTH the number of filled dots and their colour, so the
+   graphic can never disagree with the underlying number */
+.disp-level-dot.on { background: var(--color-text-faint); }
+.disp-level--b1 .disp-level-dot.on,
+.disp-level--b2 .disp-level-dot.on { background: var(--color-primary); }
+.disp-level--b4 .disp-level-dot.on,
+.disp-level--b5 .disp-level-dot.on { background: var(--color-accent); }
+.disp-level-note {
+  font-size: 0.7rem; color: var(--color-text-faint);
+  margin-top: 8px; min-height: 24px; display: flex; align-items: center;
+}
 
 .mockup-deal-link { transition: background-color 0.45s ease, transform 0.45s ease; border-radius: 8px; }
 .mockup-deal--spot { background: var(--color-surface-offset); transform: translateX(4px); }

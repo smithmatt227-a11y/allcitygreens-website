@@ -19,3 +19,7 @@ Screenshots/
 # so without this every backup got committed and deployed to the live site.
 *.bak-*
 *.bak2-*
+
+# Never deploy compiled Python to the static site
+__pycache__/
+*.pyc

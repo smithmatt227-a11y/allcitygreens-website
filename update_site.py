@@ -491,6 +491,27 @@ def stats_html(dispensary_count: int, total_products: int) -> str:
 # TRENDS DATA — builds /trends-data.json from all historical scrapes
 # ─────────────────────────────────────────────────────────────────────────────
 
+def trends_brand_key(name: str) -> str:
+    """Brand root for the /trends/ series, the ranking and the per-dispensary pages.
+
+    ⚠️ DELIBERATELY NOT the same as brand_key() above, and the two must not be
+    merged. brand_key() loops until no suffix matches, so "Shangri-La Monroe West"
+    collapses all the way to "shangri-la" — right for deal dedupe, where every
+    Shangri-La should count once. This one strips each suffix at most once, so
+    "Shangri-La Monroe West" stops at "shangri-la monroe" and the Cincinnati store
+    stays a separate series from the Monroe pair — which is what /trends/ plots and
+    what the dispensary pages rank against. Changing this changes the chart.
+    """
+    s = (name or "").lower().strip().split(" - ")[0].strip()
+    for suf in (" cincinnati", " forest park", " sycamore", " milford", " mount orab",
+                " harrison", " oxford", " goshen", " lebanon", " monroe", " dayton",
+                " camp washington", " superstore", " seven mile", " 5 mile",
+                " five mile", " west", " east", " north", " south", " northern"):
+        if s.endswith(suf):
+            s = s[: -len(suf)].strip()
+    return s
+
+
 def build_trends_data() -> dict:
     """
     Walk every summary_*.json in Price Scraper/Data, extract per-dispensary
@@ -504,16 +525,6 @@ def build_trends_data() -> dict:
     series = defaultdict(list)
     dates_set = set()
 
-    def _brand_key(name: str) -> str:
-        s = (name or "").lower().strip().split(" - ")[0].strip()
-        for suf in (" cincinnati"," forest park"," sycamore"," milford"," mount orab",
-                    " harrison"," oxford"," goshen"," lebanon"," monroe"," dayton",
-                    " camp washington"," superstore"," seven mile"," 5 mile",
-                    " five mile"," west"," east"," north"," south"," northern"):
-            if s.endswith(suf):
-                s = s[: -len(suf)].strip()
-        return s
-
     for f in files:
         date_str = f.stem.replace("summary_", "")
         dates_set.add(date_str)
@@ -524,7 +535,7 @@ def build_trends_data() -> dict:
 
         by_brand = defaultdict(lambda: {"sum": 0.0, "weight": 0, "min": float("inf")})
         for d in data.get("dispensaries", []):
-            bk = _brand_key(d.get("name", ""))
+            bk = trends_brand_key(d.get("name", ""))
             pi = (d.get("price_index") or {}).get("flower") or {}
             n = pi.get("count") or 0
             avg = pi.get("avg")
@@ -770,6 +781,18 @@ def main():
     n_disp = len(trends_payload.get("dispensaries", {}))
     n_dates = len(trends_payload.get("dates", []))
     print(f"✅  trends-data.json refreshed ({n_disp} dispensaries, {n_dates} days)")
+
+    # 5b. Per-dispensary SEO pages + the /dispensaries/ hub, and rewire the
+    # homepage cards to point at them. Must run AFTER trends-data.json is written
+    # — the pages read it for the 90-day chart and the citywide ranking, so on a
+    # first run of the day they would otherwise chart yesterday's numbers.
+    # Non-fatal by design: a failure here must never cost Matt the site refresh
+    # or the newsletter, so it warns and carries on.
+    try:
+        import dispensary_pages
+        dispensary_pages.build_all(data, trends_payload, SCRIPT_DIR)
+    except Exception as exc:
+        print(f"⚠️  dispensary pages skipped: {type(exc).__name__}: {exc}")
 
     # 6. Refresh /brands-data.json for the /brands/ directory page
     brands_path = SCRIPT_DIR / "brands-data.json"

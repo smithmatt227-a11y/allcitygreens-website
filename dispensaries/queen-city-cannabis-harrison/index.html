@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queen City Cannabis - Harrison Deals &amp; Prices Today — All City Greens</title>
+  <meta name="description" content="Queen City Cannabis - Harrison prices checked every morning. Average flower $44.19 an item, 24% well below the Cincinnati median. Today's deals, full category pricing and 90 days of price history.">
+  <link rel="canonical" href="https://allcitygreens.com/dispensaries/queen-city-cannabis-harrison/">
+  <meta property="og:title" content="Queen City Cannabis - Harrison Deals &amp; Prices Today">
+  <meta property="og:description" content="Average flower $44.19 an item — 24% well below the Cincinnati median. Checked every morning.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://allcitygreens.com/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&amp;family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=20260908">
+  <link rel="icon" type="image/png" href="../../logo.png?v=20260708">
+  <style>
+  /* NEW classes only — everything else on this page is an existing site
+     component. These blocks are what would move into style.css. */
+  .dp-lede { max-width:60ch; margin-inline:auto; }
+  .dp-hero { padding-block: var(--space-10) !important; }
+  .dp-hero .section-header { margin-bottom: var(--space-6); }
+  .dp-hero .hero-stats { justify-content:center; align-items:flex-start;
+    gap:var(--space-8); flex-wrap:wrap; padding-top:0; }
+  .dp-hero .stat { align-items:center; text-align:center; gap:var(--space-2); }
+  .dp-hero .stat-label { max-width:20ch; }
+
+  .dp-chartwrap { border:1px solid var(--color-border); border-radius:var(--radius-xl);
+    background:var(--color-surface-2); padding:var(--space-5) var(--space-4) var(--space-3);
+    overflow-x:auto; }
+  .dp-chart { display:block; width:100%; min-width:520px; height:auto; }
+  .dp-grid { stroke:var(--color-divider); stroke-width:1; }
+  .dp-line { stroke-linejoin:round; stroke-linecap:round; }
+  .dp-line--me { stroke:var(--color-primary); stroke-width:2.6; }
+  .dp-line--city { stroke:var(--color-text-muted); stroke-width:1.6; stroke-dasharray:5 4; opacity:.7; }
+  .dp-dot--me { fill:var(--color-primary); }
+  .dp-dot--city { fill:var(--color-text-muted); }
+  .dp-ax { font-family:var(--font-body); font-size:12px; fill:var(--color-text-muted); }
+  .dp-ax--y { text-anchor:end; }
+  .dp-ax--x { text-anchor:middle; }
+  .dp-ax--me { fill:var(--color-primary); font-weight:700; }
+  .dp-legend { display:flex; gap:var(--space-5); justify-content:center; flex-wrap:wrap;
+    margin-bottom:var(--space-4); font-size:var(--text-xs); color:var(--color-text-muted); }
+  .dp-key { display:inline-block; width:20px; border-top:3px solid var(--color-primary);
+    margin-right:6px; vertical-align:middle; }
+  .dp-key--city { border-top:2px dashed var(--color-text-muted); }
+  .dp-readout { max-width:66ch; margin:var(--space-5) auto 0; text-align:center;
+    font-size:var(--text-sm); color:var(--color-text-muted); }
+  .dp-readout strong { color:var(--color-text); }
+
+  .dp-tablewrap { border:1px solid var(--color-border); border-radius:var(--radius-xl);
+    background:var(--color-surface-2); overflow-x:auto; }
+  .dp-table { width:100%; border-collapse:collapse; font-size:var(--text-sm); min-width:520px; }
+  .dp-table th, .dp-table td { padding:var(--space-3) var(--space-4);
+    border-bottom:1px solid var(--color-divider); text-align:right;
+    font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .dp-table thead th { font-size:var(--text-xs); font-weight:700; text-transform:uppercase;
+    letter-spacing:.08em; color:var(--color-text-muted); background:var(--color-surface-offset); }
+  .dp-table th:first-child, .dp-table thead th:first-child { text-align:left; }
+  .dp-table tbody th { text-align:left; color:var(--color-text); }
+  .dp-table tbody tr:last-child th, .dp-table tbody tr:last-child td { border-bottom:none; }
+  .dp-rank { text-align:right; color:var(--color-text-faint); width:3rem; }
+  .dp-barcell { width:40%; }
+  .dp-bar { display:block; height:8px; border-radius:2px;
+    background:var(--color-text-faint); opacity:.55; }
+  .dp-me th, .dp-me td { background:color-mix(in srgb, var(--color-primary) 12%, transparent); }
+  .dp-me th { color:var(--color-primary) !important; }
+  .dp-me .dp-bar { background:var(--color-primary); opacity:1; }
+  @media (max-width:640px) { .dp-barcell { display:none; } }
+  /* table typography — see TABLE_CSS */
+  .dp-table tbody th { font-family: var(--font-display); font-weight: 700;
+    font-size: calc(var(--text-sm) + 1px); letter-spacing: -0.01em; }
+  .dp-table .dp-strong { font-family: var(--font-display); font-weight: 700;
+    font-size: calc(var(--text-sm) + 2px); color: var(--color-primary); }
+  .dp-table td { font-family: var(--font-body); }
+
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-masthead">
+        <a href="https://allcitygreens.com/" class="nav-logo-center" aria-label="All City Greens home">
+          <img src="../../logo.png?v=20260708" alt="All City Greens badge logo" class="nav-logo-img-lg">
+          <span class="nav-logo-wordmark">All City Greens</span>
+        </a>
+      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="https://allcitygreens.com/#deals">Deals</a>
+        <a href="https://allcitygreens.com/brands/">Brands</a>
+        <a href="https://allcitygreens.com/trends/">Trends</a>
+        <a href="/dispensaries/">Dispensaries</a>
+      </nav>
+      <button class="nav-theme-toggle" data-theme-toggle aria-label="Switch theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section dp-hero">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="section-title">Queen City Cannabis - Harrison</h1>
+          <p class="section-sub dp-lede">Harrison &middot; 603 items on the menu, priced against the 10 dispensaries we track across the city. Last checked the morning of September 12, 2026.</p>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">$44.19</span>
+            <span class="stat-label">average flower, per item &mdash; across both 2 Queen City Cannabis locations</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat">
+            <span class="stat-num">#3 of 10</span>
+            <span class="stat-label">cheapest flower in the city</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat">
+            <span class="stat-num">-23.6%</span>
+            <span class="stat-label">well below the $57.83 city median</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar" aria-label="About this dispensary">
+      <div class="container">
+        <ul class="trust-list" role="list">
+          <li class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>10140 Suspension Bridge Rd, Harrison, OH</li>
+          <li class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Menu read daily, around 6&nbsp;AM</li>
+          <li class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Independent &mdash; we take no money from dispensaries</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="deals" aria-labelledby="deals-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="deals-heading" class="section-title">On sale today</h2>
+          <p class="section-sub dp-lede">10 discounted items. We show how long each sale has been running &mdash; a discount that has sat on the menu for two weeks is shelf pricing, not an event.</p>
+        </div>
+        <div class="cat-tabs" role="tablist" aria-label="Filter by category">
+          <button class="cat-tab active" role="tab" aria-selected="true" data-cat="all"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg> All Deals</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="flower"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="vapes"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="13" rx="2"/><path d="M9 8h6"/><path d="M12 16v2"/><circle cx="12" cy="21" r="1"/><path d="M7 5c-1 1.2-1 3.8 0 5"/><path d="M17 5c1 1.2 1 3.8 0 5"/></svg> Vapes</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="edibles"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a4 4 0 00-4 4c0 1.3.5 2.4 1.4 3.2L8 20h8l-1.4-9.8A4 4 0 0016 7a4 4 0 00-4-4z"/><circle cx="10" cy="9" r=".5" fill="currentColor"/><circle cx="14" cy="9" r=".5" fill="currentColor"/></svg> Edibles</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="concentrates"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2S6 8 6 13a6 6 0 0012 0c0-5-6-11-6-11z"/><path d="M12 12s-2 2-2 4a2 2 0 004 0c0-2-2-4-2-4z"/></svg> Concentrates</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="pre_rolls"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20L20 4"/><path d="M4 20s0-3 2-4L18 4c1.5-1.5 3.5.5 2 2"/><path d="M16 3l3 3"/><path d="M2 22l2-2"/></svg> Pre-Rolls</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="topicals"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v3H9z"/><rect x="7" y="6" width="10" height="15" rx="2"/><path d="M10 11h4"/></svg> Topicals</button>
+          <button class="cat-tab" role="tab" aria-selected="false" data-cat="tinctures"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4v5l3 12a2 2 0 01-2 2H9a2 2 0 01-2-2l3-12z"/><path d="M10 7h4"/></svg> Tinctures</button>
+        </div>
+        <div class="deal-cards">
+          <a class="deal-card deal-card-link" data-cat="topicals" data-price="8.40" data-pct="40" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/main-street-health-thc-20mg-transdermal-patch" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v3H9z"/><rect x="7" y="6" width="10" height="15" rx="2"/><path d="M10 11h4"/></svg> Topicals</div>
+            <div class="deal-card-name">Main Street Health | THC | 20mg Transdermal Patch</div>
+            <div class="deal-card-disp">Main Street Health · 0.02g · on sale 15 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$14.00</span><span class="deal-card-sale">$8.40</span><span class="deal-card-pct">-40%</span>
+            </div>
+          </a>
+          <a class="deal-card deal-card-link" data-cat="topicals" data-price="8.40" data-pct="40" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/main-street-health-1-1-cbd-10mg-transdermal-patch" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v3H9z"/><rect x="7" y="6" width="10" height="15" rx="2"/><path d="M10 11h4"/></svg> Topicals</div>
+            <div class="deal-card-name">Main Street Health | 1:1 CBD | 10mg Transdermal Patch</div>
+            <div class="deal-card-disp">Main Street Health · 0.01g · on sale 15 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$14.00</span><span class="deal-card-sale">$8.40</span><span class="deal-card-pct">-40%</span>
+            </div>
+          </a>
+          <a class="deal-card deal-card-link" data-cat="edibles" data-price="15.00" data-pct="40" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/avexia-comfort-1-1-1-cbn-cbd-44pc-110mg-tablets" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a4 4 0 00-4 4c0 1.3.5 2.4 1.4 3.2L8 20h8l-1.4-9.8A4 4 0 0016 7a4 4 0 00-4-4z"/><circle cx="10" cy="9" r=".5" fill="currentColor"/><circle cx="14" cy="9" r=".5" fill="currentColor"/></svg> Edibles</div>
+            <div class="deal-card-name">Avexia | Comfort 1:1:1 CBN:CBD 44pc | 110mg Tablets</div>
+            <div class="deal-card-disp">Avexia · 0.11g · on sale 15 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$25.00</span><span class="deal-card-sale">$15.00</span><span class="deal-card-pct">-40%</span>
+            </div>
+          </a>
+          <a class="deal-card deal-card-link" data-cat="topicals" data-price="19.20" data-pct="40" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/main-street-health-thc-3pk-60mg-transdermal-patch" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v3H9z"/><rect x="7" y="6" width="10" height="15" rx="2"/><path d="M10 11h4"/></svg> Topicals</div>
+            <div class="deal-card-name">Main Street Health | THC 3pk | 60mg Transdermal Patch</div>
+            <div class="deal-card-disp">Main Street Health · 0.06g · on sale 15 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$32.00</span><span class="deal-card-sale">$19.20</span><span class="deal-card-pct">-40%</span>
+            </div>
+          </a>
+          <a class="deal-card deal-card-link" data-cat="vapes" data-price="21.60" data-pct="40" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/eden-s-trees-mango-1g-botanical-cartridge" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="13" rx="2"/><path d="M9 8h6"/><path d="M12 16v2"/><circle cx="12" cy="21" r="1"/><path d="M7 5c-1 1.2-1 3.8 0 5"/><path d="M17 5c1 1.2 1 3.8 0 5"/></svg> Vapes</div>
+            <div class="deal-card-name">Eden&#x27;s Trees | Mango | 1g Botanical Cartridge</div>
+            <div class="deal-card-disp">Eden&#x27;s Trees · 1g · on sale 15 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$36.00</span><span class="deal-card-sale">$21.60</span><span class="deal-card-pct">-40%</span>
+            </div>
+          </a>
+          <a class="deal-card deal-card-link" data-cat="flower" data-price="31.80" data-pct="40" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/the-goods-soap-3-5g" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13C10 10 7 9 5 5c3 0 6 2 7 8z"/><path d="M12 13C14 10 17 9 19 5c-3 0-6 2-7 8z"/><path d="M12 13C9.5 10 8 7 4 7c0 3 3 5 8 6z"/><path d="M12 13C14.5 10 16 7 20 7c0 3-3 5-8 6z"/><line x1="12" y1="13" x2="12" y2="4"/></svg> Flower</div>
+            <div class="deal-card-name">The Goods | Soap | 3.5g</div>
+            <div class="deal-card-disp">The Goods · 1/8oz · on sale 4 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$53.00</span><span class="deal-card-sale">$31.80</span><span class="deal-card-pct">-40%</span>
+            </div>
+          </a>
+          <a class="deal-card deal-card-link" data-cat="pre_rolls" data-price="19.50" data-pct="35" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/frx-certified-organic-gg-4-5pk-2-5g-pre-rolls" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20L20 4"/><path d="M4 20s0-3 2-4L18 4c1.5-1.5 3.5.5 2 2"/><path d="M16 3l3 3"/><path d="M2 22l2-2"/></svg> Pre-Rolls</div>
+            <div class="deal-card-name">FRX Certified Organic | GG #4 5pk | 2.5g Pre-Rolls</div>
+            <div class="deal-card-disp">FarmaceuticalRX · 2.5g · on sale 8 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$30.00</span><span class="deal-card-sale">$19.50</span><span class="deal-card-pct">-35%</span>
+            </div>
+          </a>
+          <a class="deal-card deal-card-link" data-cat="tinctures" data-price="17.50" data-pct="30" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/avexia-harvest-apple-110mg-tincture" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4v5l3 12a2 2 0 01-2 2H9a2 2 0 01-2-2l3-12z"/><path d="M10 7h4"/></svg> Tinctures</div>
+            <div class="deal-card-name">Avexia | Harvest Apple | 110mg Tincture</div>
+            <div class="deal-card-disp">Avexia · .1g · on sale 15 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$25.00</span><span class="deal-card-sale">$17.50</span><span class="deal-card-pct">-30%</span>
+            </div>
+          </a>
+          <a class="deal-card deal-card-link" data-cat="tinctures" data-price="21.00" data-pct="30" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/dr-solomon-s-20-1-cbd-rich-25mg-tinctures" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4v5l3 12a2 2 0 01-2 2H9a2 2 0 01-2-2l3-12z"/><path d="M10 7h4"/></svg> Tinctures</div>
+            <div class="deal-card-name">Dr Solomon&#x27;s | 20:1 CBD Rich | 25mg Tinctures</div>
+            <div class="deal-card-disp">Doctor Solomon&#x27;s · 0.025g · on sale 15 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$30.00</span><span class="deal-card-sale">$21.00</span><span class="deal-card-pct">-30%</span>
+            </div>
+          </a>
+          <a class="deal-card deal-card-link" data-cat="concentrates" data-price="25.20" data-pct="30" href="https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison/product/buck-shot-triple-chocolate-chip-1g-rso-syringe" target="_blank" rel="noopener">
+            <div class="deal-card-cat"><svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2S6 8 6 13a6 6 0 0012 0c0-5-6-11-6-11z"/><path d="M12 12s-2 2-2 4a2 2 0 004 0c0-2-2-4-2-4z"/></svg> Concentrates</div>
+            <div class="deal-card-name">Buck Shot | Triple Chocolate Chip | 1g RSO Syringe</div>
+            <div class="deal-card-disp">Butterfly Effect by Grow Ohio · 1g · on sale 12 days</div>
+            <div class="deal-card-prices">
+              <span class="deal-card-orig">$36.00</span><span class="deal-card-sale">$25.20</span><span class="deal-card-pct">-30%</span>
+            </div>
+          </a>
+          <div id="deal-empty" class="deal-empty" style="display:none">Nothing in that category today.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="trend-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="trend-heading" class="section-title">Ninety days of flower prices</h2>
+          <p class="section-sub dp-lede">Both lines are 7-day trailing averages on a real calendar axis, so a gap in the data stays a gap. This series is measured across both 2 Queen City Cannabis locations, the same way the Trends page does it.</p>
+        </div>
+        <p class="dp-legend"><span><span class="dp-key"></span>Queen City Cannabis</span><span><span class="dp-key dp-key--city"></span>Citywide median</span></p>
+        <div class="dp-chartwrap"><svg viewBox="0 0 900 300" class="dp-chart" role="img"
+  aria-label="Ninety days of average flower price. Queen City Cannabis ends at $44.19; the citywide median ends at $57.83.">
+  <defs><linearGradient id="dpf" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="var(--color-primary)" stop-opacity=".20"/>
+    <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0"/></linearGradient></defs>
+  <line x1="56" y1="228.9" x2="828" y2="228.9" class="dp-grid"/><line x1="56" y1="191.0" x2="828" y2="191.0" class="dp-grid"/><line x1="56" y1="153.1" x2="828" y2="153.1" class="dp-grid"/><line x1="56" y1="115.2" x2="828" y2="115.2" class="dp-grid"/><line x1="56" y1="77.3" x2="828" y2="77.3" class="dp-grid"/><line x1="56" y1="39.4" x2="828" y2="39.4" class="dp-grid"/>
+  <path d="M 81.7 137.8 L 90.3 137.4 L 98.9 133.5 L 107.5 133.7 L 116.0 136.0 L 124.6 139.8 L 133.2 141.7 L 141.8 145.1 L 150.4 153.1 L 158.9 162.0 L 167.5 171.9 L 176.1 181.1 L 184.7 189.4 L 193.2 200.0 L 201.8 211.4 L 210.4 216.6 L 219.0 223.7 L 227.6 223.2 L 236.1 221.7 L 244.7 219.1 L 253.3 217.4 L 261.9 214.4 L 270.4 212.7 L 279.0 212.9 L 287.6 217.4 L 296.2 221.1 L 304.8 225.2 L 313.3 227.3 L 321.9 226.7 L 330.5 225.4 L 339.1 221.9 L 347.6 218.2 L 356.2 216.3 L 364.8 212.7 L 373.4 210.7 L 382.0 210.4 L 390.5 209.4 L 399.1 210.7 L 407.7 214.2 L 416.3 217.7 L 424.8 221.2 L 433.4 223.9 L 442.0 223.5 L 450.6 224.8 L 459.2 221.4 L 467.7 214.6 L 476.3 206.7 L 484.9 201.4 L 493.5 194.1 L 502.0 191.4 L 510.6 184.4 L 519.2 183.1 L 527.8 181.3 L 536.4 180.2 L 544.9 178.3 L 553.5 178.5 L 562.1 178.5 L 570.7 177.9 L 579.2 173.8 L 587.8 173.3 L 596.4 170.6 L 605.0 166.4 L 613.6 161.4 L 622.1 161.4 L 630.7 159.7 L 639.3 159.1 L 647.9 155.7 L 656.4 153.7 L 665.0 152.5 L 673.6 151.3 L 682.2 150.1 L 690.8 149.2 L 699.3 149.5 L 707.9 151.3 L 716.5 152.5 L 725.1 153.3 L 733.6 155.4 L 742.2 157.0 L 750.8 158.8 L 759.4 158.8 L 768.0 160.1 L 776.5 162.0 L 785.1 162.9 L 793.7 163.2 L 802.3 162.0 L 810.8 159.9 L 819.4 160.1 L 828.0 159.2 L 828.0 250 L 81.7 250 Z" fill="url(#dpf)" stroke="none"/>
+  <path d="M 56.0 98.6 L 64.6 103.2 L 73.2 103.8 L 81.7 104.1 L 90.3 103.7 L 98.9 105.3 L 107.5 107.0 L 116.0 106.8 L 124.6 105.7 L 133.2 107.5 L 141.8 108.7 L 150.4 106.2 L 158.9 101.7 L 167.5 97.4 L 176.1 94.0 L 184.7 88.7 L 193.2 85.2 L 201.8 81.5 L 210.4 78.0 L 219.0 75.9 L 227.6 77.1 L 236.1 96.9 L 244.7 89.9 L 253.3 82.9 L 261.9 76.5 L 270.4 73.2 L 279.0 59.5 L 287.6 61.7 L 296.2 64.3 L 304.8 61.8 L 313.3 60.2 L 321.9 58.3 L 330.5 57.9 L 339.1 56.8 L 347.6 55.9 L 356.2 55.4 L 364.8 73.0 L 373.4 73.1 L 382.0 74.5 L 390.5 75.4 L 399.1 64.6 L 407.7 63.2 L 416.3 61.5 L 424.8 58.9 L 433.4 59.3 L 442.0 60.9 L 450.6 61.8 L 459.2 65.9 L 467.7 71.2 L 476.3 79.9 L 484.9 103.8 L 493.5 105.9 L 502.0 106.1 L 510.6 107.2 L 519.2 99.3 L 527.8 101.2 L 536.4 102.7 L 544.9 87.9 L 553.5 75.2 L 562.1 75.2 L 570.7 75.5 L 579.2 77.4 L 587.8 79.2 L 596.4 75.9 L 605.0 69.4 L 613.6 64.8 L 622.1 67.1 L 630.7 66.6 L 639.3 68.0 L 647.9 69.9 L 656.4 73.9 L 665.0 78.7 L 673.6 80.9 L 682.2 81.5 L 690.8 79.4 L 699.3 81.5 L 707.9 80.2 L 716.5 77.7 L 725.1 50.5 L 733.6 48.0 L 742.2 42.7 L 750.8 71.2 L 759.4 71.2 L 768.0 69.9 L 776.5 67.6 L 785.1 66.4 L 793.7 64.5 L 802.3 63.3 L 810.8 61.6 L 819.4 58.5 L 828.0 55.8" class="dp-line dp-line--city" fill="none"/>
+  <path d="M 81.7 137.8 L 90.3 137.4 L 98.9 133.5 L 107.5 133.7 L 116.0 136.0 L 124.6 139.8 L 133.2 141.7 L 141.8 145.1 L 150.4 153.1 L 158.9 162.0 L 167.5 171.9 L 176.1 181.1 L 184.7 189.4 L 193.2 200.0 L 201.8 211.4 L 210.4 216.6 L 219.0 223.7 L 227.6 223.2 L 236.1 221.7 L 244.7 219.1 L 253.3 217.4 L 261.9 214.4 L 270.4 212.7 L 279.0 212.9 L 287.6 217.4 L 296.2 221.1 L 304.8 225.2 L 313.3 227.3 L 321.9 226.7 L 330.5 225.4 L 339.1 221.9 L 347.6 218.2 L 356.2 216.3 L 364.8 212.7 L 373.4 210.7 L 382.0 210.4 L 390.5 209.4 L 399.1 210.7 L 407.7 214.2 L 416.3 217.7 L 424.8 221.2 L 433.4 223.9 L 442.0 223.5 L 450.6 224.8 L 459.2 221.4 L 467.7 214.6 L 476.3 206.7 L 484.9 201.4 L 493.5 194.1 L 502.0 191.4 L 510.6 184.4 L 519.2 183.1 L 527.8 181.3 L 536.4 180.2 L 544.9 178.3 L 553.5 178.5 L 562.1 178.5 L 570.7 177.9 L 579.2 173.8 L 587.8 173.3 L 596.4 170.6 L 605.0 166.4 L 613.6 161.4 L 622.1 161.4 L 630.7 159.7 L 639.3 159.1 L 647.9 155.7 L 656.4 153.7 L 665.0 152.5 L 673.6 151.3 L 682.2 150.1 L 690.8 149.2 L 699.3 149.5 L 707.9 151.3 L 716.5 152.5 L 725.1 153.3 L 733.6 155.4 L 742.2 157.0 L 750.8 158.8 L 759.4 158.8 L 768.0 160.1 L 776.5 162.0 L 785.1 162.9 L 793.7 163.2 L 802.3 162.0 L 810.8 159.9 L 819.4 160.1 L 828.0 159.2" class="dp-line dp-line--me" fill="none"/>
+  <circle cx="828.0" cy="159.2" r="4.5" class="dp-dot dp-dot--me"/><text x="839.0" y="164.2" class="dp-ax dp-ax--me">$44.19</text><circle cx="828.0" cy="55.8" r="4" class="dp-dot dp-dot--city"/><text x="839.0" y="60.8" class="dp-ax dp-ax--city">$57.83</text><text x="46" y="232.9" class="dp-ax dp-ax--y">$35</text><text x="46" y="195.0" class="dp-ax dp-ax--y">$40</text><text x="46" y="157.1" class="dp-ax dp-ax--y">$45</text><text x="46" y="119.2" class="dp-ax dp-ax--y">$50</text><text x="46" y="81.3" class="dp-ax dp-ax--y">$55</text><text x="46" y="43.4" class="dp-ax dp-ax--y">$60</text><text x="56.0" y="274" class="dp-ax dp-ax--x">Jun 14</text><text x="244.7" y="274" class="dp-ax dp-ax--x">Jul 6</text><text x="442.0" y="274" class="dp-ax dp-ax--x">Jul 29</text><text x="639.3" y="274" class="dp-ax dp-ax--x">Aug 21</text><text x="828.0" y="274" class="dp-ax dp-ax--x">Sep 12</text>
+</svg></div>
+        <p class="dp-readout">Queen City Cannabis averages <strong>$44.19</strong> a flower item against a citywide median of <strong>$57.83</strong> — well below the middle of the market. Over the last 30 days it has risen <strong>$2.47</strong> (+5.9%). The citywide median over the same period went from $55.23 to $57.83.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="prices-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="prices-heading" class="section-title">What everything costs here</h2>
+          <p class="section-sub dp-lede">Every category on the menu this morning &mdash; all 603 items, not just the discounted ones.</p>
+        </div>
+        <div class="dp-tablewrap">
+          <table class="dp-table">
+            <thead><tr><th scope="col">Category</th><th scope="col">Items</th><th scope="col">Average</th><th scope="col">Lowest</th><th scope="col">Highest</th></tr></thead>
+            <tbody>
+          <tr><th scope="row">Flower</th><td>200</td><td class="dp-strong">$42.41</td><td>$15.40</td><td>$147.00</td></tr>
+          <tr><th scope="row">Edibles</th><td>114</td><td class="dp-strong">$18.46</td><td>$3.50</td><td>$52.80</td></tr>
+          <tr><th scope="row">Vapes</th><td>164</td><td class="dp-strong">$29.59</td><td>$16.80</td><td>$55.30</td></tr>
+          <tr><th scope="row">Pre-Rolls</th><td>26</td><td class="dp-strong">$16.18</td><td>$4.90</td><td>$31.50</td></tr>
+          <tr><th scope="row">Concentrates</th><td>37</td><td class="dp-strong">$35.30</td><td>$25.20</td><td>$49.00</td></tr>
+          <tr><th scope="row">Topicals</th><td>20</td><td class="dp-strong">$24.70</td><td>$8.40</td><td>$45.50</td></tr>
+          <tr><th scope="row">Tinctures</th><td>8</td><td class="dp-strong">$31.94</td><td>$17.50</td><td>$63.00</td></tr>
+          <tr><th scope="row">Accessories</th><td>34</td><td class="dp-strong">$135.41</td><td>$2.00</td><td>$900.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="rank-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="rank-heading" class="section-title">How it compares across the city</h2>
+          <p class="section-sub dp-lede">Average flower price per item at every dispensary we track, cheapest first, as of this morning. Sister locations are combined into one figure per dispensary, the same way the Trends page does it.</p>
+        </div>
+        <div class="dp-tablewrap">
+          <table class="dp-table">
+            <thead><tr><th scope="col">#</th><th scope="col">Dispensary</th><th scope="col"></th><th scope="col">Avg flower</th><th scope="col">vs median</th></tr></thead>
+            <tbody>
+          <tr><td class="dp-rank">1</td><th scope="row">Shangri-La Cincinnati</th><td class="dp-barcell"><span class="dp-bar" style="width:11.5%"></span></td><td class="dp-strong">$36.33</td><td>-37%</td></tr>
+          <tr><td class="dp-rank">2</td><th scope="row">The Landing</th><td class="dp-barcell"><span class="dp-bar" style="width:20.4%"></span></td><td class="dp-strong">$41.20</td><td>-29%</td></tr>
+          <tr class="dp-me"><td class="dp-rank">3</td><th scope="row">Queen City Cannabis</th><td class="dp-barcell"><span class="dp-bar" style="width:25.8%"></span></td><td class="dp-strong">$44.19</td><td>-24%</td></tr>
+          <tr><td class="dp-rank">4</td><th scope="row">Therapy Cannabis</th><td class="dp-barcell"><span class="dp-bar" style="width:30.0%"></span></td><td class="dp-strong">$46.50</td><td>-20%</td></tr>
+          <tr><td class="dp-rank">5</td><th scope="row">The Garden Dispensary</th><td class="dp-barcell"><span class="dp-bar" style="width:41.6%"></span></td><td class="dp-strong">$52.89</td><td>-9%</td></tr>
+          <tr><td class="dp-rank">6</td><th scope="row">UpLift</th><td class="dp-barcell"><span class="dp-bar" style="width:59.6%"></span></td><td class="dp-strong">$62.76</td><td>+9%</td></tr>
+          <tr><td class="dp-rank">7</td><th scope="row">Locals Cannabis</th><td class="dp-barcell"><span class="dp-bar" style="width:59.9%"></span></td><td class="dp-strong">$62.95</td><td>+9%</td></tr>
+          <tr><td class="dp-rank">8</td><th scope="row">Garden Club Dispensary</th><td class="dp-barcell"><span class="dp-bar" style="width:61.4%"></span></td><td class="dp-strong">$63.75</td><td>+10%</td></tr>
+          <tr><td class="dp-rank">9</td><th scope="row">Shangri-La Monroe Superstore</th><td class="dp-barcell"><span class="dp-bar" style="width:68.1%"></span></td><td class="dp-strong">$67.48</td><td>+17%</td></tr>
+          <tr><td class="dp-rank">10</td><th scope="row">Zen Leaf</th><td class="dp-barcell"><span class="dp-bar" style="width:95.0%"></span></td><td class="dp-strong">$82.27</td><td>+42%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt section-faq" aria-labelledby="faq-heading">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <h2 id="faq-heading" class="section-title">Questions people ask</h2>
+        </div>
+        <dl class="faq-list">
+          <div class="faq-item">
+            <dt class="faq-q">How does Queen City Cannabis - Harrison compare on price?</dt>
+            <dd class="faq-a">It ranks #3 of the 10 dispensaries we track, averaging $44.19 a flower item against a $57.83 citywide median — well below the middle of the market.</dd>
+          </div>
+          <div class="faq-item">
+            <dt class="faq-q">Do these prices cover every location?</dt>
+            <dd class="faq-a">The deals, the menu count and the category table on this page are Queen City Cannabis - Harrison only. The 90-day chart and the ranking are measured across both 2 Queen City Cannabis locations, the same way the /trends/ page does it — prices between them differ by only a dollar or two.</dd>
+          </div>
+          <div class="faq-item">
+            <dt class="faq-q">How often do you check the prices?</dt>
+            <dd class="faq-a">Every morning. We read the store&#x27;s own public menu around 6 AM and record every in-stock item — 603 of them today.</dd>
+          </div>
+          <div class="faq-item">
+            <dt class="faq-q">Do you get paid by Queen City Cannabis?</dt>
+            <dd class="faq-a">No. All City Greens takes no money from any dispensary and sells no placement. We read public menus and report what they say.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section-cta" id="subscribe">
+      <div class="container cta-inner">
+        <h2 class="cta-heading">Get the Cincinnati deals every morning</h2>
+        <p class="cta-sub">One short email, every day, with the best prices across every dispensary we track. Free, no ads, unsubscribe whenever.</p>
+        <form class="cta-form form-row" onsubmit="return false;">
+          <input type="email" id="dp-email" name="email" class="form-input form-input-lg" placeholder="your@email.com" aria-label="Email address" required autocomplete="email">
+          <button type="submit" class="btn btn-primary btn-lg">Subscribe free</button>
+        </form>
+        <p class="form-note">Free forever. No spam. Unsubscribe anytime.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer-has-watermark">
+    <img src="../../logo.png?v=20260708" alt="" class="footer-watermark" aria-hidden="true">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="https://allcitygreens.com/" class="nav-logo" aria-label="All City Greens home">
+            <img src="../../logo.png?v=20260708" alt="All City Greens badge logo" class="nav-logo-img">
+            <span class="nav-logo-text">All City Greens</span>
+          </a>
+          <p class="footer-tagline">Straightforward. Reliable. Free.</p>
+          <p class="footer-disclaimer">Prices shown may vary. Always verify in-store before purchase. All City Greens is an independent price tracking service and is not affiliated with any dispensary.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://newsletter.allcitygreens.com" target="_blank" rel="noopener">Newsletter archive</a>
+          <a href="/dispensaries/">Dispensaries</a>
+          <a href="https://allcitygreens.com/about/">About</a>
+          <a href="https://allcitygreens.com/privacy/">Privacy</a>
+          <a href="https://allcitygreens.com/terms/">Terms</a>
+          <a href="https://allcitygreens.com/faq/">FAQ</a>
+          <a href="mailto:hello@allcitygreens.com">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">Prices change frequently. Always verify with the dispensary before visiting. Must be 21+ with valid ID. Ohio recreational cannabis rules apply.</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  /* Theme toggle — same behaviour as index.html. */
+  (function(){
+    var t=document.querySelector('[data-theme-toggle]'), r=document.documentElement;
+    var d=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    r.setAttribute('data-theme',d);
+    function u(){ if(!t)return;
+      t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
+      t.innerHTML = d==='dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
+    u(); t&&t.addEventListener('click',function(){d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);u();});
+  })();
+
+  /* Scroll reveal. REQUIRED, not decoration: style.css L1246 sets .deal-card to
+     opacity:0 and only .acg-visible brings it back, so without this script every
+     deal card renders invisible. Lifted from index.html. */
+  (function(){
+    var selector='.deal-card, a.deal-card-link';
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll(selector).forEach(function(el){ el.classList.add('acg-visible'); });
+      return;
+    }
+    var observer=new IntersectionObserver(function(entries){
+      entries.filter(function(x){return x.isIntersecting;}).forEach(function(entry,i){
+        var el=entry.target;
+        setTimeout(function(){ el.classList.add('acg-visible'); }, i*60);
+        observer.unobserve(el);
+      });
+    },{ threshold:0.08, rootMargin:'0px 0px -30px 0px' });
+    document.querySelectorAll(selector).forEach(function(el){ observer.observe(el); });
+
+    // Re-observe after a category switch. Filtering toggles display, and a card
+    // never scrolled into view has never been revealed — without this it comes
+    // back at opacity:0. Same hook index.html uses.
+    document.querySelectorAll('.cat-tab').forEach(function(tab){
+      tab.addEventListener('click', function(){
+        setTimeout(function(){
+          document.querySelectorAll(selector + ':not(.acg-visible)').forEach(function(el){
+            observer.observe(el);
+          });
+        }, 50);
+      });
+    });
+  })();
+
+  /* Category filter — index.html's applyDeals() minus the dispensary select and
+     the sort select. On a single-store page the dispensary filter is meaningless
+     and the cards are already in the site's default order. */
+  (function(){
+    var catTabs=document.querySelectorAll('.cat-tab');
+    var cards=Array.prototype.slice.call(document.querySelectorAll('.deal-card'));
+    var empty=document.getElementById('deal-empty');
+    var active='all';
+    function apply(){
+      var shown=0;
+      cards.forEach(function(c){
+        var ok=(active==='all'||c.dataset.cat===active);
+        c.style.display=ok?'':'none'; if(ok) shown++;
+      });
+      if(empty) empty.style.display = shown ? 'none' : '';
+    }
+    catTabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        catTabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+        active=tab.dataset.cat; apply();
+      });
+    });
+  })();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Store", "name": "Queen City Cannabis - Harrison", "address": {"@type": "PostalAddress", "streetAddress": "10140 Suspension Bridge Rd", "addressLocality": "Harrison", "addressRegion": "OH", "addressCountry": "US"}, "url": "https://dutchie.com/embedded-menu/canoe-hill-dispensary-harrison", "makesOffer": [{"@type": "Offer", "name": "Main Street Health | THC | 20mg Transdermal Patch", "price": "8.40", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceValidUntil": "2026-09-13"}, {"@type": "Offer", "name": "Main Street Health | 1:1 CBD | 10mg Transdermal Patch", "price": "8.40", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceValidUntil": "2026-09-13"}, {"@type": "Offer", "name": "Avexia | Comfort 1:1:1 CBN:CBD 44pc | 110mg Tablets", "price": "15.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceValidUntil": "2026-09-13"}, {"@type": "Offer", "name": "Main Street Health | THC 3pk | 60mg Transdermal Patch", "price": "19.20", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceValidUntil": "2026-09-13"}, {"@type": "Offer", "name": "Eden's Trees | Mango | 1g Botanical Cartridge", "price": "21.60", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceValidUntil": "2026-09-13"}, {"@type": "Offer", "name": "The Goods | Soap | 3.5g", "price": "31.80", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "priceValidUntil": "2026-09-13"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does Queen City Cannabis - Harrison compare on price?", "acceptedAnswer": {"@type": "Answer", "text": "It ranks #3 of the 10 dispensaries we track, averaging $44.19 a flower item against a $57.83 citywide median \u2014 well below the middle of the market."}}, {"@type": "Question", "name": "Do these prices cover every location?", "acceptedAnswer": {"@type": "Answer", "text": "The deals, the menu count and the category table on this page are Queen City Cannabis - Harrison only. The 90-day chart and the ranking are measured across both 2 Queen City Cannabis locations, the same way the /trends/ page does it \u2014 prices between them differ by only a dollar or two."}}, {"@type": "Question", "name": "How often do you check the prices?", "acceptedAnswer": {"@type": "Answer", "text": "Every morning. We read the store's own public menu around 6 AM and record every in-stock item \u2014 603 of them today."}}, {"@type": "Question", "name": "Do you get paid by Queen City Cannabis?", "acceptedAnswer": {"@type": "Answer", "text": "No. All City Greens takes no money from any dispensary and sells no placement. We read public menus and report what they say."}}]}</script>
+</body>
+</html>

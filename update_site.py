@@ -239,7 +239,8 @@ def deduplicate(deals: list) -> list:
 def brand_key(disp_name: str) -> str:
     """
     Normalize a dispensary name to its brand root so sister locations
-    collapse into one. Mirrors the same helper in Newsletter/newsletter.py.
+    collapse into one. (Formerly mirrored Newsletter/newsletter.py, retired
+    2026-09-12 to Archive/mailchimp-era-2026-09-12/ — this is now the only copy.)
     e.g. 'The Garden Dispensary - Sycamore' -> 'the garden dispensary'
          'UpLift - Mount Orab'              -> 'uplift'
     """

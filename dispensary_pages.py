@@ -551,6 +551,13 @@ def build(store):
         readout = (f"Not enough scrape history yet to draw a reliable 90-day line for "
                    f"{e(PRETTY[bkey])}. The citywide median is <strong>${MED:.2f}</strong>.")
 
+    # A store needs 3 daily scrapes before build_trends_data() will emit a series
+    # for it, so a brand-new store has no rank, no headline figures and no chart.
+    # Say that plainly rather than showing a citywide ranking it is absent from.
+    new_store_note = ("" if rank_i else
+                      f" {e(PRETTY[bkey])} joined recently and needs a few days of "
+                      f"daily readings before it can be ranked here.")
+
     headline = (f"cheapest flower of the {len(RANK)} dispensaries we track" if rank_i == 1 else
                 f"#{rank_i} of {len(RANK)} on flower price" if rank_i else
                 "tracked daily")
@@ -781,7 +788,7 @@ def build(store):
       <div class="container">
         <div class="section-header">
           <h2 id="rank-heading" class="section-title">How it compares across the city</h2>
-          <p class="section-sub dp-lede">Average flower price per item at every dispensary we track, cheapest first, as of this morning. Sister locations are combined into one figure per dispensary, the same way the Trends page does it.</p>
+          <p class="section-sub dp-lede">Average flower price per item at every dispensary we track, cheapest first, as of this morning. Sister locations are combined into one figure per dispensary, the same way the Trends page does it.{new_store_note}</p>
         </div>
         <div class="dp-tablewrap">
           <table class="dp-table">

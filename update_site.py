@@ -44,6 +44,9 @@ DISPENSARY_URLS = {
     "The Garden Dispensary - Camp Washington": "https://thegardendispo.com/stores/camp-washington-cincinnati",
     "The Garden Dispensary - Sycamore":        "https://thegardendispo.com/stores/sycamore-township-cincinnati",
     "Garden Club Dispensary":                  "https://gardenclubdispensaries.com",
+    # 2026-09-12: Saphyre/Zips Central Parkway. LeafBridge products carry their own
+    # product_url, so this is only the fallback for anything that doesn't.
+    "Zips - Central Parkway":                  "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/",
     "Trulieve - Cincinnati":                   "https://www.trulieve.com",
     "The Landing - Cincinnati":                "https://www.thelandingdispensaries.com",
     "The Landing - Monroe":                    "https://www.thelandingdispensaries.com",

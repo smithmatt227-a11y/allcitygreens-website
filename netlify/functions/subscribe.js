@@ -42,7 +42,9 @@ export default async (req, context) => {
     return json({ ok: false, error: 'invalid_email' }, 400);
   }
 
-  const apiKey = process.env.MAILERLITE_API_KEY;
+  // .trim(): a pasted token often carries a stray space/newline (2026-10-02: the
+  // first Netlify value came back 401 Unauthenticated).
+  const apiKey = (process.env.MAILERLITE_API_KEY || '').trim().replace(/^Bearer\s+/i, '');
   if (!apiKey) {
     if (process.env.BEEHIIV_API_KEY && process.env.BEEHIIV_PUB_ID) {
       return subscribeBeehiiv(email, req);

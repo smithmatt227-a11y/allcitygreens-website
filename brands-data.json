@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-09T19:08:49.969753+00:00",
-  "verified_time": "3:08 PM",
+  "generated_at": "2026-10-09T22:06:22.258285+00:00",
+  "verified_time": "6:06 PM",
   "report_date": "2026-10-09",
   "brand_count": 39,
   "brands": [
     {
       "name": "Riviera Creek",
-      "deal_count": 11,
+      "deal_count": 10,
       "dispensaries": [
         "Queen City - Harrison",
         "Queen City - Norwood",
@@ -16,8 +16,7 @@
         "Concentrates",
         "Edibles",
         "Flower",
-        "Pre-Rolls",
-        "Vapes"
+        "Pre-Rolls"
       ],
       "best_discount": 40,
       "cheapest": {
@@ -57,29 +56,8 @@
       }
     },
     {
-      "name": "Firelands Scientific",
-      "deal_count": 5,
-      "dispensaries": [
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 62,
-      "cheapest": {
-        "product": "Firelands Scientific - Mad Timewreck - Pre-Roll 1g",
-        "price": 5.0,
-        "original_price": 13.0,
-        "on_sale": true,
-        "discount_pct": 62,
-        "category": "Pre-Rolls",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
-      }
-    },
-    {
       "name": "Klutch",
-      "deal_count": 5,
+      "deal_count": 6,
       "dispensaries": [
         "Shangri-La Monroe Superstore",
         "Shangri-La Monroe West",
@@ -100,6 +78,27 @@
         "category": "Flower",
         "dispensary": "Shangri-La Monroe Superstore",
         "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Firelands Scientific",
+      "deal_count": 5,
+      "dispensaries": [
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 62,
+      "cheapest": {
+        "product": "Firelands Scientific - Mad Timewreck - Pre-Roll 1g",
+        "price": 5.0,
+        "original_price": 13.0,
+        "on_sale": true,
+        "discount_pct": 62,
+        "category": "Pre-Rolls",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
@@ -196,29 +195,6 @@
       }
     },
     {
-      "name": "Josh D",
-      "deal_count": 2,
-      "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Concentrates",
-        "Flower"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Kockeyed - Live Resin 1g",
-        "price": 25.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Concentrates",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
-      }
-    },
-    {
       "name": "Main Street Health",
       "deal_count": 2,
       "dispensaries": [
@@ -242,28 +218,6 @@
       }
     },
     {
-      "name": "Smokiez Edibles",
-      "deal_count": 2,
-      "dispensaries": [
-        "Queen City - Norwood",
-        "The Garden - Sycamore"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Sour Blackberry - Fruit Chews 10pk 100mg",
-        "price": 13.0,
-        "original_price": 20.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Edibles",
-        "dispensary": "The Garden - Sycamore",
-        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
-      }
-    },
-    {
       "name": "G Brand",
       "deal_count": 2,
       "dispensaries": [
@@ -274,7 +228,7 @@
       ],
       "best_discount": 46,
       "cheapest": {
-        "product": "Garden OG - Smalls 14.15g",
+        "product": "Garden Cake - Smalls 14.15",
         "price": 49.0,
         "original_price": 90.0,
         "on_sale": true,
@@ -305,6 +259,51 @@
         "category": "Edibles",
         "dispensary": "The Garden - Camp Washington",
         "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "King City Gardens",
+      "deal_count": 2,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Edibles",
+        "Pre-Rolls"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "CK Crasher - Pre-Roll 1g Sativa",
+        "price": 9.75,
+        "original_price": 15.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Pre-Rolls",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "Common Citizen",
+      "deal_count": 2,
+      "dispensaries": [
+        "Queen City - Harrison",
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Vapes"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Common Citizen \u2014 Juicy Pear \u2014 1g Cartridge",
+        "price": 23.4,
+        "original_price": 36.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Vapes",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
       }
     },
     {
@@ -393,6 +392,27 @@
       }
     },
     {
+      "name": "Josh D",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Kockeyed - Live Resin 1g",
+        "price": 25.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 50,
+        "category": "Concentrates",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
       "name": "Khalifa",
       "deal_count": 1,
       "dispensaries": [
@@ -477,6 +497,27 @@
       }
     },
     {
+      "name": "Smokiez Edibles",
+      "deal_count": 1,
+      "dispensaries": [
+        "Queen City - Norwood"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Smokiez \u2014 Sweet Cherry 1:2 THCV 10pc \u2014 100mg Fruit Chews",
+        "price": 15.0,
+        "original_price": 30.0,
+        "on_sale": true,
+        "discount_pct": 50,
+        "category": "Edibles",
+        "dispensary": "Queen City - Norwood",
+        "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
       "name": "Camino",
       "deal_count": 1,
       "dispensaries": [
@@ -487,9 +528,9 @@
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "Camino - Watermelon Lemonade - Gummies - 100mg [20pk]",
-        "price": 13.2,
-        "original_price": 22.0,
+        "product": "Camino - Blackberry Sours 1:1:1 THC:CBD:CBN - Gummies - 100mg [10pk]",
+        "price": 14.4,
+        "original_price": 24.0,
         "on_sale": true,
         "discount_pct": 40,
         "category": "Edibles",
@@ -621,48 +662,6 @@
         "category": "Pre-Rolls",
         "dispensary": "Locals Cannabis - Cincinnati",
         "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
-      }
-    },
-    {
-      "name": "Common Citizen",
-      "deal_count": 1,
-      "dispensaries": [
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Vapes"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Common Citizen \u2014 Sweet Wedding Cake \u2014 1g Cartridge",
-        "price": 23.4,
-        "original_price": 36.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Vapes",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
-      "name": "King City Gardens",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Garden - Camp Washington"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "CK Crasher - Pre-Roll 1g Sativa",
-        "price": 9.75,
-        "original_price": 15.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Pre-Rolls",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
       }
     },
     {

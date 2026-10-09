@@ -1,9 +1,36 @@
 {
-  "generated_at": "2026-10-09T13:05:20.829449+00:00",
-  "verified_time": "9:05 AM",
+  "generated_at": "2026-10-09T16:06:17.062589+00:00",
+  "verified_time": "12:06 PM",
   "report_date": "2026-10-09",
-  "brand_count": 42,
+  "brand_count": 41,
   "brands": [
+    {
+      "name": "Riviera Creek",
+      "deal_count": 9,
+      "dispensaries": [
+        "Queen City - Harrison",
+        "Queen City - Norwood",
+        "Shangri-La Cincinnati"
+      ],
+      "categories": [
+        "Concentrates",
+        "Edibles",
+        "Flower",
+        "Pre-Rolls",
+        "Vapes"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Watermelon 3pc \u2014 30mg Gummies",
+        "price": 3.0,
+        "original_price": 5.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Edibles",
+        "dispensary": "Queen City - Harrison",
+        "url": "https://queenccanna.com"
+      }
+    },
     {
       "name": "Butterfly Effect by Grow Ohio",
       "deal_count": 8,
@@ -30,35 +57,29 @@
       }
     },
     {
-      "name": "Riviera Creek",
-      "deal_count": 8,
+      "name": "Firelands Scientific",
+      "deal_count": 5,
       "dispensaries": [
-        "Queen City - Harrison",
-        "Queen City - Norwood",
-        "Shangri-La Cincinnati"
+        "The Landing - Cincinnati"
       ],
       "categories": [
-        "Concentrates",
-        "Edibles",
-        "Flower",
-        "Pre-Rolls",
-        "Vapes"
+        "Pre-Rolls"
       ],
-      "best_discount": 40,
+      "best_discount": 62,
       "cheapest": {
-        "product": "Freeze Dried Caramel 3pk \u2014 30mg",
-        "price": 6.0,
-        "original_price": 10.0,
+        "product": "Firelands Scientific - Mad Timewreck - Pre-Roll 1g",
+        "price": 5.0,
+        "original_price": 13.0,
         "on_sale": true,
-        "discount_pct": 40,
-        "category": "Edibles",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
+        "discount_pct": 62,
+        "category": "Pre-Rolls",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
       "name": "Klutch",
-      "deal_count": 6,
+      "deal_count": 5,
       "dispensaries": [
         "Shangri-La Monroe Superstore",
         "Shangri-La Monroe West",
@@ -79,27 +100,6 @@
         "category": "Flower",
         "dispensary": "Shangri-La Monroe Superstore",
         "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "Firelands Scientific",
-      "deal_count": 5,
-      "dispensaries": [
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 62,
-      "cheapest": {
-        "product": "Firelands Scientific - Mad Timewreck - Pre-Roll 1g",
-        "price": 5.0,
-        "original_price": 13.0,
-        "on_sale": true,
-        "discount_pct": 62,
-        "category": "Pre-Rolls",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
@@ -155,7 +155,7 @@
       "deal_count": 3,
       "dispensaries": [
         "Shangri-La Cincinnati",
-        "The Garden - Sycamore"
+        "The Garden - Camp Washington"
       ],
       "categories": [
         "Concentrates",
@@ -163,14 +163,14 @@
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "2:1 Tropical Diamonds \u2014 10pk",
+        "product": "Blackberry Lemonade Amethysts \u2014 10pk",
         "price": 11.7,
         "original_price": 18.0,
         "on_sale": true,
         "discount_pct": 35,
         "category": "Edibles",
-        "dispensary": "The Garden - Sycamore",
-        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
       }
     },
     {
@@ -242,6 +242,28 @@
       }
     },
     {
+      "name": "Smokiez Edibles",
+      "deal_count": 2,
+      "dispensaries": [
+        "Queen City - Norwood",
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Sour Blackberry - Fruit Chews 10pk 100mg",
+        "price": 13.0,
+        "original_price": 20.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Edibles",
+        "dispensary": "The Garden - Sycamore",
+        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
+      }
+    },
+    {
       "name": "G Brand",
       "deal_count": 2,
       "dispensaries": [
@@ -260,27 +282,6 @@
         "category": "Flower",
         "dispensary": "The Garden - Camp Washington",
         "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
-      }
-    },
-    {
-      "name": "Moxie",
-      "deal_count": 2,
-      "dispensaries": [
-        "Shangri-La Cincinnati"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 40,
-      "cheapest": {
-        "product": "Moxie - Gummies - Citrus 100mg",
-        "price": 8.4,
-        "original_price": 14.0,
-        "on_sale": true,
-        "discount_pct": 40,
-        "category": "Edibles",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -453,27 +454,6 @@
       }
     },
     {
-      "name": "Smokiez Edibles",
-      "deal_count": 1,
-      "dispensaries": [
-        "Queen City - Norwood"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Smokiez \u2014 Sweet Cherry 1:2 THCV 10pc \u2014 100mg Fruit Chews",
-        "price": 15.0,
-        "original_price": 30.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Edibles",
-        "dispensary": "Queen City - Norwood",
-        "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
       "name": "Camino",
       "deal_count": 1,
       "dispensaries": [
@@ -537,6 +517,27 @@
       }
     },
     {
+      "name": "Josh D",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Josh D - Kockeyed - Flower - 3.5g",
+        "price": 30.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Flower",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
+      }
+    },
+    {
       "name": "Lighthouse Sciences",
       "deal_count": 1,
       "dispensaries": [
@@ -553,6 +554,27 @@
         "on_sale": true,
         "discount_pct": 40,
         "category": "Topicals",
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Moxie",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Cincinnati"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Moxie - Gummies - Citrus 100mg",
+        "price": 8.4,
+        "original_price": 14.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Edibles",
         "dispensary": "Shangri-La Cincinnati",
         "url": "https://shangriladispensaries.com"
       }
@@ -600,27 +622,6 @@
       }
     },
     {
-      "name": "Cannarocks",
-      "deal_count": 1,
-      "dispensaries": [
-        "Queen City - Harrison"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Cannarocks \u2014 Sugar Free Pineapple 20 pc \u2014 100mg Hard Candy",
-        "price": 15.6,
-        "original_price": 24.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Edibles",
-        "dispensary": "Queen City - Harrison",
-        "url": "https://queenccanna.com"
-      }
-    },
-    {
       "name": "Common Citizen",
       "deal_count": 1,
       "dispensaries": [
@@ -642,27 +643,6 @@
       }
     },
     {
-      "name": "Josh D",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Garden - Camp Washington"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "OG Kush - Live Badder 1g",
-        "price": 32.5,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Concentrates",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
-      }
-    },
-    {
       "name": "King City Gardens",
       "deal_count": 1,
       "dispensaries": [
@@ -679,6 +659,27 @@
         "on_sale": true,
         "discount_pct": 35,
         "category": "Pre-Rolls",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "Meigs County",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Cactus Cookies - Cured Resin Sugar 1g",
+        "price": 29.25,
+        "original_price": 45.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Concentrates",
         "dispensary": "The Garden - Camp Washington",
         "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
       }
@@ -744,27 +745,6 @@
         "category": "Tinctures",
         "dispensary": "The Garden - Sycamore",
         "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
-      }
-    },
-    {
-      "name": "Wyld",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Garden - Camp Washington"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Raspberry - Gummies 10pk 100mg",
-        "price": 13.0,
-        "original_price": 20.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Edibles",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
       }
     },
     {

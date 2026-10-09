@@ -1,36 +1,32 @@
 {
-  "generated_at": "2026-10-08T10:23:40.093711+00:00",
-  "verified_time": "6:23 AM",
-  "report_date": "2026-10-08",
-  "brand_count": 43,
+  "generated_at": "2026-10-09T10:33:43.218134+00:00",
+  "verified_time": "6:33 AM",
+  "report_date": "2026-10-09",
+  "brand_count": 40,
   "brands": [
     {
-      "name": "Klutch",
+      "name": "Butterfly Effect by Grow Ohio",
       "deal_count": 8,
       "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe Superstore",
-        "Shangri-La Monroe West",
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore",
-        "The Landing - Cincinnati"
+        "Locals Cannabis - Cincinnati"
       ],
       "categories": [
         "Concentrates",
         "Edibles",
         "Flower",
+        "Topicals",
         "Vapes"
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "Klutch - Chocolate - Ice Cream Cake Dark Chocolate Bar (10pk) 100mg",
-        "price": 15.0,
-        "original_price": 25.0,
+        "product": "Butterfly Effect \u2014 LC CO2 Cartridge .5g \u2014 Indica",
+        "price": 14.4,
+        "original_price": 24.0,
         "on_sale": true,
         "discount_pct": 40,
-        "category": "Edibles",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "category": "Vapes",
+        "dispensary": "Locals Cannabis - Cincinnati",
+        "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
       }
     },
     {
@@ -50,14 +46,40 @@
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "Tropical 3pc \u2014 30mg Gummies",
-        "price": 3.0,
-        "original_price": 5.0,
+        "product": "Freeze Dried Caramel 3pk \u2014 30mg",
+        "price": 6.0,
+        "original_price": 10.0,
         "on_sale": true,
         "discount_pct": 40,
         "category": "Edibles",
         "dispensary": "Queen City - Norwood",
         "url": "https://queenccanna.com/norwood/"
+      }
+    },
+    {
+      "name": "Klutch",
+      "deal_count": 6,
+      "dispensaries": [
+        "Shangri-La Monroe Superstore",
+        "Shangri-La Monroe West",
+        "The Garden - Sycamore",
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Concentrates",
+        "Flower",
+        "Vapes"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Klutch - Flower - Big Head (I) 2.83g",
+        "price": 29.4,
+        "original_price": 42.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Flower",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -82,52 +104,27 @@
       }
     },
     {
-      "name": "Main Street Health",
+      "name": "CERTIFIED",
       "deal_count": 4,
       "dispensaries": [
-        "Shangri-La Monroe West",
-        "UpLift - Milford",
-        "UpLift - Mount Orab"
+        "Queen City - Harrison",
+        "Shangri-La Cincinnati",
+        "The Garden - Sycamore"
       ],
       "categories": [
         "Concentrates",
-        "Topicals",
-        "Wellness"
+        "Edibles"
       ],
-      "best_discount": 50,
+      "best_discount": 40,
       "cheapest": {
-        "product": "5-To-1 CBN/THC Capsules (30ct)",
-        "price": 12.5,
-        "original_price": 25.0,
+        "product": "2:1 Tropical Diamonds \u2014 10pk",
+        "price": 11.7,
+        "original_price": 18.0,
         "on_sale": true,
-        "discount_pct": 50,
-        "category": "Wellness",
-        "dispensary": "UpLift - Milford",
-        "url": "https://www.upliftohio.com/milford/"
-      }
-    },
-    {
-      "name": "UB Good",
-      "deal_count": 4,
-      "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe Superstore",
-        "Shangri-La Monroe West"
-      ],
-      "categories": [
-        "Topicals",
-        "Vapes"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "UB Good - Disposable - 1000 PSTRS Live Resin (H) 0.5g",
-        "price": 22.0,
-        "original_price": 44.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Vapes",
-        "dispensary": "Shangri-La Monroe West",
-        "url": "https://shangriladispensaries.com"
+        "discount_pct": 35,
+        "category": "Edibles",
+        "dispensary": "The Garden - Sycamore",
+        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
       }
     },
     {
@@ -154,25 +151,28 @@
       }
     },
     {
-      "name": "CERTIFIED",
+      "name": "UB Good",
       "deal_count": 3,
       "dispensaries": [
+        "Garden Club Dispensary",
         "Shangri-La Cincinnati",
-        "Shangri-La Monroe Superstore"
+        "Shangri-La Monroe West"
       ],
       "categories": [
-        "Concentrates"
+        "Edibles",
+        "Topicals",
+        "Vapes"
       ],
-      "best_discount": 40,
+      "best_discount": 50,
       "cheapest": {
-        "product": "Certified - Syringe - Moonbow RSO (I) 1g",
-        "price": 21.0,
-        "original_price": 35.0,
+        "product": "UB Good \u2014 Watermelon Lime 1:1 \u2014 Spark Gummies \u2014 10ct",
+        "price": 14.0,
+        "original_price": 20.0,
         "on_sale": true,
-        "discount_pct": 40,
-        "category": "Concentrates",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "discount_pct": 30,
+        "category": "Edibles",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
       }
     },
     {
@@ -221,25 +221,91 @@
       }
     },
     {
-      "name": "Ohio Processing Plant",
+      "name": "Main Street Health",
+      "deal_count": 2,
+      "dispensaries": [
+        "Shangri-La Monroe West",
+        "UpLift - Milford"
+      ],
+      "categories": [
+        "Concentrates",
+        "Wellness"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "5-To-1 CBN/THC Capsules (30ct)",
+        "price": 12.5,
+        "original_price": 25.0,
+        "on_sale": true,
+        "discount_pct": 50,
+        "category": "Wellness",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
+      "name": "G Brand",
+      "deal_count": 2,
+      "dispensaries": [
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 46,
+      "cheapest": {
+        "product": "Garden Cake - Smalls 14.15",
+        "price": 49.0,
+        "original_price": 90.0,
+        "on_sale": true,
+        "discount_pct": 46,
+        "category": "Flower",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "Josh D",
       "deal_count": 2,
       "dispensaries": [
         "The Garden - Camp Washington",
-        "The Garden - Sycamore"
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Concentrates",
+        "Flower"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Josh D - Kockeyed - Flower - 3.5g",
+        "price": 30.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Flower",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
+      }
+    },
+    {
+      "name": "Moxie",
+      "deal_count": 2,
+      "dispensaries": [
+        "Shangri-La Cincinnati"
       ],
       "categories": [
         "Edibles"
       ],
-      "best_discount": 35,
+      "best_discount": 40,
       "cheapest": {
-        "product": "Red Raspberry - Gummies 10pk 440mg",
-        "price": 37.7,
-        "original_price": 58.0,
+        "product": "Moxie - Gummies - Citrus 100mg",
+        "price": 8.4,
+        "original_price": 14.0,
         "on_sale": true,
-        "discount_pct": 35,
+        "discount_pct": 40,
         "category": "Edibles",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -262,94 +328,6 @@
         "category": "Tinctures",
         "dispensary": "Queen City - Harrison",
         "url": "https://queenccanna.com"
-      }
-    },
-    {
-      "name": "RYTHM",
-      "deal_count": 2,
-      "dispensaries": [
-        "Garden Club Dispensary",
-        "Queen City - Harrison"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Bananaconda \u2014 Live Resin",
-        "price": 40.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 20,
-        "category": "Concentrates",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
-      }
-    },
-    {
-      "name": "Butterfly Effect by Grow Ohio",
-      "deal_count": 2,
-      "dispensaries": [
-        "Locals Cannabis - Cincinnati"
-      ],
-      "categories": [
-        "Concentrates",
-        "Edibles"
-      ],
-      "best_discount": 26,
-      "cheapest": {
-        "product": "Butterfly Effect \u2014 LC (Live Resin) Sugar \u2014 1g \u2014 Indica",
-        "price": 34.04,
-        "original_price": 46.0,
-        "on_sale": true,
-        "discount_pct": 26,
-        "category": "Concentrates",
-        "dispensary": "Locals Cannabis - Cincinnati",
-        "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
-      }
-    },
-    {
-      "name": "Rove",
-      "deal_count": 2,
-      "dispensaries": [
-        "Locals Cannabis - Cincinnati",
-        "Therapy Cannabis - Cincinnati"
-      ],
-      "categories": [
-        "Vape Pens",
-        "Vapes"
-      ],
-      "best_discount": 26,
-      "cheapest": {
-        "product": "Diamond Series Battery - WZ BLUE",
-        "price": 20.0,
-        "original_price": 25.0,
-        "on_sale": true,
-        "discount_pct": 20,
-        "category": "Vape Pens",
-        "dispensary": "Therapy Cannabis - Cincinnati",
-        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
-      }
-    },
-    {
-      "name": "AMBER",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Monroe West"
-      ],
-      "categories": [
-        "Vapes"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Amber - Cartridge Live Rosin - THNR SLTH 0.5g",
-        "price": 35.0,
-        "original_price": 70.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Vapes",
-        "dispensary": "Shangri-La Monroe West",
-        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -413,27 +391,6 @@
         "category": "Flower",
         "dispensary": "Shangri-La Cincinnati",
         "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "Grassroots",
-      "deal_count": 1,
-      "dispensaries": [
-        "Garden Club Dispensary"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Blue Lobster \u2014 Smalls",
-        "price": 55.0,
-        "original_price": 110.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Flower",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
       }
     },
     {
@@ -542,69 +499,6 @@
       }
     },
     {
-      "name": "Superflux",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Monroe Superstore"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "Superflux - Gummies - Mint Sherbert Live Resin 10pk (I) 100mg",
-        "price": 11.0,
-        "original_price": 22.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Edibles",
-        "dispensary": "Shangri-La Monroe Superstore",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "The Goods",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Monroe West"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 50,
-      "cheapest": {
-        "product": "The Goods - Gummies - Elderberry Acai Live Rosin (I) 100mg",
-        "price": 14.5,
-        "original_price": 29.0,
-        "on_sale": true,
-        "discount_pct": 50,
-        "category": "Edibles",
-        "dispensary": "Shangri-La Monroe West",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
-      "name": "G Brand",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Garden - Camp Washington"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 46,
-      "cheapest": {
-        "product": "Garden Cake - Smalls 14.15",
-        "price": 49.0,
-        "original_price": 90.0,
-        "on_sale": true,
-        "discount_pct": 46,
-        "category": "Flower",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
-      }
-    },
-    {
       "name": "Camino",
       "deal_count": 1,
       "dispensaries": [
@@ -615,7 +509,7 @@
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "Camino - Strawberry Sunset Sours - Gummies - 100mg [10pk]",
+        "product": "Camino - Watermelon Lemonade - Gummies - 100mg [20pk]",
         "price": 13.2,
         "original_price": 22.0,
         "on_sale": true,
@@ -644,27 +538,6 @@
         "category": "Vapes",
         "dispensary": "The Garden - Camp Washington",
         "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
-      }
-    },
-    {
-      "name": "Eden's Trees",
-      "deal_count": 1,
-      "dispensaries": [
-        "Shangri-La Cincinnati"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 40,
-      "cheapest": {
-        "product": "Eden's Trees - Concentrate - GRL CRSH Live Resin Sugar 1g",
-        "price": 24.0,
-        "original_price": 40.0,
-        "on_sale": true,
-        "discount_pct": 40,
-        "category": "Concentrates",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -710,6 +583,27 @@
       }
     },
     {
+      "name": "Young Buck",
+      "deal_count": 1,
+      "dispensaries": [
+        "Locals Cannabis - Cincinnati"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Young Buck \u2014 SLH (Infused SSU) Pre-Roll \u2014 1g \u2014 Sativa",
+        "price": 15.0,
+        "original_price": 25.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Pre-Rolls",
+        "dispensary": "Locals Cannabis - Cincinnati",
+        "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
+      }
+    },
+    {
       "name": "Cannarocks",
       "deal_count": 1,
       "dispensaries": [
@@ -741,7 +635,7 @@
       ],
       "best_discount": 35,
       "cheapest": {
-        "product": "Common Citizen \u2014 Juicy Pear \u2014 1g Cartridge",
+        "product": "Common Citizen \u2014 Sweet Wedding Cake \u2014 1g Cartridge",
         "price": 23.4,
         "original_price": 36.0,
         "on_sale": true,
@@ -836,64 +730,106 @@
       }
     },
     {
-      "name": "Citizen by Klutch",
+      "name": "Wyld",
       "deal_count": 1,
       "dispensaries": [
-        "Locals Cannabis - Cincinnati"
+        "The Garden - Camp Washington"
       ],
       "categories": [
-        "Flower"
+        "Edibles"
       ],
-      "best_discount": 26,
+      "best_discount": 35,
       "cheapest": {
-        "product": "Citizen \u2014 Orange 43 (Smalls) \u2014 14.15g \u2014 Sativa",
-        "price": 92.5,
-        "original_price": 125.0,
+        "product": "Raspberry - Gummies 10pk 100mg",
+        "price": 13.0,
+        "original_price": 20.0,
         "on_sale": true,
-        "discount_pct": 26,
-        "category": "Flower",
-        "dispensary": "Locals Cannabis - Cincinnati",
-        "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
+        "discount_pct": 35,
+        "category": "Edibles",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
       }
     },
     {
-      "name": "Lowell Herb Co.",
+      "name": "Tasteology",
       "deal_count": 1,
       "dispensaries": [
-        "Locals Cannabis - Cincinnati"
+        "Shangri-La Monroe Superstore"
       ],
       "categories": [
-        "Pre-Rolls"
+        "Edibles"
       ],
-      "best_discount": 26,
+      "best_discount": 30,
       "cheapest": {
-        "product": "Lowell Smokes \u2014 Mind Safari Pre Rolls (SSU 5pk) \u2014 .58g x 5pk \u2014 Hybrid",
-        "price": 29.6,
-        "original_price": 40.0,
+        "product": "Tasteology - Gummies - Passion Raspberry 1:1 THC:CBD (10pk) 110mg",
+        "price": 14.0,
+        "original_price": 20.0,
         "on_sale": true,
-        "discount_pct": 26,
-        "category": "Pre-Rolls",
-        "dispensary": "Locals Cannabis - Cincinnati",
-        "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
+        "discount_pct": 30,
+        "category": "Edibles",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
-      "name": "Kiva Confections",
+      "name": "RYTHM",
       "deal_count": 1,
       "dispensaries": [
         "Garden Club Dispensary"
       ],
       "categories": [
-        "Edibles"
+        "Flower"
       ],
       "best_discount": 25,
       "cheapest": {
-        "product": "Churro Milk Chocolate Bar \u2014 100mg \u2014 20ct",
-        "price": 19.5,
-        "original_price": 26.0,
+        "product": "Chem n Cookies \u2014 Big Buds",
+        "price": 26.25,
+        "original_price": 35.0,
         "on_sale": true,
         "discount_pct": 25,
-        "category": "Edibles",
+        "category": "Flower",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
+      "name": "Citizen by Klutch",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
+        "Vapes"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Citizen - Disposable - ICC CO2 iKrusher 1g",
+        "price": 28.0,
+        "original_price": 35.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Vapes",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Klutch Cannabis",
+      "deal_count": 1,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Orange 43 - Live Badder 1g",
+        "price": 40.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Concentrates",
         "dispensary": "Garden Club Dispensary",
         "url": "https://gardenclubdispensaries.com"
       }

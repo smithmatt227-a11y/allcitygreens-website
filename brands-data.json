@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-09T16:06:17.062589+00:00",
-  "verified_time": "12:06 PM",
+  "generated_at": "2026-10-09T19:08:49.969753+00:00",
+  "verified_time": "3:08 PM",
   "report_date": "2026-10-09",
-  "brand_count": 41,
+  "brand_count": 39,
   "brands": [
     {
       "name": "Riviera Creek",
-      "deal_count": 9,
+      "deal_count": 11,
       "dispensaries": [
         "Queen City - Harrison",
         "Queen City - Norwood",
@@ -151,29 +151,6 @@
       }
     },
     {
-      "name": "CERTIFIED",
-      "deal_count": 3,
-      "dispensaries": [
-        "Shangri-La Cincinnati",
-        "The Garden - Camp Washington"
-      ],
-      "categories": [
-        "Concentrates",
-        "Edibles"
-      ],
-      "best_discount": 40,
-      "cheapest": {
-        "product": "Blackberry Lemonade Amethysts \u2014 10pk",
-        "price": 11.7,
-        "original_price": 18.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Edibles",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
-      }
-    },
-    {
       "name": "Doctor Solomon's",
       "deal_count": 3,
       "dispensaries": [
@@ -216,6 +193,29 @@
         "category": "Pre-Rolls",
         "dispensary": "Shangri-La Monroe West",
         "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Josh D",
+      "deal_count": 2,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Concentrates",
+        "Flower"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Kockeyed - Live Resin 1g",
+        "price": 25.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 50,
+        "category": "Concentrates",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
       }
     },
     {
@@ -274,12 +274,35 @@
       ],
       "best_discount": 46,
       "cheapest": {
-        "product": "Garden Cake - Smalls 14.15",
+        "product": "Garden OG - Smalls 14.15g",
         "price": 49.0,
         "original_price": 90.0,
         "on_sale": true,
         "discount_pct": 46,
         "category": "Flower",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "CERTIFIED",
+      "deal_count": 2,
+      "dispensaries": [
+        "Shangri-La Cincinnati",
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Concentrates",
+        "Edibles"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Blackberry Lemonade Amethysts \u2014 10pk",
+        "price": 11.7,
+        "original_price": 18.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Edibles",
         "dispensary": "The Garden - Camp Washington",
         "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
       }
@@ -517,27 +540,6 @@
       }
     },
     {
-      "name": "Josh D",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Flower"
-      ],
-      "best_discount": 40,
-      "cheapest": {
-        "product": "Josh D - Kockeyed - Flower - 3.5g",
-        "price": 30.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 40,
-        "category": "Flower",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
-      }
-    },
-    {
       "name": "Lighthouse Sciences",
       "deal_count": 1,
       "dispensaries": [
@@ -664,27 +666,6 @@
       }
     },
     {
-      "name": "Meigs County",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Garden - Camp Washington"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Cactus Cookies - Cured Resin Sugar 1g",
-        "price": 29.25,
-        "original_price": 45.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Concentrates",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
-      }
-    },
-    {
       "name": "Modern Flower",
       "deal_count": 1,
       "dispensaries": [
@@ -745,27 +726,6 @@
         "category": "Tinctures",
         "dispensary": "The Garden - Sycamore",
         "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
-      }
-    },
-    {
-      "name": "Cresco",
-      "deal_count": 1,
-      "dispensaries": [
-        "Queen City - Harrison"
-      ],
-      "categories": [
-        "Concentrates"
-      ],
-      "best_discount": 30,
-      "cheapest": {
-        "product": "Cresco \u2014 Gastro Pop \u2014 1g Live Budder",
-        "price": 35.0,
-        "original_price": 50.0,
-        "on_sale": true,
-        "discount_pct": 30,
-        "category": "Concentrates",
-        "dispensary": "Queen City - Harrison",
-        "url": "https://queenccanna.com"
       }
     },
     {

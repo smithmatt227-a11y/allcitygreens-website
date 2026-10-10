@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-10T10:07:14.803146+00:00",
-  "verified_time": "6:07 AM",
+  "generated_at": "2026-10-10T13:05:19.042363+00:00",
+  "verified_time": "9:05 AM",
   "report_date": "2026-10-10",
   "brand_count": 38,
   "brands": [
@@ -20,9 +20,9 @@
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "Watermelon 3pc \u2014 30mg Gummies",
-        "price": 3.0,
-        "original_price": 5.0,
+        "product": "Freeze Dried Caramel 3pk \u2014 30mg",
+        "price": 6.0,
+        "original_price": 10.0,
         "on_sale": true,
         "discount_pct": 40,
         "category": "Edibles",
@@ -111,7 +111,7 @@
       ],
       "best_discount": 54,
       "cheapest": {
-        "product": "Supply - Flower - Rollins (S) 2.83g",
+        "product": "Supply - Flower - Pineapple (H) 2.83g",
         "price": 16.0,
         "original_price": 34.0,
         "on_sale": true,
@@ -183,7 +183,7 @@
       ],
       "best_discount": 50,
       "cheapest": {
-        "product": "Certified - Gummies - Tangerine Citrines (S) (10pk) 100mg",
+        "product": "Certified - Gummies - Pink Lemonade Quartz 1:1 THC:CBG (10pk) 100mg",
         "price": 9.0,
         "original_price": 18.0,
         "on_sale": true,
@@ -729,6 +729,27 @@
       }
     },
     {
+      "name": "Butterfly Effect by Grow Ohio",
+      "deal_count": 1,
+      "dispensaries": [
+        "Locals Cannabis - Cincinnati"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 26,
+      "cheapest": {
+        "product": "Butterfly Effect \u2014 Capsules \u2014 880mg",
+        "price": 74.0,
+        "original_price": 100.0,
+        "on_sale": true,
+        "discount_pct": 26,
+        "category": "Edibles",
+        "dispensary": "Locals Cannabis - Cincinnati",
+        "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
+      }
+    },
+    {
       "name": "Citizen by Klutch",
       "deal_count": 1,
       "dispensaries": [
@@ -766,27 +787,6 @@
         "on_sale": true,
         "discount_pct": 26,
         "category": "Pre-Rolls",
-        "dispensary": "Locals Cannabis - Cincinnati",
-        "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
-      }
-    },
-    {
-      "name": "Wyld",
-      "deal_count": 1,
-      "dispensaries": [
-        "Locals Cannabis - Cincinnati"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 26,
-      "cheapest": {
-        "product": "Wyld \u2014 Peach 2:1 CBD:THC Gummies 10pk \u2014 50mg",
-        "price": 14.8,
-        "original_price": 20.0,
-        "on_sale": true,
-        "discount_pct": 26,
-        "category": "Edibles",
         "dispensary": "Locals Cannabis - Cincinnati",
         "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
       }

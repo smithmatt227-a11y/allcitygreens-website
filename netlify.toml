@@ -4,6 +4,97 @@
   publish     = "."
   functions   = "netlify/functions"
 
+# 2026-10-14: the site publishes the whole repo root (publish = "."), so the
+# pipeline scripts and stray files were downloadable (update_site.py loaded as
+# source). No secrets were in them, but they shouldn't be public. These forced
+# 404s hide them while leaving the files where run_daily.sh expects them.
+# Add a line here for any NEW script or tool file put in the Website folder.
+[[redirects]]
+  from   = "/update_site.py"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/dispensary_pages.py"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/add_auto_markers.py"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/_commit_and_push.command"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/netlify.toml"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/.gitignore"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/.claude/*"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/about/.fuse_hidden0000000f00000001"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/privacy/.fuse_hidden0000001100000002"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/terms/.fuse_hidden0000001300000003"
+  to     = "/"
+  status = 404
+  force  = true
+
+# 2026-10-14: taken down at Matt's request (unlinked leftovers). Files kept in
+# the repo; delete these two blocks to bring them back.
+[[redirects]]
+  from   = "/ken%20speeze.jpeg"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/ken speeze.jpeg"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/acg-delivery-run.html"
+  to     = "/"
+  status = 404
+  force  = true
+
+[[redirects]]
+  from   = "/acg-delivery-run"
+  to     = "/"
+  status = 404
+  force  = true
+
 # Pretty URLs: /about → /about/index.html is handled by Netlify automatically.
 # Fall back to 404.html for any unknown path.
 

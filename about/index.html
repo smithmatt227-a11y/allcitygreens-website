@@ -38,8 +38,10 @@
       </div>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="/#deals">Deals</a>
-        <a href="/#dispensaries">Dispensaries</a>
-        <a href="/#subscribe">Subscribe</a>
+        <a href="/dispensaries/">Dispensaries</a>
+        <a href="/brands/">Brands</a>
+        <a href="/trends/">Trends</a>
+        <a href="#subscribe" class="nav-cta">Subscribe free</a>
       </nav>
     </div>
   </header>
@@ -51,17 +53,17 @@
         <header style="margin-bottom:32px;">
           <p style="color:#e07828;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 12px;font-family:'Inter',sans-serif;">About</p>
           <h1 class="section-title" style="margin:0 0 12px;">Cincinnati's daily price guide, run by someone who actually shops here.</h1>
-          <p style="color:var(--color-text-muted);font-size:1.05rem;line-height:1.7;margin:0;">All City Greens is an independent, free daily email that tracks deals and prices across Cincinnati-area dispensaries. We're not a dispensary. We don't sell anything. We just monitor public menus every morning and pass the best of it along.</p>
+          <p style="color:var(--color-text-muted);font-size:1.05rem;line-height:1.7;margin:0;">All City Greens is an independent, free daily email that tracks deals and prices across Cincinnati-area dispensaries. I'm not a dispensary and I don't sell anything. I just check public menus every morning and pass the best of it along.</p>
         </header>
 
         <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:32px 0 12px;">Why this exists</h2>
         <p style="line-height:1.75;color:var(--color-text);">Cannabis pricing in Ohio is a moving target. The same product can swing $15 in a day. Dispensaries run flash sales that aren't advertised anywhere except their own menu. Driving past three shops to compare prices burns more gas than the discount you'd save. So I built a scraper that does it for me each morning — and once I'd done that, it felt obvious to share.</p>
 
         <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:32px 0 12px;">How it works</h2>
-        <p style="line-height:1.75;color:var(--color-text);">Every morning before sunrise, an automated script visits the public menu of each tracked dispensary, pulls live pricing, deduplicates products across sister locations, and ranks the best deals by category. The daily email lands in your inbox each morning. The website updates at the same time so you can browse from your phone in the parking lot.</p>
-        <p style="line-height:1.75;color:var(--color-text);">All data comes from each dispensary's own public website — no scraping behind a login, no insider feeds, no special access. If a dispensary updates their menu before you visit, you'll see the latest the next morning.</p>
+        <p style="line-height:1.75;color:var(--color-text);">Every morning before sunrise, an automated script visits the public menu of each tracked dispensary, pulls live prices, combines sister stores, and ranks the best deals by category. The daily email lands in your inbox each morning. The website updates at the same time so you can browse from your phone in the parking lot.</p>
+        <p style="line-height:1.75;color:var(--color-text);">All data comes from each dispensary's own public website — no scraping behind a login, no insider feeds, no special access. If a store changes its menu after the morning check, you'll see it in tomorrow's update.</p>
 
-        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:32px 0 12px;">What we don't do</h2>
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:32px 0 12px;">What I don't do</h2>
         <ul style="line-height:1.8;color:var(--color-text);padding-left:1.2em;">
           <li><strong>Take money from dispensaries.</strong> No sponsored placements, no "featured deal" payola, no affiliate kickbacks. The deal ordering is purely by discount.</li>
           <li><strong>Sell your data.</strong> Email is for the daily newsletter. Full stop. See the <a href="/privacy/" style="color:var(--color-accent);">privacy policy</a>.</li>
@@ -72,7 +74,7 @@
         <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;margin:32px 0 12px;">Who's behind this</h2>
         <p style="line-height:1.75;color:var(--color-text);">All City Greens is a one-person side project run out of Cincinnati. Questions, corrections, or "you missed this dispensary" notes go to <a href="mailto:hello@allcitygreens.com" style="color:var(--color-accent);">hello@allcitygreens.com</a> and I'll see them.</p>
 
-        <div style="margin:48px 0 0;padding:24px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:12px;text-align:center;">
+        <div id="subscribe" style="margin:48px 0 0;padding:24px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:12px;text-align:center;">
           <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin:0 0 8px;">Want the daily email?</p>
           <p style="color:var(--color-text-muted);font-size:0.95rem;margin:0 0 16px;">Free. Sent every morning. Unsubscribe anytime.</p>
           <form class="cta-form" id="subscribe-form-about" onsubmit="return false;" style="max-width:420px;margin:0 auto;">
@@ -99,15 +101,18 @@
           <p class="footer-tagline">Straightforward. Reliable. Free.</p>
         </div>
         <div class="footer-links">
+          <a href="/dispensaries/">Dispensaries</a>
+          <a href="/brands/">Brands</a>
+          <a href="/trends/">Trends</a>
           <a href="/about/">About</a>
+          <a href="/faq/">FAQ</a>
           <a href="/privacy/">Privacy</a>
           <a href="/terms/">Terms</a>
-          <a href="/faq/">FAQ</a>
           <a href="mailto:hello@allcitygreens.com">Contact</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-disclaimer">Prices change frequently. Always verify with the dispensary before visiting. Must be 21+ with valid ID. Ohio recreational cannabis rules apply.</p>
+        <p class="footer-disclaimer">Prices change through the day, so confirm with the dispensary before you go. All City Greens is independent and not affiliated with any dispensary. 21+ with valid ID. Ohio cannabis laws apply.</p>
       </div>
     </div>
   </footer>

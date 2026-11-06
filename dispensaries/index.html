@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cincinnati Dispensary Prices — Every Store We Track | All City Greens</title>
-  <meta name="description" content="Average flower price at every Cincinnati-area dispensary we track, updated every morning. Compare 10 dispensaries, then open any store for today's deals and 90 days of price history.">
+  <meta name="description" content="Average flower price at every Cincinnati-area dispensary we track, updated every morning. Open any store for today's deals and 90 days of price history.">
   <link rel="canonical" href="https://allcitygreens.com/dispensaries/">
   <meta property="og:title" content="Cincinnati Dispensary Prices — Every Store We Track">
   <meta property="og:description" content="Compare average flower prices across every Cincinnati dispensary we track. Updated every morning.">
@@ -50,9 +50,10 @@
       </div>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="https://allcitygreens.com/#deals">Deals</a>
+        <a href="/dispensaries/">Dispensaries</a>
         <a href="https://allcitygreens.com/brands/">Brands</a>
         <a href="https://allcitygreens.com/trends/">Trends</a>
-        <a href="/dispensaries/">Dispensaries</a>
+        <a href="#subscribe" class="nav-cta">Subscribe free</a>
       </nav>
       <button class="nav-theme-toggle" data-theme-toggle aria-label="Switch theme">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -158,8 +159,8 @@
           </div>
           <div class="dp-hub-figs"><span class="dp-hub-price">$67.07</span><span class="dp-hub-vs">+20% vs median</span></div>
           <ul class="dp-hub-locs">
-            <li><a href="shangri-la-monroe-superstore/">Monroe</a><span class="dp-hub-meta">864 items &middot; 5 on sale</span></li>
-            <li><a href="shangri-la-monroe-west/">Monroe</a><span class="dp-hub-meta">870 items &middot; 5 on sale</span></li>
+            <li><a href="shangri-la-monroe-superstore/">Monroe Superstore</a><span class="dp-hub-meta">864 items &middot; 5 on sale</span></li>
+            <li><a href="shangri-la-monroe-west/">Monroe West</a><span class="dp-hub-meta">870 items &middot; 5 on sale</span></li>
           </ul>
         </div>
         <div class="dp-hub-row" id="zen-leaf">
@@ -175,7 +176,7 @@
         <div class="dp-hub-row" id="zips">
           <div class="dp-hub-brand">
             <h2>Zips</h2>
-            <p class="dp-hub-rankline">#— of 10 on flower price</p>
+            <p class="dp-hub-rankline">Not ranked yet: still building price history</p>
           </div>
           <div class="dp-hub-figs"><span class="dp-hub-vs">no price history yet</span></div>
           <ul class="dp-hub-locs">
@@ -183,6 +184,17 @@
           </ul>
         </div>
         </div>
+      </div>
+    </section>
+    <section class="section section-cta" id="subscribe">
+      <div class="container cta-inner">
+        <h2 class="cta-heading">Get the Cincinnati deals every morning</h2>
+        <p class="cta-sub">One short email, every day, with the best prices across every dispensary we track. Free, no ads, unsubscribe whenever.</p>
+        <form class="cta-form form-row" id="subscribe-form-hub" onsubmit="return false;">
+          <input type="email" name="email" class="form-input form-input-lg" placeholder="your@email.com" aria-label="Email address" required autocomplete="email">
+          <button type="submit" class="btn btn-primary btn-lg">Subscribe free</button>
+        </form>
+        <p class="form-note">Free. No spam. Unsubscribe anytime.</p>
       </div>
     </section>
   </main>
@@ -197,22 +209,138 @@
             <span class="nav-logo-text">All City Greens</span>
           </a>
           <p class="footer-tagline">Straightforward. Reliable. Free.</p>
-          <p class="footer-disclaimer">Prices shown may vary. Always verify in-store before purchase. All City Greens is an independent price tracking service and is not affiliated with any dispensary.</p>
         </div>
         <div class="footer-links">
-          <a href="https://newsletter.allcitygreens.com" target="_blank" rel="noopener">Newsletter archive</a>
           <a href="/dispensaries/">Dispensaries</a>
+          <a href="https://allcitygreens.com/brands/">Brands</a>
+          <a href="https://allcitygreens.com/trends/">Trends</a>
           <a href="https://allcitygreens.com/about/">About</a>
+          <a href="https://allcitygreens.com/faq/">FAQ</a>
           <a href="https://allcitygreens.com/privacy/">Privacy</a>
           <a href="https://allcitygreens.com/terms/">Terms</a>
-          <a href="https://allcitygreens.com/faq/">FAQ</a>
           <a href="mailto:hello@allcitygreens.com">Contact</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-disclaimer">Prices change frequently. Always verify with the dispensary before visiting. Must be 21+ with valid ID. Ohio recreational cannabis rules apply.</p>
+        <p class="footer-disclaimer">Prices change through the day, so confirm with the dispensary before you go. All City Greens is independent and not affiliated with any dispensary. 21+ with valid ID. Ohio cannabis laws apply.</p>
       </div>
     </div>
   </footer>
+
+<script>
+  /* Theme toggle — same behaviour as index.html. */
+  (function(){
+    var t=document.querySelector('[data-theme-toggle]'), r=document.documentElement;
+    var d=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    r.setAttribute('data-theme',d);
+    function u(){ if(!t)return;
+      t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
+      t.innerHTML = d==='dark'
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
+    u(); t&&t.addEventListener('click',function(){d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);u();});
+  })();
+
+  /* Scroll reveal. REQUIRED, not decoration: style.css L1246 sets .deal-card to
+     opacity:0 and only .acg-visible brings it back, so without this script every
+     deal card renders invisible. Lifted from index.html. */
+  (function(){
+    var selector='.deal-card, a.deal-card-link';
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll(selector).forEach(function(el){ el.classList.add('acg-visible'); });
+      return;
+    }
+    var observer=new IntersectionObserver(function(entries){
+      entries.filter(function(x){return x.isIntersecting;}).forEach(function(entry,i){
+        var el=entry.target;
+        setTimeout(function(){ el.classList.add('acg-visible'); }, i*60);
+        observer.unobserve(el);
+      });
+    },{ threshold:0.08, rootMargin:'0px 0px -30px 0px' });
+    document.querySelectorAll(selector).forEach(function(el){ observer.observe(el); });
+
+    // Re-observe after a category switch. Filtering toggles display, and a card
+    // never scrolled into view has never been revealed — without this it comes
+    // back at opacity:0. Same hook index.html uses.
+    document.querySelectorAll('.cat-tab').forEach(function(tab){
+      tab.addEventListener('click', function(){
+        setTimeout(function(){
+          document.querySelectorAll(selector + ':not(.acg-visible)').forEach(function(el){
+            observer.observe(el);
+          });
+        }, 50);
+      });
+    });
+  })();
+
+  /* Category filter — index.html's applyDeals() minus the dispensary select and
+     the sort select. On a single-store page the dispensary filter is meaningless
+     and the cards are already in the site's default order. */
+  (function(){
+    var catTabs=document.querySelectorAll('.cat-tab');
+    var cards=Array.prototype.slice.call(document.querySelectorAll('.deal-card'));
+    var empty=document.getElementById('deal-empty');
+    var active='all';
+    function apply(){
+      var shown=0;
+      cards.forEach(function(c){
+        var ok=(active==='all'||c.dataset.cat===active);
+        c.style.display=ok?'':'none'; if(ok) shown++;
+      });
+      if(empty) empty.style.display = shown ? 'none' : '';
+    }
+    catTabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        catTabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+        tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+        active=tab.dataset.cat; apply();
+      });
+    });
+  })();
+</script>
+<script>
+  (function () {
+    var ENDPOINT = '/api/subscribe';
+    function showInlineError(form, msg) {
+      var existing = form.querySelector('.subscribe-error');
+      if (existing) existing.remove();
+      var el = document.createElement('div');
+      el.className = 'subscribe-error';
+      el.setAttribute('role', 'alert');
+      el.style.cssText = 'color:#d46030;font-size:12px;margin-top:8px;font-weight:600;';
+      el.textContent = msg;
+      form.appendChild(el);
+    }
+    function showSuccess(form, already) {
+      var msg = document.createElement('div');
+      msg.className = 'subscribe-success';
+      msg.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> ' +
+        (already ? "You're already on the list — your first email lands tomorrow morning." : "You're in. Your first email arrives tomorrow morning.");
+      form.style.display = 'none';
+      form.parentElement.appendChild(msg);
+    }
+    document.querySelectorAll('form[id^="subscribe-form"]').forEach(function (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var input = form.querySelector('input[type="email"]');
+        var btn   = form.querySelector('button[type="submit"]');
+        var email = (input && input.value || '').trim();
+        if (!email) return;
+        var orig = btn ? btn.textContent : null;
+        if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
+        try {
+          var res = await fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email})});
+          var data = {}; try { data = await res.json(); } catch (_) {}
+          if (res.ok && data.ok) { showSuccess(form, !!data.already_subscribed); return; }
+          showInlineError(form, "Couldn't subscribe — try again?");
+        } catch (_) {
+          showInlineError(form, "Network error. Try again?");
+        } finally {
+          if (btn) { btn.disabled = false; if (orig) btn.textContent = orig; }
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

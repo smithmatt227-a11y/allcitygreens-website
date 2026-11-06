@@ -163,7 +163,8 @@ def display_disp_name(scraper_name: str) -> str:
     replacements = {
         "The Garden Dispensary": "The Garden",
         "Ethos Dispensary":      "Ethos",
-        "Queen City Cannabis":   "Queen City",
+        # "Queen City Cannabis" no longer shortened (2026-11-06): the cards, store
+        # pages and hub all use the full name, so the deal lines now match.
     }
     name = scraper_name
     for long, short in replacements.items():
@@ -192,38 +193,59 @@ _BRAND_PREFIXES = {
 }
 
 
+# 2026-11-06: menus also separate name parts with " - " ("Josh D - Flower -
+# MotorBreath (I)", "Modern Flower- Apples & Bananas"). A segment that is only a
+# category word repeats the category label shown right above the name, so it goes.
+_CATEGORY_SEGMENTS = {
+    "flower", "flowers", "concentrate", "concentrates", "vape", "vapes",
+    "edible", "edibles", "pre-roll", "pre-rolls", "preroll", "prerolls",
+    "pre roll", "pre rolls",
+}
+# " - ", " – ", " — " anywhere, or "word- " (missing space before the dash).
+# A hyphen inside a word ("Pre-Roll", "Live-Resin") is never split.
+_DASH_SEP = re.compile(r"\s+[-\u2013\u2014]\s+|(?<=[A-Za-z0-9)\]])[-\u2013\u2014]\s+")
+
+
 def clean_product_name(raw_name: str) -> str:
     """
-    Make a pipe-separated scraper name display-worthy.
+    Make a scraper product name display-worthy.
     Strategy:
-      1. Trim trailing per-unit weight/dose tokens (1g, 10mg/ea, .84g…). Pack
-         counts (10pk, 60pk) are preserved — they're real product info.
-      2. Drop a leading recognized brand prefix.
-      3. Join remaining pipe-segments with ' — '.
+      1. Pipe-separated names: trim trailing per-unit weight/dose tokens (1g,
+         10mg/ea, .84g…; pack counts like 10pk are kept), drop a leading
+         recognized brand prefix, drop a segment already contained in an
+         earlier one.
+      2. Split on dash separators too, and drop segments that are only a
+         category word ("Flower", "Concentrate").
+      3. Join what's left with single spaces (2026-11-06: was " — ", which
+         made names read like "Grow Ohio — Blueberry Vintage — Indica").
     Always returns a usable product identity — never just '10mg/ea' or '60pk'.
     """
     if not raw_name:
         return ""
     s = raw_name.strip()
-    if "|" not in s:
-        return s
-    parts = [p.strip() for p in s.split("|") if p.strip()]
-    if len(parts) <= 1:
-        return s
-    # 1. Trim trailing weight-only tokens
-    while len(parts) > 1 and _WEIGHT_OR_DOSE.match(parts[-1]):
-        parts.pop()
-    # 2. Drop leading brand if recognized
-    if len(parts) > 1 and parts[0].lower().strip().rstrip(":") in _BRAND_PREFIXES:
-        parts = parts[1:]
-    # 3. Drop a segment already contained in an earlier one (fixes
-    #    "Peach + CBC Gummies | Gummies | 28pk" -> "... Gummies — Gummies — 28pk")
-    kept = []
-    for part in parts:
-        if part.lower() in " — ".join(kept).lower():
-            continue
-        kept.append(part)
-    return " — ".join(kept).strip() or s
+    parts = [s]
+    if "|" in s:
+        parts = [p.strip() for p in s.split("|") if p.strip()]
+        if len(parts) > 1:
+            # 1a. Trim trailing weight-only tokens
+            while len(parts) > 1 and _WEIGHT_OR_DOSE.match(parts[-1]):
+                parts.pop()
+            # 1b. Drop leading brand if recognized
+            if len(parts) > 1 and parts[0].lower().strip().rstrip(":") in _BRAND_PREFIXES:
+                parts = parts[1:]
+            # 1c. Drop a segment already contained in an earlier one (fixes
+            #    "Peach + CBC Gummies | Gummies | 28pk" -> "... Gummies Gummies 28pk")
+            kept = []
+            for part in parts:
+                if part.lower() in " — ".join(kept).lower():
+                    continue
+                kept.append(part)
+            parts = kept or parts
+    # 2. Dash separators, then category-only segments
+    segs = [x.strip() for part in parts for x in _DASH_SEP.split(part) if x.strip()]
+    kept = [x for x in segs if x.lower() not in _CATEGORY_SEGMENTS] or segs
+    out = re.sub(r"\s{2,}", " ", " ".join(kept)).strip()
+    return out or s
 
 
 def deduplicate(deals: list) -> list:
@@ -466,7 +488,7 @@ def mockup_html(dispensaries: list, best_value: list, pretty_date: str = "",
         f'            <div class="mockup-section">\n'
         f'{deals_rows}\n'
         f'            </div>\n'
-        f'            <div class="mockup-footer">✓ Prices verified this morning · {disp_count} dispensaries checked</div>\n'
+        f'            <div class="mockup-footer">✓ Prices verified this morning · {disp_count} stores checked</div>\n'
         f'            <div class="mockup-cta"><a href="#deals">See all of today\'s deals &rarr;</a></div>'
     )
 
@@ -476,7 +498,7 @@ def stats_html(dispensary_count: int, total_products: int) -> str:
     return (
         f'            <div class="stat">\n'
         f'              <span class="stat-num">{dispensary_count}</span>\n'
-        f'              <span class="stat-label">dispensaries tracked</span>\n'
+        f'              <span class="stat-label">stores tracked</span>\n'
         f'            </div>\n'
         f'            <div class="stat-divider" aria-hidden="true"></div>\n'
         f'            <div class="stat">\n'
@@ -485,8 +507,8 @@ def stats_html(dispensary_count: int, total_products: int) -> str:
         f'            </div>\n'
         f'            <div class="stat-divider" aria-hidden="true"></div>\n'
         f'            <div class="stat">\n'
-        f'              <span class="stat-num">Daily</span>\n'
-        f'              <span class="stat-label">deals email every morning</span>\n'
+        f'              <span class="stat-num">One</span>\n'
+        f'              <span class="stat-label">email every morning</span>\n'
         f'            </div>'
     )
 

@@ -69,6 +69,19 @@ def locality(store) -> str:
     return parts[1] if len(parts) >= 2 else "Cincinnati"
 
 
+def place_label(store) -> str:
+    """The location as a READER needs it, for headings and the hub list.
+    2026-11-06: locality() alone gave both Shangri-La Monroe stores the label
+    "Monroe", so the hub listed two identical "Monroe" links. When the store name
+    itself carries the town plus a qualifier ("Shangri-La Monroe Superstore"),
+    use the name from the town onward ("Monroe Superstore"). JSON-LD keeps the
+    plain city from locality()."""
+    loc, name = locality(store), store["name"]
+    if " - " not in name and loc and loc in name:
+        return name[name.index(loc):].strip()
+    return loc
+
+
 # Deal links: Weedmaps-sourced deals carry no product_url — Matt's standing call is
 # no Weedmaps links, so those cards point at the dispensary's own site. The map
 # already exists in update_site.py; import it rather than keeping a second copy.
@@ -92,6 +105,15 @@ except Exception:                                            # pragma: no cover
 # (right for deal dedupe); this one keeps "shangri-la" and "shangri-la monroe"
 # apart — which is what /trends/ plots and what these pages rank against.
 brand_key = trends_brand_key
+
+# 2026-11-06: store pages showed raw menu names ("GDP | Disposable | 0.8g",
+# "Josh D - Flower - MotorBreath (I)"). Use the homepage's cleaner so a product
+# reads the same on every page. Imported separately so a failure here can't
+# take the URL map down with it.
+try:
+    from update_site import clean_product_name
+except Exception:                                            # pragma: no cover
+    clean_product_name = lambda n: n
 
 
 def deal_link(deal, store):
@@ -189,6 +211,9 @@ def _prepare(data, trends):
 # ─────────────────────────────────────────────────────────────────────────
 # SHARED CHROME — the nav masthead and footer, copied from index.html so every
 # generated page carries the same header and footer as the rest of the site.
+# 2026-11-06: nav and footer link sets standardised site-wide (every page now
+# shows Deals · Dispensaries · Brands · Trends · Subscribe free, and the same
+# footer). If you change them here, change the static pages to match.
 # `prefix` is the relative path back to Website/ (".." from the hub, "../.." from
 # a store page); site links stay absolute so they work from any depth.
 # ─────────────────────────────────────────────────────────────────────────
@@ -209,9 +234,10 @@ def chrome_nav(prefix, logo_v=""):
         '      </div>\n'
         '      <nav class="nav-links" aria-label="Main navigation">\n'
         '        <a href="{site}/#deals">Deals</a>\n'
+        '        <a href="/dispensaries/">Dispensaries</a>\n'
         '        <a href="{site}/brands/">Brands</a>\n'
         '        <a href="{site}/trends/">Trends</a>\n'
-        '        <a href="/dispensaries/">Dispensaries</a>\n'
+        '        <a href="#subscribe" class="nav-cta">Subscribe free</a>\n'
         '      </nav>\n'
         '      <button class="nav-theme-toggle" data-theme-toggle aria-label="Switch theme">\n'
         '        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>\n'
@@ -222,6 +248,9 @@ def chrome_nav(prefix, logo_v=""):
 
 
 def chrome_footer(prefix, logo_v=""):
+    # 2026-11-06: "Newsletter archive" removed — it linked the retired Beehiiv
+    # archive (frozen at Oct 2, with its own signup form) after the list moved
+    # to EmailOctopus. Two near-identical disclaimers merged into one line.
     logo = "%s/logo.png%s" % (prefix, logo_v)
     return (
         '  <footer class="footer footer-has-watermark">\n'
@@ -234,20 +263,20 @@ def chrome_footer(prefix, logo_v=""):
         '            <span class="nav-logo-text">All City Greens</span>\n'
         '          </a>\n'
         '          <p class="footer-tagline">Straightforward. Reliable. Free.</p>\n'
-        '          <p class="footer-disclaimer">Prices shown may vary. Always verify in-store before purchase. All City Greens is an independent price tracking service and is not affiliated with any dispensary.</p>\n'
         '        </div>\n'
         '        <div class="footer-links">\n'
-        '          <a href="https://newsletter.allcitygreens.com" target="_blank" rel="noopener">Newsletter archive</a>\n'
         '          <a href="/dispensaries/">Dispensaries</a>\n'
+        '          <a href="{site}/brands/">Brands</a>\n'
+        '          <a href="{site}/trends/">Trends</a>\n'
         '          <a href="{site}/about/">About</a>\n'
+        '          <a href="{site}/faq/">FAQ</a>\n'
         '          <a href="{site}/privacy/">Privacy</a>\n'
         '          <a href="{site}/terms/">Terms</a>\n'
-        '          <a href="{site}/faq/">FAQ</a>\n'
         '          <a href="mailto:hello@allcitygreens.com">Contact</a>\n'
         '        </div>\n'
         '      </div>\n'
         '      <div class="footer-bottom">\n'
-        '        <p class="footer-disclaimer">Prices change frequently. Always verify with the dispensary before visiting. Must be 21+ with valid ID. Ohio recreational cannabis rules apply.</p>\n'
+        '        <p class="footer-disclaimer">Prices change through the day, so confirm with the dispensary before you go. All City Greens is independent and not affiliated with any dispensary. 21+ with valid ID. Ohio cannabis laws apply.</p>\n'
         '      </div>\n'
         '    </div>\n'
         '  </footer>'
@@ -260,7 +289,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cincinnati Dispensary Prices — Every Store We Track | All City Greens</title>
-  <meta name="description" content="Average flower price at every Cincinnati-area dispensary we track, updated every morning. Compare {n} dispensaries, then open any store for today's deals and 90 days of price history.">
+  <meta name="description" content="Average flower price at every Cincinnati-area dispensary we track, updated every morning. Open any store for today's deals and 90 days of price history.">
   <link rel="canonical" href="https://allcitygreens.com/dispensaries/">
   <meta property="og:title" content="Cincinnati Dispensary Prices — Every Store We Track">
   <meta property="og:description" content="Compare average flower prices across every Cincinnati dispensary we track. Updated every morning.">
@@ -288,9 +317,12 @@ HUB_TEMPLATE = """<!DOCTYPE html>
         </div>
       </div>
     </section>
+{cta}
   </main>
 
 {footer}
+
+{scripts}
 </body>
 </html>"""
 
@@ -344,6 +376,71 @@ TABLE_CSS = """
     font-size: calc(var(--text-sm) + 2px); color: var(--color-primary); }
   .dp-table td { font-family: var(--font-body); }
 """
+
+def cta_html(form_id):
+    """The signup box. id="subscribe" is what the nav's Subscribe button jumps to.
+    2026-11-06: the store pages' box had no submit handler at all (onsubmit
+    return false, nothing listening), so it silently did nothing. The form id
+    must start with "subscribe-form" for SUBSCRIBE_JS to pick it up."""
+    return f'''    <section class="section section-cta" id="subscribe">
+      <div class="container cta-inner">
+        <h2 class="cta-heading">Get the Cincinnati deals every morning</h2>
+        <p class="cta-sub">One short email, every day, with the best prices across every dispensary we track. Free, no ads, unsubscribe whenever.</p>
+        <form class="cta-form form-row" id="{form_id}" onsubmit="return false;">
+          <input type="email" name="email" class="form-input form-input-lg" placeholder="your@email.com" aria-label="Email address" required autocomplete="email">
+          <button type="submit" class="btn btn-primary btn-lg">Subscribe free</button>
+        </form>
+        <p class="form-note">Free. No spam. Unsubscribe anytime.</p>
+      </div>
+    </section>'''
+
+
+# Same handler as about/ and faq/ — posts to the Netlify function.
+SUBSCRIBE_JS = """<script>
+  (function () {
+    var ENDPOINT = '/api/subscribe';
+    function showInlineError(form, msg) {
+      var existing = form.querySelector('.subscribe-error');
+      if (existing) existing.remove();
+      var el = document.createElement('div');
+      el.className = 'subscribe-error';
+      el.setAttribute('role', 'alert');
+      el.style.cssText = 'color:#d46030;font-size:12px;margin-top:8px;font-weight:600;';
+      el.textContent = msg;
+      form.appendChild(el);
+    }
+    function showSuccess(form, already) {
+      var msg = document.createElement('div');
+      msg.className = 'subscribe-success';
+      msg.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> ' +
+        (already ? "You're already on the list — your first email lands tomorrow morning." : "You're in. Your first email arrives tomorrow morning.");
+      form.style.display = 'none';
+      form.parentElement.appendChild(msg);
+    }
+    document.querySelectorAll('form[id^="subscribe-form"]').forEach(function (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var input = form.querySelector('input[type="email"]');
+        var btn   = form.querySelector('button[type="submit"]');
+        var email = (input && input.value || '').trim();
+        if (!email) return;
+        var orig = btn ? btn.textContent : null;
+        if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
+        try {
+          var res = await fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email})});
+          var data = {}; try { data = await res.json(); } catch (_) {}
+          if (res.ok && data.ok) { showSuccess(form, !!data.already_subscribed); return; }
+          showInlineError(form, "Couldn't subscribe — try again?");
+        } catch (_) {
+          showInlineError(form, "Network error. Try again?");
+        } finally {
+          if (btn) { btn.disabled = false; if (orig) btn.textContent = orig; }
+        }
+      });
+    });
+  })();
+</script>"""
+
 
 SCRIPTS = """<script>
   /* Theme toggle — same behaviour as index.html. */
@@ -510,7 +607,7 @@ def build(store):
                 prices = f'<span class="deal-card-sale">${d["price"]:.2f}</span>'
             out.append(f'''          <a class="deal-card deal-card-link" data-cat="{e(d['_cat'])}" data-price="{d['price']:.2f}" data-pct="{d.get('discount_pct') or 0}" href="{e(deal_link(d, store))}" target="_blank" rel="noopener">
             <div class="deal-card-cat">{icon(CAT_ICON.get(d['_cat'], CAT_ICON['flower']))} {e(CAT_LABEL.get(d['_cat'], d['_cat'].replace("_"," ").title()))}</div>
-            <div class="deal-card-name">{e(d['name'])}</div>
+            <div class="deal-card-name">{e(clean_product_name(d['name']))}</div>
             <div class="deal-card-disp">{meta}</div>
             <div class="deal-card-prices">
               {prices}
@@ -526,13 +623,24 @@ def build(store):
             f'<td>{pi[k]["count"]}</td><td class="dp-strong">${pi[k]["avg"]:,.2f}</td>'
             f'<td>${pi[k]["min"]:,.2f}</td><td>${pi[k]["max"]:,.2f}</td></tr>' for k in keys)
 
+    def rank_href(k):
+        """2026-11-06: the comparison table listed every dispensary but linked
+        none. One-store brands go to their page; chains go to their entry on the
+        hub, where each location is listed."""
+        pages = [x for x in stores if brand_key(x["name"]) == k]
+        if len(pages) == 1:
+            return "/dispensaries/%s/" % slugify(pages[0]["name"])
+        return "/dispensaries/#%s" % slugify(PRETTY.get(k, k))
+
     def rank_rows():
         out = []
         for i, (val, k) in enumerate(RANK, 1):
             me = k == bkey
             tr = '<tr class="dp-me">' if me else '<tr>'   # py3.9: no backslash in f-string exprs
+            label = e(PRETTY.get(k, k.title()))
+            cell = label if me else f'<a href="{rank_href(k)}">{label}</a>'
             out.append(f'{tr}<td class="dp-rank">{i}</td>'
-                       f'<th scope="row">{e(PRETTY.get(k, k.title()))}</th>'
+                       f'<th scope="row">{cell}</th>'
                        f'<td class="dp-barcell"><span class="dp-bar" style="width:{max(2.0,(val-30)/(85-30)*100):.1f}%"></span></td>'
                        f'<td class="dp-strong">${val:,.2f}</td><td>{(val-MED)/MED*100:+.0f}%</td></tr>')
         return "\n          ".join(out)
@@ -643,11 +751,15 @@ def build(store):
       </div>
     </section>''' if shown_deals else ""
 
+    # 2026-11-06: built outside the f-string below. Written inline, the quotes
+    # around the link's href ended the inner string early and raised NameError.
+    trends_note = (' This series is measured %s, the same way the '
+                   '<a href="/trends/">Trends page</a> does it.' % scope) if multi else ""
     chart_section = f'''    <section class="section" aria-labelledby="trend-heading">
       <div class="container">
         <div class="section-header">
           <h2 id="trend-heading" class="section-title">Ninety days of flower prices</h2>
-          <p class="section-sub dp-lede">Both lines are 7-day trailing averages on a real calendar axis, so a gap in the data stays a gap.{f" This series is measured {scope}, the same way the Trends page does it." if multi else ""}</p>
+          <p class="section-sub dp-lede">Both lines are 7-day trailing averages on a real calendar axis, so a gap in the data stays a gap.{trends_note}</p>
         </div>
         <p class="dp-legend"><span><span class="dp-key"></span>{e(PRETTY[bkey])}</span><span><span class="dp-key dp-key--city"></span>Citywide median</span></p>
         <div class="dp-chartwrap">{chart_svg(series, PRETTY[bkey])}</div>
@@ -729,6 +841,11 @@ def build(store):
     background:var(--color-text-faint); opacity:.55; }}
   .dp-me th, .dp-me td {{ background:color-mix(in srgb, var(--color-primary) 12%, transparent); }}
   .dp-me th {{ color:var(--color-primary) !important; }}
+  .dp-back {{ margin:0 0 var(--space-3); font-size:var(--text-sm); }}
+  .dp-back a {{ color:var(--color-text-muted); text-decoration:none; font-weight:600; }}
+  .dp-back a:hover {{ color:var(--color-primary); }}
+  .dp-table tbody th a {{ color:inherit; text-decoration:none; border-bottom:1px solid var(--color-divider); }}
+  .dp-table tbody th a:hover {{ border-bottom-color:var(--color-primary); }}
   .dp-me .dp-bar {{ background:var(--color-primary); opacity:1; }}
   @media (max-width:640px) {{ .dp-barcell {{ display:none; }} }}
   /* table typography — see TABLE_CSS */{TABLE_CSS}
@@ -741,8 +858,9 @@ def build(store):
     <section class="section dp-hero">
       <div class="container">
         <div class="section-header">
+          <p class="dp-back"><a href="/dispensaries/">&larr; All dispensaries</a></p>
           <h1 class="section-title">{e(name)}</h1>
-          <p class="section-sub dp-lede">{e(locality(store))} &middot; {store['product_count']} items on the menu, priced against the {len(RANK)} dispensaries we track across the city. Last checked the morning of {last.strftime('%B %-d, %Y')}.</p>
+          <p class="section-sub dp-lede">{e(place_label(store))} &middot; {store['product_count']} items on the menu. Flower prices are ranked against {len(RANK)} dispensaries across the city, with sister stores combined. Last checked the morning of {last.strftime('%B %-d, %Y')}.</p>
         </div>
 
         <div class="hero-stats">
@@ -788,7 +906,7 @@ def build(store):
       <div class="container">
         <div class="section-header">
           <h2 id="rank-heading" class="section-title">How it compares across the city</h2>
-          <p class="section-sub dp-lede">Average flower price per item at every dispensary we track, cheapest first, as of this morning. Sister locations are combined into one figure per dispensary, the same way the Trends page does it.{new_store_note}</p>
+          <p class="section-sub dp-lede">Average flower price per item at every dispensary we track, cheapest first, as of this morning. Sister locations are combined into one figure per dispensary, the same way the <a href="/trends/">Trends page</a> does it. Tap any name to open that dispensary.{new_store_note}</p>
         </div>
         <div class="dp-tablewrap">
           <table class="dp-table">
@@ -812,22 +930,13 @@ def build(store):
       </div>
     </section>
 
-    <section class="section section-cta" id="subscribe">
-      <div class="container cta-inner">
-        <h2 class="cta-heading">Get the Cincinnati deals every morning</h2>
-        <p class="cta-sub">One short email, every day, with the best prices across every dispensary we track. Free, no ads, unsubscribe whenever.</p>
-        <form class="cta-form form-row" onsubmit="return false;">
-          <input type="email" id="dp-email" name="email" class="form-input form-input-lg" placeholder="your@email.com" aria-label="Email address" required autocomplete="email">
-          <button type="submit" class="btn btn-primary btn-lg">Subscribe free</button>
-        </form>
-        <p class="form-note">Free forever. No spam. Unsubscribe anytime.</p>
-      </div>
-    </section>
+{cta_html("subscribe-form-dp")}
   </main>
 
 {FOOTER}
 
 {SCRIPTS}
+{SUBSCRIBE_JS}
 <script type="application/ld+json">{LD}</script>
 <script type="application/ld+json">{FAQ_LD}</script>
 </body>
@@ -878,13 +987,15 @@ def _hub_row(bkey, members):
         '        <div class="dp-hub-row" id="{anchor}">\n'
         '          <div class="dp-hub-brand">\n'
         '            <h2>{brand}</h2>\n'
-        '            <p class="dp-hub-rankline">#{rank} of {total} on flower price</p>\n'
+        '            <p class="dp-hub-rankline">{rankline}</p>\n'
         '          </div>\n'
         '          <div class="dp-hub-figs">{figs}</div>\n'
         '          <ul class="dp-hub-locs">\n{locs}\n          </ul>\n'
         '        </div>'
     ).format(anchor=slugify(PRETTY.get(bkey, bkey)), brand=e(PRETTY.get(bkey, bkey.title())),
-             rank=first["rank"] or "—", total=len(RANK), figs=figs, locs=locs)
+             rankline=("#%d of %d on flower price" % (first["rank"], len(RANK)) if first["rank"]
+                       else "Not ranked yet: still building price history"),
+             figs=figs, locs=locs)
 
 
 HUB_CSS = """
@@ -927,6 +1038,7 @@ def build_hub(rows, website_dir):
     hub = HUB_TEMPLATE.format(
         n=len(RANK), css=css_v, logo=logo_v, hub_css=HUB_CSS,
         nav=chrome_nav(".." , logo_v), footer=chrome_footer("..", logo_v),
+        cta=cta_html("subscribe-form-hub"), scripts=SCRIPTS + "\n" + SUBSCRIBE_JS,
         date=last.strftime("%B %-d, %Y"), body=body)
     out = os.path.join(website_dir, "dispensaries")
     os.makedirs(out, exist_ok=True)
@@ -975,7 +1087,9 @@ def link_homepage_cards(website_dir):
         if len(members) == 1 and not spans_many:
             target = "/dispensaries/" + members[0]["slug"] + "/"
         else:
-            target = "/dispensaries/"
+            # 2026-11-06: was the bare hub, which left the reader hunting for the
+            # chain. The hub gives every brand row an id = slugify(PRETTY name).
+            target = "/dispensaries/#" + slugify(PRETTY.get(members[0]["brand"], members[0]["brand"]))
         rest = re.sub(r'\s*target="_blank"|\s*rel="noopener"', "", rest)
         stats["linked"] += 1
         return '<a class="disp-card%s" href="%s"%s>%s</a>' % (head, target, rest, inner)
@@ -1058,7 +1172,7 @@ def build_all(data, trends, website_dir):
         d = os.path.join(out_root, slug)
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w").write(page)
-        meta["locality"] = locality(store)
+        meta["locality"] = place_label(store)   # 2026-11-06: was locality(); see place_label
         rows.append(meta)
 
     _BRANDS = defaultdict(list)

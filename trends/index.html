@@ -170,10 +170,10 @@
       </div>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="/#deals">Deals</a>
+        <a href="/dispensaries/">Dispensaries</a>
         <a href="/brands/">Brands</a>
         <a href="/trends/" style="color:#e07828;">Trends</a>
-        <a href="/#dispensaries">Dispensaries</a>
-        <a href="/#subscribe">Subscribe</a>
+        <a href="#subscribe" class="nav-cta">Subscribe free</a>
       </nav>
     </div>
   </header>
@@ -199,7 +199,7 @@
           <div class="chart-head">
             <div>
               <h2 class="chart-title">Flower prices across Cincinnati</h2>
-              <p class="chart-note">7-day average, dollars per item. Names sorted cheapest first.</p>
+              <p class="chart-note">7-day average price per flower item. Names sorted cheapest first.</p>
             </div>
             <div class="trend-range" id="range" role="group" aria-label="Time range">
               <button type="button" data-d="30">30 days</button>
@@ -216,19 +216,28 @@
 
         <div class="data-note">
           <strong style="color:var(--color-text);">About the data.</strong>
-          Each morning's scrape pulls every flower SKU from each dispensary's public menu and
-          records the average price. Sister locations under the same brand (e.g., The Garden
-          at Camp Washington + Sycamore) are merged into a single line. Days with fewer than
-          5 SKUs for a dispensary are excluded as unreliable signal.
-          Every line is a seven-day rolling average, and a day is only drawn where at least
-          three scrapes landed in the week before it — so a stretch the scraper missed shows
-          up as a <em>gap</em> rather than a straight line pretending to be a trend. A
-          dispensary that has reported nothing for 30 days is dropped from the chart
-          entirely instead of being carried forward at a stale price.
+          Each morning we record the average flower price at every dispensary we track.
+          Sister stores are combined into one line, and each line is a seven-day average so
+          you see the trend, not the daily noise. Gaps mean we missed a few days; a store
+          with no data for 30 days drops off.
         </div>
       </div>
     </section>
 
+    <section class="section" id="subscribe">
+      <div class="container container-narrow">
+        <div style="padding:24px;background:var(--color-surface);border:1px solid var(--color-divider);border-radius:12px;text-align:center;">
+          <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;font-weight:700;margin:0 0 8px;">Get the Cincinnati deals every morning</p>
+          <p style="color:var(--color-text-muted);font-size:0.95rem;margin:0 0 16px;">Free. Sent every morning. Unsubscribe anytime.</p>
+          <form class="cta-form" id="subscribe-form-trends" onsubmit="return false;" style="max-width:420px;margin:0 auto;">
+            <div class="form-row">
+              <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address" class="form-input">
+              <button type="submit" class="btn btn-primary">Subscribe free</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -242,14 +251,18 @@
           <p class="footer-tagline">Straightforward. Reliable. Free.</p>
         </div>
         <div class="footer-links">
+          <a href="/dispensaries/">Dispensaries</a>
+          <a href="/brands/">Brands</a>
+          <a href="/trends/">Trends</a>
           <a href="/about/">About</a>
+          <a href="/faq/">FAQ</a>
           <a href="/privacy/">Privacy</a>
           <a href="/terms/">Terms</a>
           <a href="mailto:hello@allcitygreens.com">Contact</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-disclaimer">Prices change frequently. Always verify with the dispensary before visiting. Must be 21+ with valid ID. Ohio recreational cannabis rules apply.</p>
+        <p class="footer-disclaimer">Prices change through the day, so confirm with the dispensary before you go. All City Greens is independent and not affiliated with any dispensary. 21+ with valid ID. Ohio cannabis laws apply.</p>
       </div>
     </div>
   </footer>
@@ -596,5 +609,50 @@
     }
   </script>
 
+  <script>
+    // Subscribe form (same handler as homepage)
+    (function () {
+      var ENDPOINT = '/api/subscribe';
+      function showInlineError(form, msg) {
+        var existing = form.querySelector('.subscribe-error');
+        if (existing) existing.remove();
+        var el = document.createElement('div');
+        el.className = 'subscribe-error';
+        el.setAttribute('role', 'alert');
+        el.style.cssText = 'color:#d46030;font-size:12px;margin-top:8px;font-weight:600;';
+        el.textContent = msg;
+        form.appendChild(el);
+      }
+      function showSuccess(form, already) {
+        var msg = document.createElement('div');
+        msg.className = 'subscribe-success';
+        msg.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> ' +
+          (already ? "You're already on the list — your first email lands tomorrow morning." : "You're in. Your first email arrives tomorrow morning.");
+        form.style.display = 'none';
+        form.parentElement.appendChild(msg);
+      }
+      document.querySelectorAll('form[id^="subscribe-form"]').forEach(function (form) {
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+          var input = form.querySelector('input[type="email"]');
+          var btn   = form.querySelector('button[type="submit"]');
+          var email = (input && input.value || '').trim();
+          if (!email) return;
+          var orig = btn ? btn.textContent : null;
+          if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
+          try {
+            var res = await fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email})});
+            var data = {}; try { data = await res.json(); } catch (_) {}
+            if (res.ok && data.ok) { showSuccess(form, !!data.already_subscribed); return; }
+            showInlineError(form, "Couldn't subscribe — try again?");
+          } catch (_) {
+            showInlineError(form, "Network error. Try again?");
+          } finally {
+            if (btn) { btn.disabled = false; if (orig) btn.textContent = orig; }
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

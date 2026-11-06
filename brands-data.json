@@ -9,7 +9,7 @@
       "deal_count": 14,
       "dispensaries": [
         "Locals Cannabis - Cincinnati",
-        "Queen City - Norwood",
+        "Queen City Cannabis - Norwood",
         "The Landing - Cincinnati"
       ],
       "categories": [
@@ -35,7 +35,7 @@
       "name": "Neighborgoods",
       "deal_count": 7,
       "dispensaries": [
-        "Queen City - Norwood",
+        "Queen City Cannabis - Norwood",
         "Shangri-La Cincinnati",
         "Shangri-La Monroe West",
         "Therapy Cannabis - Cincinnati"
@@ -155,8 +155,8 @@
       "name": "Common Citizen",
       "deal_count": 3,
       "dispensaries": [
-        "Queen City - Harrison",
-        "Queen City - Norwood",
+        "Queen City Cannabis - Harrison",
+        "Queen City Cannabis - Norwood",
         "The Landing - Cincinnati"
       ],
       "categories": [
@@ -170,7 +170,7 @@
         "on_sale": true,
         "discount_pct": 35,
         "category": "Vapes",
-        "dispensary": "Queen City - Harrison",
+        "dispensary": "Queen City Cannabis - Harrison",
         "url": "https://queenccanna.com"
       }
     },
@@ -178,8 +178,8 @@
       "name": "FarmaceuticalRX",
       "deal_count": 3,
       "dispensaries": [
-        "Queen City - Harrison",
-        "Queen City - Norwood"
+        "Queen City Cannabis - Harrison",
+        "Queen City Cannabis - Norwood"
       ],
       "categories": [
         "Flower",
@@ -193,7 +193,7 @@
         "on_sale": true,
         "discount_pct": 35,
         "category": "Pre-Rolls",
-        "dispensary": "Queen City - Norwood",
+        "dispensary": "Queen City Cannabis - Norwood",
         "url": "https://queenccanna.com/norwood/"
       }
     },
@@ -312,7 +312,7 @@
       "name": "Supply",
       "deal_count": 2,
       "dispensaries": [
-        "Queen City - Harrison",
+        "Queen City Cannabis - Harrison",
         "The Garden - Camp Washington"
       ],
       "categories": [
@@ -423,8 +423,8 @@
       "name": "Doctor Solomon's",
       "deal_count": 2,
       "dispensaries": [
-        "Queen City - Harrison",
-        "Queen City - Norwood"
+        "Queen City Cannabis - Harrison",
+        "Queen City Cannabis - Norwood"
       ],
       "categories": [
         "Tinctures"
@@ -437,7 +437,7 @@
         "on_sale": true,
         "discount_pct": 30,
         "category": "Tinctures",
-        "dispensary": "Queen City - Harrison",
+        "dispensary": "Queen City Cannabis - Harrison",
         "url": "https://queenccanna.com"
       }
     },
@@ -613,7 +613,7 @@
       "name": "Local Edibles",
       "deal_count": 1,
       "dispensaries": [
-        "Queen City - Harrison"
+        "Queen City Cannabis - Harrison"
       ],
       "categories": [
         "Edibles"
@@ -626,7 +626,7 @@
         "on_sale": true,
         "discount_pct": 35,
         "category": "Edibles",
-        "dispensary": "Queen City - Harrison",
+        "dispensary": "Queen City Cannabis - Harrison",
         "url": "https://queenccanna.com"
       }
     },
@@ -655,7 +655,7 @@
       "name": "Rebel by Anthos",
       "deal_count": 1,
       "dispensaries": [
-        "Queen City - Norwood"
+        "Queen City Cannabis - Norwood"
       ],
       "categories": [
         "Concentrates"
@@ -668,7 +668,7 @@
         "on_sale": true,
         "discount_pct": 35,
         "category": "Concentrates",
-        "dispensary": "Queen City - Norwood",
+        "dispensary": "Queen City Cannabis - Norwood",
         "url": "https://queenccanna.com/norwood/"
       }
     },
@@ -676,7 +676,7 @@
       "name": "Cresco",
       "deal_count": 1,
       "dispensaries": [
-        "Queen City - Harrison"
+        "Queen City Cannabis - Harrison"
       ],
       "categories": [
         "Concentrates"
@@ -689,7 +689,7 @@
         "on_sale": true,
         "discount_pct": 30,
         "category": "Concentrates",
-        "dispensary": "Queen City - Harrison",
+        "dispensary": "Queen City Cannabis - Harrison",
         "url": "https://queenccanna.com"
       }
     },

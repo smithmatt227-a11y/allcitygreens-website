@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-08T11:07:37.429616+00:00",
-  "verified_time": "7:07 AM",
-  "report_date": "2026-11-08",
-  "brand_count": 39,
+  "generated_at": "2026-11-09T11:13:40.912629+00:00",
+  "verified_time": "7:13 AM",
+  "report_date": "2026-11-09",
+  "brand_count": 41,
   "brands": [
     {
       "name": "Neighborgoods",
@@ -11,8 +11,8 @@
         "Queen City Cannabis - Harrison",
         "Queen City Cannabis - Norwood",
         "Shangri-La Cincinnati",
-        "Shangri-La Monroe West",
-        "Therapy Cannabis - Cincinnati"
+        "Shangri-La Monroe Superstore",
+        "Shangri-La Monroe West"
       ],
       "categories": [
         "Edibles",
@@ -33,10 +33,9 @@
     },
     {
       "name": "R.O.",
-      "deal_count": 7,
+      "deal_count": 5,
       "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe West"
+        "Shangri-La Cincinnati"
       ],
       "categories": [
         "Pre-Rolls",
@@ -55,50 +54,28 @@
       }
     },
     {
-      "name": "Klutch",
-      "deal_count": 6,
+      "name": "RYTHM",
+      "deal_count": 5,
       "dispensaries": [
-        "Locals Cannabis - Cincinnati",
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore",
-        "Zips - Central Parkway"
+        "Garden Club Dispensary",
+        "Locals Cannabis - Cincinnati"
       ],
       "categories": [
         "Concentrates",
+        "Flower",
+        "Pre-Rolls",
         "Vapes"
       ],
-      "best_discount": 36,
+      "best_discount": 35,
       "cheapest": {
-        "product": "Zamosa Full Spec Live Rosin 1g",
-        "price": 32.0,
-        "original_price": 50.0,
+        "product": "Chem n Cookies Big Buds",
+        "price": 22.75,
+        "original_price": 35.0,
         "on_sale": true,
-        "discount_pct": 36,
-        "category": "Concentrates",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
-      }
-    },
-    {
-      "name": "Main Street Health",
-      "deal_count": 5,
-      "dispensaries": [
-        "The Garden - Camp Washington",
-        "The Garden - Sycamore"
-      ],
-      "categories": [
-        "Topicals"
-      ],
-      "best_discount": 36,
-      "cheapest": {
-        "product": "Transdermal Patch (1:1 THC:CBD) 1pk 10mg",
-        "price": 9.0,
-        "original_price": 14.0,
-        "on_sale": true,
-        "discount_pct": 36,
-        "category": "Topicals",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+        "discount_pct": 35,
+        "category": "Flower",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
       }
     },
     {
@@ -137,7 +114,7 @@
       ],
       "best_discount": 46,
       "cheapest": {
-        "product": "Garden OG Smalls 14.15g",
+        "product": "Garden Cake Smalls 14.15g",
         "price": 49.0,
         "original_price": 90.0,
         "on_sale": true,
@@ -148,51 +125,26 @@
       }
     },
     {
-      "name": "Firelands Scientific",
+      "name": "Modern Flower",
       "deal_count": 4,
       "dispensaries": [
-        "The Landing - Cincinnati",
-        "Zips - Central Parkway"
-      ],
-      "categories": [
-        "Edibles",
-        "Flower"
-      ],
-      "best_discount": 44,
-      "cheapest": {
-        "product": "Firelands Scientific Dark Cherry 2:1 THC:CBN Sun Bites Gummies 100mg [10pk]",
-        "price": 10.0,
-        "original_price": 18.0,
-        "on_sale": true,
-        "discount_pct": 44,
-        "category": "Edibles",
-        "dispensary": "The Landing - Cincinnati",
-        "url": "https://www.thelandingdispensaries.com"
-      }
-    },
-    {
-      "name": "RYTHM",
-      "deal_count": 4,
-      "dispensaries": [
-        "Garden Club Dispensary",
-        "Locals Cannabis - Cincinnati"
+        "Shangri-La Cincinnati",
+        "Shangri-La Monroe West"
       ],
       "categories": [
         "Concentrates",
-        "Flower",
-        "Pre-Rolls",
-        "Vapes"
+        "Flower"
       ],
-      "best_discount": 32,
+      "best_discount": 40,
       "cheapest": {
-        "product": "Rythm Yellow Mermaid (Live Resin) Cart 1g Sativa",
-        "price": 34.0,
+        "product": "Modern Flower DSC DSL Live Budder (S) 1g",
+        "price": 30.0,
         "original_price": 50.0,
         "on_sale": true,
-        "discount_pct": 32,
-        "category": "Vapes",
-        "dispensary": "Locals Cannabis - Cincinnati",
-        "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
+        "discount_pct": 40,
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
       }
     },
     {
@@ -218,6 +170,28 @@
       }
     },
     {
+      "name": "Main Street Health",
+      "deal_count": 4,
+      "dispensaries": [
+        "Queen City Cannabis - Harrison",
+        "Queen City Cannabis - Norwood"
+      ],
+      "categories": [
+        "Topicals"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Main Street Health THC 20mg Transdermal Patch",
+        "price": 9.8,
+        "original_price": 14.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Topicals",
+        "dispensary": "Queen City Cannabis - Harrison",
+        "url": "https://queenccanna.com"
+      }
+    },
+    {
       "name": "Common Citizen",
       "deal_count": 3,
       "dispensaries": [
@@ -230,7 +204,7 @@
       ],
       "best_discount": 40,
       "cheapest": {
-        "product": "Common Citizen Pookie 1g Cartridge",
+        "product": "Common Citizen Biscotti 1g Cartridge",
         "price": 23.4,
         "original_price": 36.0,
         "on_sale": true,
@@ -241,25 +215,73 @@
       }
     },
     {
-      "name": "Modern Flower",
+      "name": "CERTIFIED",
       "deal_count": 3,
       "dispensaries": [
-        "Shangri-La Cincinnati",
-        "Shangri-La Monroe West"
+        "The Garden - Sycamore"
       ],
       "categories": [
-        "Concentrates"
+        "Concentrates",
+        "Edibles",
+        "Vapes"
       ],
-      "best_discount": 40,
+      "best_discount": 35,
       "cheapest": {
-        "product": "Modern Flower DSC DSL Live Budder (S) 1g",
-        "price": 30.0,
+        "product": "Blackberry Lemonade Amethysts 10pk",
+        "price": 11.7,
+        "original_price": 18.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Edibles",
+        "dispensary": "The Garden - Sycamore",
+        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
+      }
+    },
+    {
+      "name": "Klutch",
+      "deal_count": 3,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Concentrates",
+        "Vapes"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Klutch: MTF Live Badder 1g",
+        "price": 32.5,
         "original_price": 50.0,
         "on_sale": true,
-        "discount_pct": 40,
+        "discount_pct": 35,
         "category": "Concentrates",
-        "dispensary": "Shangri-La Cincinnati",
-        "url": "https://shangriladispensaries.com"
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Buckeye",
+      "deal_count": 3,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore",
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Concentrates",
+        "Edibles",
+        "Pre-Rolls"
+      ],
+      "best_discount": 31,
+      "cheapest": {
+        "product": "Buckeye Orange Gummy Bar 100mg[10pk]",
+        "price": 15.0,
+        "original_price": null,
+        "on_sale": false,
+        "discount_pct": 0,
+        "category": "Edibles",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {
@@ -286,30 +308,6 @@
       }
     },
     {
-      "name": "CERTIFIED",
-      "deal_count": 3,
-      "dispensaries": [
-        "Shangri-La Monroe Superstore",
-        "The Landing - Cincinnati"
-      ],
-      "categories": [
-        "Concentrates",
-        "Flower",
-        "Pre-Rolls"
-      ],
-      "best_discount": 20,
-      "cheapest": {
-        "product": "Certified Single Serve Unit Miracle Mints (H) 1g",
-        "price": 14.4,
-        "original_price": 18.0,
-        "on_sale": true,
-        "discount_pct": 20,
-        "category": "Pre-Rolls",
-        "dispensary": "Shangri-La Monroe Superstore",
-        "url": "https://shangriladispensaries.com"
-      }
-    },
-    {
       "name": "Diamond Science",
       "deal_count": 2,
       "dispensaries": [
@@ -319,16 +317,16 @@
       "categories": [
         "Vapes"
       ],
-      "best_discount": 50,
+      "best_discount": 51,
       "cheapest": {
-        "product": "Diamond Science Cartridge WTRMLN CK (H) 1g",
-        "price": 22.5,
+        "product": "BGG Cartridge 1g",
+        "price": 22.0,
         "original_price": 45.0,
         "on_sale": true,
-        "discount_pct": 50,
+        "discount_pct": 51,
         "category": "Vapes",
-        "dispensary": "Shangri-La Monroe West",
-        "url": "https://shangriladispensaries.com"
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
       }
     },
     {
@@ -354,25 +352,25 @@
       }
     },
     {
-      "name": "Hundred Percent Labs",
+      "name": "Camino",
       "deal_count": 2,
       "dispensaries": [
-        "The Garden - Sycamore",
-        "The Landing - Cincinnati"
+        "Locals Cannabis - Cincinnati",
+        "Zips - Central Parkway"
       ],
       "categories": [
-        "Pre-Rolls"
+        "Edibles"
       ],
       "best_discount": 35,
       "cheapest": {
-        "product": "Dunk Contest Bubble Hash Infused Stray Cat Pre-Roll 1g 2pk",
-        "price": 31.2,
-        "original_price": 48.0,
+        "product": "Camino: Wild Cherry Gummies 20pk 100mg",
+        "price": 15.6,
+        "original_price": 24.0,
         "on_sale": true,
         "discount_pct": 35,
-        "category": "Pre-Rolls",
-        "dispensary": "The Garden - Sycamore",
-        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
+        "category": "Edibles",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
       }
     },
     {
@@ -421,6 +419,49 @@
       }
     },
     {
+      "name": "Riviera Creek",
+      "deal_count": 2,
+      "dispensaries": [
+        "Garden Club Dispensary",
+        "Shangri-La Monroe Superstore"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 15,
+      "cheapest": {
+        "product": "Riviera Creek Space Rocks 0.5g",
+        "price": 19.55,
+        "original_price": 23.0,
+        "on_sale": true,
+        "discount_pct": 15,
+        "category": "Concentrates",
+        "dispensary": "Shangri-La Monroe Superstore",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Galenas",
+      "deal_count": 1,
+      "dispensaries": [
+        "Shangri-La Cincinnati"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Galenas Hydra (H) 2.83g",
+        "price": 20.0,
+        "original_price": 40.0,
+        "on_sale": true,
+        "discount_pct": 50,
+        "category": "Flower",
+        "dispensary": "Shangri-La Cincinnati",
+        "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
       "name": "Josh D",
       "deal_count": 1,
       "dispensaries": [
@@ -439,6 +480,69 @@
         "category": "Flower",
         "dispensary": "Shangri-La Cincinnati",
         "url": "https://shangriladispensaries.com"
+      }
+    },
+    {
+      "name": "Ember",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Vapes"
+      ],
+      "best_discount": 41,
+      "cheapest": {
+        "product": "SLH Disposable 1g",
+        "price": 23.0,
+        "original_price": 39.0,
+        "on_sale": true,
+        "discount_pct": 41,
+        "category": "Vapes",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "BeneLeaves",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Topicals"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Beneleaves: 1:1 THC:CBG Hypnos Wintergreen Lotion 295mg",
+        "price": 24.0,
+        "original_price": 40.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Topicals",
+        "dispensary": "The Garden - Sycamore",
+        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
+      }
+    },
+    {
+      "name": "Firelands Scientific",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Firelands Scientific: Purple Starfruit 2.83g",
+        "price": 19.2,
+        "original_price": 32.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Flower",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
       }
     },
     {
@@ -463,69 +567,6 @@
       }
     },
     {
-      "name": "Supply",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Garden - Camp Washington"
-      ],
-      "categories": [
-        "Pre-Rolls"
-      ],
-      "best_discount": 38,
-      "cheapest": {
-        "product": "GMO x Papaya Pre-Roll 1g",
-        "price": 10.0,
-        "original_price": 16.0,
-        "on_sale": true,
-        "discount_pct": 38,
-        "category": "Pre-Rolls",
-        "dispensary": "The Garden - Camp Washington",
-        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
-      }
-    },
-    {
-      "name": "Camino",
-      "deal_count": 1,
-      "dispensaries": [
-        "Zips - Central Parkway"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Camino: Wild Cherry Gummies 20pk 100mg",
-        "price": 15.6,
-        "original_price": 24.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Edibles",
-        "dispensary": "Zips - Central Parkway",
-        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
-      }
-    },
-    {
-      "name": "Citizen by Klutch",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Garden - Sycamore"
-      ],
-      "categories": [
-        "Vapes"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Ice Cream Cake CO2 iKrusher Disposable 1g",
-        "price": 22.75,
-        "original_price": 35.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Vapes",
-        "dispensary": "The Garden - Sycamore",
-        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
-      }
-    },
-    {
       "name": "Rebel by Anthos",
       "deal_count": 1,
       "dispensaries": [
@@ -544,48 +585,6 @@
         "category": "Concentrates",
         "dispensary": "Queen City Cannabis - Norwood",
         "url": "https://queenccanna.com/norwood/"
-      }
-    },
-    {
-      "name": "Wyld",
-      "deal_count": 1,
-      "dispensaries": [
-        "The Garden - Sycamore"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 35,
-      "cheapest": {
-        "product": "Boysenberry (1:1:1 THC:CBN:CBD) Gummies 10pk 100mg",
-        "price": 15.6,
-        "original_price": 24.0,
-        "on_sale": true,
-        "discount_pct": 35,
-        "category": "Edibles",
-        "dispensary": "The Garden - Sycamore",
-        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
-      }
-    },
-    {
-      "name": "Beboe",
-      "deal_count": 1,
-      "dispensaries": [
-        "Locals Cannabis - Cincinnati"
-      ],
-      "categories": [
-        "Edibles"
-      ],
-      "best_discount": 32,
-      "cheapest": {
-        "product": "Beboe Blood Orange Gummies 20pack 100mg Hybrid",
-        "price": 17.0,
-        "original_price": 25.0,
-        "on_sale": true,
-        "discount_pct": 32,
-        "category": "Edibles",
-        "dispensary": "Locals Cannabis - Cincinnati",
-        "url": "https://localscannabis.com/stores/locals-dispensary-cincinnati"
       }
     },
     {
@@ -610,7 +609,7 @@
       }
     },
     {
-      "name": "Incredibles",
+      "name": "Good News",
       "deal_count": 1,
       "dispensaries": [
         "Queen City Cannabis - Harrison"
@@ -620,14 +619,56 @@
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Incredibles Pineapple Express 10pc 100mg Fast Acting Gummies",
-        "price": 14.0,
-        "original_price": 20.0,
+        "product": "Good News Sour Lemon 10 ct 100mg Gummies",
+        "price": 14.7,
+        "original_price": 21.0,
         "on_sale": true,
         "discount_pct": 30,
         "category": "Edibles",
         "dispensary": "Queen City Cannabis - Harrison",
         "url": "https://queenccanna.com"
+      }
+    },
+    {
+      "name": "Hundred Percent Labs",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Landing - Cincinnati"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Hundred Percent Labs-Alien Pebbles LR Infused CherryStar-Infused Pre-Roll-2.5g [5pk]",
+        "price": 36.4,
+        "original_price": 52.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
+      }
+    },
+    {
+      "name": "Old Pal",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Mystic Journey Infused Pre-Roll .5g 2pk",
+        "price": 21.0,
+        "original_price": 30.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
       }
     },
     {
@@ -662,7 +703,7 @@
       ],
       "best_discount": 30,
       "cheapest": {
-        "product": "Woodward Lemon Cherry Bert 5pk 2.5g Infused Pre-Rolls",
+        "product": "Woodward Tiger Candy 5pk 2.5g Infused Pre-Rolls",
         "price": 37.8,
         "original_price": 54.0,
         "on_sale": true,
@@ -778,24 +819,24 @@
       }
     },
     {
-      "name": "The Botanist",
+      "name": "Kynd",
       "deal_count": 1,
       "dispensaries": [
-        "Garden Club Dispensary"
+        "The Landing - Cincinnati"
       ],
       "categories": [
-        "Pre-Rolls"
+        "Flower"
       ],
       "best_discount": 20,
       "cheapest": {
-        "product": "BrrBerry",
-        "price": 9.6,
-        "original_price": 12.0,
+        "product": "Kynd Caesar Smalls 5.66g",
+        "price": 51.2,
+        "original_price": 64.0,
         "on_sale": true,
         "discount_pct": 20,
-        "category": "Pre-Rolls",
-        "dispensary": "Garden Club Dispensary",
-        "url": "https://gardenclubdispensaries.com"
+        "category": "Flower",
+        "dispensary": "The Landing - Cincinnati",
+        "url": "https://www.thelandingdispensaries.com"
       }
     },
     {

@@ -108,9 +108,14 @@ def format_verified_time(data: dict) -> str:
     try:
         dt = datetime.fromisoformat(ts)
         if dt.tzinfo is not None:
-            # Convert to US Eastern. EDT (UTC-4) is correct late Mar–early Nov;
-            # the scrape runs in summer months, so -4 is a safe fixed offset.
-            dt = dt.astimezone(timezone(timedelta(hours=-4)))
+            # 2026-11-09: was a fixed UTC-4, which reads an hour late from
+            # November to March (6:13 AM EST showed as 7:13 AM). Use the real
+            # zone; fall back to the old fixed offset only if zoneinfo is missing.
+            try:
+                from zoneinfo import ZoneInfo
+                dt = dt.astimezone(ZoneInfo("America/New_York"))
+            except Exception:
+                dt = dt.astimezone(timezone(timedelta(hours=-4)))
         return dt.strftime("%-I:%M %p")
     except Exception:
         return ""
@@ -387,6 +392,7 @@ def deal_card_html(deal: dict) -> str:
     orig  = deal.get("original_price", price)
     ppg   = calc_ppg(deal)
 
+    save_html = ""
     if on_sale and orig and orig > price:
         badge = badge_pct_text(discount)
         pct_text = f"-{badge}" if badge else "Top deal"
@@ -395,23 +401,294 @@ def deal_card_html(deal: dict) -> str:
             f'<span class="deal-card-sale">${price:.2f}</span>'
             f'<span class="deal-card-pct">{pct_text}</span>'
         )
+        save_html = f'<span class="deal-card-save">Save {fmt_money(orig - price)}</span>'
     else:
-        ppg_str = f' · ${ppg:.2f}/g' if ppg else ''
         prices_html = f'<span class="deal-card-sale">${price:.2f}</span>'
+
+    # 2026-11-09 refresh: the card now carries what the hero card and the store
+    # pages already showed — price per gram, dollars saved, how long the sale has
+    # run. THC moved down here with $/g so the store line stays one short line.
+    age_html = ""
+    age = sale_age_text(deal)
+    if age:
+        fresh_cls = " deal-card-age--new" if (deal.get("sale_days") or 99) <= 2 else ""
+        age_html = f'<span class="deal-card-age{fresh_cls}">{age}</span>'
+    facts = " · ".join(x for x in [(f"${ppg:.2f}/g" if ppg and raw_cat == "flower" and _meaningful_weight(deal) else ""),
+                                   ("" if raw_cat == "edibles" else thc_str)] if x)
+    meta_html = ""
+    if facts or save_html:
+        facts_html = f'<span>{facts}</span>' if facts else ''
+        meta_html = (f'            <div class="deal-card-meta">{facts_html}'
+                     f'{save_html}</div>\n')
 
     return (
         f'          <a class="deal-card deal-card-link" data-cat="{raw_cat}"'
         f' data-disp="{disp_display}" data-price="{price:.2f}"'
         f' data-pct="{discount or 0}"'
         f' href="{url}" target="_blank" rel="noopener">\n'
-        f'            <div class="deal-card-cat">{icon} {cat_label}</div>\n'
+        f'            <div class="deal-card-top"><div class="deal-card-cat">{icon} {cat_label}</div>{age_html}</div>\n'
         f'            <div class="deal-card-name">{name}</div>\n'
-        f'            <div class="deal-card-disp">{disp_detail}</div>\n'
+        f'            <div class="deal-card-disp">{disp_display}</div>\n'
         f'            <div class="deal-card-prices">\n'
         f'              {prices_html}\n'
         f'            </div>\n'
+        f'{meta_html}'
         f'          </a>'
     )
+
+
+def fmt_money(v) -> str:
+    """$41 for whole dollars, $12.80 otherwise."""
+    v = float(v or 0)
+    return f"${v:.0f}" if abs(v - round(v)) < 0.005 else f"${v:.2f}"
+
+
+def sale_age_text(deal: dict) -> str:
+    """'New today' / 'On sale 4 days' from the scraper's sale_days (deal_rules.py).
+    Empty when the item is not on sale or the scraper recorded no streak."""
+    if not deal.get("on_sale"):
+        return ""
+    sd = deal.get("sale_days")
+    if sd is None:
+        return ""
+    try:
+        sd = int(sd)
+    except (TypeError, ValueError):
+        return ""
+    return "New today" if sd <= 1 else f"On sale {sd} days"
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 2026-11-09 HOMEPAGE REFRESH — hero "best deal" card, lowest-shelf-price
+# section, price board, pulse strip. Mockups: the "AC Greens — Site & Newsletter
+# Refresh" design canvas (STATUS.md §0zt).
+# ─────────────────────────────────────────────────────────────────────────────
+
+HERO_CATS = [("flower", "Flower"), ("vapes", "Vapes"), ("edibles", "Edibles"),
+             ("concentrates", "Concentrates"), ("pre_rolls", "Pre-Rolls")]
+
+
+def _hero_pick(dispensaries: list, cat: str):
+    """Best on-sale highlight in a category for the hero card.
+    Flower: lowest price per gram (what the old top-3 card led with).
+    Everything else: biggest discount, then lowest price.
+    No stale-sale filter, same as the card this replaced."""
+    aliases = {cat} | ({"vape pens"} if cat == "vapes" else set())
+    pool = []
+    for disp in dispensaries:
+        for h in (disp.get("highlights") or []):
+            if h.get("category") in aliases and h.get("on_sale") \
+                    and (h.get("original_price") or 0) > (h.get("price") or 0) > 0:
+                h = dict(h)
+                h.setdefault("dispensary", disp.get("name", ""))
+                pool.append(h)
+    if not pool:
+        return None
+    if cat == "flower":
+        with_ppg = [h for h in pool if calc_ppg(h) and _meaningful_weight(h)]
+        if with_ppg:
+            return min(with_ppg, key=lambda h: (calc_ppg(h), h["price"]))
+    return min(pool, key=lambda h: (-(h.get("discount_pct") or 0), h["price"]))
+
+
+def hero_best_html(dispensaries: list, pretty_date: str = "", disp_count: int = 0,
+                   top_deals: list = None) -> str:
+    """Hero card: one best deal per category behind a row of tabs. The first
+    category with a deal is shown; the rest are revealed by the tab script in
+    index.html (and stay hidden, harmlessly, if that script never runs)."""
+    # The scraper's top_deals list is already ordered by deal_rules.py (3-day
+    # headline cooldown, 7+ day sales demoted). Use its first deal per category
+    # so the hero never leads with a weeks-old markdown while a fresh one exists;
+    # fall back to the highlights when a category is not in that list.
+    ruled = {}
+    for d in (top_deals or []):
+        c = "vapes" if d.get("category") == "vape pens" else d.get("category")
+        if c not in ruled and d.get("on_sale") and (d.get("original_price") or 0) > (d.get("price") or 0) > 0:
+            ruled[c] = d
+    picks = [(key, label, ruled.get(key) or _hero_pick(dispensaries, key)) for key, label in HERO_CATS]
+    picks = [(k, l, d) for k, l, d in picks if d]
+    updated = f'Updated {pretty_date}' if pretty_date else 'Updated today'
+    if not picks:
+        return (
+            f'            <div class="mockup-header">\n'
+            f'              <div class="mockup-title">Best deal today</div>\n'
+            f'              <div class="mockup-rule"></div>\n'
+            f'              <div class="mockup-updated">{updated}</div>\n'
+            f'            </div>\n'
+            f'            <div class="mockup-cta"><a href="#deals">See all of today\'s deals &rarr;</a></div>'
+        )
+    tabs, panels = [], []
+    for i, (key, label, d) in enumerate(picks):
+        on = (i == 0)
+        tabs.append(
+            f'              <button type="button" class="hero-tab{" active" if on else ""}"'
+            f' data-hero-cat="{key}" aria-pressed="{"true" if on else "false"}">{label}</button>')
+        url   = d.get("product_url") or disp_url(d["dispensary"])
+        price, orig = d["price"], d.get("original_price", d["price"])
+        ppg   = calc_ppg(d)
+        thc   = fmt_thc(d)
+        chips = [f"Save {fmt_money(orig - price)}"]
+        if key == "flower" and ppg and _meaningful_weight(d):
+            chips.append(f"${ppg:.2f} per gram")
+        elif thc and key != "edibles":
+            chips.append(thc)
+        age = sale_age_text(d)
+        if age:
+            chips.append(age)
+        chip_html = "".join(f'<span class="hero-best-chip">{c}</span>' for c in chips)
+        panels.append(
+            f'              <a class="hero-best"{"" if on else " hidden"} data-hero-cat="{key}"'
+            f' href="{url}" target="_blank" rel="noopener">\n'
+            f'                <div class="hero-best-top"><span class="deal-type">{label}</span>'
+            f'<span class="hero-best-store">{display_disp_name(d["dispensary"])}</span></div>\n'
+            f'                <div class="hero-best-name">{clean_product_name(d["name"])}</div>\n'
+            f'                <div class="hero-best-prices"><span class="hero-best-now">{fmt_money(price)}</span>'
+            f'<span class="deal-original">${orig:.2f}</span>'
+            f'<span class="deal-chip">&minus;{badge_pct_text(d.get("discount_pct"))}</span></div>\n'
+            f'                <div class="hero-best-chips">{chip_html}</div>\n'
+            f'              </a>')
+    return (
+        f'            <div class="mockup-header">\n'
+        f'              <div class="mockup-title">Best deal today</div>\n'
+        f'              <div class="mockup-rule"></div>\n'
+        f'              <div class="mockup-updated">{updated}</div>\n'
+        f'            </div>\n'
+        f'            <div class="hero-tabs" role="group" aria-label="Best deal by category">\n'
+        + "\n".join(tabs) + '\n'
+        f'            </div>\n'
+        f'            <div class="hero-best-wrap">\n'
+        + "\n".join(panels) + '\n'
+        f'            </div>\n'
+        f'            <div class="mockup-footer">✓ Prices verified this morning · {disp_count} stores checked</div>\n'
+        f'            <div class="mockup-cta"><a href="#deals">See all of today\'s deals &rarr;</a></div>'
+    )
+
+
+def _esc(s) -> str:
+    return (str(s or "").replace("&", "&amp;").replace("<", "&lt;")
+            .replace(">", "&gt;").replace('"', "&quot;"))
+
+
+def lowest_html(report_date: str) -> str:
+    """'Lowest shelf price today' — cheapest in-stock item per standard size,
+    sale or no sale. Empty string when the catalogue is missing or not today's
+    (the section then keeps a plain fallback line rather than stale prices)."""
+    try:
+        sys.path.insert(0, str(SCRIPT_DIR.parent))
+        import lowest_prices
+        result = lowest_prices.build_today(report_date)
+    except Exception as exc:
+        print(f"  ⚠️  lowest prices skipped: {type(exc).__name__}: {exc}")
+        return ""
+    if not result:
+        print("  ⚠️  lowest prices skipped: no catalogue for today")
+        return ""
+    rows = []
+    for r in result["rows"]:
+        url   = r["url"] or disp_url(r["store"])
+        store = display_disp_name(r["store"])
+        if r["tied"]:
+            heads = []
+            for n in [r["store"]] + r["tied"]:
+                h = display_disp_name(n).split(" - ")[0]
+                if h not in heads:
+                    heads.append(h)
+            if len(heads) > 1:
+                store = " / ".join(heads) + " (tied)"
+            if len({brand_key(n) for n in [r["store"]] + r["tied"]}) == 1:
+                store = display_disp_name(r["store"]) + f' +{len(r["tied"])} sister store' + ("s" if len(r["tied"]) > 1 else "")
+        nxt = ""
+        if r.get("next_price"):
+            nxt = (f'<span class="low-next">Next: {_esc(display_disp_name(r["next_store"]).split(" - ")[0])}'
+                   f' ${r["next_price"]:.2f}</span>')
+        rows.append(
+            f'          <a class="low-row" href="{_esc(url)}" target="_blank" rel="noopener">\n'
+            f'            <span class="low-size">{_esc(r["label"])}</span>\n'
+            f'            <span class="low-what"><span class="low-store">{_esc(store)}</span>'
+            f'<span class="low-name">{_esc(clean_product_name(r["name"]))}</span></span>\n'
+            f'            <span class="low-price"><span class="low-now">${r["price"]:.2f}</span>{nxt}</span>\n'
+            f'          </a>')
+    lead = ""
+    if result["wins"]:
+        # count ties as wins for the summary line, so "lowest in N of M" is fair
+        tally = {}
+        for r in result["rows"]:
+            for s in [r["store"]] + r["tied"]:
+                tally[s] = tally.get(s, 0) + 1
+        top_store, top_n = sorted(tally.items(), key=lambda kv: (-kv[1], kv[0]))[0]
+        if top_n >= 2:
+            lead = (f'          <p class="low-lead"><strong>{_esc(display_disp_name(top_store).split(" - ")[0])}</strong> has the lowest'
+                    f' price in {top_n} of the {result["sizes"]} sizes we compare today.</p>\n')
+    print(f"  lowest prices: {result['sizes']} sizes")
+    return lead + '          <div class="low-list">\n' + "\n".join(rows) + '\n          </div>'
+
+
+def board_and_pulse(html: str, data: dict, brand_count: int, dispensary_count: int,
+                    total_products: int, pretty_date: str) -> str:
+    """Second pass over index.html, run AFTER dispensary_pages.build_all() so the
+    board uses the exact ranking the store pages and /trends/ use (7-day average
+    flower price, 30-day freshness gate, city median)."""
+    import datetime as _dt
+    import dispensary_pages as dp
+    rank = list(getattr(dp, "RANK", []) or [])
+    if not rank:
+        raise RuntimeError("dispensary_pages.RANK is empty")
+    med  = dp.MED
+    last = dp.last
+    top  = max(v for v, _ in rank)
+    scale = top * 1.06
+    brands = getattr(dp, "_BRANDS", {}) or {}
+    rows = []
+    for i, (avg, bk) in enumerate(rank, 1):
+        name = dp.PRETTY.get(bk) or bk.title()
+        members = brands.get(bk) or []
+        if len(members) == 1:
+            href = "/dispensaries/" + members[0]["slug"] + "/"
+        elif members:
+            href = "/dispensaries/#" + dp.slugify(name)
+        else:
+            href = "/dispensaries/"
+        series = dp.fresh.get(bk, {})
+        vals = [dp.smooth(series, last - _dt.timedelta(days=29 - k)) for k in range(30)]
+        pts = [(k, v) for k, v in enumerate(vals) if v is not None]
+        spark = ""
+        if len(pts) >= 7:
+            lo, hi = min(v for _, v in pts), max(v for _, v in pts)
+            span = max(hi - lo, 6.0)
+            mid = (hi + lo) / 2
+            coords = " ".join(f"{2 + k * (88 / 29):.1f},{14 - ((v - mid) / span) * 20:.1f}" for k, v in pts)
+            spark = (f'<svg class="board-spark" viewBox="0 0 92 28" role="img"'
+                     f' aria-label="Last 30 days"><polyline points="{coords}"/></svg>')
+        else:
+            spark = '<span class="board-spark" aria-hidden="true"></span>'
+        below = " board-row--low" if (med and avg <= med) else ""
+        rows.append(
+            f'          <a class="board-row{below}" href="{href}">\n'
+            f'            <span class="board-rank">{i}</span>\n'
+            f'            <span class="board-name">{_esc(name)}</span>\n'
+            f'            <span class="board-bar"><span class="board-fill" style="width:{avg / scale * 100:.1f}%"></span>'
+            + (f'<span class="board-med" style="left:{med / scale * 100:.1f}%"></span>' if med else "")
+            + f'</span>\n'
+            f'            {spark}\n'
+            f'            <span class="board-price">${avg:.2f}</span>\n'
+            f'          </a>')
+    foot = (f'          <p class="board-foot"><span class="board-key"></span>Orange mark = city median'
+            + (f', ${med:.2f}' if med else '') + '. Average price per flower item, 7-day average.</p>')
+    html = replace_between_markers(html, "board", "\n".join(rows) + "\n" + foot)
+
+    cheapest_avg, cheapest_bk = rank[0]
+    cheapest = dp.PRETTY.get(cheapest_bk) or cheapest_bk.title()
+    when = pretty_date.rsplit(",", 1)[0] if pretty_date else "today"
+    if VERIFIED_TIME:
+        when += f", {VERIFIED_TIME}"
+    bits = [f'            <span class="pulse-live"><span class="pulse-dot" aria-hidden="true"></span>Checked this morning · {when}</span>']
+    if med:
+        bits.append(f'            <span>City median flower <strong>${med:.2f}</strong></span>')
+    bits.append(f'            <span>Cheapest flower <strong>{_esc(cheapest)} · ${cheapest_avg:.2f}</strong></span>')
+    if brand_count:
+        bits.append(f'            <span><strong>{brand_count}</strong> brands on sale</span>')
+    bits.append(f'            <span><strong>{dispensary_count}</strong> stores · <strong>{total_products:,}</strong> products</span>')
+    return replace_between_markers(html, "pulse", "\n".join(bits))
 
 
 def mockup_row(deal: dict, rank: int = 0) -> str:
@@ -761,9 +1038,11 @@ def main():
         stats_html(dispensary_count, total_products))
 
     # 2. Hero mockup card
+    # 2026-11-09: one best deal per category behind tabs (hero_best_html),
+    # replacing the fixed top-3 list (mockup_html, kept above for rollback).
     html = replace_between_markers(html, "mockup",
-        mockup_html(dispensaries, best_value_raw, pretty_date,
-                    disp_count=dispensary_count))
+        hero_best_html(dispensaries, pretty_date, disp_count=dispensary_count,
+                       top_deals=data.get("top_deals")))
 
     # 3. Date header
     html = replace_between_markers(html, "deals-header",
@@ -797,6 +1076,13 @@ def main():
     deals_content = "\n".join(deal_card_html(d) for d in combined_deals[:CARDS_TOTAL])
     html = replace_between_markers(html, "deals", deals_content)
 
+    # 4b. Lowest shelf price per standard size (2026-11-09) — ranks on the real
+    # price, sale or not, so an everyday-low store is not hidden by the
+    # discount-first deal grid. Never fatal.
+    low = lowest_html(report_date)
+    html = replace_between_markers(html, "lowest", low if low else
+        '          <p class="low-lead">Today\'s lowest shelf prices are not available yet. Check back after the morning scan.</p>')
+
     INDEX_HTML.write_text(html, encoding="utf-8")
     print(f"\n✅  index.html updated from {json_path.name}")
 
@@ -825,6 +1111,17 @@ def main():
     brands_payload = build_brands_data(data)
     brands_path.write_text(json.dumps(brands_payload, indent=2), encoding="utf-8")
     print(f"✅  brands-data.json refreshed ({brands_payload.get('brand_count', 0)} brands)")
+
+    # 7. Price board + pulse strip (2026-11-09). Needs the ranking that
+    # dispensary_pages just computed, so it is a second pass over index.html.
+    # Non-fatal: on any failure yesterday's board stays and the run carries on.
+    try:
+        idx = INDEX_HTML.read_text(encoding="utf-8")
+        idx = board_and_pulse(idx, data, brands_payload.get("brand_count", 0),
+                              dispensary_count, total_products, pretty_date)
+        INDEX_HTML.write_text(idx, encoding="utf-8")
+    except Exception as exc:
+        print(f"⚠️  price board / pulse skipped: {type(exc).__name__}: {exc}")
 
     print("\nNext steps:")
     print("  git add -A")

@@ -28,7 +28,7 @@
   <!-- Fonts: Playfair Display (heritage serif) + Inter (utilitarian body) + Oswald (deals accent) -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=20260908">
+  <link rel="stylesheet" href="style.css?v=20261107">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://allcitygreens.com/">
@@ -94,7 +94,12 @@
         </a>
       </div>
       <!-- Nav row below masthead -->
-      <nav class="nav-links" aria-label="Main navigation">
+      <button class="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <svg class="icon-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        <span>Menu</span>
+      </button>
+      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
         <a href="#deals">Deals</a>
         <a href="/dispensaries/">Dispensaries</a>
         <a href="/brands/">Brands</a>
@@ -103,12 +108,14 @@
           <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" aria-label="Email address" class="nav-email-input">
           <button type="submit" class="btn btn-primary nav-subscribe-btn">Subscribe free</button>
         </form>
+        <a href="#subscribe" class="nav-cta nav-cta-phone">Subscribe free</a>
       </nav>
       <button class="nav-theme-toggle" data-theme-toggle aria-label="Switch to light mode">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
     </div>
   </header>
+  <script src="/nav-menu.js?v=20261107" defer></script>
 
   <main>
 

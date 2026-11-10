@@ -1677,3 +1677,66 @@ a.deal-card-link:hover,
   .mockup-deal-link { transition: none; }
   .mockup-deal--spot { transform: none; }
 }
+
+/* ─── PHONE MENU (2026-11-07) ─────────────────────────────────
+   Below 768px the header used to hide every link except Subscribe
+   (and on the home page, Subscribe too). The Menu button (top left,
+   mirroring the theme toggle) opens the same links as desktop.
+   Markup: button.nav-menu-toggle + nav#site-nav in every header;
+   behaviour: /nav-menu.js. Store pages get both from chrome_nav()
+   in dispensary_pages.py. */
+.nav-menu-toggle { display: none; }
+.nav-cta-phone { display: none !important; }
+
+@media (max-width: 768px) {
+  .nav-menu-toggle {
+    position: absolute;
+    top: var(--space-4);
+    left: clamp(var(--space-6), 5vw, var(--space-16));
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: transparent;
+    color: var(--color-text);
+    font: 600 var(--text-sm)/1 var(--font-body);
+    cursor: pointer;
+  }
+  .nav-menu-toggle:hover { background: var(--color-surface-offset); }
+  .nav-menu-toggle:focus-visible,
+  .nav-links a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  .nav-menu-toggle .icon-close { display: none; }
+  .nav-menu-toggle[aria-expanded="true"] .icon-open { display: none; }
+  .nav-menu-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+  /* Home page: its inline email form is hidden on phones, so show a
+     Subscribe button there like every other page has. */
+  .nav-links .nav-cta-phone { display: inline-flex !important; }
+
+  /* Open: the links stack as full-width rows above Subscribe. */
+  .nav.menu-open .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-width: 22rem;
+  }
+  .nav.menu-open .nav-links a:not(.nav-cta) {
+    display: block;
+    padding: 12px 8px;
+    font-size: var(--text-base);
+    text-align: center;
+    color: var(--color-text);
+    border-top: 1px solid var(--color-border);
+  }
+  .nav.menu-open .nav-links .nav-cta {
+    justify-content: center;
+    margin-top: var(--space-3);
+  }
+}

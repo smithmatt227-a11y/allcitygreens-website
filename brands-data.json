@@ -1,7 +1,609 @@
 {
-  "generated_at": "2026-11-22T17:00:23.956853+00:00",
-  "verified_time": "12:00 PM",
+  "generated_at": "2026-11-22T23:32:10.986372+00:00",
+  "verified_time": "6:32 PM",
   "report_date": "2026-11-22",
-  "brand_count": 0,
-  "brands": []
+  "brand_count": 28,
+  "brands": [
+    {
+      "name": "Klutch Cannabis",
+      "deal_count": 8,
+      "dispensaries": [
+        "UpLift - Milford",
+        "UpLift - Mount Orab",
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Concentrates",
+        "Flower"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Klutch: MTF Live Badder 1g",
+        "price": 32.5,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Concentrates",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "G Brand",
+      "deal_count": 5,
+      "dispensaries": [
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 46,
+      "cheapest": {
+        "product": "Garden Cake Smalls 14.15g SKU 4094",
+        "price": 49.0,
+        "original_price": 90.0,
+        "on_sale": true,
+        "discount_pct": 46,
+        "category": "Flower",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "Certified Cultivators",
+      "deal_count": 5,
+      "dispensaries": [
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Edibles",
+        "Flower",
+        "Vape Pens"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Durban Poison Cartridge",
+        "price": 28.0,
+        "original_price": 40.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Vape Pens",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
+      "name": "UB Good",
+      "deal_count": 5,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Tinctures",
+        "Topicals"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "UBGOOD: Blood Orange Go Tincture 440mg",
+        "price": 28.0,
+        "original_price": 40.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Tinctures",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Josh D by Klutch",
+      "deal_count": 4,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Concentrates",
+        "Vapes"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Josh D by Klutch: OG Kiss CO2 Cartridge 1g",
+        "price": 22.75,
+        "original_price": 35.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Vapes",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Supply Brand",
+      "deal_count": 4,
+      "dispensaries": [
+        "UpLift - Milford",
+        "UpLift - Mount Orab"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 34,
+      "cheapest": {
+        "product": "Wedding Crasher 31 x Kush Mintz Minis 0.5g ea 5pk",
+        "price": 24.99,
+        "original_price": 38.0,
+        "on_sale": true,
+        "discount_pct": 34,
+        "category": "Pre-Rolls",
+        "dispensary": "UpLift - Milford",
+        "url": "https://www.upliftohio.com/milford/"
+      }
+    },
+    {
+      "name": "Walli-Pop",
+      "deal_count": 3,
+      "dispensaries": [
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 36,
+      "cheapest": {
+        "product": "Grape Ape Gummies 10pk 100mg",
+        "price": 14.0,
+        "original_price": 22.0,
+        "on_sale": true,
+        "discount_pct": 36,
+        "category": "Edibles",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "Modern Flower",
+      "deal_count": 3,
+      "dispensaries": [
+        "The Garden - Camp Washington",
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Concentrates",
+        "Pre-Rolls"
+      ],
+      "best_discount": 31,
+      "cheapest": {
+        "product": "Admiral Apple Pre-Rolls .5g 2pk",
+        "price": 11.0,
+        "original_price": 16.0,
+        "on_sale": true,
+        "discount_pct": 31,
+        "category": "Pre-Rolls",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "Habitat by Klutch",
+      "deal_count": 2,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Vapes"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Habitat by Klutch: Blueberry Blitz Disposable 0.5g",
+        "price": 18.2,
+        "original_price": 28.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Vapes",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Lighthouse Sciences",
+      "deal_count": 2,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Topicals"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Lighthouse Sciences: 1:1 THC:CBD Migraine Assist Topical Spray 315mg",
+        "price": 23.8,
+        "original_price": 34.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Topicals",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Hillfire",
+      "deal_count": 2,
+      "dispensaries": [
+        "The Garden - Sycamore",
+        "Zen Leaf - Cincinnati"
+      ],
+      "categories": [
+        "Flower",
+        "Pre-Rolls"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Sour Zoap Pre-Roll .5g 5pk",
+        "price": 22.4,
+        "original_price": 28.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Pre-Rolls",
+        "dispensary": "The Garden - Sycamore",
+        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
+      }
+    },
+    {
+      "name": "incredibles",
+      "deal_count": 1,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 50,
+      "cheapest": {
+        "product": "Strawberry Crunch Chocolate Bar 100mg 10ct",
+        "price": 10.0,
+        "original_price": 20.0,
+        "on_sale": true,
+        "discount_pct": 50,
+        "category": "Edibles",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
+      "name": "Firelands Scientific",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 40,
+      "cheapest": {
+        "product": "Firelands Scientific: Marmalade 2.83g",
+        "price": 19.2,
+        "original_price": 32.0,
+        "on_sale": true,
+        "discount_pct": 40,
+        "category": "Flower",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Chew & Chill",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 36,
+      "cheapest": {
+        "product": "Sour Blue Razzberry ( 2:1 THC:CBN) Sugar-Free Gummies 10pk 100mg",
+        "price": 16.0,
+        "original_price": 25.0,
+        "on_sale": true,
+        "discount_pct": 36,
+        "category": "Edibles",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "Cookies",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Vapes"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Cookies: Blue Raz x Berniehana Butter CO2 iKrusher Disposable 1g",
+        "price": 22.75,
+        "original_price": 35.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Vapes",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Eden's Trees",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Key Lime Gummies 10pk 100mg",
+        "price": 13.0,
+        "original_price": 20.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Edibles",
+        "dispensary": "The Garden - Sycamore",
+        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
+      }
+    },
+    {
+      "name": "King City Gardens",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Flower"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Tazzy OG Smalls 3.5g",
+        "price": 18.2,
+        "original_price": 28.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Flower",
+        "dispensary": "The Garden - Sycamore",
+        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
+      }
+    },
+    {
+      "name": "Smokiez Edibles",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Edibles"
+      ],
+      "best_discount": 35,
+      "cheapest": {
+        "product": "Smokiez: Sweet Peach Fruit Chews 10pk 100mg",
+        "price": 13.0,
+        "original_price": 20.0,
+        "on_sale": true,
+        "discount_pct": 35,
+        "category": "Edibles",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Main Street Health",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Camp Washington"
+      ],
+      "categories": [
+        "Vapes"
+      ],
+      "best_discount": 34,
+      "cheapest": {
+        "product": "Trainwreck Cartridge 1g",
+        "price": 23.0,
+        "original_price": 35.0,
+        "on_sale": true,
+        "discount_pct": 34,
+        "category": "Vapes",
+        "dispensary": "The Garden - Camp Washington",
+        "url": "https://thegardendispo.com/stores/camp-washington-cincinnati"
+      }
+    },
+    {
+      "name": "Mary's Medicinals",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Topicals"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Mary's Medicinals: 1:4 THC:CBG Transdermal Patch 10pk 50mg",
+        "price": 21.0,
+        "original_price": 30.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Topicals",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Standard Farms",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Tinctures"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "Standard Farms: Mint RSO Tincture 660mg",
+        "price": 42.0,
+        "original_price": 60.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Tinctures",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "The Solid",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "The Solid: Spanish Moon Preroll 1g",
+        "price": 7.0,
+        "original_price": 10.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Pre-Rolls",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "The Standard",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zips - Central Parkway"
+      ],
+      "categories": [
+        "Topicals"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "The Standard: RSO Salve 200mg",
+        "price": 25.2,
+        "original_price": 36.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Topicals",
+        "dispensary": "Zips - Central Parkway",
+        "url": "https://saphyredispensary.com/shop/cincinnati-central-parkway/non-medical/"
+      }
+    },
+    {
+      "name": "Timeless",
+      "deal_count": 1,
+      "dispensaries": [
+        "The Garden - Sycamore"
+      ],
+      "categories": [
+        "Vapes"
+      ],
+      "best_discount": 30,
+      "cheapest": {
+        "product": "ATF All-in-One T1 1000mg (Energy)",
+        "price": 41.3,
+        "original_price": 59.0,
+        "on_sale": true,
+        "discount_pct": 30,
+        "category": "Vapes",
+        "dispensary": "The Garden - Sycamore",
+        "url": "https://thegardendispo.com/stores/sycamore-township-cincinnati"
+      }
+    },
+    {
+      "name": "RYTHM",
+      "deal_count": 1,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Concentrates"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "Bananaconda Live Resin",
+        "price": 40.0,
+        "original_price": 50.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Concentrates",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
+      "name": "The Botanist",
+      "deal_count": 1,
+      "dispensaries": [
+        "Garden Club Dispensary"
+      ],
+      "categories": [
+        "Pre-Rolls"
+      ],
+      "best_discount": 20,
+      "cheapest": {
+        "product": "BrrBerry",
+        "price": 9.6,
+        "original_price": 12.0,
+        "on_sale": true,
+        "discount_pct": 20,
+        "category": "Pre-Rolls",
+        "dispensary": "Garden Club Dispensary",
+        "url": "https://gardenclubdispensaries.com"
+      }
+    },
+    {
+      "name": "ROVE",
+      "deal_count": 1,
+      "dispensaries": [
+        "Therapy Cannabis - Cincinnati"
+      ],
+      "categories": [
+        "Vape Pens"
+      ],
+      "best_discount": 0,
+      "cheapest": {
+        "product": "Diamond Series Battery WZ BLUE",
+        "price": 25.0,
+        "original_price": null,
+        "on_sale": false,
+        "discount_pct": 0,
+        "category": "Vape Pens",
+        "dispensary": "Therapy Cannabis - Cincinnati",
+        "url": "https://www.therapycannabis.com/dispensaries/cincinnati/"
+      }
+    },
+    {
+      "name": "Savvy",
+      "deal_count": 1,
+      "dispensaries": [
+        "Zen Leaf - Cincinnati"
+      ],
+      "categories": [
+        "Vape Pens"
+      ],
+      "best_discount": 0,
+      "cheapest": {
+        "product": "Black Variable Voltage Battery (Old English)",
+        "price": 14.25,
+        "original_price": null,
+        "on_sale": false,
+        "discount_pct": 0,
+        "category": "Vape Pens",
+        "dispensary": "Zen Leaf - Cincinnati",
+        "url": "https://zenleafdispensaries.com/locations/cincinnati/"
+      }
+    }
+  ]
 }
